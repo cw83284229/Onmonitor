@@ -24,7 +24,7 @@ namespace Service
 
 
         /// <summary>
-        /// 异步获取通道名称
+        /// 异步获取通道名称ces
         /// </summary>
         /// <param name="CameraID"></param>
         /// <returns></returns>
