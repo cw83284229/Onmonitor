@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iDPBG智能监控系统</title>
+
+    <script src="./common/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./common/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="./common/bootstrap_need/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./common/bootstrap_need/theme.css" rel="stylesheet">
+    <!--dashboard theme-->
+    <!--    <link href="./common/dashboard/dashboard.css" rel="stylesheet">-->
+    <!--jquery-comfirm-->
+    <link rel="stylesheet" href="common/jqcomf/css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="common/jqcomf/css/font-awesome.min.css">
+    <script type="text/javascript" src="common/jqcomf/js/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="common/jqcomf/js/jquery.form.js"></script>
+
+    <script src="./common/echarts/run/echarts.min.js"></script>
+
+    <script src="./common/cors.js"></script>
+
+    <style>
+        .navbar{
+            background-image: url("common/img/nav_bg.jpg");
+        }
+
+        [v-cloak]{
+            display: none;
+        }
+
+    </style>
+
+</head>
+<body>
+<!--navigation-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html" style="color: white">iDPBG智能监控系统</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">用户账号 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="javascript:void(0)" class="my-profile"></a></li>
+                        <li style="list-style-type:none"><a href="javascript:changePwd()">修改密码</a></li>
+<!--                        <li style="list-style-type:none"><a href="javascript:changePwd()">修改密码</a></li>-->
+                        <!--                        <li style="list-style-type:none"><a href="../index.html">密码修改</a></li>-->
+                        <li style="list-style-type:none"><a href="../index.html">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<!--content-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="main">
+            <ul class="nav nav-pills" role="tablist" style="padding-left: 27px">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>资料管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="dvr_table.html">主机管理</a></li>
+                        <li style="list-style-type:none"><a href="camera_table.html">镜头管理</a></li>
+                        <li style="list-style-type:none"><a href="./gate_magnetism/gateMag.html">门磁管理</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>工程管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="project_management/projectAdd_table.html">工程新增</a></li>
+                        <li style="list-style-type:none"><a href="project_management/projectShift_table.html">工程移位</a></li>
+                        <li style="list-style-type:none"><a href="project_management/maintainShift_table.html">维护移动</a></li>
+                        <li style="list-style-type:none"><a href="project_management/maintainRemove_table.html">维护拆除</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>异常管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="abnormality_management/cameraRepair.html">镜头维修</a></li>
+                        <li style="list-style-type:none"><a href="abnormality_management/dvrCheckInfo.html">主机信息异常</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>数据分析</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="./dataAnalysis/showDataAnalysis.html">数据分析查看</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>视频查看</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>报表</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#">资产报表</a></li>
+                        <li style="list-style-type:none"><a href="#">异常报表</a></li>
+                        <li style="list-style-type:none"><a href="#">工程报表</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>权限管理</b> <span class="caret"></span></a>
+                    <ul id="permission_manger" class="dropdown-menu" style="display: none">
+<!--                        此处li的class属性作权限判定用-->
+                        <li style="list-style-type:none"><a href="./user_manage/user.html">用户管理</a></li>
+                        <li style="list-style-type:none"><a href="./user_manage/role.html">角色管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--密码修改模态框-->
+            <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">修改密码</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">原密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">
+                                        <span id="oldPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">新密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">确认密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="confirm_pwd" placeholder="请再次输入新密码" required="required">
+                                        <span id="confirmPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="pwd_modify_btn" onclick="pwd_modify()">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <br/><div class="table-responsive" id="result" style="padding-right: 40px;padding-left: 40px">
+            <h4 class="sub-header"><b>监控数据统计表</b></h4>
+            <table class="table table-bordered table-hover" style="background-color: #E2ECF5;">
+                <thead>
+                <tr class="">
+                    <td align="center"><b>监控室</b></td>
+                    <td align="center"><b>主机总数</b></td>
+                    <td align="center"><b>主机在线</b></td>
+                    <td align="center"><b>主机异常</b></td>
+                    <td align="center"><b>镜头总数</b></td>
+                    <td align="center"><b>镜头维修</b></td>
+                    <td align="center"><b>镜头异常</b></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="dv in dvrTotal">
+                    <td align="center" v-cloak>{{dv.dvrRoom}}</td>
+                    <td align="center" v-cloak>{{dv.dvrTotal}}</td>
+                    <td align="center" v-cloak>{{dv.dvrOnLine}}</td>
+                    <td align="center" style="color: red" v-cloak>{{dv.dvrAnomaly}}</td>
+                    <td align="center" v-cloak>{{dv.cameraTotal}}</td>
+                    <td align="center" v-cloak>{{dv.repairTotal}}</td>
+                    <td align="center" style="color: red" v-cloak>{{dv.cameraAnomaly}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div><br/><br/>
+
+            <!--                柱状图-->
+            <div id="DVRTotalAbout" style="width: 100%;height:400px;padding-left: 20px"></div><br/><br/>
+            <div id="CamTotalAbout" style="width: 100%;height:400px;padding-left: 20px"></div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script>window.jQuery || document.write('<script src="./common/jquery/3.4.1/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="./common/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./common/bootstrap_need/docs.min.js"></script>
+<script src="./common/vue/vue.min.js"></script>
+<script type="text/javascript">
+
+    $.ajax({
+        url: host+'app/reportForms/dVRCameraTotal',
+        type: 'get',
+        success: function (data) {
+            var obj = data;
+            new Vue({
+                el: '#result',
+                data: {
+                    dvrTotal: obj
+                }
+            })
+        }
+    });
+
+    // 基于准备好的dom，初始化echarts实例
+    var DVRTotal = echarts.init(document.getElementById('DVRTotalAbout'));
+    var CamTotal = echarts.init(document.getElementById('CamTotalAbout'));
+
+    // 指定图表的配置项和数据
+    DVRTotal.setOption({
+        title: {
+            text: '主机概况'
+        },
+        tooltip: {},
+        legend: {
+            data:['DVR主机总数(台)']
+        },
+        xAxis:[
+            {
+                type: 'category',
+                boundaryGap: false,
+                data:[],
+                axisLabel: {
+                    interval:0,
+                    rotate:40
+                },
+                grid: {
+                    left: '10%',
+                    bottom:'35%'
+                },
+            }
+        ],
+        yAxis: {
+            type: 'value',
+            show: false
+        },
+        series: [
+            {
+                name: 'DVR主机总数(台)',
+                type: 'bar',
+                data: [],
+                itemStyle: {
+                    normal: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: '#3168DD' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: '#D246DD' // 100% 处的颜色
+                            }],
+                            global: false // 缺省为 false
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}'　　　　//这是关键，在需要的地方加上就行了
+                        }
+                    }
+                }
+            }
+        ]
+    });
+
+    CamTotal.setOption({
+        title: {
+            text: '镜头概况'
+        },
+        tooltip: {},
+        legend: {
+            data:['镜头总数(路)','镜头异常总数(路)']
+        },
+        xAxis: [
+            {
+                boundaryGap: false,
+                data: [],
+                axisLabel: {
+                    interval:0,
+                    rotate:40
+                },
+                grid: {
+                    left: '10%',
+                    bottom:'35%'
+                },
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                show: false
+            },
+        ],
+        series: [
+            {
+                name: '镜头总数(路)',
+                type: 'bar',
+                data: [],
+                // color: '#5BC9DD'
+                itemStyle: {
+                    normal: {
+                        // color: '#5BC9DD',
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: '#26AFDD' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: '#B3A7DD' // 100% 处的颜色
+                            }],
+                            global: false // 缺省为 false
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}'　　　　//这是关键，在需要的地方加上就行了
+                        }
+                    }
+                }
+            },
+            {
+                name: '镜头异常总数(路)',
+                type: 'bar',
+                data: [],
+                // color: '#DD605D'
+                itemStyle: {
+                    normal: {
+                        color: '#DD605D',
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}'　　　　//这是关键，在需要的地方加上就行了
+                        }
+                    }
+                }
+            }
+        ]
+    });
+
+    var x = [];
+    var y = [];
+    var camX = [];
+    var camY = [];
+    var camZ = [];
+    $.ajax({
+        type:'get',
+        url:host+'app/reportForms/dVRCameraTotal',
+        dataType:'JSON',
+        beforeSend:function(){
+            DVRTotal.showLoading();
+            CamTotal.showLoading();
+        },
+        success:function(data){
+            console.log(data);
+            // for (var i=0;i<data.length;i++){
+            for (var i in data){
+                x.push(data[i].dvrRoom);
+                y.push(data[i].dvrTotal);
+                camX.push(data[i].dvrRoom);
+                camY.push(data[i].cameraTotal);
+                camZ.push(data[i].cameraAnomaly)
+            };
+
+            x.pop();
+            y.pop();
+            camX.pop();
+            camY.pop();
+            camZ.pop();
+
+            DVRTotal.hideLoading();
+            CamTotal.hideLoading();
+
+            DVRTotal.setOption({
+                xAxis:{
+                    data:x
+                },
+                series:{
+                    data:y
+                }
+            });
+
+            CamTotal.setOption({
+                xAxis:{
+                    data:camX
+                },
+                series:[
+                    {data:camY},
+                    {data:camZ},
+                ]
+            });
+
+        }
+    });
+</script>
+
+</body>
+</html>

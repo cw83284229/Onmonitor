@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iDPBG智能监控系统</title>
+
+    <script src="../common/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="../common/echarts/run/echarts.min.js"></script>
+    <script src="../common/cors.js"></script>
+
+    <!-- vue -->
+    <script type="text/javascript" src="../common/vue/vue.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../common/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../common/bootstrap_need/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../common/bootstrap_need/theme.css" rel="stylesheet">
+    <!--dashboard theme-->
+    <link href="../common/dashboard/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="../common/font-awesome/css/font-awesome.min.css">
+
+
+    <!--xslx-->
+    <script type="text/javascript" src="../common/js/xlsx.core.min.js"></script>
+
+    <!--jquery-comfirm-->
+    <link rel="stylesheet" href="../common/jqcomf/css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="../common/jqcomf/css/font-awesome.min.css">
+    <script type="text/javascript" src="../common/jqcomf/js/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="../common/jqcomf/js/jquery.form.js"></script>
+
+    <!-- select2 -->
+    <link href="../common/select2/css/select2.min.css" rel="stylesheet" />
+    <script src="../common/select2/js/select2.min.js"></script>
+
+    <!-- pagination -->
+    <script type="text/javascript" src="js/camRepair_pagination.js"></script>
+    <style>
+        .navbar{
+            background-image: url("../common/img/nav_bg.jpg");
+        }
+    </style>
+
+
+</head>
+<body>
+<!--navigation-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../index.html" style="color: white">iDPBG智能监控系统</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">用户账号 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+<!--                        <li style="list-style-type:none"><a href="#">个人信息</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:void(0)" class="my-profile"></a></li>
+<!--                        <li style="list-style-type:none"><a href="#">密码修改</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:changePwd()">修改密码</a></li>
+                        <li style="list-style-type:none"><a href="../../index.html">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<!--content-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="main">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>资料管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../dvr_table.html">主机管理</a></li>
+                        <li style="list-style-type:none"><a href="../camera_table.html">镜头管理</a></li>
+                        <li style="list-style-type:none"><a href="../gate_magnetism/gateMag.html">门磁管理</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>工程管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../project_management/projectAdd_table.html">工程新增</a></li>
+                        <li style="list-style-type:none"><a href="../project_management/projectShift_table.html">工程移位</a></li>
+                        <li style="list-style-type:none"><a href="../project_management/maintainShift_table.html">维护移位</a></li>
+                        <li style="list-style-type:none"><a href="../project_management/maintainRemove_table.html">维护拆除</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>异常管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="cameraRepair.html">镜头维修</a></li>
+                        <li style="list-style-type:none"><a href="dvrCheckInfo.html">主机信息异常</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>数据分析</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../dataAnalysis/showDataAnalysis.html">数据分析查看</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>视频查看</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>报表</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#">资产报表</a></li>
+                        <li style="list-style-type:none"><a href="#">异常报表</a></li>
+                        <li style="list-style-type:none"><a href="#">工程报表</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>权限管理</b> <span class="caret"></span></a>
+                    <ul id="permission_manger" class="dropdown-menu" style="display: none">
+                        <li style="list-style-type:none"><a href="../user_manage/user.html">用户管理</a></li>
+                        <li style="list-style-type:none"><a href="../user_manage/role.html">角色管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">修改密码</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">原密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">
+                                        <span id="oldPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">新密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">确认密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="confirm_pwd" placeholder="请再次输入新密码" required="required">
+                                        <span id="confirmPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="pwd_modify_btn" onclick="pwd_modify()">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="sub-header"><b>镜头维修表</b></h5>
+            <p>
+                <button type="button" class="btn btn-xs btn-primary" onclick="addCamRepair()"><i class="fa fa-plus" aria-hidden="true"></i> 添加</button>
+                <button type="button" class="btn btn-xs btn-danger" onclick="deleteCheckbox()"><i class="fa fa-trash-o fa-lg"></i> 删除</button>
+                <input type="file" id="file" style="display:none;" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+<!--                <button type="button" class="btn btn-xs btn-warning" onclick="selectFile()">导入</button>-->
+                <button type="button" class="btn btn-xs btn-warning" onclick="exportTable()"><i class="fa fa-upload fa-lg" aria-hidden="true"></i> 导出</button>
+                <button type="button" class="btn btn-xs btn-warning" onclick="exportTableAll()"><i class="fa fa-upload fa-lg" aria-hidden="true"></i> 导出全部</button>
+                <button type="button" class="btn btn-xs btn-success" onclick="printCamRep()"><i class="fa fa-print fa-lg" aria-hidden="true"></i> 打印</button>
+                <button type="button" class="btn btn-xs btn-info" onclick="camRepair_select()"><i class="fa fa-filter" aria-hidden="true"></i> 筛选</button>
+                <button type="button" class="btn btn-xs btn-default" onclick="refreshCurrentPage()"><i class="fa fa-refresh fa-lg" aria-hidden="true"></i> 刷新</button>
+            </p>
+
+<!--            数据概况显示-->
+            <p>
+                <b style="color: blue">镜头异常总数:</b> <span style="color: red;" id="camAbn_al"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b style="color: blue">错位异常总数:</b> <span style="color: red;" id="camRm_al"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b style="color: blue">干扰异常总数:</b> <span style="color: red;" id="camDst_al"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b style="color: blue">模糊异常总数:</b> <span style="color: red;" id="camMh_al"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b style="color: blue">灰屏异常总数:</b> <span style="color: red;" id="camNs_al"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b style="color: blue">遮挡异常总数:</b> <span style="color: red;" id="camZd_al"></span>
+            </p>
+
+
+            <form id="camrepairSelect" style="display: none">
+<!--            <form>-->
+                <span>主机号:&nbsp;<input id="camRepairDvr_id_select" type="text" style="width: 80px" placeholder="主机号..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>楼栋:&nbsp;<input id="camRepairBuild_select" type="text" style="width: 80px" placeholder="楼栋..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>楼层:&nbsp;<input id="camRepairFloor_select" type="text" style="width: 80px" placeholder="楼层..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>镜头号:&nbsp;<input id="camRepair_id_select" type="text" style="width: 80px" placeholder="镜头号..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>异常时间:&nbsp;<input id="AnomalyTime_select" type="date" style="width: 80px" placeholder="异常时间..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>统计时间:&nbsp;<input id="CollectTime_select" type="date" style="width: 80px" placeholder="统计时间..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>异常类别:&nbsp;<input id="AnomalyType_select" type="text" style="width: 80px" placeholder="异常类别..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>异常等级:&nbsp;<input id="AnomalyGrade_select" type="text" style="width: 80px" placeholder="异常等级..."></span><br/><br/>
+                <span>统计人员:&nbsp;<input id="Registrar_select" type="text" style="width: 80px" placeholder="统计人员..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>修复时间:&nbsp;<input id="RepairedTime_select" type="date" style="width: 80px" placeholder="修复时间..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>维修人员:&nbsp;<input id="Accendant_select" type="text" style="width: 80px" placeholder="维修人员..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>工程异常:&nbsp;<input id="ProjectAnomaly_select" type="text" style="width: 80px" placeholder="工程异常..."></span></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>厂商维修:&nbsp;<input id="RepairFirm_select" type="text" style="width: 80px" placeholder="厂商维修..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>监工确认:&nbsp;<input id="Supervisor_select" type="text" style="width: 80px" placeholder="监工确认..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>更换配件:&nbsp;<input id="ReplacePart_select" type="text" style="width: 80px" placeholder="更换配件..."></span><br/><br/>
+                <span>维修内容:&nbsp;<input id="RepairDetails_select" type="text" style="width: 160px" placeholder="维修内容..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>修复状态:&nbsp;
+                <select id="RepairState_select">
+                    <option value="">请选择</option>
+                    <option value="true">已修复</option>
+                    <option value="false">未修复</option>
+                </select>
+                </span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>灰屏确认:&nbsp;
+                <select id="NoSignal_select">
+                    <option value="">请选择</option>
+                    <option value="true">已确认</option>
+                    <option value="false">未确认</option>
+                </select>
+                </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-xs btn-info" id="camrepair_select_btn">完成</button>
+            </form><br/>
+
+            <!-- 表格修改的模态框 -->
+            <div class="modal fade" id="camrepairUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">维修镜头修改</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">镜头号</label>
+                                    <div class="col-sm-10" style="margin-top: 8px">
+                                        <span id="camera_ID"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">异常时间</label>
+                                    <div class="col-sm-10" style="margin-top: 8px">
+                                        <span id="anomalyTime"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">统计时间</label>
+                                    <div class="col-sm-10" style="margin-top: 8px">
+                                        <span id="collectTime"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">异常类别</label>
+                                    <div class="col-sm-10" style="margin-top: 8px">
+                                        <span id="anomalyType"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">异常等级</label>
+                                    <div class="col-sm-10" style="margin-top: 8px">
+                                        <span id="anomalyGrade"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">统计人员</label>
+                                    <div class="col-sm-10" style="margin-top: 8px">
+<!--                                        <input type="text" name="registrar" class="form-control" id="registrar" placeholder="">-->
+                                        <span id="registrar"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">修复状态</label>
+                                    <div class="col-sm-10">
+<!--                                        <input type="text" name="repairState" class="form-control" id="repairState" placeholder="">-->
+                                        <select id="repairState" name="RepairState">
+                                            <option value="">请选择</option>
+                                            <option value="true">已修复</option>
+                                            <option value="false">未修复</option>
+                                        </select>
+                                    </div>
+                                </div>
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">修复时间</label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="date" name="repairedTime" class="form-control" id="repairedTime" placeholder="">-->
+<!--                                        <span class="help-block" id="repairedTime_help-block"></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">维修人员</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="accendant" class="form-control" id="accendant" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">维修内容</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="repairDetails" class="form-control" id="repairDetails" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">厂商维修</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="repairFirm" class="form-control" id="repairFirm" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">监工确认</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="supervisor" class="form-control" id="supervisor" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">更换配件</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="replacePart" class="form-control" id="replacePart" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">工程异常</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="projectAnomaly" class="form-control" id="projectAnomaly" placeholder="">
+                                    </div>
+                                </div>
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">灰屏确认</label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--&lt;!&ndash;                                        <input type="text" name="noSignal" class="form-control" id="noSignal" placeholder="">&ndash;&gt;-->
+<!--                                        <select id="noSignal" name="noSignal">-->
+<!--                                            <option value="">请选择</option>-->
+<!--                                            <option value="true">已确认</option>-->
+<!--                                            <option value="false">未确认</option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">备注</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="remark" class="form-control" id="remark" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="camrepair_update_btn">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 表格添加的模态框 -->
+            <div class="modal fade" id="camRepair" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">镜头维修添加</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">镜头号</label>
+                                    <!-- 镜头号必须要是库里面有的 -->
+                                    <div class="col-sm-10">
+                                        <input type="text" name="Camera_ID" class="form-control" id="Camera_ID_add_input" placeholder="镜头号">
+                                        <span class="help-block" id="cam_id_help-block"></span>
+                                    </div>
+                                </div>
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">异常时间</label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="date" name="AnomalyTime" class="form-control" id="AnomalyTime_add_input" placeholder="异常时间" required="required">-->
+<!--                                        <span class="help-block" id="AnomalyTime_help-block"></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">异常类别</label>
+                                    <div class="col-sm-10">
+<!--                                        <input type="text" name="AnomalyType" class="form-control" id="AnomalyType_add_input" placeholder="异常类别" required="required">-->
+                                        <select id="AnomalyType_add_input" name="AnomalyType">
+                                            <option value="">请选择</option>
+                                            <option value="错位">错位</option>
+                                            <option value="干扰">干扰</option>
+                                            <option value="模糊">模糊</option>
+                                            <option value="灰屏">灰屏</option>
+                                            <option value="遮挡">遮挡</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">异常等级</label>
+                                    <div class="col-sm-10">
+<!--                                        <input type="text" name="AnomalyGrade" class="form-control" id="AnomalyGrade_add_input" placeholder="异常等级" required="required">-->
+<!--                                        <span class="help-block"></span>-->
+                                        <select id="AnomalyGrade_add_input" name="AnomalyGrade">
+                                            <option value="">请选择</option>
+                                            <option value="1级">1级</option>
+                                            <option value="2级">2级</option>
+                                            <option value="3级">3级</option>
+                                            <option value="4级">4级</option>
+                                            <option value="5级">5级</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">统计人员</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="Registrar" class="form-control" id="Registrar_add_input" placeholder="统计人员">
+                                    </div>
+                                </div>
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">修复状态</label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--&lt;!&ndash;                                        <input type="text" name="RepairState" class="form-control" id="RepairState_add_input" placeholder="修复状态">&ndash;&gt;-->
+<!--                                        <select id="RepairState_add_input" name="RepairState">-->
+<!--                                            <option value="">请选择</option>-->
+<!--                                            <option value="true">已修复</option>-->
+<!--                                            <option value="false">未修复</option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">备注</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="remark" class="form-control" id="remark_add_input" placeholder="备注">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="camrepair_save_btn">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- loading模态框 -->
+            <div id="wait" style="display:none;width:69px;height:89px;border:0px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src='js/busy.gif' width="64" height="64" /><br>加载中...</div>
+            <div id="wait2" style="display:none;width:69px;height:89px;border:0px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src='js/busy.gif' width="64" height="64" /><br>上传中...</div>
+
+            <div class="table-responsive print_wrap" id="result">
+<!--         table-bordered       table-striped-->
+                <table id="LAY-EXPORT-TEST" class="table table-condensed table-hover">
+                    <thead>
+                    <tr>
+                        <td class="no-print"><input type="checkbox" id="checkall"></td>
+                        <td align="center" style=" white-space:nowrap">序号</td>
+                        <td align="center" style=" white-space:nowrap">监控室</td>
+                        <td align="center" style=" white-space:nowrap">主机</td>
+                        <td align="center" style=" white-space:nowrap">部门</td>
+                        <td align="center" style=" white-space:nowrap">楼栋</td>
+                        <td align="center" style=" white-space:nowrap">楼层</td>
+                        <td align="center" style=" white-space:nowrap">方向</td>
+                        <td align="center" style=" white-space:nowrap">位置</td>
+                        <td align="center" style=" white-space:nowrap">镜头号</td>
+<!--                        <td align="center" style=" white-space:nowrap">异常</br>时间</td>-->
+                        <td align="center" style=" white-space:nowrap">统计</br>时间</td>
+                        <td align="center" style=" white-space:nowrap">异常</br>类别</td>
+                        <td align="center" style=" white-space:nowrap">异常</br>等级</td>
+                        <td align="center" style=" white-space:nowrap">统计</br>人员</td>
+                        <td align="center" style=" white-space:nowrap">修复</br>状态</td>
+                        <td align="center" style=" white-space:nowrap">修复</br>时间</td>
+                        <td align="center" style=" white-space:nowrap">维修</br>人员</td>
+                        <td align="center" style=" white-space:nowrap">维修</br>内容</td>
+                        <td align="center" style=" white-space:nowrap">厂商</br>维修</td>
+                        <td align="center" style=" white-space:nowrap">监工</br>确认</td>
+                        <td align="center" style=" white-space:nowrap">更换</br>配件</td>
+                        <td align="center" style=" white-space:nowrap">灰屏</br>确认</td>
+                        <td align="center" style=" white-space:nowrap">备注</td>
+                        <td align="center" style=" white-space:nowrap" class="no-print">镜头<br/>状态</td>
+                        <td class="no-print">编辑</td>
+                    </tr>
+                    </thead>
+                    <tbody id="checklist">
+                    </tbody>
+                </table>
+
+                <div id="pagination_module" class="no-print modal-footer">
+                    <button class="btn-purple" id="firstPage">首页</button>&#160;&#160;&#160;
+                    <button class="btn-purple" id="previous">上一页</button>&#160;&#160;&#160;
+                    第<input type="text" id="index" value="1"  size="1" >页&#160;&#160;&#160;
+                    <button class="btn-purple" id="next">下一页</button>&#160;&#160;&#160;
+                    <button id="last">尾页</button>
+                    <div id="pageCount" style="display: inline-block"></div>
+                </div>
+
+                <div id="select_pagination_module" class="no-print modal-footer">
+                    <button class="btn-purple" id="select_firstPage">首页</button>&#160;&#160;&#160;
+                    <button class="btn-purple" id="select_previous">上一页</button>&#160;&#160;&#160;
+                    第<input type="text" id="select_index" value="1"  size="1" >页&#160;&#160;&#160;
+                    <button class="btn-purple" id="select_next">下一页</button>&#160;&#160;&#160;
+                    <button id="select_last">尾页</button>
+                    <div id="select_pageCount" style="display: inline-block"></div>
+                </div>
+
+
+            </div>
+    </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+<!--表头排序-->
+<script>
+    $(document).on('click','thead',function(){
+        var table = $(this).parents('table').eq(0);
+        var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()));
+        this.asc = !this.asc;
+        if (!this.asc){rows = rows.reverse();}
+        table.children('tbody').empty().html(rows);
+    });
+    function comparer(index) {
+        return function(a, b) {
+            var valA = getCellValue(a, index), valB = getCellValue(b, index);
+            return $.isNumeric(valA) && $.isNumeric(valB) ?
+                valA - valB : valA.localeCompare(valB);
+        };
+    }
+    function getCellValue(row, index){
+        return $(row).children('td').eq(index).text();
+    }
+</script>
+
+<!--print-->
+<script>
+    function printCamRep(){
+        // 局部打印
+        // 获取局部打印数据
+        $(".no-print").css("display","none");
+
+        var newstr = document.getElementById("result").innerHTML;
+        // 缓存body全部数据
+        var oldstr = document.body.innerHTML;
+        // 将局部数据放入body内
+        document.body.innerHTML = newstr;
+
+        // 页面缩放，此处缩放为50%，不缩放的话页面超出就打印不出来，这个需要自己调试，看自己
+        document.getElementsByTagName('body')[0].style.zoom=0.5;
+
+        // 调用window的打印功能
+        window.print();
+        window.location.reload();
+
+        // 打印完成将body数据还回去
+        document.body.innerHTML = oldstr;
+
+        // 将页面缩放调整到最初状态
+        document.getElementsByTagName('body')[0].style.zoom=1;
+        return false;
+    }
+</script>
+
+<!--新增模态框model frame-->
+<script type="text/javascript" src="js/camRepair_TableSave.js"></script>
+<script>
+    function addCamRepair() {
+        $("#camRepair form")[0].reset();
+        $("#camRepair").modal({
+            backdrop:"static"
+        });
+
+        $("#cam_id_help-block").text('');
+        // $("#camrepair_save_btn").removeAttr("disabled","disabled");
+
+        $("#AnomalyTime_help-block").html('');
+        $("#camrepair_save_btn").removeAttr("disabled","disabled");
+
+        $('#RepairState_add_input').select2();
+        $('#NoSignal_add_input').select2();
+        $('#AnomalyType_add_input').select2();
+        $('#AnomalyGrade_add_input').select2();
+
+        getCam_Id();
+
+    }
+</script>
+
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script>window.jQuery || document.write('<script src="../common/jquery/3.4.1/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="../common/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../common/bootstrap_need/docs.min.js"></script>
+
+<!--修改-->
+<script type="text/javascript" src="js/camRepair_modify.js"></script>
+<script type="text/javascript">
+    function camRepair_Modify(obj){
+        // console.log(obj.closest("tr"));
+
+        $('#repairState').val('');
+        $('#noSignal').val('');
+        $("#repairedTime").val('');
+
+        $("#repairedTime_help-block").html('');
+        $("#camrepair_update_btn").removeAttr("disabled","disabled");
+        //获取所选列的id值
+        var tr_id=obj.closest("tr").getAttribute("id");
+        getCamRepair(tr_id);
+        $("#camrepairUpdateModal").modal({
+            backdrop:"static"
+        });
+
+    }
+</script>
+
+<!-- excel导出 -->
+<script src="../common/js/excel.js"></script>
+<script>
+    function exportTable() {
+        // 获取头部和body
+        var data = LAY_EXCEL.tableToJson(document.getElementById('LAY-EXPORT-TEST')) // 或者 $('#LAY-EXPORT-TEST')
+        // console.log(data)
+        var exportData = [];
+        exportData.push.apply(exportData, data.head);
+        exportData.push.apply(exportData, data.body);
+        // console.log(exportData)
+
+        LAY_EXCEL.exportExcel(exportData, '镜头维修表导出.xlsx', 'xlsx')
+    }
+</script>
+
+
+<!-- 删除 -->
+<!--checkbox-->
+<link rel="stylesheet" href="../common/other/del_conf/qikoo.css">
+<script src="../common/other/del_conf/qikoo.js"></script>
+<script type="text/javascript" src="js/camRepair_checkbox.js"></script>
+<script type="text/javascript">
+    function deleteCheckbox() {
+        var items = document.getElementsByClassName('cb');
+        var len = items.length;
+        for (var i=len-1;i>=0;i--){
+            var is_checked = items[i].checked;
+            if (is_checked){
+                // var userId = items[i].parents("tr").attr("id");
+                // var userId=$(this).parentElement.closest("tr").attr("id");
+                var divItem = items[i].parentNode.parentNode;
+                //获取id值
+                var rowId = divItem.getAttribute("id");
+
+
+                qikoo.dialog.confirm('您确定删除选中的记录吗？',function(){
+                    //发送ajax请求删除
+                    // divItem.parentNode.removeChild(divItem);
+                    //此处要添加ajax回传删除参数
+                    $.ajax({
+                        url:host+'app/cameraRepair/'+rowId,
+                        type:'delete',
+                        success: function () {
+                            divItem.parentNode.removeChild(divItem);
+                            var d = $.dialog({
+                                title: '删除成功!',
+                                content: '',
+                            });
+                            setTimeout(function () {
+                                d.close().remove();
+                            }, 500);
+                            //删除之后刷新当前页面
+                            // $.dialog({
+                            //     title: '删除成功!',
+                            //     content: '',
+                            // });
+                            // setTimeout(function(){location.reload();},500);
+                        },
+                        error: function () {
+                            $.dialog({
+                                title: '删除失败!',
+                                content: '',
+                            });
+                        }
+                    });
+
+                },function(){
+                    $("#checklist").find('input').each(function(){
+
+                        $(this).removeAttr("checked",false);
+
+                        $(this).prop("checked",false); // 根据官方的建议：具有 true 和 false 两个属性的属性，如 checked, selected 或者 disabled 使用prop()，其他的使用 attr()
+
+                    });
+                });
+            }
+        }
+    };
+</script>
+
+<!--筛选-->
+<script src="js/camRepair_select.js"></script>
+<script>
+    function camRepair_select() {
+        //弹出模态框
+        document.getElementById("camrepairSelect").reset();
+        // $("#camrepairSelectModal").modal({
+        //     backdrop:"static"
+        // });
+        $("#camrepairSelect").removeAttr("style","display:none");
+    }
+</script>
+<script>
+    function exportTableAll() {
+        window.location.href= host+"CameraRepair/OutExcel?RepairState=false";
+    }
+</script>
+<script>
+    function refreshCurrentPage() {
+        location.reload();
+    }
+</script>
+
+<!--灰屏确认-->
+<script>
+    function noSigConfirm(obj) {
+        var id=obj.closest("tr").getAttribute("id");
+        $.ajax({
+            url: host+'app/cameraRepair/'+id,
+            type: 'get',
+            success: function (id_data) {
+                getNosig(id_data);
+            },
+            error: function (errMsg) {
+                $.dialog({
+                    title: '状态请求失败',
+                    content: '',
+                });
+            }
+        })
+    }
+
+    function getNosig(id_data) {
+        var cam_id = id_data.camera_ID;
+
+        window.open(host+'Camera/GetChannelPicture?Camera_ID='+cam_id,'','top=250,left=650,width=450,height=400');
+
+    }
+
+</script>
+
+<script>
+    $(function () {
+        $.ajax({
+            url: host+'app/cameraRepair/repairsListByCondition?RepairState=false&SkipCount=0&MaxResultCount=2000000',
+            type: 'get',
+            success: function (res) {
+                var camAbn_al = res.totalCount;
+                $("#camAbn_al").text(camAbn_al);
+                get_camRm_al();
+            }
+        });
+    });
+
+    function get_camRm_al() {
+        var res_param = "錯位";
+        $.ajax({
+            url: host+'app/cameraRepair/repairsListByCondition?AnomalyType='+res_param+'&RepairState=false&SkipCount=0&MaxResultCount=2000000',
+            type: 'GET',
+            success: function (cam_res) {
+                var camRm_al = cam_res.totalCount;
+                $("#camRm_al").text(camRm_al);
+                get_camDst_al();
+            }
+        })
+    }
+
+    function get_camDst_al() {
+        var res_param = "干擾";
+        $.ajax({
+            // url: host+'app/cameraRepair/repairsListByCondition?AnomalyType='+res_param+'&SkipCount=0&MaxResultCount=2000000',
+            url: host+'app/cameraRepair/repairsListByCondition?AnomalyType='+res_param+'&RepairState=false&SkipCount=0&MaxResultCount=2000000',
+            type: 'GET',
+            success: function (cam_res) {
+                var camDst_al = cam_res.totalCount;
+                $("#camDst_al").text(camDst_al);
+                get_camMh_al();
+            }
+        })
+    }
+
+    function get_camMh_al() {
+        var res_param = "模糊";
+        $.ajax({
+            // url: host+'app/cameraRepair/repairsListByCondition?AnomalyType='+res_param+'&SkipCount=0&MaxResultCount=2000000',
+            url: host+'app/cameraRepair/repairsListByCondition?AnomalyType='+res_param+'&RepairState=false&SkipCount=0&MaxResultCount=2000000',
+            type: 'GET',
+            success: function (cam_res) {
+                var camMh_al = cam_res.totalCount;
+                $("#camMh_al").text(camMh_al);
+                get_camNs_al();
+            }
+        })
+    }
+
+    function get_camNs_al() {
+        var res_param = "灰屏";
+        $.ajax({
+            // url: host+'app/cameraRepair/repairsListByCondition?AnomalyType='+res_param+'&SkipCount=0&MaxResultCount=2000000',
+            url: host+'app/cameraRepair/repairsListByCondition?AnomalyType='+res_param+'&RepairState=false&SkipCount=0&MaxResultCount=2000000',
+            type: 'GET',
+            success: function (cam_res) {
+                var camNs_al = cam_res.totalCount;
+                $("#camNs_al").text(camNs_al);
+                get_camZd_al();
+            }
+        })
+    }
+
+    function get_camZd_al() {
+        var res_param = "遮擋";
+        $.ajax({
+            // url: host+'app/cameraRepair/repairsListByCondition?AnomalyType='+res_param+'&SkipCount=0&MaxResultCount=2000000',
+            url: host+'app/cameraRepair/repairsListByCondition?AnomalyType='+res_param+'&RepairState=false&SkipCount=0&MaxResultCount=2000000',
+            type: 'GET',
+            success: function (cam_res) {
+                var camZd_al = cam_res.totalCount;
+                $("#camZd_al").text(camZd_al);
+            }
+        })
+    }
+</script>
+
+</body>
+</html>

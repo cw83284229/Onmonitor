@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iDPBG智能监控系统</title>
+
+    <link href="index/common/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="index/common/bootstrap_need/signin.css" rel="stylesheet">
+    <style>
+        /*@import url('http://cdn.gbtags.com/twitter-bootstrap/3.2.0/css/bootstrap.css');*/
+
+        body{
+            font-family: 'microsoft yahei',Arial,sans-serif,"Open Sans";
+            margin:0;
+            padding-top: 200px;
+            padding-bottom: 40px;
+            /*padding:0;*/
+        }
+
+    </style>
+    <script type="text/javascript" src="index/common/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="index/common/cors.js"></script>
+<!--    <style>-->
+<!--        background-repeat: no-repeat;/*设置图片不平铺*/-->
+<!--        background-size:100% 100%;/*设置图片的大小，浏览器的宽高*/-->
+<!--        background-attachment:fixed;/*设置图片固定，不跟据页面的拉动而拉动*/-->
+<!--    </style>-->
+</head>
+<body background="index/common/img/ref4.png" style="background-repeat: no-repeat;background-attachment: fixed;background-size: 100%">
+<!--<body>-->
+<div class="container">
+    <!-- 后续需删掉novalidate="novalidate"-->
+<!-- 此处为form标签可选添加属性 action="index/index.html" onsubmit="return checkForm();" method="post"-->
+<!--    <form  action="#" class="form-signin" method="post" >-->
+
+<!--    <div class="form-signin">-->
+<!--        <h4 class="form-signin-heading" style="text-align: center;color: white"><b>iDPBG智能监控系统</b></h4>-->
+<!--        <label for="loginName" class="sr-only">用户名</label>-->
+<!--        <input type="text" name="loginName" id="loginName" class="form-control" placeholder="请输入用户名" required="required" autofocus="autofocus">-->
+<!--        <label for="loginPass" class="sr-only">密码</label>-->
+<!--        <input type="password" name="password" id="loginPass" class="form-control" placeholder="请输入密码" required="required">-->
+<!--        <div>-->
+<!--            <span id="error_show" style="color: red"></span>-->
+<!--        </div>-->
+<!--&lt;!&ndash;        <div class="checkbox">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="checkbox" id="rememberPwd" value="remember-me"> 记住密码&ndash;&gt;-->
+<!--&lt;!&ndash;            </label>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--        <button id="loginButton" class="btn btn-lg btn-primary btn-block" type="submit" onclick="loginAccount()">登录</button>-->
+<!--    </div>-->
+
+    <div id="loginModal" class="modal show" style="padding-top: 100px;padding-bottom: 40px;padding-left: 50px">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+<!--                    <button type="button" class="close">x</button>-->
+                    <h1 class="text-center text-primary">IDPBG智能监控系统</h1>
+                </div>
+                <div class="modal-body">
+                    <div class="form col-md-12 center-block">
+                        <div class="form-group">
+                            <input type="text" id="loginName" class="form-control input-lg" placeholder="登录用户名" required="required" autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="loginPass" class="form-control input-lg" placeholder="登录密码" required="required">
+                        </div>
+                        <div>
+                            <b><span id="error_show" style="color: red"></span></b>
+                            <b><span id="loging_show" style="color: blue"></span></b>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-lg btn-block" onclick="loginAccount()">登录</button>
+<!--                            <span><a href="#">找回密码</a></span>-->
+<!--                            <span><a href="./index/user_manage/reg.html" class="pull-right">没有账号? 注册一个试试</a></span>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--    </form>-->
+
+</div> <!-- /container -->
+<!--<script type="text/javascript" src="index/common/js/login.js"></script>-->
+<script src="index/common/js/login2.js"></script>
+<script src="index/common/jquery/jquery.cookie.js"></script>
+</body>
+</html>

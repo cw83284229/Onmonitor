@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iDPBG智能监控系统</title>
+
+    <script src="../common/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="../common/cors.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../common/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../common/bootstrap_need/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../common/bootstrap_need/theme.css" rel="stylesheet">
+    <!--dashboard theme-->
+    <link href="../common/dashboard/dashboard.css" rel="stylesheet">
+
+    <!--bootstrap-table-->
+    <link rel="stylesheet" href="bootstrap_table_need/all.css">
+    <link rel="stylesheet" href="bootstrap_table_need/bootstrap-table.min.css">
+    <script src="bootstrap_table_need/popper.min.js"></script>
+    <script src="bootstrap_table_need/bootstrap-table.min.js"></script>
+
+    <!--project_add_textarea.css-->
+    <link rel="stylesheet" href="css/project_add_textarea.css">
+
+    <!--jquery-comfirm-->
+    <link rel="stylesheet" href="../common/jqcomf/css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="../common/jqcomf/css/font-awesome.min.css">
+    <script type="text/javascript" src="../common/jqcomf/js/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="../common/jqcomf/js/jquery.form.js"></script>
+
+    <!-- vue -->
+    <script type="text/javascript" src="../common/vue/vue.min.js"></script>
+
+    <script src="js/projectShift_table.js"></script>
+    <style>
+        .navbar{
+            background-image: url("../common/img/nav_bg.jpg");
+        }
+    </style>
+
+</head>
+<body>
+<!--navigation-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../index.html" style="color: white">iDPBG智能监控系统</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">用户账号 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+<!--                        <li style="list-style-type:none"><a href="#">个人信息</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:void(0)" class="my-profile"></a></li>
+<!--                        <li style="list-style-type:none"><a href="#">密码修改</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:changePwd()">修改密码</a></li>
+                        <li style="list-style-type:none"><a href="../../index.html">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<!--content-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="main">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>资料管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../dvr_table.html">主机管理</a></li>
+                        <li style="list-style-type:none"><a href="../camera_table.html">镜头管理</a></li>
+                        <li style="list-style-type:none"><a href="../gate_magnetism/gateMag.html">门磁管理</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>工程管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="projectAdd_table.html">工程新增</a></li>
+                        <li style="list-style-type:none"><a href="projectShift_table.html">工程移位</a></li>
+                        <li style="list-style-type:none"><a href="maintainShift_table.html">维护移动</a></li>
+                        <li style="list-style-type:none"><a href="maintainRemove_table.html">维护拆除</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>异常管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../abnormality_management/cameraRepair.html">镜头维修</a></li>
+                        <li style="list-style-type:none"><a href="../abnormality_management/dvrCheckInfo.html">主机信息异常</a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>数据分析</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../dataAnalysis/showDataAnalysis.html">数据分析查看</a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>视频查看</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>报表</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#">资产报表</a></li>
+                        <li style="list-style-type:none"><a href="#">异常报表</a></li>
+                        <li style="list-style-type:none"><a href="#">工程报表</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>权限管理</b> <span class="caret"></span></a>
+                    <ul id="permission_manger" class="dropdown-menu" style="display: none">
+                        <li style="list-style-type:none"><a href="../user_manage/user.html">用户管理</a></li>
+                        <li style="list-style-type:none"><a href="../user_manage/role.html">角色管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--密码修改模态框-->
+<!--            <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+<!--                <div class="modal-dialog" role="document">-->
+<!--                    <div class="modal-content">-->
+<!--                        <div class="modal-header">-->
+<!--                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--                            <h4 class="modal-title">修改密码</h4>-->
+<!--                        </div>-->
+<!--                        <div class="modal-body">-->
+<!--                            <form class="form-horizontal">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">原密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">-->
+<!--                                        <span class="help-block"></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">新密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">确认密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="comfirm_pwd" placeholder="请再次输入新密码" required="required">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
+<!--                            <button type="button" class="btn btn-primary" id="pwd_modify_btn">确定</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">修改密码</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">原密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">
+                                        <span id="oldPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">新密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">确认密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="confirm_pwd" placeholder="请再次输入新密码" required="required">
+                                        <span id="confirmPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="pwd_modify_btn" onclick="pwd_modify()">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="sub-header"><b>工程移位表</b></h5>
+
+            <div class="table-responsive" id="app">
+                <form action=""  method="">
+                    <table id="LAY-EXPORT-TEST" class="table table-striped table-hover">
+                        <!--                    <table data-toggle="table">-->
+                        <tr>
+                            <td>工程名称: <input v-model="project_name"></td>
+                            <td>工程单号: <input v-model="project_order"></td>
+                        </tr>
+                        <tr>
+                            <td>开工日期: <input type="date" v-model="start_date"></td>
+                            <td>完工日期: <input type="date" v-model="over_date"></td>
+                        </tr>
+                        <tr>
+                            <td>验收时间: <input type="date" v-model="check_time"></td>
+                            <td>厂商名称: <input type="text" v-model="manufacturer_name"></td>
+                        </tr>
+                    </table>
+                    <textarea placeholder="工程移位说明:" class="form-control" rows="4" name="" v-model="project_specification" id="project_specification"></textarea>
+                    <!--                    <br/><button type="button"  v-on:click="showInfo">显示</button>-->
+                    <br/>
+                    <table data-toggle="table" class="table table-condensed table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <td align="center">序号</td>
+                            <td align="center">主机号</td>
+                            <td align="center">监控室</td>
+                            <td align="center">通道号</td>
+                            <td align="center">镜头</br>编号</td>
+                            <td align="center">楼栋</td>
+                            <td align="center">楼层</td>
+                            <td align="center">方向</td>
+                            <td align="center">位置</td>
+                            <td align="center">监控<br/>分类</td>
+                            <td align="center">镜头</br>类型</td>
+                            <td align="center">部门</td>
+                            <td align="center">费用</br>代码</td>
+                            <td align="center">安装</br>时间</td>
+                            <td align="center">安装</br>厂商</td>
+                            <td align="center">设备</br>厂商</td>
+                            <td align="center">报警</br>编号</td>
+                            <td align="center">备注</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><input type="text" id="dvrID_1"></td>
+                            <td><input type="text" id="monRoom_1"></td>
+                            <td><input type="text" id="chanel_1"></td>
+                            <td><input type="text" id="camID_1" v-model="camera_id1"></td>
+                            <td><input type="text" id="build_1"></td>
+                            <td><input type="text" id="floor_1"></td>
+                            <td><input type="text" id="direct_1"></td>
+                            <td><input type="text" id="loc_1"></td>
+                            <td><input type="text" id="monTyp_1"></td>
+                            <td><input type="text" id="camTyp_1"></td>
+                            <td><input type="text" id="dep_1"></td>
+                            <td><input type="text" id="cos_1"></td>
+                            <td><input type="text" id="insT_1"></td>
+                            <td><input type="text" id="manu_1"></td>
+                            <td><input type="text" id="cat_1"></td>
+                            <td><input type="text" id="ala_1"></td>
+                            <td><input type="text" id="rem_1"></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><input type="text" id="dvrID_2"></td>
+                            <td><input type="text" id="monRoom_2"></td>
+                            <td><input type="text" id="chanel_2"></td>
+                            <td><input type="text" id="camID_2" v-model="camera_id2"></td>
+                            <td><input type="text" id="build_2"></td>
+                            <td><input type="text" id="floor_2"></td>
+                            <td><input type="text" id="direct_2"></td>
+                            <td><input type="text" id="loc_2"></td>
+                            <td><input type="text" id="monTyp_2"></td>
+                            <td><input type="text" id="camTyp_2"></td>
+                            <td><input type="text" id="dep_2"></td>
+                            <td><input type="text" id="cos_2"></td>
+                            <td><input type="text" id="insT_2"></td>
+                            <td><input type="text" id="manu_2"></td>
+                            <td><input type="text" id="cat_2"></td>
+                            <td><input type="text" id="ala_2"></td>
+                            <td><input type="text" id="rem_2"></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><input type="text" id="dvrID_3"></td>
+                            <td><input type="text" id="monRoom_3"></td>
+                            <td><input type="text" id="chanel_3"></td>
+                            <td><input type="text" id="camID_3" v-model="camera_id3"></td>
+                            <td><input type="text" id="build_3"></td>
+                            <td><input type="text" id="floor_3"></td>
+                            <td><input type="text" id="direct_3"></td>
+                            <td><input type="text" id="loc_3"></td>
+                            <td><input type="text" id="monTyp_3"></td>
+                            <td><input type="text" id="camTyp_3"></td>
+                            <td><input type="text" id="dep_3"></td>
+                            <td><input type="text" id="cos_3"></td>
+                            <td><input type="text" id="insT_3"></td>
+                            <td><input type="text" id="manu_3"></td>
+                            <td><input type="text" id="cat_3"></td>
+                            <td><input type="text" id="ala_3"></td>
+                            <td><input type="text" id="rem_3"></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><input type="text" id="dvrID_4"></td>
+                            <td><input type="text" id="monRoom_4"></td>
+                            <td><input type="text" id="chanel_4"></td>
+                            <td><input type="text" id="camID_4" v-model="camera_id4"></td>
+                            <td><input type="text" id="build_4"></td>
+                            <td><input type="text" id="floor_4"></td>
+                            <td><input type="text" id="direct_4"></td>
+                            <td><input type="text" id="loc_4"></td>
+                            <td><input type="text" id="monTyp_4"></td>
+                            <td><input type="text" id="camTyp_4"></td>
+                            <td><input type="text" id="dep_4"></td>
+                            <td><input type="text" id="cos_4"></td>
+                            <td><input type="text" id="insT_4"></td>
+                            <td><input type="text" id="manu_4"></td>
+                            <td><input type="text" id="cat_4"></td>
+                            <td><input type="text" id="ala_4"></td>
+                            <td><input type="text" id="rem_4"></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><input type="text" id="dvrID_5"></td>
+                            <td><input type="text" id="monRoom_5"></td>
+                            <td><input type="text" id="chanel_5"></td>
+                            <td><input type="text" id="camID_5" v-model="camera_id5"></td>
+                            <td><input type="text" id="build_5"></td>
+                            <td><input type="text" id="floor_5"></td>
+                            <td><input type="text" id="direct_5"></td>
+                            <td><input type="text" id="loc_5"></td>
+                            <td><input type="text" id="monTyp_5"></td>
+                            <td><input type="text" id="camTyp_5"></td>
+                            <td><input type="text" id="dep_5"></td>
+                            <td><input type="text" id="cos_5"></td>
+                            <td><input type="text" id="insT_5"></td>
+                            <td><input type="text" id="manu_5"></td>
+                            <td><input type="text" id="cat_5"></td>
+                            <td><input type="text" id="ala_5"></td>
+                            <td><input type="text" id="rem_5"></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><input type="text" id="dvrID_6"></td>
+                            <td><input type="text" id="monRoom_6"></td>
+                            <td><input type="text" id="chanel_6"></td>
+                            <td><input type="text" id="camID_6" v-model="camera_id6"></td>
+                            <td><input type="text" id="build_6"></td>
+                            <td><input type="text" id="floor_6"></td>
+                            <td><input type="text" id="direct_6"></td>
+                            <td><input type="text" id="loc_6"></td>
+                            <td><input type="text" id="monTyp_6"></td>
+                            <td><input type="text" id="camTyp_6"></td>
+                            <td><input type="text" id="dep_6"></td>
+                            <td><input type="text" id="cos_6"></td>
+                            <td><input type="text" id="insT_6"></td>
+                            <td><input type="text" id="manu_6"></td>
+                            <td><input type="text" id="cat_6"></td>
+                            <td><input type="text" id="ala_6"></td>
+                            <td><input type="text" id="rem_6"></td>
+                        </tr>
+                        </tbody>
+                    </table><br/>
+                    <table align="center" class="table table-condensed table-striped table-hover">
+                        <tr>
+                            <td><strong>监控施工类型：</strong></td>
+                            <td>
+                                <label for="teemo">a.按图施工</label>
+                                <input type="radio" name="work_type" id="teemo" value="按图施工" v-model="work_type">
+                            </td>
+                            <td>
+                                <label for="gareen">b.无图像/主机异常</label>
+                                <input type="radio" name="work_type" id="gareen" value="无图像/主机异常" v-model="work_type">
+                            </td>
+                            <td>
+                                <label for="annie">c.安装牢固</label>
+                                <input type="radio" name="work_type" id="annie" value="安装牢固" v-model="work_type">
+                            </td>
+                            <td>
+                                <label for="zjgfsg">d.支架规范施工</label>
+                                <input type="radio" name="work_type" id="zjgfsg" value="支架规范施工" v-model="work_type">
+                            </td>
+                        </tr>
+                    </table>
+                    <textarea placeholder="验收结果:" class="form-control" rows="4" v-model="acceptance_result"></textarea><br/>
+                    <textarea placeholder="其它说明:" class="form-control" rows="4" v-model="other_specification"></textarea><br/>
+                    <!--                    <table align="center" class="table table-condensed table-striped table-hover">-->
+                    <!--                        <tr>-->
+                    <!--                            <td><b>核准：</b><input type="text" v-model="authorizer"></td>-->
+                    <!--                            <td><b>审核：</b><input type="text" v-model="verifier"></td>-->
+                    <!--                            <td><b>承办：</b><input type="text" v-model="agent"></td>-->
+                    <!--                        </tr>-->
+                    <!--                    </table>-->
+                    <p class="modal-footer"><input type="reset" value="重置" class="btn btn-default" /></p>
+                </form>
+                <div class="modal-footer"><button class="btn btn-info" v-on:click="showInfo">提交</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script>window.jQuery || document.write('<script src="../common/jquery/3.4.1/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="../common/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../common/bootstrap_need/docs.min.js"></script>
+
+<script>
+    $(function () {
+        $("#camID_1").blur(function() {
+            var cam_id_value = $("#camID_1").val();
+            if (cam_id_value === "" || cam_id_value == null){
+                return
+            }
+            var idx = 1;
+            autoFill(cam_id_value, idx);
+            // showMsg(cam_id_value);
+        });
+
+        $("#camID_2").blur(function() {
+            var cam_id_value = $("#camID_2").val();
+            if (cam_id_value === "" || cam_id_value == null){
+                return
+            }
+            var idx = 2;
+            autoFill(cam_id_value, idx);
+        });
+
+        $("#camID_3").blur(function() {
+            var cam_id_value = $("#camID_3").val();
+            if (cam_id_value === "" || cam_id_value == null){
+                return
+            }
+            var idx = 3;
+            autoFill(cam_id_value, idx);
+        });
+
+        $("#camID_4").blur(function() {
+            var cam_id_value = $("#camID_4").val();
+            if (cam_id_value === "" || cam_id_value == null){
+                return
+            }
+            var idx = 4;
+            autoFill(cam_id_value, idx);
+        });
+
+        $("#camID_5").blur(function() {
+            var cam_id_value = $("#camID_5").val();
+            if (cam_id_value === "" || cam_id_value == null){
+                return
+            }
+            var idx = 5;
+            autoFill(cam_id_value, idx);
+        });
+
+        $("#camID_6").blur(function() {
+            var cam_id_value = $("#camID_6").val();
+            if (cam_id_value === "" || cam_id_value == null){
+                return
+            }
+            var idx = 6;
+            autoFill(cam_id_value, idx);
+        });
+    });
+    function autoFill(cam_id_value, idx) {
+
+        $.ajax({
+            url: host+'app/camera/byCondition?Camera_ID='+cam_id_value,
+            // url: host+'app/camera/byCondition?CameraID='+cam_id_value,
+            type: 'get',
+            success: function (data) {
+                if (data.totalCount===0){
+                    $.dialog({
+                        title: '该镜头系统中不存在 !',
+                        content: '',
+                    });
+                }
+                var obj = data.items[0];
+
+                $("#monRoom_"+idx).val(obj.monitoring_room);
+                $("#dvrID_"+idx).val(obj.dvR_ID);
+                $("#chanel_"+idx).val(obj.channel_ID);
+                $("#build_"+idx).val(obj.build);
+                $("#floor_"+idx).val(obj.floor);
+                $("#direct_"+idx).val(obj.direction);
+                $("#loc_"+idx).val(obj.location);
+                $("#camTyp_"+idx).val(obj.camera_Tpye);
+                $("#dep_"+idx).val(obj.department);
+                $("#cos_"+idx).val(obj.cost_code);
+                $("#insT_"+idx).val(obj.install_time);
+                $("#manu_"+idx).val(obj.manufacturer);
+                $("#ala_"+idx).val(obj.alarm_ID);
+                $("#rem_"+idx).val(obj.remark);
+                $("#monTyp_"+idx).val(obj.monitorClassification);
+                $("#cat_"+idx).val(obj.category);
+
+            }
+        });
+
+    };
+</script>
+
+</body>
+</html>

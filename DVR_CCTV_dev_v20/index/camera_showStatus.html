@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iDPBG智能监控系统</title>
+
+    <!--jquery-->
+    <script src="common/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="common/cors.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="common/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="common/bootstrap_need/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="common/bootstrap_need/theme.css" rel="stylesheet">
+
+    <script src="common/js/cam_showStatus.js"></script>
+    <style>
+        .navbar{
+            background-image: url("common/img/nav_bg.jpg");
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="./index.html" style="color: white">iDPBG智能监控系统</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">用户账号 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+<!--                        <li><a href="#">个人信息</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:void(0)" class="my-profile"></a></li>
+                        <li><a href="#">密码修改</a></li>
+                        <li><a href="../index.html">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<!--content-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="main">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>资料管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="dvr_table.html">主机管理</a></li>
+                        <li style="list-style-type:none"><a href="camera_table.html">镜头管理</a></li>
+                        <li style="list-style-type:none"><a href="./gate_magnetism/gateMag.html">门磁管理</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>工程管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="project_management/projectAdd_table.html">工程新增</a></li>
+                        <li style="list-style-type:none"><a href="project_management/projectShift_table.html">工程移位</a></li>
+                        <li style="list-style-type:none"><a href="project_management/maintainShift_table.html">维护移动</a></li>
+                        <li style="list-style-type:none"><a href="project_management/maintainRemove_table.html">维护拆除</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>异常管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="abnormality_management/cameraRepair.html">镜头维修</a></li>
+                        <li style="list-style-type:none"><a href="abnormality_management/dvrCheckInfo.html">主机信息异常</a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>数据分析</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="dataAnalysis/showDataAnalysis.html">数据分析查看</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>视频查看</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>报表</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#">资产报表</a></li>
+                        <li style="list-style-type:none"><a href="#">异常报表</a></li>
+                        <li style="list-style-type:none"><a href="#">工程报表</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>权限管理</b> <span class="caret"></span></a>
+                    <ul id="permission_manger" class="dropdown-menu" style="display: none">
+                        <li style="list-style-type:none"><a href="./user_manage/user.html">用户管理</a></li>
+                        <li style="list-style-type:none"><a href="./user_manage/role.html">角色管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <div class="text-center">
+                <h5 class="sub-header"><b>查看镜头监控视频</b></h5>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="common/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="common/jquery/1.12.4/jquery.min.js"><\/script>')</script>
+<script src="common/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="common/bootstrap_need/docs.min.js"></script>
+</body>
+</html>

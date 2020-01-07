@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iDPBG智能监控系统</title>
+
+    <script src="common/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="common/cors.js"></script>
+
+    <!--ztree-->
+    <link rel="stylesheet" href="common/ztree/css/demo.css" type="text/css">
+    <link rel="stylesheet" href="common/ztree/css/metroStyle/metroStyle.css" type="text/css">
+    <script type="text/javascript" src="common/ztree/js/jquery.ztree.all.min.js"></script>
+    <script type="text/javascript" src="common/ztree/js/jquery.ztree.core.min.js"></script>
+    <script type="text/javascript" src="common/ztree/js/jquery.ztree.exedit.min.js"></script>
+    <script type="text/javascript" src="common/ztree/js/jquery.ztree.exhide.min.js"></script>
+    <script type="text/javascript" src="common/ztree/customTree.js"></script>
+    <!-- vue -->
+    <script type="text/javascript" src="common/vue/vue.min.js"></script>
+
+    <link rel="prerender"  href="dvr_showStatus.html"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="common/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="common/bootstrap_need/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="common/bootstrap_need/theme.css" rel="stylesheet">
+    <!--dashboard theme-->
+    <link href="common/dashboard/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="./common/font-awesome/css/font-awesome.min.css">
+
+    <!--xslx-->
+    <script type="text/javascript" src="common/js/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="common/js/xls.js"></script>
+
+    <!--jquery-comfirm-->
+    <link rel="stylesheet" href="common/jqcomf/css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="common/jqcomf/css/font-awesome.min.css">
+    <script type="text/javascript" src="common/jqcomf/js/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="common/jqcomf/js/jquery.form.js"></script>
+
+    <!-- select2 -->
+    <link href="common/select2/css/select2.min.css" rel="stylesheet" />
+    <script src="common/select2/js/select2.min.js"></script>
+
+    <!-- pagination -->
+    <script type="text/javascript" src="common/js/dvr_pagination.js"></script>
+    <style>
+        .navbar{
+            background-image: url("common/img/nav_bg.jpg");
+        }
+    </style>
+
+</head>
+<body>
+<!--navigation-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="./index.html" style="color: white">iDPBG智能监控系统</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">用户账号 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+<!--                        <li style="list-style-type:none"><a href="#">个人信息</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:void(0)" class="my-profile"></a></li>
+                        <li style="list-style-type:none"><a href="javascript:changePwd()">修改密码</a></li>
+                        <!--                        <li style="list-style-type:none"><a href="#">密码修改</a></li>-->
+                        <!--                        退出清cookie-->
+                        <li style="list-style-type:none"><a href="../index.html">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<!--content-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar left">
+            <h5><b><span id="time"></span></b></h5>
+            <h5><b>主机总数: <span id="dvr_total" style="color: blue"></span>台</b></h5>
+
+            </br>
+            <!--此处放Ztree-->
+            <ul id="treeDemo" class="ztree"></ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>资料管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="dvr_table.html">主机管理</a></li>
+                        <li style="list-style-type:none"><a href="camera_table.html">镜头管理</a></li>
+                        <li style="list-style-type:none"><a href="./gate_magnetism/gateMag.html">门磁管理</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>工程管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="project_management/projectAdd_table.html">工程新增</a></li>
+                        <li style="list-style-type:none"><a href="project_management/projectShift_table.html">工程移位</a></li>
+                        <li style="list-style-type:none"><a href="project_management/maintainShift_table.html">维护移动</a></li>
+                        <li style="list-style-type:none"><a href="project_management/maintainRemove_table.html">维护拆除</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>异常管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="abnormality_management/cameraRepair.html">镜头维修</a></li>
+                        <li style="list-style-type:none"><a href="abnormality_management/dvrCheckInfo.html">主机信息异常</a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>数据分析</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="dataAnalysis/showDataAnalysis.html">数据分析查看</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>视频查看</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>报表</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#">资产报表</a></li>
+                        <li style="list-style-type:none"><a href="#">异常报表</a></li>
+                        <li style="list-style-type:none"><a href="#">工程报表</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>权限管理</b> <span class="caret"></span></a>
+                    <ul id="permission_manger" class="dropdown-menu" style="display: none">
+                        <li style="list-style-type:none"><a href="./user_manage/user.html">用户管理</a></li>
+                        <li style="list-style-type:none"><a href="./user_manage/role.html">角色管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h5 class="sub-header"><b>主机表</b></h5>
+            <p>
+                <button type="button" class="btn btn-xs btn-primary" id="dvr_add_modal_btn"><i class="fa fa-plus" aria-hidden="true"></i> 添加</button>
+                <button type="button" class="btn btn-xs btn-danger" onclick="deleteCheckbox()"><i class="fa fa-trash-o fa-lg"></i> 删除</button>
+                <input type="file" id="file" style="display:none;" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                <!--                    <button type="button" class="btn btn-xs btn-warning" onclick="selectFile()"><i class="fa fa-download fa-lg" aria-hidden="true"></i> 导入</button>-->
+                <button type="button" class="btn btn-xs btn-warning" onclick="selectFile()"><i class="fa fa-download fa-lg" aria-hidden="true"></i> 导入</button>
+                <button type="button" class="btn btn-xs btn-warning" onclick="exportTable()"><i class="fa fa-upload fa-lg" aria-hidden="true"></i> 导出</button>
+                <button type="button" class="btn btn-xs btn-warning" onclick="exportTableAll()"><i class="fa fa-upload fa-lg" aria-hidden="true"></i> 导出全部</button>
+                <button type="button" class="btn btn-xs btn-success" onclick="printDoc()"><i class="fa fa-print fa-lg" aria-hidden="true"></i> 打印</button>
+                <button type="button" class="btn btn-xs btn-success" onclick="printDvrNum()"><i class="fa fa-print fa-lg" aria-hidden="true"></i> 标签打印</button>
+                <button type="button" class="btn btn-xs btn-info" onclick="refreshCurrentPage()"><i class="fa fa-refresh fa-lg" aria-hidden="true"></i> 刷新</button>
+
+            </p>
+            <p class="text-right">
+                <span>监控室:&nbsp;<input id="dvr_monitor_room" type="text" style="width: 80px" placeholder="监控室..."></span>&nbsp;&nbsp;
+                <span>主机:&nbsp;<input id="dvr_id_select" type="text" style="width: 80px" placeholder="主机号..."></span>&nbsp;&nbsp;
+                <button type="button" class="btn btn-xs btn-success" id="select_search" onclick="dvr_select()"><i class="fa fa-filter" aria-hidden="true"></i> 筛选</button>
+            </p>
+
+            <!--密码修改模态框-->
+            <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">修改密码</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">原密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">
+                                        <span id="oldPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">新密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">确认密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="confirm_pwd" placeholder="请再次输入新密码" required="required">
+                                        <span id="confirmPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="pwd_modify_btn" onclick="pwd_modify()">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 表格修改的模态框 -->
+            <div class="modal fade" id="dvrUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">主机修改</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group" style="display: none">
+                                    <label class="col-sm-2 control-label">ID</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="id" class="form-control" id="id_dvrInput" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">厂区</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="factory" class="form-control" id="factory_update_input" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">监控室</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="monitoring" class="form-control" id="monitoring_update_input" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">楼栋</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="cam_build" class="form-control" id="cam_build" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">楼层</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="cam_floor" class="form-control" id="cam_floor" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_ID" class="form-control" id="DVR_ID_update_input" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">归属服务器</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="home_server" class="form-control" id="home_server" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">硬盘容量</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="hard_drive" class="form-control" id="hard_drive" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机IP</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_IP" class="form-control" id="DVR_IP_update_input" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机端口</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dvr_port" class="form-control" id="dvr_port" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DVR账户</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dvr_u" class="form-control" id="dvr_u" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DVR密码</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" name="dvr_p" class="form-control" id="dvr_p" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">安装时间</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="install_time" class="form-control" id="install_time_update_input" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">设备类型</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_type" class="form-control" id="DVR_type_update_input" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">安装厂商</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="inst_manufacturer" class="form-control" id="inst_manufacturer_update_input" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">SN号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_SN" class="form-control" id="DVR_SN_update_input" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DVR设备通道数量</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dvr_cha" class="form-control" id="dvr_cha" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">部门</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="depat" class="form-control" id="depat" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">费用代码</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="cos_code" class="form-control" id="cos_code" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">备注</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="remark_modify" class="form-control" id="remark_modify" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="dvr_update_btn">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 表格添加的模态框 -->
+            <div class="modal fade" id="dvrAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">添加主机</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">厂区</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="factory" class="form-control" id="factory_add_input" placeholder="厂区" required="required" autofocus="autofocus">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">监控室</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="monitor_room" class="form-control" id="monitor_room_add_input" placeholder="监控室" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="host_num" class="form-control" id="host_num_add_input" placeholder="主机号 - 必须填写" required="required">
+                                        <span id="host_id_help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机IP</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="host_ip" class="form-control" id="host_ip_add_input" placeholder="主机IP" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">硬盘容量</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="disk_capacity" class="form-control" id="disk_capacity_add_input" placeholder="硬盘容量 - 仅接受数字,不能包含字母及字符串" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">安装时间</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="inst_time" class="form-control" id="inst_time_add_input" placeholder="安装时间">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">设备类型</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dev_type" class="form-control" id="dev_type_add_input" placeholder="设备类型">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">SN号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="sn_num" class="form-control" id="sn_num_add_input" placeholder="SN号">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">楼栋</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="cam_build" class="form-control" id="cam_build_add_input" placeholder="楼栋">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">楼层</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="cam_floor" class="form-control" id="cam_floor_add_input" placeholder="楼层">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机端口</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dvr_port" class="form-control" id="dvr_port_add_input" placeholder="主机端口">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DVR账户</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dvr_u" class="form-control" id="dvr_u_add_input" placeholder="DVR账户">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DVR密码</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dvr_p" class="form-control" id="dvr_p_add_input" placeholder="DVR密码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">归属服务器</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="home_server" class="form-control" id="home_server_add_input" placeholder="归属服务器">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DVR设备通道数量</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dvr_cha" class="form-control" id="dvr_cha_add_input" placeholder="DVR设备通道数量">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">部门</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="depat" class="form-control" id="depat_add_input" placeholder="部门">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">安装厂商</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="inst_manufacturer" class="form-control" id="inst_manufacturer_add_input" placeholder="安装厂商">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">费用代码</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="cos_code" class="form-control" id="cos_code_add_input" placeholder="费用代码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">备注</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="remark_add" class="form-control" id="remark_add_input" placeholder="备注">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="dvr_save_btn">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- loading模态框 -->
+            <div id="wait" style="display:none;width:69px;height:89px;border:0px solid black;position:absolute;top:90%;left:30%;padding:2px;"><img src='abnormality_management/js/busy.gif' width="64" height="64" /><br>上传中...</div>
+
+            <div class="table-responsive print_wrap" id="result">
+                <table id="LAY-EXPORT-TEST" class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <td class="no-print"><input type="checkbox" id="checkall"></td>
+                        <td align="center">序号</td>
+                        <td align="center">厂区</td>
+                        <td align="center">监控室</td>
+                        <td align="center">主机号</td>
+                        <td align="center">主机IP</td>
+                        <td align="center">硬盘容量(GB)</td>
+                        <td align="center">安装时间</td>
+                        <td align="center">设备类型</td>
+                        <td align="center">SN号</td>
+                        <td align="center">备注</td>
+                        <td class="no-print" align="center">修改时间</td>
+                        <td class="no-print">镜头信息</td>
+                        <td class="no-print">编辑</td>
+                    </tr>
+                    </thead>
+                    <tbody id="checklist">
+                    </tbody>
+                </table>
+
+                <!--                    <div class="test modal-footer" pagination="pagination_new" pagenumber="1" totalnumber="60" paginationmax="10" ></div>-->
+                <div id="pagination_module" class="no-print modal-footer">
+                    <button class="btn-purple" id="firstPage">首页</button>&#160;&#160;&#160;
+                    <button class="btn-purple" id="previous">上一页</button>&#160;&#160;&#160;
+                    第<input type="text" id="index" value="1"  size="1" >页&#160;&#160;&#160;
+                    <button class="btn-purple" id="goPage">跳转</button>&#160;&#160;&#160;
+                    <button class="btn-purple" id="next">下一页</button>&#160;&#160;&#160;
+                    <button id="last">尾页</button>
+                    <div id="pageCount" style="display: inline-block"></div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+
+<!--print-->
+<script>
+    function printDoc(){
+        // 局部打印
+        // 获取局部打印数据
+        $(".no-print").css("display","none");
+
+        var newstr = document.getElementById("result").innerHTML;
+        // 缓存body全部数据
+        var oldstr = document.body.innerHTML;
+        // 将局部数据放入body内
+        document.body.innerHTML = newstr;
+
+        // 页面缩放，此处缩放为50%，不缩放的话页面超出就打印不出来，这个需要自己调试，看自己
+        document.getElementsByTagName('body')[0].style.zoom=0.5;
+
+        // 调用window的打印功能
+        window.print();
+
+        window.location.reload();
+
+        // 打印完成将body数据还回去
+        document.body.innerHTML = oldstr;
+
+        // 将页面缩放调整到最初状态
+        document.getElementsByTagName('body')[0].style.zoom=1;
+
+        // return false;
+    }
+</script>
+
+<!--<script src="common/jq_print/jQuery.print.min.js"></script>-->
+
+<!--<link href="common/css/printDVR.css" rel="stylesheet" type="text/css" media="print">-->
+<!--<script src="common/cus_jqp/jquery.jqprint-0.3.js"></script>-->
+<!--<script>-->
+<!--    function printDoc(){-->
+
+<!--        $(".print_wrap").jqprint({-->
+<!--            debug: false,-->
+<!--            importCSS: true,-->
+<!--            printContainer: true,-->
+<!--            operaSupport: false-->
+<!--        });-->
+
+<!--    }-->
+<!--</script>-->
+
+
+<!--新增模态框model frame-->
+<script type="text/javascript" src="common/js/dvr_TableSave.js"></script>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script>window.jQuery || document.write('<script src="common/jquery/3.4.1/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="common/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="common/bootstrap_need/docs.min.js"></script>
+
+<!--修改 dvr_modal_table_modify.js-->
+<script type="text/javascript" src="common/js/dvr_modal_table_modify.js"></script>
+<script type="text/javascript">
+    function dvr_Modify(obj){
+        //获取所选列的id值
+        var tr_id=obj.closest("tr").getAttribute("id");
+        getDVR(tr_id);
+        $("#dvrUpdateModal").modal({
+            backdrop:"static"
+        });
+    }
+</script>
+
+<!-- excel导出 -->
+<script src="common/js/excel.js"></script>
+<script>
+    function exportTable() {
+        // 获取头部和body
+        var data = LAY_EXCEL.tableToJson(document.getElementById('LAY-EXPORT-TEST')) // 或者 $('#LAY-EXPORT-TEST')
+        // console.log(data)
+        var exportData = [];
+        exportData.push.apply(exportData, data.head);
+        exportData.push.apply(exportData, data.body);
+        // console.log(exportData)
+
+        LAY_EXCEL.exportExcel(exportData, '主机表导出.xlsx', 'xlsx')
+    }
+</script>
+
+<!-- 查看状态 -->
+<script type="text/javascript">
+    function dvr_showStatus(obj) {
+        var statu_id=obj.closest("tr").getAttribute("id");
+        window.location.href = 'dvr_showStatus.html?id='+statu_id;
+    }
+</script>
+
+<!--编号打印-->
+<script type="text/javascript">
+    function printDvrNum() {
+
+        var chkSted = [];
+
+        var items = document.getElementsByClassName('cb');
+        var len = items.length;
+
+        for (var i=len-1;i>=0;i--){
+            var is_checked = items[i].checked;
+            if (is_checked){
+                var divItem = items[i].parentNode.parentNode;
+                // //获取id值
+                var dvRNum = divItem.getAttribute("id");
+                chkSted.push(dvRNum);
+            }
+        }
+
+        if (chkSted.length === 0){
+            $.dialog({
+                title: '没有勾选要打印的主机!',
+                content: '',
+            });
+            return;
+        }else if (chkSted.length > 3){
+            $.dialog({
+                title: '勾选的主机超过3个!',
+                content: '',
+            });
+            return;
+        }else if(chkSted.length <3) {
+            $.dialog({
+                title: '勾选的主机不足3个!',
+                content: '',
+            });
+            return;
+        }
+
+        window.location.href = 'printDVR_num.html?id='+chkSted;
+    }
+</script>
+
+<!-- 删除 delete status: finish -->
+<!--checkbox-->
+<link rel="stylesheet" href="common/other/del_conf/qikoo.css">
+<script src="common/other/del_conf/qikoo.js"></script>
+<script type="text/javascript" src="common/js/dvr_checkbox.js"></script>
+<script type="text/javascript">
+    function deleteCheckbox() {
+        var items = document.getElementsByClassName('cb');
+        var len = items.length;
+        for (var i=len-1;i>=0;i--){
+            var is_checked = items[i].checked;
+            if (is_checked){
+                // var userId = items[i].parents("tr").attr("id");
+                // var userId=$(this).parentElement.closest("tr").attr("id");
+                var divItem = items[i].parentNode.parentNode;
+                //获取id值
+                var userId = divItem.getAttribute("id");
+
+                qikoo.dialog.confirm('您确定删除选中的记录吗？',function(){
+                    //发送ajax请求删除
+                    //此处要添加ajax回传删除参数
+                    $.ajax({
+                        url:host+'app/dVR/'+userId,
+                        type:'delete',
+                        success: function () {
+                            divItem.parentNode.removeChild(divItem);
+                            // $.dialog({
+                            //     title: '删除成功!',
+                            //     content: '',
+                            // });
+                            //删除之后刷新当前页面
+                            // setTimeout(function(){location.reload();},500);
+                            var d = $.dialog({
+                                title: '删除成功!',
+                                content: '',
+                            });
+                            setTimeout(function () {
+                                d.close().remove();
+                            }, 500);
+                        },
+                        error: function () {
+                            $.dialog({
+                                title: '删除失败!',
+                                content: '',
+                            });
+                        }
+                    });
+
+                },function(){
+                    $("#checklist").find('input').each(function(){
+
+                        $(this).removeAttr("checked",false);
+
+                        $(this).prop("checked",false); // 根据官方的建议：具有 true 和 false 两个属性的属性，如 checked, selected 或者 disabled 使用prop()，其他的使用 attr()
+
+                    });
+
+                });
+
+            }
+        }
+    };
+</script>
+
+<!--    筛选-->
+<script>
+    function dvr_select() {
+        var dv_moniRoom = $("#dvr_monitor_room").val().toUpperCase();
+        console.log(dv_moniRoom);
+        var dv_id_select = $("#dvr_id_select").val().toUpperCase();
+        console.log(dv_id_select);
+
+        $.ajax({
+            url:host+'app/dVR/byCondition?Monitoring_room='+dv_moniRoom+'&DVR_ID='+dv_id_select,
+            type:'get',
+            success: function (data) {
+                $("#checklist").html("");
+                $("#pagination_module").attr("style","display:none");
+                var obj = data.items;
+
+                for (var i in obj) {
+                    // totalCount++;
+                    var indx = parseInt(i) + 1;
+                    var id = obj[i].id;
+                    var fact = !obj[i].factory?"":obj[i].factory;
+                    var moro = !obj[i].monitoring_room?"":obj[i].monitoring_room;
+                    var d_id = !obj[i].dvR_ID?"":obj[i].dvR_ID;
+                    var d_ip = !obj[i].dvR_IP?"":obj[i].dvR_IP;
+                    var hd = !obj[i].hard_drive?"":obj[i].hard_drive;
+                    var instime = !obj[i].install_time?"":obj[i].install_time;
+                    var dt = !obj[i].dvR_type?"":obj[i].dvR_type;
+                    var ds = !obj[i].dvR_SN?"":obj[i].dvR_SN;
+                    var rk = !obj[i].remark?"":obj[i].remark;
+                    var mt = getMyDate(obj[i].lastModificationTime);
+
+
+                    var tr = "<tr id=" + id + ">"
+                        + "<td class=\"no-print\"><input type=\"checkbox\" class=\"cb\"></td>"
+                        + "<td align=\"center\">" + indx + "</td>"
+                        + "<td align=\"center\">" + fact + "</td>"
+                        + "<td align=\"center\">" + moro + "</td>"
+                        + "<td align=\"center\">" + d_id + "</td>"
+                        + "<td align=\"center\">" + d_ip + "</td>"
+                        + "<td align=\"center\">" + hd + "</td>"
+                        + "<td align=\"center\">" + instime + "</td>"
+                        + "<td align=\"center\">" + dt + "</td>"
+                        + "<td align=\"center\">" + ds + "</td>"
+                        + "<td align=\"center\">" + rk + "</td>"
+                        + "<td class=\"no-print\" align=\"center\">" + mt + "</td>"
+                        + "<td class=\"no-print\"><button type=\"button\" class=\"showDvrStatus btn btn-xs btn-info\" onclick=dvr_showStatus(this);>查看状态</button></td>"
+                        + "<td class=\"no-print\"><button type=\"button\" class=\"dvrModify btn btn-xs btn-default\" onclick=dvr_Modify(this);>修改</button></td>"
+                        + "</tr>";
+                    var $opt = $(tr);//将字符串转换成jQuery对象
+                    $("#checklist").append($opt);
+                }
+            }
+        });
+
+    }
+</script>
+<script type="text/javascript">
+
+    function getCurrentTime(){
+        // //获取到当前的系统时间
+        // var date = new Date();
+        // //把当前系统时间拼装成我指定的格式。
+        // var weekdays = ['日','一','二','三','四','五','六'];
+        // timeStr += '星期'+ weekdays[date.getDay()] + '  ';
+        // var timeInfo =  date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日 "+
+        //     date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+        //
+        // //找span对象
+        // var  spanObj = document.getElementById("time");
+        // //设置span标签体的内容
+        // spanObj.innerHTML = timeInfo.fontcolor("#2B2B2B");
+        var date = new Date();
+        var timeStr = date.getFullYear() +'年';
+        var month = date.getMonth() + 1;
+        timeStr += month < 10 ? '0':'' ;  //判断获得的月份时候是两位数不是在前面补零.三元条件运算符 - 问号前面的条件如果成立取冒号前面的值否则取冒号后面的值
+        timeStr += month +'月';
+        var day = date.getDate();
+        timeStr += day < 10 ? '0': '';
+        timeStr += day + '日  ';
+        // var weekdays = ['日','一','二','三','四','五','六'];
+        // timeStr += '星期'+ weekdays[date.getDay()] + '  ';
+        var hour = date.getHours();
+        timeStr += hour <10 ? '0':'';
+        timeStr += hour + ':';
+        var minute = date.getMinutes();
+        timeStr +=minute < 10 ? '0':'';
+        timeStr +=minute;
+        // var second = date.getSeconds();
+        // timeStr += second < 10 ? '0': '';
+        // timeStr += second ;
+        $('#time').text(timeStr);//修改类名为timer的文本内容
+    }
+    getCurrentTime();
+    //定时方法.
+    window.setInterval("getCurrentTime()",1000); /* setInterval   定时方法，第一个参数要指定调用的代码，第二参数是每                                                隔指定的毫秒数调用指定的代码。*/
+</script>
+<script>
+    function exportTableAll() {
+        window.location.href= host+"DVR/OutExcel";
+    }
+</script>
+<script>
+    function refreshCurrentPage() {
+        location.reload();
+        $("#dvr_monitor_room").val('');
+        $("#dvr_id_select").val('');
+    }
+</script>
+
+</body>
+</html>

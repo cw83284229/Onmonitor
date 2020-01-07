@@ -1,0 +1,413 @@
+@charset "utf-8";
+/* CSS Document */
+
+.z_i{width:900px;text-align:center;margin:0 auto;border-collapse: collapse;background:#fff;line-height:49px;margin-top:60px;border:1px solid #e8e8e8;}
+.z_i td a{color:#18a0da;}
+.z_i td{height:49px;font-size:12px;color:#4b4b4b;}
+.z_i .z_title{border-bottom:none;height:30px;}
+.z_i .z_title td{height:30px;background:#dfeef5;}
+.z_i tr{border: 1px solid #CCC;}
+
+.mod-dialog-bg {
+	background: #000;
+	opacity: .5;
+	filter: alpha(opacity=50);
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+}
+.mod-dialog {
+	background-color: #fff;
+	border-top: none;
+	min-width: 400px;
+ *padding-top: 27px;
+	position: absolute;
+	z-index: 1001; min-height:190px;
+	margin-top:-20px;
+}
+.mod-pop {
+	background: #fff;
+	border: solid 1px #a1a1a1;
+	-webkit-box-shadow: 0 0 5px #a1a1a1;
+	-moz-box-shadow: 0 0 5px #a1a1a1;
+	box-shadow: 0 0 5px #a1a1a1;
+	font-size: 14px;
+	height: 142px;
+	position: absolute;
+	width: 276px;
+	z-index: 1000;
+}
+.clearfix_new:after {
+	clear: both;
+	content: '\20';
+	display: block;
+	height: 0;
+}
+.mod-dialog .dialog-nav {
+	color: #fff;
+	font-weight: 700;
+	font-size: 12px;
+	font-family: "\5b8b\4f53";
+	height: 27px;
+ *left: 0;
+	line-height: 27px;
+ *position: absolute;
+ *top: -27px;
+ *width: 100%;
+}
+.mod-dialog .dialog-title {
+	padding-left: 10px;
+}
+.mod-dialog .dialog-close {
+	background: url(images/close.png) no-repeat 0 0;
+	height: 12px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 12px;
+}
+.mod-dialog .dialog-main {
+	font-size: 14px;
+	padding: 20px;
+	text-align: center;
+}
+.dialog-main .dialog-content p{color:#7e7e7e;}
+.mod-dialog .dialog-content {
+	font-size: 14px;
+	line-height: 24px;
+}
+.mod-dialog .dialog-console {padding-top: 50px;}
+.mod-pop .pop-nav {
+	background: #f3f3f3;
+	color: #666;
+	font-weight: 700;
+	line-height: 31px;
+	padding: 0 10px;
+}
+.mod-pop .pop-close {
+	background: url(images/close.png) no-repeat -109px 0;
+	height: 22px;
+	position: absolute;
+	right: 6px;
+	top: 6px;
+	width: 22px;
+}
+.mod-pop .pop-main {
+	line-height: 24px;
+	padding: 15px 10px 10px;
+	text-align: center;
+}
+.mod-pop .pop-console {
+	font-size: 16px;
+	line-height: 38px;
+	margin-top: 20px;
+	text-align: center;
+}
+.mod-pop .pop-btn-green {
+	background: url(images/close.png) no-repeat 0 -24px;
+	color: #fff;
+	display: block;
+	float: left;
+	height: 36px;
+	margin-right: 16px;
+	width: 120px;
+}
+.mod-pop .pop-btn-gray {
+	background: url(images/close.png) no-repeat 0 -62px;
+	color: #999;
+	display: block;
+	float: left;
+	height: 36px;
+	width: 120px;
+}
+.mod-fixed-console.console-fixed {
+	box-shadow: 0 0 5px 2px rgba(0,0,0,0.3);
+	position: fixed;
+	top: 10px;
+	z-index: 999;
+}
+.mod-fixed-console .console-btn {
+	background: #82c92f;
+	border-bottom: 3px solid #73af2c;
+	border-radius: 4px;
+	color: #fff;
+	display: block;
+	font-size: 18px;
+	height: 42px;
+	line-height: 42px;
+	margin: 0 auto;
+	position: relative;
+	text-align: center;
+	width: 210px;
+}
+.mod-dialog .dialog-console a {
+	background: url(images/close.png) no-repeat 0 -22px;
+	display: inline-block;
+	font-size: 16px;
+	height: 36px;
+	line-height: 34px;
+	text-align: center;
+	width: 120px;
+}
+.mod-dialog .dialog-console .console-btn-confirm {background:url(images/imags-18.png) repeat-x;width:95px;height:25px;color: #fff;border:1px solid #3a92c0;text-align:center;font-size:11px; margin-top:-6px;line-height:25px;margin-left: 12px;}
+.mod-dialog .dialog-console .console-btn-cancel {background:url(images/imags-19.png) repeat-x;width:95px;height:25px;color: #fff;border:1px solid #3a92c0;text-align:center;font-size:11px; margin-top:-6px;line-height:25px;}
+.mod-pop .pop-close:hover {
+	background-position: -86px 0;
+}
+.mod-pop .pop-btn-green:hover {
+	background-position: 0 -100px;
+}
+.mod-pop .pop-btn-gray:hover {
+	background-position: 0 -138px;
+}
+.dialog-delorder {
+	box-shadow: 0 2px 11px #ccc;
+	height: 142px;
+	left: 50%;
+	margin-left: auto;
+	position: absolute;
+	top: 0;
+	width: 276px;
+	z-index: 1001;
+}
+.dialog-delorder .dialog-bar {
+	background: #f3f3f3;
+	color: #666;
+	font-size: 12px;
+	font-family: simsun;
+	font-weight: 700;
+	height: 31px;
+	line-height: 31px;
+	overflow: hidden;
+	text-indent: 10px;
+}
+.dialog-delorder .dialog-close {
+	background: url(../images/allBtn.png) -357px -1875px no-repeat;
+	float: right;
+	height: 21px;
+	margin-right: 6px;
+	margin-top: 5px;
+	width: 21px;
+}
+.dialog-delorder .dialog-content {
+	background: #fff;
+	color: #666;
+	font-size: 14px;
+	line-height: 24px;
+}
+.dialog-delorder .dialog-console {
+	background: #fff;
+	overflow: hidden;
+	padding: 8px 0 10px;
+	text-align: center;
+ *zoom: 1;
+}
+.dialog-delorder .dialog-content p {
+	font-size: 14px;
+	padding: 20px 0 16px;
+	text-align: center;
+}
+.dialog-delorder .dialog-console a, .dialog-delorder .dialog-console a:link, .dialog-delorder .dialog-console a:hover {
+	background: #8ecd1c;
+	border: 1px #7ebb48 solid;
+	display: inline-block;
+	font-size: 16px;
+	height: 34px;
+	line-height: 34px;
+	margin-right: 12px;
+	text-align: center;
+	text-decoration: none;
+	width: 118px;
+}
+.dialog-delorder .dialog-console a.console-btn-confirm {
+	color: #fff;
+}
+.dialog-delorder .dialog-console a.console-btn-cancel, .dialog-delorder .dialog-console a.console-btn-cancel:link, .dialog-delorder .dialog-console a.console-btn-cancel:hover {
+	background: #fefefe;
+	border-color: #d9d9d9;
+	color: #999;
+	margin: 0;
+}
+.dialog-addtocart {
+	box-shadow: 0 2px 11px #ccc;
+	height: 200px;
+	left: 50%;
+	position: absolute;
+	top: 300px;
+	width: 368px;
+	z-index: 1001;
+}
+.dialog-addtocart .dialog-bar {
+	background: url(../images/dialog_solid.png) repeat-x top;
+	color: #fff;
+	font-size: 12px;
+	font-family: simsun;
+	font-weight: 700;
+	height: 27px;
+	line-height: 28px;
+	overflow: hidden;
+	text-indent: 10px;
+}
+.dialog-addtocart .dialog-close {
+	background: url(../images/alertBtn.png) no-repeat 0 0;
+	float: right;
+	height: 22px;
+	margin-right: 10px;
+	width: 45px;
+}
+.dialog-addtocart .dialog-content {
+	background: #fff;
+	border: 1px #93c803 solid;
+	color: #666;
+	font-size: 14px;
+	height: 171px;
+	line-height: 24px;
+}
+.dialog-addtocart .dialog-console {
+	background: #fff;
+	overflow: hidden;
+	padding: 8px 0 10px;
+	text-align: center;
+ *zoom: 1;
+}
+.dialog-addtocart .dialog-bar i {
+	background: url(../images/t01be95dd74b6de9636.png) no-repeat 0 0;
+	float: left;
+	height: 16px;
+	margin: 5px;
+	width: 16px;
+}
+.dialog-addtocart .dialog-content p {
+	color: #27292b;
+	font-size: 16px;
+	height: 48px;
+	line-height: 60px;
+	margin: 20px 0 26px;
+	text-align: left;
+	text-indent: 108px;
+}
+.dialog-addtocart .dialog-console a, .dialog-addtocart .dialog-console a:link, .dialog-addtocart .dialog-console a:hover {
+	background: #8ecd1c;
+	border: 1px #7ebb48 solid;
+	display: inline-block;
+	font-size: 16px;
+	height: 34px;
+	line-height: 34px;
+	margin-right: 12px;
+	text-align: center;
+	text-decoration: none;
+	width: 118px;
+}
+.dialog-addtocart .dialog-console a.console-btn-continue {
+	background: #ededed;
+	border: 1px #dbdbdb solid;
+	border-radius: 3px;
+	color: #999;
+	font-size: 16px;
+	height: 34px;
+	line-height: 34px;
+	width: 118px;
+}
+.dialog-addtocart .dialog-console a.console-btn-gocart, .dialog-addtocart .dialog-console a.console-btn-gocart:link, .dialog-addtocart .dialog-console a.console-btn-gocart:hover {
+	background: #fb8124;
+	border: 0;
+	border-radius: 3px;
+	color: #fff;
+	height: 36px;
+	margin: 0;
+	text-align: right;
+	width: 157px;
+}
+.dialog-addtocart .dialog-console a.console-btn-gocart span, .dialog-addtocart .dialog-console a.console-btn-gocart:link span, .dialog-addtocart .dialog-console a.console-btn-gocart:hover span {
+	background: url(../images/allBtn.png) -398px -1875px no-repeat;
+	float: right;
+ *float: none;
+	height: 22px;
+	margin: 7px 10px 0 8px;
+	width: 22px;
+}
+.dialog-war {
+	box-shadow: 0 2px 11px #ccc;
+	height: 200px;
+	left: 50%;
+	overflow: hidden;
+	position: absolute;
+	top: 300px;
+	width: 368px;
+	z-index: 1024;
+ *zoom: 1;
+}
+.dialog-war .dialog-bar {
+	background: url(../images/dialog_solid.png) repeat-x top;
+	color: #fff;
+	font-size: 12px;
+	font-family: simsun;
+	font-weight: 700;
+	height: 27px;
+	line-height: 26px;
+	text-indent: 10px;
+}
+.dialog-war .dialog-close {
+	background: url(../images/alertBtn.png) no-repeat 0 0;
+	float: right;
+	height: 22px;
+	margin-right: 10px;
+	width: 45px;
+}
+.dialog-war .dialog-content {
+	background: #fff;
+	border: 1px #93c803 solid;
+	color: #666;
+	font-size: 14px;
+	height: 171px;
+	line-height: 24px;
+	overflow: hidden;
+ *zoom: 1;
+}
+.dialog-war .dialog-console {
+	background: #fff;
+	overflow: hidden;
+	padding: 0 0 10px;
+	text-align: center;
+ *zoom: 1;
+}
+.dialog-war .dialog-bar i {
+	background: url(../images/t01be95dd74b6de9636.png) no-repeat 0 0;
+	float: left;
+	height: 16px;
+	margin: 5px;
+	width: 16px;
+}
+.dialog-war .dialog-content p {
+	color: #27292b;
+	font-size: 16px;
+	line-height: 24px;
+	margin: 30px 0 32px;
+	padding: 0 30px;
+	text-align: center;
+}
+.dialog-war .dialog-console a.console-btn-confirm {
+background: #87cb27;
+border: 1px #7ebb48 solid;
+border-radius: 3px;
+color: #fff;
+font-size: 16px;
+height: 34px;
+line-height: 34px;
+width: 118px;
+}
+.dialog-war .dialog-console a, .dialog-war .dialog-console a:link, .dialog-war .dialog-console a:hover {
+	background: #8ecd1c;
+	border: 1px #7ebb48 solid;
+	display: inline-block;
+	font-size: 16px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	text-decoration: none;
+	width: 118px;
+}
+

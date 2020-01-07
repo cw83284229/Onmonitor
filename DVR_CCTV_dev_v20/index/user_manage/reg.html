@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>添加用户</title>
+    <link href="reg_lib/style.css" rel="stylesheet">
+    <script src="../common/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="../common/cors.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="f-right header-nav">
+        </div>
+    </div>
+    
+    <div class="register-container" style="display: block;">
+        <div class="register-wrapper">
+            <div class="register-content" style="top: 30px;">
+                <div class="title">
+                    <h2>添加新用户</h2>
+                </div>
+                <div class="m-body">
+
+                    <div class="item">
+                        <label class="input-placeholder">用户名</label> 
+                        <input class="username" placeholder="用户名" id="username" autocomplete="off">
+
+                        <div class="tip" id="reg_usr_tip"></div>
+
+                    </div>
+
+                    <div class="item">
+                        <label class="input-placeholder">密码</label> 
+                        <input class="password" type="password" placeholder="密码" id="password" autocomplete="new-password"> 
+
+                        <div class="tip" id="reg_pwd_tip"></div>
+
+                    </div><br/><br/>
+
+                    <div class="register-option">
+                        <a class="j-register" href="javascript:;" onclick="Reg_check()">立即添加</a>
+
+<!--                        <a class="j-processing disabled" href="javascript:;">处理中...</a>-->
+
+                        <div class="tip" id="reg_hd"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-nav">
+        </div>
+    </div>
+
+    <script>//支持Function.bind
+        if (!Function.prototype.bind) {
+            Function.prototype.bind = function (oThis) {
+                if (typeof this !== "function") {
+                    throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+                }
+                var aArgs = Array.prototype.slice.call(arguments, 1),
+                    fToBind = this,
+                    fNOP = function () { },
+                    fBound = function () {
+                        return fToBind.apply(this instanceof fNOP && oThis ? this : oThis,
+                            aArgs.concat(Array.prototype.slice.call(arguments)));
+                    };
+                fNOP.prototype = this.prototype;
+                fBound.prototype = new fNOP();
+                return fBound;
+            };
+        }
+        //支持trim
+        String.prototype.trim = function () {
+            return this.replace(/(^\s*)|(\s*$)/g, ""); //正则匹配空格  
+        }
+    </script>
+    <script src="reg_lib/reg_main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iDPBG智能监控系统</title>
+
+    <script src="common/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="common/cors.js"></script>
+
+    <!-- vue -->
+    <script type="text/javascript" src="common/vue/vue.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="common/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="common/bootstrap_need/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="common/bootstrap_need/theme.css" rel="stylesheet">
+    <!--dashboard theme-->
+    <link href="common/dashboard/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="./common/font-awesome/css/font-awesome.min.css">
+
+    <!--jquery-comfirm-->
+    <link rel="stylesheet" href="common/jqcomf/css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="common/jqcomf/css/font-awesome.min.css">
+    <script type="text/javascript" src="common/jqcomf/js/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="common/jqcomf/js/jquery.form.js"></script>
+
+    <!-- select2 -->
+    <link href="common/select2/css/select2.min.css" rel="stylesheet" />
+    <script src="common/select2/js/select2.min.js"></script>
+
+    <style>
+        .navbar{
+            background-image: url("common/img/nav_bg.jpg");
+        }
+        .main{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .quarter-div{
+            width: 33%;
+            height: 100%;
+            float: left;
+        }
+        .tag1{
+            padding-left: 5px;
+            /*background-color: #5BC0DE;*/
+        }
+        .tag2{
+            padding-left: 5px;
+            padding-right: 5px;
+            /*background-color: #5CB85C;*/
+        }
+        .tag3{
+            padding-right: 5px;
+            /*background-color: #F0AD4E;*/
+        }
+        .caId{
+            font-weight: bold;
+        }
+
+        /*.main{*/
+        /*    padding-top: 0;*/
+        /*    margin-top: 0;*/
+        /*}*/
+
+        .print_zone{
+            /*border-collapse: collapse;*/
+            border-collapse: collapse !important;
+            background-color: #fff !important;
+            border: 1px solid black !important;
+            /*width: 100%;*/
+            /*height: auto;*/
+            /*line-height: 25px;*/
+        }
+    </style>
+
+</head>
+<body>
+    <!--navigation-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./index.html" style="color: white">iDPBG智能监控系统</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">用户账号 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+<!--                            <li style="list-style-type:none"><a href="#">个人信息</a></li>-->
+                            <li style="list-style-type:none"><a href="javascript:void(0)" class="my-profile"></a></li>
+                            <li style="list-style-type:none"><a href="javascript:changePwd()">修改密码</a></li>
+                            <!--                            <li style="list-style-type:none"><a href="#">密码修改</a></li>-->
+                            <!--                        退出清cookie-->
+                            <li style="list-style-type:none"><a href="../index.html">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!--content-->
+    <div class="container-fluid">
+
+            <div class="main">
+                <ul class="nav nav-pills" role="tablist">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>资料管理</b> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li style="list-style-type:none"><a href="dvr_table.html">主机管理</a></li>
+                            <li style="list-style-type:none"><a href="camera_table.html">镜头管理</a></li>
+                            <li style="list-style-type:none"><a href="./gate_magnetism/gateMag.html">门磁管理</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>工程管理</b> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li style="list-style-type:none"><a href="project_management/projectAdd_table.html">工程新增</a></li>
+                            <li style="list-style-type:none"><a href="project_management/projectShift_table.html">工程移位</a></li>
+                            <li style="list-style-type:none"><a href="project_management/maintainShift_table.html">维护移动</a></li>
+                            <li style="list-style-type:none"><a href="project_management/maintainRemove_table.html">维护拆除</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>异常管理</b> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li style="list-style-type:none"><a href="abnormality_management/cameraRepair.html">镜头维修</a></li>
+                            <li style="list-style-type:none"><a href="abnormality_management/dvrCheckInfo.html">主机信息异常</a></li>
+                            <li style="list-style-type:none"><a href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>数据分析</b> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li style="list-style-type:none"><a href="dataAnalysis/showDataAnalysis.html">数据分析查看</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>视频查看</b> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li style="list-style-type:none"><a href="#"></a></li>
+                            <li style="list-style-type:none"><a href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>报表</b> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li style="list-style-type:none"><a href="#">资产报表</a></li>
+                            <li style="list-style-type:none"><a href="#"></a>异常报表</li>
+                            <li style="list-style-type:none">工程报表<a href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>权限管理</b> <span class="caret"></span></a>
+                        <ul id="permission_manger" class="dropdown-menu" style="display: none">
+                            <li style="list-style-type:none"><a href="./user_manage/user.html">用户管理</a></li>
+                            <li style="list-style-type:none"><a href="./user_manage/role.html">角色管理</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!--密码修改模态框-->
+<!--                <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+<!--                    <div class="modal-dialog" role="document">-->
+<!--                        <div class="modal-content">-->
+<!--                            <div class="modal-header">-->
+<!--                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--                                <h4 class="modal-title">修改密码</h4>-->
+<!--                            </div>-->
+<!--                            <div class="modal-body">-->
+<!--                                <form class="form-horizontal">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="col-sm-2 control-label">原密码: </label>-->
+<!--                                        <div class="col-sm-10">-->
+<!--                                            <input type="text" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">-->
+<!--                                            <span class="help-block"></span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="col-sm-2 control-label">新密码: </label>-->
+<!--                                        <div class="col-sm-10">-->
+<!--                                            <input type="text" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="col-sm-2 control-label">确认密码: </label>-->
+<!--                                        <div class="col-sm-10">-->
+<!--                                            <input type="text" class="form-control" id="comfirm_pwd" placeholder="请再次输入新密码" required="required">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </div>-->
+<!--                            <div class="modal-footer">-->
+<!--                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
+<!--                                <button type="button" class="btn btn-primary" id="pwd_modify_btn">确定</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">修改密码</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">原密码: </label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">
+                                            <span id="oldPwd_help_block" class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">新密码: </label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">确认密码: </label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="confirm_pwd" placeholder="请再次输入新密码" required="required">
+                                            <span id="confirmPwd_help_block" class="help-block"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-primary" id="pwd_modify_btn" onclick="pwd_modify()">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="sub-header"><button onclick="printDVR_num()" class="btn btn-info"><i class="fa fa-print fa-lg" aria-hidden="true"></i> 主机标签打印</button></h5>
+
+                <div id="print_wrap">
+                    <div class="quarter-div tag1">
+                        <h2 align="center" id="dvrID_title1">/</h2>
+                        <h2 align="center">监控主机</h2>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td align="center" class="update_time"></td>
+                            </tr>
+                            <tr>
+                                <td align="center" id="floor_ip1">/</td>
+                            </tr>
+                        </table>
+                        <table class="table table-condensed print_zone">
+                            <thead>
+                            <tr>
+                                <td align="center" style=" white-space:nowrap">序号</td>
+                                <td align="center" style=" white-space:nowrap">楼栋</td>
+                                <td align="center" style=" white-space:nowrap">楼层</td>
+                                <td align="center" style=" white-space:nowrap">方向</td>
+                                <td align="center" style=" white-space:nowrap">位置</td>
+                                <td align="center" style=" white-space:nowrap">安装<br/>日期</td>
+                                <td align="center" style=" white-space:nowrap"><b>编号</b></td>
+                            </tr>
+                            </thead>
+                            <tbody id="checklist1">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="quarter-div tag2">
+                        <h2 align="center" id="dvrID_title2">/</h2>
+                        <h2 align="center">监控主机</h2>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td align="center" class="update_time"></td>
+                            </tr>
+                            <tr>
+                                <td align="center" id="floor_ip2">/</td>
+                            </tr>
+                        </table>
+                        <table class="table table-condensed print_zone">
+                            <thead>
+                                <tr>
+                                    <td align="center" style=" white-space:nowrap">序号</td>
+                                    <td align="center" style=" white-space:nowrap">楼栋</td>
+                                    <td align="center" style=" white-space:nowrap">楼层</td>
+                                    <td align="center" style=" white-space:nowrap">方向</td>
+                                    <td align="center" style=" white-space:nowrap">位置</td>
+                                    <td align="center" style=" white-space:nowrap">安装<br/>日期</td>
+                                    <td align="center" style=" white-space:nowrap"><b>编号</b></td>
+                                </tr>
+                            </thead>
+                            <tbody id="checklist2">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="quarter-div tag3">
+                        <h2 align="center" id="dvrID_title3">/</h2>
+                        <h2 align="center">监控主机</h2>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td align="center" class="update_time"></td>
+                            </tr>
+                            <tr>
+                                <td align="center" id="floor_ip3">/</td>
+                            </tr>
+                        </table>
+                        <table class="table table-condensed print_zone">
+                            <thead>
+                            <tr>
+                                <td align="center" style=" white-space:nowrap">序号</td>
+                                <td align="center" style=" white-space:nowrap">楼栋</td>
+                                <td align="center" style=" white-space:nowrap">楼层</td>
+                                <td align="center" style=" white-space:nowrap">方向</td>
+                                <td align="center" style=" white-space:nowrap">位置</td>
+                                <td align="center" style=" white-space:nowrap">安装<br/>日期</td>
+                                <td align="center" style=" white-space:nowrap"><b>编号</b></td>
+                            </tr>
+                            </thead>
+                            <tbody id="checklist3">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+
+            </div>
+        </div>
+    </div>
+
+<!--    <script>-->
+<!--        $.ajax({-->
+<!--            url: host+'identity/my-profile',-->
+<!--            type: 'get',-->
+<!--            success: function (usr_data) {-->
+<!--                var my_profile = usr_data.userName;-->
+<!--                $(".my-profile").html("您好, "+"<b>"+my_profile+"</b>");-->
+<!--            }-->
+<!--        })-->
+<!--    </script>-->
+
+<!--    print-->
+<!--    <link href="common/css/printDVR.css" rel="stylesheet" type="text/css" media="print">-->
+<!--    <script src="common/cus_jqp/jquery.jqprint-0.3.js"></script>-->
+<!--    <script>-->
+<!--        function printDVR_num(){-->
+<!--            $(".print_wrap").jqprint({-->
+<!--                debug: false,-->
+<!--                importCSS: true,-->
+<!--                printContainer: true,-->
+<!--                operaSupport: false-->
+<!--            });-->
+<!--        }-->
+<!--    </script>-->
+
+<!--    <script src="common/jq_print/jQuery.print.min.js"></script>-->
+<!--    <script>-->
+<!--        function printDVR_num(){-->
+
+<!--            $(".print_wrap").print({-->
+<!--                globalStyles: true,-->
+<!--                mediaPrint: false,-->
+<!--                stylesheet: null,-->
+<!--                noPrintSelector: ".no-print",-->
+<!--                iframe: true,-->
+<!--                append: null,-->
+<!--                prepend: null,-->
+<!--                manuallyCopyFormValues: true,-->
+<!--                deferred: $.Deferred(),-->
+<!--                timeout: 750-->
+<!--            });-->
+
+<!--        }-->
+<!--    </script>-->
+
+    <script>
+        function printDVR_num(){
+            // 局部打印
+            // 获取局部打印数据
+            // $("table").css("border","1px,solid,black");
+            // $(".print_zone").css("font-size","5px");
+
+            var newstr = document.getElementById("print_wrap").innerHTML;
+            // 缓存body全部数据
+            var oldstr = document.body.innerHTML;
+            // 将局部数据放入body内
+            document.body.innerHTML = newstr;
+
+            // 页面缩放，此处缩放为50%，不缩放的话页面超出就打印不出来，这个需要自己调试，看自己
+            document.getElementsByTagName('body')[0].style.zoom=0.3;
+
+            // 调用window的打印功能
+            window.print();
+
+            // 打印完成将body数据还回去
+            document.body.innerHTML = oldstr;
+
+            // 将页面缩放调整到最初状态
+            document.getElementsByTagName('body')[0].style.zoom=1;
+            return false;
+        }
+    </script>
+
+    <!-- Bootstrap core JavaScript
+        ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>window.jQuery || document.write('<script src="common/jquery/3.4.1/jquery-3.4.1.min.js"><\/script>')</script>
+    <script src="common/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="common/bootstrap_need/docs.min.js"></script>
+
+    <script src="common/js/dvr_printDVR_num.js"></script>
+
+
+</body>
+</html>

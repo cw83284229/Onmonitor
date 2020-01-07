@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iDPBG智能监控系统</title>
+
+    <script src="../common/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="../common/echarts/run/echarts.min.js"></script>
+    <script src="../common/cors.js"></script>
+
+    <!-- vue -->
+    <script type="text/javascript" src="../common/vue/vue.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../common/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../common/bootstrap_need/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../common/bootstrap_need/theme.css" rel="stylesheet">
+    <!--dashboard theme-->
+    <link href="../common/dashboard/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="../common/font-awesome/css/font-awesome.min.css">
+
+
+    <!--xslx-->
+    <script type="text/javascript" src="../common/js/xlsx.core.min.js"></script>
+
+    <!--jquery-comfirm-->
+    <link rel="stylesheet" href="../common/jqcomf/css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="../common/jqcomf/css/font-awesome.min.css">
+    <script type="text/javascript" src="../common/jqcomf/js/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="../common/jqcomf/js/jquery.form.js"></script>
+
+    <!-- select2 -->
+    <link href="../common/select2/css/select2.min.css" rel="stylesheet" />
+    <script src="../common/select2/js/select2.min.js"></script>
+
+    <!-- pagination -->
+    <script type="text/javascript" src="dcf_js/dcf_pagination.js"></script>
+    <style>
+        .navbar{
+            background-image: url("../common/img/nav_bg.jpg");
+        }
+    </style>
+
+
+</head>
+<body>
+<!--navigation-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../index.html" style="color: white">iDPBG智能监控系统</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">用户账号 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+<!--                        <li style="list-style-type:none"><a href="#">个人信息</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:void(0)" class="my-profile"></a></li>
+<!--                        <li style="list-style-type:none"><a href="#">密码修改</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:changePwd()">修改密码</a></li>
+                        <li style="list-style-type:none"><a href="../../index.html">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<!--content-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="main">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>资料管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../dvr_table.html">主机管理</a></li>
+                        <li style="list-style-type:none"><a href="../camera_table.html">镜头管理</a></li>
+                        <li style="list-style-type:none"><a href="../gate_magnetism/gateMag.html">门磁管理</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>工程管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../project_management/projectAdd_table.html">工程新增</a></li>
+                        <li style="list-style-type:none"><a href="../project_management/projectShift_table.html">工程移位</a></li>
+                        <li style="list-style-type:none"><a href="../project_management/maintainShift_table.html">维护移位</a></li>
+                        <li style="list-style-type:none"><a href="../project_management/maintainRemove_table.html">维护拆除</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>异常管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../abnormality_management/cameraRepair.html">镜头维修</a></li>
+                        <li style="list-style-type:none"><a href="./dvrCheckInfo.html">主机信息异常</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>数据分析</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../dataAnalysis/showDataAnalysis.html">数据分析查看</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>视频查看</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>报表</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#">资产报表</a></li>
+                        <li style="list-style-type:none"><a href="#">异常报表</a></li>
+                        <li style="list-style-type:none"><a href="#">工程报表</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>权限管理</b> <span class="caret"></span></a>
+                    <ul id="permission_manger" class="dropdown-menu" style="display: none">
+                        <li style="list-style-type:none"><a href="../user_manage/user.html">用户管理</a></li>
+                        <li style="list-style-type:none"><a href="../user_manage/role.html">角色管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--密码修改模态框-->
+<!--            <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+<!--                <div class="modal-dialog" role="document">-->
+<!--                    <div class="modal-content">-->
+<!--                        <div class="modal-header">-->
+<!--                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--                            <h4 class="modal-title">修改密码</h4>-->
+<!--                        </div>-->
+<!--                        <div class="modal-body">-->
+<!--                            <form class="form-horizontal">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">原密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">-->
+<!--                                        <span class="help-block"></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">新密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">确认密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="comfirm_pwd" placeholder="请再次输入新密码" required="required">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
+<!--                            <button type="button" class="btn btn-primary" id="pwd_modify_btn">确定</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">修改密码</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">原密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">
+                                        <span id="oldPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">新密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">确认密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="confirm_pwd" placeholder="请再次输入新密码" required="required">
+                                        <span id="confirmPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="pwd_modify_btn" onclick="pwd_modify()">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="sub-header"><b>主机信息异常表</b></h5>
+            <p>
+                <button type="button" class="btn btn-xs btn-primary" onclick="addDCF()"><i class="fa fa-plus" aria-hidden="true"></i> 添加</button>
+                <button type="button" class="btn btn-xs btn-danger" onclick="deleteCheckbox()"><i class="fa fa-trash-o fa-lg"></i> 删除</button>
+                <button type="button" class="btn btn-xs btn-warning" onclick="exportTable()"><i class="fa fa-upload fa-lg" aria-hidden="true"></i> 导出</button>
+                <button type="button" class="btn btn-xs btn-success" onclick="printGateMag()"><i class="fa fa-print fa-lg" aria-hidden="true"></i> 打印</button>
+                <button type="button" class="btn btn-xs btn-info" onclick="dcf_select()"><i class="fa fa-filter" aria-hidden="true"></i> 筛选</button>
+                <button type="button" class="btn btn-xs btn-default" onclick="refreshCurrentPage()"><i class="fa fa-refresh fa-lg" aria-hidden="true"></i> 刷新</button>
+            </p>
+
+            <!--筛选-->
+            <form id="DcfSelect" style="display: none">
+                <span>主机号:&nbsp;<input id="DVR_ID_select" type="text" style="width: 80px" placeholder="主机号..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>序列号:&nbsp;<input id="DVR_SN_select" type="text" style="width: 80px" placeholder="序列号..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>DVR类型:&nbsp;<input id="DVR_type_select" type="text" style="width: 80px" placeholder="DVR类型..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>DVR 通道数量:&nbsp;<input id="DVR_Channel_select" type="text" style="width: 120px" placeholder="DVR 通道数量..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>硬盘总量:&nbsp;<input id="DiskTotal_select" type="text" style="width: 120px" placeholder="硬盘总量..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>备注:&nbsp;<input id="Remark_select" type="text" style="width: 80px" placeholder="备注..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>硬盘信息:&nbsp;<input id="DVRDISK_select" type="text" style="width: 100px" placeholder="硬盘信息..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <br/><br/><span>DVR通道位置信息:&nbsp;<input id="DVRChannelInfo_select" type="text" style="width: 180px" placeholder="DVR通道位置信息..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>Library通道位置信息:&nbsp;<input id="LibraryChannelInfo_select" type="text" style="width: 180px" placeholder="Library通道位置信息..."></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>主机在线状态:&nbsp;
+                <select id="DVR_Online_select">
+                    <option value="">请选择</option>
+                    <option value="true">在线</option>
+                    <option value="false">掉线</option>
+                </select>
+                </span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>异常信息检查:&nbsp;
+                <select id="InfoChenk_select">
+                    <option value="">请选择</option>
+                    <option value="true">已检查</option>
+                    <option value="false">未检查</option>
+                </select>
+                </span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>通道信息异常检查:&nbsp;
+                <select id="ChannelChenk_select">
+                    <option value="">请选择</option>
+                    <option value="true">已检查</option>
+                    <option value="false">未检查</option>
+                </select>
+                </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-xs btn-info" id="DCF_select_btn">完成</button>
+            </form><br/>
+
+            <!-- 表格添加的模态框 -->
+            <div class="modal fade" id="DcfAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">添加主机信息异常</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_ID" class="form-control" id="DVR_ID_add_input" placeholder="主机号" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">序列号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_SN" class="form-control" id="DVR_SN_add_input" placeholder="序列号" required="required">
+                                        <span id="host_id_help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DVR类型</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_TYPE" class="form-control" id="DVR_TYPE_add_input" placeholder="DVR类型" required="required">
+                                        <span id="alarm_id_help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DVR通道数量</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_CH_NUM" class="form-control" id="DVR_CH_NUM_add_input" placeholder="DVR通道数量">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">硬盘信息(TB)</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="HD_INFO" class="form-control" id="HD_INFO_add_input" placeholder="硬盘信息(TB)">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DVR通道位置信息</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_CH_LOC_INFO" class="form-control" id="DVR_CH_LOC_INFO_add_input" placeholder="DVR通道位置信息">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Library通道位置信息</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="Library_CH_LOC" class="form-control" id="Library_CH_LOC_add_input" placeholder="Library通道位置信息">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机在线状态</label>
+                                    <div class="col-sm-10">
+                                        <select id="DVR_ON_ST_add_input" name="DVR_ON_ST">-->
+                                            <option value="">请选择</option>
+                                            <option value="true">在线</option>
+                                            <option value="false">掉线</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">异常信息检查</label>
+                                    <div class="col-sm-10">
+                                        <select id="abnormal_info_add_input" name="abnormal_info">-->
+                                            <option value="">请选择</option>
+                                            <option value="true">已检查</option>
+                                            <option value="false">未检查</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                        <label class="col-sm-2 control-label">硬盘总量(TB)</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="HD_AL" class="form-control" id="HD_AL_add_input" placeholder="硬盘总量(TB)">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">通道信息异常检查</label>
+                                    <div class="col-sm-10">
+                                        <select id="CH_INFO_AN_add_input" name="CH_INFO_AN">-->
+                                            <option value="">请选择</option>
+                                            <option value="true">已检查</option>
+                                            <option value="false">未检查</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">备注</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="remark_add" class="form-control" id="remark_add_input" placeholder="备注">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="dcf_save_btn">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 表格修改的模态框 -->
+            <div class="modal fade" id="DcfUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">修改主机信息异常</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_ID" class="form-control" id="DVR_ID" placeholder="主机号" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">序列号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_SN" class="form-control" id="DVR_SN" placeholder="序列号" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DVR类型</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_TYPE" class="form-control" id="DVR_TYPE" placeholder="DVR类型" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DVR通道数量</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="DVR_CH_NUM" class="form-control" id="DVR_CH_NUM" placeholder="DVR通道数量">
+                                    </div>
+                                </div>
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">硬盘信息(TB)</label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" name="HD_INFO" class="form-control" id="HD_INFO" placeholder="硬盘信息(TB)">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">DVR通道位置信息</label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" name="DVR_CH_LOC_INFO" class="form-control" id="DVR_CH_LOC_INFO" placeholder="DVR通道位置信息">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">Library通道位置信息</label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" name="Library_CH_LOC" class="form-control" id="Library_CH_LOC" placeholder="Library通道位置信息">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机在线状态</label>
+                                    <div class="col-sm-10">
+                                        <select id="DVR_ON_ST" name="DVR_ON_ST">-->
+                                            <option value="">请选择</option>
+                                            <option value="true">在线</option>
+                                            <option value="false">掉线</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">异常信息检查</label>
+                                    <div class="col-sm-10">
+                                        <select id="abnormal_info" name="abnormal_info">-->
+                                            <option value="">请选择</option>
+                                            <option value="true">已检查</option>
+                                            <option value="false">未检查</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">硬盘总量(TB)</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="HD_AL" class="form-control" id="HD_AL" placeholder="硬盘总量(TB)">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">通道信息异常检查</label>
+                                    <div class="col-sm-10">
+                                        <select id="CH_INFO_AN" name="CH_INFO_AN">-->
+                                            <option value="">请选择</option>
+                                            <option value="true">已检查</option>
+                                            <option value="false">未检查</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">备注</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="remark" class="form-control" id="remark" placeholder="备注">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="dcf_update_btn">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive print_wrap" id="result">
+                <table id="LAY-EXPORT-TEST" class="table table-condensed table-hover">
+                    <thead>
+                    <tr>
+                        <td class="no-print"><input type="checkbox" id="checkall"></td>
+                        <td align="center" style=" white-space:nowrap">序号</td>
+                        <td align="center" style=" white-space:nowrap">主机号</td>
+                        <td align="center" style=" white-space:nowrap">序列号</td>
+                        <td align="center" style=" white-space:nowrap">DVR类型</td>
+                        <td align="center" style=" white-space:nowrap">DVR通道<br/>数量</td>
+<!--                        <td align="center" style=" white-space:nowrap">硬盘<br/>信息(TB)</td>-->
+                        <td align="center" style=" white-space:nowrap">主机<br/>在线状态</td>
+                        <td align="center" style=" white-space:nowrap">异常<br/>信息检查</td>
+                        <td align="center" style=" white-space:nowrap">硬盘<br/>总量(TB)</td>
+                        <td align="center" style=" white-space:nowrap">通道信息<br/>异常检查</td>
+                        <td align="center" style=" white-space:nowrap">备注</td>
+
+                        <td class="no-print">编辑</td>
+                    </tr>
+                    </thead>
+                    <tbody id="checklist">
+                    </tbody>
+                </table>
+
+                <div id="pagination_module" class="no-print modal-footer">
+                    <button class="btn-purple" id="firstPage">首页</button>&#160;&#160;&#160;
+                    <button class="btn-purple" id="previous">上一页</button>&#160;&#160;&#160;
+                    第<input type="text" id="index" value="1"  size="1" >页&#160;&#160;&#160;
+                    <button class="btn-purple" id="next">下一页</button>&#160;&#160;&#160;
+                    <button id="last">尾页</button>
+                    <div id="pageCount" style="display: inline-block"></div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script>window.jQuery || document.write('<script src="../common/jquery/3.4.1/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="../common/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../common/bootstrap_need/docs.min.js"></script>
+
+<!--新增-->
+<script type="text/javascript" src="dcf_js/dcf_TableSave.js"></script>
+<script>
+    function addDCF() {
+        $("#DcfAddModal form")[0].reset();
+        $("#DcfAddModal").modal({
+            backdrop:"static"
+        });
+
+        $('#DVR_ON_ST_add_input').select2();
+        $('#abnormal_info_add_input').select2();
+        $('#CH_INFO_AN_add_input').select2();
+
+    }
+</script>
+
+<!--修改-->
+<script type="text/javascript" src="dcf_js/dcf_modify.js"></script>
+<script type="text/javascript">
+    function DCF_Modify(obj){
+
+        $('#DVR_ON_ST').val('');
+        $('#abnormal_info').val('');
+        $("#CH_INFO_AN").val('');
+
+        //获取所选列的id值
+        var tr_id=obj.closest("tr").getAttribute("id");
+        getDCF(tr_id);
+        $("#DcfUpdateModal").modal({
+            backdrop:"static"
+        });
+
+    }
+</script>
+
+<!-- excel导出 -->
+<script src="../common/js/excel.js"></script>
+<script>
+    function exportTable() {
+        // 获取头部和body
+        var data = LAY_EXCEL.tableToJson(document.getElementById('LAY-EXPORT-TEST')) // 或者 $('#LAY-EXPORT-TEST')
+        // console.log(data)
+        var exportData = []
+        exportData.push.apply(exportData, data.head);
+        exportData.push.apply(exportData, data.body);
+        // console.log(exportData)
+
+        LAY_EXCEL.exportExcel(exportData, '主机异常信息表导出.xlsx', 'xlsx')
+    }
+</script>
+
+<!--删除-->
+<link rel="stylesheet" href="../common/other/del_conf/qikoo.css">
+<script src="../common/other/del_conf/qikoo.js"></script>
+<script type="text/javascript" src="dcf_js/dcf_checkbox.js"></script>
+<script type="text/javascript">
+    function deleteCheckbox() {
+        var items = document.getElementsByClassName('cb');
+        var len = items.length;
+        for (var i=len-1;i>=0;i--){
+            var is_checked = items[i].checked;
+            if (is_checked){
+                var divItem = items[i].parentNode.parentNode;
+                //获取id值
+                var rowId = divItem.getAttribute("id");
+                qikoo.dialog.confirm('您确定删除选中的记录吗？',function(){
+                    //发送ajax请求删除
+                    divItem.parentNode.removeChild(divItem);
+                    //此处要添加ajax回传删除参数
+                    $.ajax({
+                        url:host+'app/dVRCheckInfo/'+rowId,
+                        type:'delete',
+                        success: function () {
+                            //删除之后刷新当前页面
+                            // $.dialog({
+                            //     title: '删除成功!',
+                            //     content: '',
+                            // });
+                            // setTimeout(function(){location.reload();},500);
+                            var d = $.dialog({
+                                title: '删除成功!',
+                                content: '',
+                            });
+                            setTimeout(function () {
+                                d.close().remove();
+                            }, 500);
+                        },
+                        error: function () {
+                            $.dialog({
+                                title: '删除失败!',
+                                content: '',
+                            });
+                        }
+                    });
+                },function(){
+                    $("#checklist").find('input').each(function(){
+                        $(this).removeAttr("checked",false);
+                        $(this).prop("checked",false); // 根据官方的建议：具有 true 和 false 两个属性的属性，如 checked, selected 或者 disabled 使用prop()，其他的使用 attr()
+                    });
+                });
+            }
+        }
+    };
+</script>
+
+<script>
+    function refreshCurrentPage() {
+        location.reload();
+    }
+</script>
+
+<!--print-->
+<script>
+    function printGateMag(){
+        // 局部打印
+        // 获取局部打印数据
+        $(".no-print").css("display","none");
+
+        var newstr = document.getElementById("result").innerHTML;
+        // 缓存body全部数据
+        var oldstr = document.body.innerHTML;
+        // 将局部数据放入body内
+        document.body.innerHTML = newstr;
+
+        // 页面缩放，此处缩放为50%，不缩放的话页面超出就打印不出来，这个需要自己调试，看自己
+        document.getElementsByTagName('body')[0].style.zoom=0.5;
+
+        // 调用window的打印功能
+        window.print();
+        window.location.reload();
+
+        // 打印完成将body数据还回去
+        document.body.innerHTML = oldstr;
+
+        // 将页面缩放调整到最初状态
+        document.getElementsByTagName('body')[0].style.zoom=1;
+        return false;
+    }
+</script>
+
+<!--筛选-->
+<script src="dcf_js/dcf_select.js"></script>
+<script>
+    function dcf_select() {
+        //弹出模态框
+        document.getElementById("DcfSelect").reset();
+        $("#DcfSelect").removeAttr("style","display:none");
+    }
+</script>
+
+</body>
+</html>

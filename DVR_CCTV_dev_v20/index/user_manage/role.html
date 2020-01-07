@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iDPBG智能监控系统</title>
+
+    <script src="../common/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="../common/echarts/run/echarts.min.js"></script>
+    <script src="../common/cors.js"></script>
+
+    <!-- vue -->
+    <script type="text/javascript" src="../common/vue/vue.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../common/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../common/bootstrap_need/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../common/bootstrap_need/theme.css" rel="stylesheet">
+    <!--dashboard theme-->
+    <link href="../common/dashboard/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="../common/font-awesome/css/font-awesome.min.css">
+
+
+    <!--xslx-->
+    <script type="text/javascript" src="../common/js/xlsx.core.min.js"></script>
+
+    <!--jquery-comfirm-->
+    <link rel="stylesheet" href="../common/jqcomf/css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="../common/jqcomf/css/font-awesome.min.css">
+    <script type="text/javascript" src="../common/jqcomf/js/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="../common/jqcomf/js/jquery.form.js"></script>
+
+    <!-- select2 -->
+    <link href="../common/select2/css/select2.min.css" rel="stylesheet" />
+    <script src="../common/select2/js/select2.min.js"></script>
+
+    <!-- pagination -->
+    <script type="text/javascript" src="role_lib/role_page.js"></script>
+    <style>
+        .navbar{
+            background-image: url("../common/img/nav_bg.jpg");
+        }
+    </style>
+
+
+</head>
+<body>
+<!--navigation-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../index.html" style="color: white">iDPBG智能监控系统</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">用户账号 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <!--                        <li style="list-style-type:none"><a href="#">个人信息</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:void(0)" class="my-profile"></a></li>
+                        <!--                        <li style="list-style-type:none"><a href="#">密码修改</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:changePwd()">修改密码</a></li>
+                        <li style="list-style-type:none"><a href="../../index.html">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<!--content-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="main">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>资料管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../dvr_table.html">主机管理</a></li>
+                        <li style="list-style-type:none"><a href="../camera_table.html">镜头管理</a></li>
+                        <li style="list-style-type:none"><a href="../gate_magnetism/gateMag.html">门磁管理</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>工程管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../project_management/projectAdd_table.html">工程新增</a></li>
+                        <li style="list-style-type:none"><a href="../project_management/projectShift_table.html">工程移位</a></li>
+                        <li style="list-style-type:none"><a href="../project_management/maintainShift_table.html">维护移位</a></li>
+                        <li style="list-style-type:none"><a href="../project_management/maintainRemove_table.html">维护拆除</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>异常管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../abnormality_management/cameraRepair.html">镜头维修</a></li>
+                        <li style="list-style-type:none"><a href="../abnormality_management/dvrCheckInfo.html">主机信息异常</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>数据分析</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="../dataAnalysis/showDataAnalysis.html">数据分析查看</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>视频查看</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>报表</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#">资产报表</a></li>
+                        <li style="list-style-type:none"><a href="#">异常报表</a></li>
+                        <li style="list-style-type:none"><a href="#">工程报表</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>权限管理</b> <span class="caret"></span></a>
+                    <ul id="permission_manger" class="dropdown-menu" style="display: none">
+                        <li style="list-style-type:none"><a href="../user_manage/user.html">用户管理</a></li>
+                        <li style="list-style-type:none"><a href="../user_manage/role.html">角色管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--密码修改模态框-->
+<!--            <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+<!--                <div class="modal-dialog" role="document">-->
+<!--                    <div class="modal-content">-->
+<!--                        <div class="modal-header">-->
+<!--                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--                            <h4 class="modal-title">修改密码</h4>-->
+<!--                        </div>-->
+<!--                        <div class="modal-body">-->
+<!--                            <form class="form-horizontal">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">原密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">-->
+<!--                                        <span class="help-block"></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">新密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">确认密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="comfirm_pwd" placeholder="请再次输入新密码" required="required">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
+<!--                            <button type="button" class="btn btn-primary" id="pwd_modify_btn">确定</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">修改密码</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">原密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">
+                                        <span id="oldPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">新密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">确认密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="confirm_pwd" placeholder="请再次输入新密码" required="required">
+                                        <span id="confirmPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="pwd_modify_btn" onclick="pwd_modify()">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="sub-header"><b>角色表</b></h5>
+            <p>
+                <button type="button" class="btn btn-xs btn-primary" onclick="addRole()"><i class="fa fa-plus" aria-hidden="true"></i> 添加</button>
+                <button type="button" class="btn btn-xs btn-danger" onclick="deleteRole()"><i class="fa fa-trash-o fa-lg"></i> 删除</button>
+<!--                <button type="button" class="btn btn-xs btn-danger" onclick="setRole()"><i class="fa fa-server fa-lg"></i> 权限设定</button>-->
+<!--                <button type="button" class="btn btn-xs btn-info" onclick="setRole()"><i class="fa fa-server fa-lg"></i> 权限设定</button>-->
+<!--                <button type="button" class="btn btn-xs btn-warning" onclick="cancelRole()"><i class="fa fa-eraser fa-lg"></i> 权限取消</button>-->
+            </p>
+
+            <!-- 角色修改的模态框 -->
+            <div class="modal fade" id="roleUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">修改角色</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">角色名</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="role_name" class="form-control" id="role_name" placeholder="请输入角色名" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="role_update_btn">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 角色添加的模态框 -->
+            <div class="modal fade" id="roleAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">角色添加</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">角色名称</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="role_addName" class="form-control" id="role_addName" placeholder="请输入角色名称">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="role_save_btn">添加</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--            角色权限设定模态框-->
+            <div class="modal fade" id="setRoleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">设定角色权限</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">角色名称</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="role_name_addSet" class="form-control" id="role_name_addSet" placeholder="请输入角色名称">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">权限名称</label>
+                                    <div class="col-sm-10">
+                                        <select id="role_permission_name" name="role_permission_name">
+                                            <option value="">请选择</option>
+                                            <option value="CCTV_VideoViewing">查看监控</option>
+                                            <option value="CCTV_Modification">修改资料库资料</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="role_permission_set">设定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--            角色权限取消模态框-->
+            <div class="modal fade" id="cancelUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">取消角色权限</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">角色名称</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="userID" class="form-control" id="userID_cancelSet" placeholder="请输入角色名称">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">权限名称</label>
+                                    <div class="col-sm-10">
+                                        <select id="permission_cancel" name="permission_cancel">
+                                            <option value="">请选择</option>
+                                            <option value="CCTV_VideoViewing">查看监控</option>
+                                            <option value="CCTV_Modification">修改资料库资料</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="cancelRole_permission">取消权限</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="table-responsive print_wrap" id="result">
+                <table id="LAY-EXPORT-TEST" class="table table-condensed table-hover">
+                    <thead>
+                    <tr>
+                        <td class="no-print"><input type="checkbox" id="checkall"></td>
+                        <td align="center" style=" white-space:nowrap">序号</td>
+                        <td align="center" style=" white-space:nowrap">角色ID</td>
+                        <td align="center" style=" white-space:nowrap">角色名称</td>
+                        <td align="center" style=" white-space:nowrap">设定<br/>权限</td>
+                        <td align="center" style=" white-space:nowrap">取消<br/>权限</td>
+                        <td class="no-print">编辑</td>
+                    </tr>
+                    </thead>
+                    <tbody id="checklist">
+                    </tbody>
+                </table>
+
+                <div id="pagination_module" class="no-print modal-footer">
+                    <button class="btn-purple" id="firstPage">首页</button>&#160;&#160;&#160;
+                    <button class="btn-purple" id="previous">上一页</button>&#160;&#160;&#160;
+                    第<input type="text" id="index" value="1"  size="1" >页&#160;&#160;&#160;
+                    <button class="btn-purple" id="next">下一页</button>&#160;&#160;&#160;
+                    <button id="last">尾页</button>
+                    <div id="pageCount" style="display: inline-block"></div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+<!--新增模态框model frame-->
+<script type="text/javascript" src="role_lib/role_TableSave.js"></script>
+<script>
+    function addRole() {
+        $("#roleAddModal form")[0].reset();
+        $("#roleAddModal").modal({
+            backdrop:"static"
+        });
+    }
+</script>
+
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script>window.jQuery || document.write('<script src="../common/jquery/3.4.1/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="../common/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../common/bootstrap_need/docs.min.js"></script>
+
+<!--修改-->
+<script type="text/javascript" src="role_lib/role_modify.js"></script>
+<script type="text/javascript">
+    function role_Modify(obj){
+
+        //获取所选列的id值
+        var tr_id=obj.closest("tr").getAttribute("id");
+        getRole(tr_id);
+        $("#roleUpdateModal").modal({
+            backdrop:"static"
+        });
+
+    }
+</script>
+
+
+<!-- 删除 -->
+<!--checkbox-->
+<link rel="stylesheet" href="../common/other/del_conf/qikoo.css">
+<script src="../common/other/del_conf/qikoo.js"></script>
+<script type="text/javascript" src="../common/js/checkbox.js"></script>
+<script type="text/javascript">
+    function deleteRole() {
+        var items = document.getElementsByClassName('cb');
+        var len = items.length;
+        for (var i=len-1;i>=0;i--){
+            var is_checked = items[i].checked;
+            if (is_checked){
+                var divItem = items[i].parentNode.parentNode;
+                //获取id值
+                var rowId = divItem.getAttribute("id");
+                qikoo.dialog.confirm('您确定删除该角色吗？',function(){
+                    $.ajax({
+                        url:host+'identity/roles/'+rowId,
+                        type:'delete',
+                        success: function () {
+                            divItem.parentNode.removeChild(divItem);
+                            //删除之后刷新当前页面
+                            // $.dialog({
+                            //     title: '删除成功!',
+                            //     content: '',
+                            // });
+                            // setTimeout(function(){location.reload();},500);
+                            var d = $.dialog({
+                                title: '删除成功!',
+                                content: '',
+                            });
+                            setTimeout(function () {
+                                d.close().remove();
+                            }, 500);
+                        },
+                        error: function () {
+                            $.dialog({
+                                title: '删除失败!',
+                                content: '',
+                            });
+                        }
+                    });
+
+                },function(){
+                    $("#checklist").find('input').each(function(){
+
+                        $(this).removeAttr("checked",false);
+
+                        $(this).prop("checked",false); // 根据官方的建议：具有 true 和 false 两个属性的属性，如 checked, selected 或者 disabled 使用prop()，其他的使用 attr()
+
+                    });
+                });
+            }
+        }
+    };
+</script>
+
+<!--操作用临时数组-->
+<script>
+    var arr_tmp = [];
+</script>
+<script src="role_lib/role_qx_edit.js"></script>
+<!--设定角色权限-->
+<script>
+    function role_set(obj) {
+        $("#role_permission_name").val('');
+        $("#role_permission_name").select2();
+
+        $("#setRoleModal form")[0].reset();
+
+        var user_id=obj.closest("tr").getAttribute("id");
+        arr_tmp.push(user_id);
+
+        $("#setRoleModal").modal({
+            backdrop:"static"
+        });
+    }
+</script>
+<!--取消角色权限-->
+<script>
+    function role_cancel(obj) {
+        $("#permission_cancel").val('');
+        $("#permission_cancel").select2();
+
+        var user_id=obj.closest("tr").getAttribute("id");
+        arr_tmp.push(user_id);
+
+        $("#cancelUserModal").modal({
+            backdrop:"static"
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iDPBG智能监控系统</title>
+
+    <!--jquery-->
+    <script src="common/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="common/cors.js"></script>
+
+    <!--ztree-->
+    <link rel="stylesheet" href="common/ztree/css/demo.css" type="text/css">
+    <link rel="stylesheet" href="common/ztree/css/metroStyle/metroStyle.css" type="text/css">
+    <script type="text/javascript" src="common/ztree/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="common/ztree/cam_customTree.js"></script>
+
+    <!--vue-->
+    <script type="text/javascript" src="common/vue/vue.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="common/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="common/bootstrap_need/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="common/bootstrap_need/theme.css" rel="stylesheet">
+    <!--dashboard theme-->
+    <link href="common/dashboard/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="./common/font-awesome/css/font-awesome.min.css">
+
+    <!--xslx-->
+    <script type="text/javascript" src="common/js/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="common/js/xls_cam.js"></script>
+
+    <!--jquery-comfirm-->
+    <link rel="stylesheet" href="common/jqcomf/css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="common/jqcomf/css/font-awesome.min.css">
+    <script type="text/javascript" src="common/jqcomf/js/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="common/jqcomf/js/jquery.form.js"></script>
+
+    <!-- select2 -->
+    <link href="common/select2/css/select2.min.css" rel="stylesheet" />
+    <script src="common/select2/js/select2.min.js"></script>
+
+    <!-- pagination -->
+    <script type="text/javascript" src="common/js/cam_pagination.js"></script>
+    <style>
+        .navbar{
+            background-image: url("common/img/nav_bg.jpg");
+        }
+    </style>
+
+</head>
+<body>
+<!--navigation-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html" style="color: white">iDPBG智能监控系统</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">用户账号 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+<!--                        <li style="list-style-type:none"><a href="#">个人信息</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:void(0)" class="my-profile"></a></li>
+<!--                        <li style="list-style-type:none"><a href="#">密码修改</a></li>-->
+                        <li style="list-style-type:none"><a href="javascript:changePwd()">修改密码</a></li>
+                        <li style="list-style-type:none"><a href="../index.html">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<!--content-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar left">
+            <!--search navbar-->
+            <!--                <form>-->
+            <!--                    <input type="text" class="form-control input-sm" placeholder="搜索...">-->
+            <!--                    <button type="submit" class="btn btn-success btn-xs">搜索</button>-->
+            <!--                </form>-->
+            <h5><b><span id="time"></span></b></h5>
+            <h5><b>镜头总数: <span id="cam_total" style="color: blue"></span>路</b></h5>
+            </br>
+            <!--此处放Ztree-->
+            <ul id="treeDemo" class="ztree"></ul>
+
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>资料管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="dvr_table.html">主机管理</a></li>
+                        <li style="list-style-type:none"><a href="#">镜头管理</a></li>
+                        <li style="list-style-type:none"><a href="./gate_magnetism/gateMag.html">门磁管理</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>工程管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="project_management/projectAdd_table.html">工程新增</a></li>
+                        <li style="list-style-type:none"><a href="project_management/projectShift_table.html">工程移位</a></li>
+                        <li style="list-style-type:none"><a href="project_management/maintainShift_table.html">维护移动</a></li>
+                        <li style="list-style-type:none"><a href="project_management/maintainRemove_table.html">维护拆除</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>异常管理</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="abnormality_management/cameraRepair.html">镜头维修</a></li>
+                        <li style="list-style-type:none"><a href="abnormality_management/dvrCheckInfo.html">主机信息异常</a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>数据分析</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="dataAnalysis/showDataAnalysis.html">数据分析查看</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>视频查看</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                        <li style="list-style-type:none"><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>报表</b> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="list-style-type:none"><a href="#">资产报表</a></li>
+                        <li style="list-style-type:none"><a href="#">异常报表</a></li>
+                        <li style="list-style-type:none"><a href="#">工程报表</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>权限管理</b> <span class="caret"></span></a>
+                    <ul id="permission_manger" class="dropdown-menu" style="display: none">
+                        <li style="list-style-type:none"><a href="./user_manage/user.html">用户管理</a></li>
+                        <li style="list-style-type:none"><a href="./user_manage/role.html">角色管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h5 class="sub-header"><b>镜头表</b></h5>
+            <p>
+                <button type="button" class="btn btn-xs btn-primary" id="cam_add_modal_btn"><i class="fa fa-plus" aria-hidden="true"></i> 添加</button>
+                <button type="button" class="btn btn-xs btn-danger" onclick="deleteCheckbox()"><i class="fa fa-trash-o fa-lg"></i> 删除</button>
+                <input type="file" id="file" style="display:none;" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                <button type="button" class="btn btn-xs btn-warning" onclick="selectFile()"><i class="fa fa-download fa-lg" aria-hidden="true"></i> 导入</button>
+                <button type="button" class="btn btn-xs btn-warning" onclick="exportTable()"><i class="fa fa-upload fa-lg" aria-hidden="true"></i> 导出</button>
+                <button type="button" class="btn btn-xs btn-warning" onclick="exportTableAll()"><i class="fa fa-upload fa-lg" aria-hidden="true"></i> 导出全部</button>
+                <button type="button" class="btn btn-xs btn-success" onclick="printCam()"><i class="fa fa-print fa-lg" aria-hidden="true"></i> 打印</button>
+                <button type="button" class="btn btn-xs btn-info" onclick="refreshCurrentPage()"><i class="fa fa-refresh fa-lg" aria-hidden="true"></i> 刷新</button>
+            </p>
+            <p class="text-right">
+                <span>主机:&nbsp;<input id="camDvr_id_select" type="text" style="width: 80px" placeholder="主机号..."></span>&nbsp;&nbsp;
+                <span>镜头:&nbsp;<input id="cam_id_select" type="text" style="width: 80px" placeholder="镜头编号..."></span>&nbsp;&nbsp;
+                <span>楼栋:&nbsp;<input id="build_select" type="text" style="width: 80px" placeholder="楼栋..."></span>&nbsp;&nbsp;
+                <span>楼层:&nbsp;<input id="floor_select" type="text" style="width: 80px" placeholder="楼层..."></span>&nbsp;&nbsp;
+                <span>位置:&nbsp;<input id="location_select" type="text" style="width: 150px" placeholder="位置..."></span>&nbsp;&nbsp;
+                <button type="button" class="btn btn-xs btn-success" id="select_search"><i class="fa fa-filter" aria-hidden="true"></i> 筛选</button>
+            </p>
+
+            <!--密码修改模态框-->
+<!--            <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+<!--                <div class="modal-dialog" role="document">-->
+<!--                    <div class="modal-content">-->
+<!--                        <div class="modal-header">-->
+<!--                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--                            <h4 class="modal-title">修改密码</h4>-->
+<!--                        </div>-->
+<!--                        <div class="modal-body">-->
+<!--                            <form class="form-horizontal">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">原密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">-->
+<!--                                        <span class="help-block"></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">新密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-sm-2 control-label">确认密码: </label>-->
+<!--                                    <div class="col-sm-10">-->
+<!--                                        <input type="text" class="form-control" id="comfirm_pwd" placeholder="请再次输入新密码" required="required">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
+<!--                            <button type="button" class="btn btn-primary" id="pwd_modify_btn">确定</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="modal fade" id="pwdUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">修改密码</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">原密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="old_pwd" placeholder="请输入原密码" required="required">
+                                        <span id="oldPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">新密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="new_pwd" placeholder="请输入6-20位字母、数字组合、特殊字符组成的密码" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">确认密码: </label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="confirm_pwd" placeholder="请再次输入新密码" required="required">
+                                        <span id="confirmPwd_help_block" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="pwd_modify_btn" onclick="pwd_modify()">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 表格修改的模态框 -->
+            <div class="modal fade" id="camUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">镜头修改</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group" style="display: none">
+                                    <label class="col-sm-2 control-label" style="display: none">ID</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="id" class="form-control" id="id_input" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">监控室</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="moni_room" class="form-control" id="moni_room" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dvr_id" class="form-control" id="dvr_id" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">通道号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="channel_id" class="form-control" id="channel_id" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">镜头号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="cam_id" class="form-control" id="cam_id" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">楼栋</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="build" class="form-control" id="build" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">楼层</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="floor_modify" class="form-control" id="floor_modify" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">方向</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="direct" class="form-control" id="direct" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">位置</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="location" class="form-control" id="location" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">镜头类型</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="cam_type" class="form-control" id="cam_type" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">部门</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dept" class="form-control" id="dept" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">费用代码</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="cost_code" class="form-control" id="cost_code" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">安装时间</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="inst_time" class="form-control" id="inst_time" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">设备厂商</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="manu" class="form-control" id="manu" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">安装厂商</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="catg" class="form-control" id="catg" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">报警号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="alarm" class="form-control" id="alarm" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">备注</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="remark_modify" class="form-control" id="remark_modify" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="cam_update_btn">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 表格添加的模态框 -->
+            <div class="modal fade" id="camAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">添加镜头</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">监控室</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="moniRoom" class="form-control" id="moniRoom_add_input" placeholder="监控室">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">主机号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dvR_ID" class="form-control" id="dvR_ID_add_input" placeholder="主机号">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">通道号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="channel_ID" class="form-control" id="channel_ID_add_input" placeholder="通道号">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">镜头编号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="camera_ID" class="form-control" id="camera_ID_add_input" placeholder="镜头编号 - 必须填写">
+                                        <span id="cam_help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">覆盖楼栋</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="build" class="form-control" id="build_add_input" placeholder="覆盖楼栋">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">覆盖楼层</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="floor_add" class="form-control" id="floor_add_input" placeholder="覆盖楼层">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">方向</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="direction" class="form-control" id="direction_add_input" placeholder="方向">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">位置</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="location" class="form-control" id="location_add_input" placeholder="位置">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">镜头类型</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="camera_Tpye" class="form-control" id="camera_Tpye_add_input" placeholder="镜头类型">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">部门</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="department" class="form-control" id="department_add_input" placeholder="部门">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">费用代码</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="cost_code" class="form-control" id="cost_code_add_input" placeholder="费用代码">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">安装时间</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="install_time" class="form-control" id="install_time_add_input" placeholder="安装时间">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">安装厂商</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="manufacturer" class="form-control" id="manufacturer_add_input" placeholder="安装厂商">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">设备厂商</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="category" class="form-control" id="category_type_add_input" placeholder="设备厂商">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">报警编号</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="alarm_ID" class="form-control" id="alarm_ID_add_input" placeholder="报警编号">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">备注</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="remark_add" class="form-control" id="remark_add_input" placeholder="备注">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="cam_save_btn">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- loading模态框 -->
+            <div id="wait" style="display:none;width:69px;height:89px;border:0px solid black;position:absolute;top:90%;left:30%;padding:2px;"><img src='abnormality_management/js/busy.gif' width="64" height="64" /><br>上传中...</div>
+
+            <!--                表内容-->
+            <div class="table-responsive print_wrap" id="result">
+                <table id="LAY-EXPORT-TEST" class="table table-condensed table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <td></td>
+                        <td class="no-print"><input type="checkbox" id="checkall"></td>
+                        <td align="center">序号</td>
+                        <td align="center">监控室</td>
+                        <td align="center">主机号</td>
+                        <td align="center">通道号</td>
+                        <td align="center">镜头</br>编号</td>
+                        <td align="center">楼栋</td>
+                        <td align="center">楼层</td>
+                        <td align="center">方向</td>
+                        <td align="center">位置</td>
+                        <td align="center">镜头<br/>类型</td>
+                        <td align="center">部门</td>
+                        <td align="center">费用</br>代码</td>
+                        <td align="center">安装</br>时间</td>
+                        <td align="center">安装</br>厂商</td>
+                        <!--                            <td align="center">报警</br>编号</td>-->
+                        <td align="center">备注</td>
+                        <td class="no-print" align="center">修改</br>时间</td>
+                        <td class="no-print">镜头<br/>状态</td>
+                        <td class="no-print">编辑</td>
+                    </tr>
+                    </thead>
+                    <tbody id="checklist">
+                    </tbody>
+                </table>
+                <div id="pagination_module" class="no-print modal-footer">
+                    <button class="btn-purple" id="firstPage">首页</button>&#160;&#160;&#160;
+                    <button class="btn-purple" id="previous">上一页</button>&#160;&#160;&#160;
+                    第<input type="text" id="index" value="1"  size="1" >页&#160;&#160;&#160;
+                    <button class="btn-purple" id="goPage">跳转</button>&#160;&#160;&#160;
+                    <button class="btn-purple" id="next">下一页</button>&#160;&#160;&#160;
+                    <button id="last">尾页</button>
+                    <div id="pageCount" style="display: inline-block"></div>
+                </div>
+                <div id="select_pagination_module" class="no-print modal-footer">
+                    <button class="btn-purple" id="select_firstPage">首页</button>&#160;&#160;&#160;
+                    <button class="btn-purple" id="select_previous">上一页</button>&#160;&#160;&#160;
+                    第<input type="text" id="select_index" value="1"  size="1" >页&#160;&#160;&#160;
+                    <button class="btn-purple" id="select_next">下一页</button>&#160;&#160;&#160;
+                    <button id="select_last">尾页</button>
+                    <div id="select_pageCount" style="display: inline-block"></div>
+                </div>
+                <div id="tree_pagination_module" class="no-print modal-footer">
+                    <button class="btn-purple" onclick="tree_firstPage()">首页</button>&#160;&#160;&#160;
+                    <button class="btn-purple" onclick="tree_previous()">上一页</button>&#160;&#160;&#160;
+                    <!--                        第<input type="text" id="tree_index" value="1"  size="1" >页&#160;&#160;&#160;-->
+                    第<span id="tree_index"></span>页&#160;&#160;&#160;
+                    <button class="btn-purple" onclick="tree_next()">下一页</button>&#160;&#160;&#160;
+                    <button onclick="tree_last()">尾页</button>
+                    <div id="tree_pageCount" style="display: inline-block"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+
+<!--print-->
+<script>
+    function printCam(){
+        // 局部打印
+        // 获取局部打印数据
+        $(".no-print").css("display","none");
+
+        var newstr = document.getElementById("result").innerHTML;
+        // 缓存body全部数据
+        var oldstr = document.body.innerHTML;
+        // 将局部数据放入body内
+        document.body.innerHTML = newstr;
+
+        // 页面缩放，此处缩放为50%，不缩放的话页面超出就打印不出来，这个需要自己调试，看自己
+        document.getElementsByTagName('body')[0].style.zoom=0.5;
+
+        // 调用window的打印功能
+        window.print();
+
+        window.location.reload();
+
+        // 打印完成将body数据还回去
+        document.body.innerHTML = oldstr;
+
+        // 将页面缩放调整到最初状态
+        document.getElementsByTagName('body')[0].style.zoom=1;
+        return false;
+    }
+</script>
+<!--<script src="common/jq_print/jQuery.print.min.js"></script>-->
+<!--<script>-->
+<!--    function printCam() {-->
+<!--        $(".print_wrap").print({-->
+<!--            globalStyles: true,-->
+<!--            mediaPrint: false,-->
+<!--            stylesheet: null,-->
+<!--            noPrintSelector: ".no-print",-->
+<!--            iframe: true,-->
+<!--            append: null,-->
+<!--            prepend: null,-->
+<!--            manuallyCopyFormValues: true,-->
+<!--            deferred: $.Deferred(),-->
+<!--            timeout: 750-->
+<!--        });-->
+<!--    }-->
+<!--</script>-->
+
+<!--model frame-->
+<script type="text/javascript" src="common/js/cam_table_add_save.js"></script>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script>window.jQuery || document.write('<script src="common/jquery/3.4.1/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="common/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="common/bootstrap_need/docs.min.js"></script>
+
+<!--checkbox-->
+<link rel="stylesheet" href="common/other/del_conf/qikoo.css">
+<script src="common/other/del_conf/qikoo.js"></script>
+<script type="text/javascript" src="common/js/cam_checkbox.js"></script>
+<!--delete-->
+<script type="text/javascript">
+    function deleteCheckbox() {
+        var items = document.getElementsByClassName('cb');
+        var len = items.length;
+        for (var i=len-1;i>=0;i--){
+            var is_checked = items[i].checked;
+            if (is_checked){
+                var divItem = items[i].parentNode.parentNode;
+                //获取id值
+                var userId = divItem.getAttribute("id");
+                //此处要添加ajax回传删除参数
+
+                qikoo.dialog.confirm('您确定删除选中的记录吗？',function(){
+                    //发送ajax请求删除
+                    divItem.parentNode.removeChild(divItem);
+                    //此处要添加ajax回传删除参数
+                    $.ajax({
+                        url:host+'app/camera/'+userId,
+                        type:'delete',
+                        success: function () {
+                            // $.dialog({
+                            //     title: '删除成功!',
+                            //     content: '',
+                            // });
+                            //删除之后刷新当前页面
+                            // setTimeout(function(){location.reload();},500);
+                            var d = $.dialog({
+                                title: '删除成功!',
+                                content: '',
+                            });
+                            setTimeout(function () {
+                                d.close().remove();
+                            }, 500);
+                        },
+                        error: function () {
+                            $.dialog({
+                                title: '删除失败!',
+                                content: '',
+                            });
+                        }
+                    });
+
+                },function(){
+                    $("#checklist").find('input').each(function(){
+
+                        $(this).removeAttr("checked",false);
+
+                        $(this).prop("checked",false); // 根据官方的建议：具有 true 和 false 两个属性的属性，如 checked, selected 或者 disabled 使用prop()，其他的使用 attr()
+
+                    });
+                });
+            }
+        }
+    }
+</script>
+
+<!--修改 cam_modal_table_modify.js-->
+<script type="text/javascript" src="common/js/cam_modal_table_modify.js"></script>
+<script type="text/javascript">
+    function cam_Modify(obj){
+        //获取所选列的id值
+        var tr_id=obj.closest("tr").getAttribute("id");
+        console.log(tr_id);
+        getCam(tr_id);
+        //弹出模态框
+        $("#camUpdateModal").modal({
+            backdrop:"static"
+        });
+    }
+</script>
+
+<!-- excel导出 -->
+<script src="common/js/excel.js"></script>
+<script>
+    function exportTable() {
+        // 获取头部和body
+        var data = LAY_EXCEL.tableToJson(document.getElementById('LAY-EXPORT-TEST')) // 或者 $('#LAY-EXPORT-TEST')
+        // console.log(data)
+        var exportData = []
+        exportData.push.apply(exportData, data.head)
+        exportData.push.apply(exportData, data.body)
+        // console.log(exportData)
+
+        LAY_EXCEL.exportExcel(exportData, '镜头表导出.xlsx', 'xlsx')
+    }
+</script>
+
+<!--查看状态-->
+<script>
+    function showVideo(obj) {
+        var cam_id=obj.closest("tr").getAttribute("id");
+
+        $.ajax({
+            url: host+'app/camera/'+cam_id,
+            type: 'get',
+            success: function (cam_dat) {
+                var cam_id = cam_dat.camera_ID;
+                window.open(host+'Camera/GetChannelPicture?Camera_ID='+cam_id,'','top=250,left=650,width=450,height=400');
+                // getCamStaPam(cam_dat)
+            },
+            error: function () {
+                $.dialog({
+                    title: '状态请求失败',
+                    content: '',
+                });
+            }
+        })
+
+        // window.location.href = 'camera_showStatus.html?id='+cam_id;
+    }
+
+    // function getCamStaPam(cam_dat) {
+    //     var channel = cam_dat.channel_ID;
+    //     var dvrId = cam_dat.dvR_ID;
+    //
+    //     $.ajax({
+    //         url: host+'app/dVR/byCondition?DVR_ID='+dvrId,
+    //         type: 'get',
+    //         success: function (dv_dat) {
+    //             getCamStaPic(dv_dat,channel)
+    //         }
+    //     })
+    // }
+    //
+    // function getCamStaPic(dv_dat,channel) {
+    //
+    //     var ip = dv_dat.items[0].dvR_IP;
+    //     var name = dv_dat.items[0].dvR_usre;
+    //     var pwd = dv_dat.items[0].dvR_possword;
+    //     var chan_id = channel;
+    //
+    //     window.open('http://172.30.116.49:8000/api/DVRClannel/GetChannelPicture?DVR_IP='+ip+'&DVR_Name='+name+'&DVR_PassWord='+pwd+'&ChannelID='+chan_id,'','top=250,left=650,width=450,height=400');
+    //
+    // }
+</script>
+
+<!--    筛选-->
+<script src="./common/js/cam_select.js"></script>
+<script type="text/javascript">
+
+    function getCurrentTime(){
+        // //获取到当前的系统时间
+        // var date = new Date();
+        // //把当前系统时间拼装成我指定的格式。
+        // var weekdays = ['日','一','二','三','四','五','六'];
+        // timeStr += '星期'+ weekdays[date.getDay()] + '  ';
+        // var timeInfo =  date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日 "+
+        //     date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+        //
+        // //找span对象
+        // var  spanObj = document.getElementById("time");
+        // //设置span标签体的内容
+        // spanObj.innerHTML = timeInfo.fontcolor("#2B2B2B");
+        var date = new Date();
+        var timeStr = date.getFullYear() +'年';
+        var month = date.getMonth() + 1;
+        timeStr += month < 10 ? '0':'' ;  //判断获得的月份时候是两位数不是在前面补零.三元条件运算符 - 问号前面的条件如果成立取冒号前面的值否则取冒号后面的值
+        timeStr += month +'月';
+        var day = date.getDate();
+        timeStr += day < 10 ? '0': '';
+        timeStr += day + '日  ';
+        // var weekdays = ['日','一','二','三','四','五','六'];
+        // timeStr += '星期'+ weekdays[date.getDay()] + '  ';
+        var hour = date.getHours();
+        timeStr += hour <10 ? '0':'';
+        timeStr += hour + ':';
+        var minute = date.getMinutes();
+        timeStr +=minute < 10 ? '0':'';
+        timeStr +=minute
+        // var second = date.getSeconds();
+        // timeStr += second < 10 ? '0': '';
+        // timeStr += second ;
+        $('#time').text(timeStr);//修改类名为timer的文本内容
+    }
+
+    getCurrentTime();
+
+    //定时方法.
+    window.setInterval("getCurrentTime()",1000); /* setInterval   定时方法，第一个参数要指定调用的代码，第二参数是每                                                隔指定的毫秒数调用指定的代码。*/
+
+
+</script>
+<script>
+    function exportTableAll() {
+        window.location.href= host+"Camera/OutExcel";
+    }
+</script>
+<script>
+    function refreshCurrentPage() {
+        location.reload();
+    }
+</script>
+
+</body>
+</html>
