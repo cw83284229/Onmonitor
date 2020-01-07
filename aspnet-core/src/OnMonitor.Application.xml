@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OnMonitor.Application</name>
+    </assembly>
+    <members>
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsList(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            分页查询数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsListByCondition(OnMonitor.MonitorRepair.QueryCondition,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            按条件查询
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByDVRID(System.String)">
+            <summary>
+            通道主机号搜索数据库
+            </summary>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByCameraID(System.String)">
+            <summary>
+            通过镜头好搜索数据库
+            </summary>
+            <param name="CameraID">镜头号</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByBuild(System.String)">
+            <summary>
+            通过楼栋搜索数据库
+            </summary>
+            <param name="Build"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByFloor(System.String,System.String)">
+            <summary>
+            通过楼层搜索数据库
+            </summary>
+            <param name="Build"></param>
+            <param name="Floor"></param>
+            <param name="Floors"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByCondition(OnMonitor.Monitor.CameraCondition,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            监控镜头多条件查询
+            </summary>
+            <param name="condition"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.PostList(System.Collections.Generic.List{OnMonitor.Monitor.UpdateCameraDto})">
+            <summary>
+            list多项目导入
+            </summary>
+            <param name="cameraDtos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetDVRCameraTotalAsync">
+            <summary>
+            获取主机/镜头按监控室分类数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetDVROnlineTotal">
+            <summary>
+            获取在线DVR数量
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

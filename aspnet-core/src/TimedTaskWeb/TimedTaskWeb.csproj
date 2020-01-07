@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Quartz" Version="3.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnMonitor.Application\OnMonitor.Application.csproj" />
+    <ProjectReference Include="..\OnMonitor.Domain.Shared\OnMonitor.Domain.Shared.csproj" />
+    <ProjectReference Include="..\OnMonitor.EntityFrameworkCore.DbMigrations\OnMonitor.EntityFrameworkCore.DbMigrations.csproj" />
+  </ItemGroup>
+
+</Project>

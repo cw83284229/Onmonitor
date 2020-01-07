@@ -1,0 +1,1209 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OnMonitor.Application.Contracts</name>
+    </assembly>
+    <members>
+        <member name="M:OnMonitor.Common.Excel.ExcelHelper.DataTableToExcel(System.Data.DataTable,System.String,System.String,System.Boolean)">
+            <summary>
+            将DataTable数据导入到excel中
+            </summary>
+            <param name="data">要导入的数据</param>
+            <param name="fileName">写入的目标Excel的完整名称</param>
+            <param name="isColumnWritten">DataTable的列名是否要导入</param>
+            <param name="sheetName">要导入的excel的sheet的名称</param>
+            <returns>导入数据行数(包含列名那一行)</returns>
+        </member>
+        <member name="M:OnMonitor.Common.Excel.ExcelHelper.ExcelToDataTable(System.String,System.String,System.Boolean)">
+            <summary>
+            将excel中的数据导入到DataTable中
+            </summary>
+            <param name="fileName">读取的Excel的完整名称</param>
+            <param name="sheetName">excel工作薄sheet的名称</param>
+            <param name="isFirstRowColumn">第一行是否是DataTable的列名</param>
+            <returns>返回的DataTable</returns>
+        </member>
+        <member name="M:OnMonitor.Common.Excel.ExcelHelper.ExcelToDataTable(System.IO.Stream,System.String,System.String,System.Boolean)">
+            <summary>
+            把Excel的stream导入到表
+            </summary>
+            <param name="fs"></param>
+            <param name="fileName"></param>
+            <param name="sheetName"></param>
+            <param name="isFirstRowColumn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Common.Excel.ExcelHelper.OutputExcel(System.Collections.Generic.List{NPOI.SS.Formula.Functions.T},System.String[])">
+            <summary>
+            使用实体数据导出
+            </summary>
+            <param name="entitys"></param>
+            <param name="title"></param>
+            <returns></returns>
+        </member>
+        <member name="T:OnMonitor.Common.Excel.ImportExcelUtil`1">
+            <summary>
+            Excel导入帮助类
+            </summary>
+        </member>
+        <!-- 对于成员“M:OnMonitor.Common.Excel.ImportExcelUtil`1.InputExcel(Microsoft.AspNetCore.Http.IFormFile,System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:OnMonitor.Common.Excel.ImportExcelUtil`1.InputExcel(System.String,System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:OnMonitor.Common.Excel.ImportExcelUtil`1.InputExcel(System.IO.Stream,System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="P:OnMonitor.Monitor.AlarmDto.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.AlarmHost_ID">
+            <summary>
+            报警主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.Alarm_ID">
+            <summary>
+            报警主机编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.GeteType">
+            <summary>
+            门岗类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.SensorType">
+            <summary>
+            传感器类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.category">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.IsAlertor">
+            <summary>
+            有无报警器
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.IsOpenOrClosed">
+            <summary>
+            是否开岗
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.AlarmHost_ID">
+            <summary>
+            报警主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.Alarm_ID">
+            <summary>
+            报警主机编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.GeteType">
+            <summary>
+            门岗类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.SensorType">
+            <summary>
+            传感器类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.category">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.IsAlertor">
+            <summary>
+            有无报警器
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.IsOpenOrClosed">
+            <summary>
+            是否开岗
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraCondition.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraCondition.channel_ID">
+            <summary>
+            通道号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraCondition.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraCondition.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraCondition.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraCondition.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraCondition.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraCondition.MonitorClassification">
+            <summary>
+            监控分类
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraCondition.Camera_Tpye">
+            <summary>
+            镜头类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraCondition.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.channel_ID">
+            <summary>
+            通道号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.MonitorClassification">
+            <summary>
+            监控分类
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.Camera_Tpye">
+            <summary>
+            镜头类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.manufacturer">
+            <summary>
+            设备厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.category">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.Alarm_ID">
+            <summary>
+            报警号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.CameraDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.ProjectManageType">
+            <summary>
+            工程变更类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.ProjectName">
+            <summary>
+            工程名称
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.ProjectOrder">
+            <summary>
+            工程单号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.StartWorkDate">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.CompleteDate">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.AcceptanceData">
+            <summary>
+            验收时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.ManufacturerName">
+            <summary>
+            施工厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.ProjectSpecifications">
+            <summary>
+            工程说明
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.Build">
+            <summary>
+            改造楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.Floor">
+            <summary>
+            改造楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.Camera_ID">
+            <summary>
+            镜头编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.AcceptanceResult">
+            <summary>
+            验收结果说明
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.channel_ID">
+            <summary>
+            通道号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.MonitorClassification">
+            <summary>
+            监控分类
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.Camera_Tpye">
+            <summary>
+            镜头类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.manufacturer">
+            <summary>
+            设备厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.category">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.Alarm_ID">
+            <summary>
+            报警号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateCameraDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCameraDto.Factory">
+            <summary>
+            厂区
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCameraDto.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCameraDto.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCameraDto.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCameraDto.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCameraDto.CameraID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.DVR_SN">
+            <summary>
+            序列号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.DVR_type">
+            <summary>
+            DVR类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.DVR_Channel">
+            <summary>
+            DVR 通道数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.DVRDISK">
+            <summary>
+            硬盘信息？josn类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.DVRChannelInfo">
+            <summary>
+            DVR通道位置信息?josn类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.LibraryChannelInfo">
+            <summary>
+            Libtaty通道位置信息?josn类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.DVR_Online">
+            <summary>
+            主机在线状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.InfoChenk">
+            <summary>
+            异常信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.DiskTotal">
+            <summary>
+            硬盘总量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.ChannelChenk">
+            <summary>
+            通道信息异常检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.Factory">
+            <summary>
+            厂区
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.Camera_build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.Camera_foor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.Home_server">
+            <summary>
+            归属服务器
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.Hard_drive">
+            <summary>
+            硬盘容量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.DVR_IP">
+            <summary>
+            主机IP
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.DVR_port">
+            <summary>
+            主机端口
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.DVR_usre">
+            <summary>
+            DVR账户
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.DVR_possword">
+            <summary>
+            DVR密码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.Manufacturer">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.DVR_type">
+            <summary>
+            DVR类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.DVR_SN">
+            <summary>
+            设备SN
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.DVR_Channel">
+            <summary>
+            DVR 通道数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.DVR_SN">
+            <summary>
+            序列号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.DVR_type">
+            <summary>
+            DVR类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.DVR_Channel">
+            <summary>
+            DVR 通道数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.DVRDISK">
+            <summary>
+            硬盘信息？josn类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.DVRChannelInfo">
+            <summary>
+            DVR通道位置信息?josn类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.LibraryChannelInfo">
+            <summary>
+            Libtaty通道位置信息?josn类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.DVR_Online">
+            <summary>
+            主机在线状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.InfoChenk">
+            <summary>
+            异常信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.DiskTotal">
+            <summary>
+            硬盘总量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.ChannelChenk">
+            <summary>
+            通道信息异常检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRCheckInfoDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.Factory">
+            <summary>
+            厂区
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.Camera_build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.Camera_foor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.Home_server">
+            <summary>
+            归属服务器
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.Hard_drive">
+            <summary>
+            硬盘容量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.DVR_IP">
+            <summary>
+            主机IP
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.DVR_port">
+            <summary>
+            主机端口
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.DVR_usre">
+            <summary>
+            DVR账户
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.DVR_possword">
+            <summary>
+            DVR密码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.Manufacturer">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.DVR_type">
+            <summary>
+            DVR类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.DVR_SN">
+            <summary>
+            设备SN
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.DVR_Channel">
+            <summary>
+            DVR 通道数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateDVRDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ReportFormsDto.DVRRoom">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ReportFormsDto.DVRTotal">
+            <summary>
+            主机总数
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ReportFormsDto.DVROnLine">
+            <summary>
+            在线主机
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ReportFormsDto.DVRAnomaly">
+            <summary>
+            异常主机
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ReportFormsDto.CameraTotal">
+            <summary>
+            镜头总数
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ReportFormsDto.RepairTotal">
+            <summary>
+            维修总数
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ReportFormsDto.CameraAnomaly">
+            <summary>
+            异常总数
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.DVR_Room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.channel_ID">
+            <summary>
+            通道号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Camera_Tpye">
+            <summary>
+            镜头类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.manufacturer">
+            <summary>
+            设备厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.AnomalyTime">
+            <summary>
+            异常时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.CollectTime">
+            <summary>
+            统计时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.AnomalyType">
+            <summary>
+            异常类别
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.AnomalyGrade">
+            <summary>
+            异常等级
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Registrar">
+            <summary>
+            统计人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.RepairState">
+            <summary>
+            修复状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.RepairedTime">
+            <summary>
+            修复时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Accendant">
+            <summary>
+            维修人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.RepairDetails">
+            <summary>
+            维修内容
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.RepairFirm">
+            <summary>
+            厂商维修
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Supervisor">
+            <summary>
+            监工确认
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.ReplacePart">
+            <summary>
+            更换配件
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.ProjectAnomaly">
+            <summary>
+            工程异常
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.NoSignal">
+            <summary>
+            灰屏确认
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.DVR_Room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.AnomalyTime">
+            <summary>
+            异常时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.CollectTime">
+            <summary>
+            统计时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.AnomalyType">
+            <summary>
+            异常类别
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.AnomalyGrade">
+            <summary>
+            异常等级
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.Registrar">
+            <summary>
+            统计人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.RepairState">
+            <summary>
+            修复状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.RepairedTime">
+            <summary>
+            修复时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.Accendant">
+            <summary>
+            维修人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.RepairDetails">
+            <summary>
+            维修内容
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.RepairFirm">
+            <summary>
+            厂商维修
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.Supervisor">
+            <summary>
+            监工确认
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.ReplacePart">
+            <summary>
+            更换配件
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.ProjectAnomaly">
+            <summary>
+            工程异常
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.NoSignal">
+            <summary>
+            灰屏确认
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.AnomalyTime">
+            <summary>
+            异常时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.CollectTime">
+            <summary>
+            统计时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.AnomalyType">
+            <summary>
+            异常类别
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.AnomalyGrade">
+            <summary>
+            异常等级
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.Registrar">
+            <summary>
+            统计人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.RepairState">
+            <summary>
+            修复状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.RepairedTime">
+            <summary>
+            修复时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.Accendant">
+            <summary>
+            维修人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.RepairDetails">
+            <summary>
+            维修内容
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.RepairFirm">
+            <summary>
+            厂商维修
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.Supervisor">
+            <summary>
+            监工确认
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.ReplacePart">
+            <summary>
+            更换配件
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.ProjectAnomaly">
+            <summary>
+            工程异常
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.NoSignal">
+            <summary>
+            灰屏确认
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="M:cctvsystem.Common.Excel.ListToDataTable.toDataTable``1(System.Collections.Generic.List{``0})">
+            <summary>
+            傳入list轉換為DataTable
+            </summary>
+            <typeparam name="T">泛型類別</typeparam>
+            <param name="data">數據源</param>
+            <returns></returns>
+        </member>
+        <member name="M:cctvsystem.Common.Excel.ListToDataTable.tolist``1(System.Data.DataTable)">
+            <summary>
+            DataTable 轉換為list
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

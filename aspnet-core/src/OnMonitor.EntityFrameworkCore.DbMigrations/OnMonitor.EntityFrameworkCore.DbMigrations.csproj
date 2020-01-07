@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>OnMonitor</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20191212072041_test.cs" />
+    <Compile Remove="Migrations\20191212072041_test.Designer.cs" />
+    <Compile Remove="Migrations\20191212072753_update.cs" />
+    <Compile Remove="Migrations\20191212072753_update.Designer.cs" />
+    <Compile Remove="Migrations\20191212073437_test.cs" />
+    <Compile Remove="Migrations\20191212073437_test.Designer.cs" />
+    <Compile Remove="Migrations\20191212073940_test.cs" />
+    <Compile Remove="Migrations\20191212073940_test.Designer.cs" />
+    <Compile Remove="Migrations\20191212080050_CreateDVRCheckInfo.cs" />
+    <Compile Remove="Migrations\20191212080050_CreateDVRCheckInfo.Designer.cs" />
+    <Compile Remove="Migrations\20191213021620_CreateCheckInfo.cs" />
+    <Compile Remove="Migrations\20191213021620_CreateCheckInfo.Designer.cs" />
+    <Compile Remove="Migrations\20191219065956_CreateAlarms.cs" />
+    <Compile Remove="Migrations\20191219065956_CreateAlarms.Designer.cs" />
+    <Compile Remove="Migrations\20191223014732_Create Alarm.cs" />
+    <Compile Remove="Migrations\20191223014732_Create Alarm.Designer.cs" />
+    <Compile Remove="OnMonitoring\Migrations\20191113021456_UpdateAll.cs" />
+    <Compile Remove="OnMonitoring\Migrations\20191113021456_UpdateAll.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnMonitor.EntityFrameworkCore\OnMonitor.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0" />
+  </ItemGroup>
+
+</Project>

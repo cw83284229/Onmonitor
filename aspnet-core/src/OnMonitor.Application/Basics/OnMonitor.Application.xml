@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OnMonitor.Application</name>
+    </assembly>
+    <members>
+        <member name="M:Service.DVRInfoService.GetChannelName(System.String)">
+            <summary>
+            异步获取通道名称
+            </summary>
+            <param name="CameraID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsList(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            分页查询数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsListByCondition(OnMonitor.MonitorRepair.QueryCondition,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            按条件筛选
+            </summary>
+            <param name="condition">条件</param>
+            <param name="input">分页</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.CreateAsync(OnMonitor.MonitorRepair.UpdateCameraRepairDto)">
+            <summary>
+            重写新增表，增加简体转繁体功能
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.UpdateAsync(System.Int32,OnMonitor.MonitorRepair.UpdateCameraRepairDto)">
+            <summary>
+            重写修改方法，简体转繁体
+            </summary>
+            <param name="id"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByDVRID(System.String)">
+            <summary>
+            通道主机号搜索数据库
+            </summary>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByCameraID(System.String)">
+            <summary>
+            通过镜头好搜索数据库
+            </summary>
+            <param name="CameraID">镜头号</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByBuild(System.String)">
+            <summary>
+            通过楼栋搜索数据库
+            </summary>
+            <param name="Build"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByFloor(System.String,System.String)">
+            <summary>
+            通过楼层搜索数据库
+            </summary>
+            <param name="Build"></param>
+            <param name="Floor"></param>
+            <param name="Floors"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByCondition(OnMonitor.Monitor.CameraCondition,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            监控镜头多条件查询
+            </summary>
+            <param name="condition"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.PostList(System.Collections.Generic.List{OnMonitor.Monitor.UpdateCameraDto})">
+            <summary>
+            list多项目添加
+            </summary>
+            <param name="cameraDtos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.DVRAppService.GetListByCondition(System.String,System.String,System.String,System.String)">
+            <summary>
+            DVR多条件查询
+            </summary>
+            <param name="Monitoring_room"></param>
+            <param name="Build"></param>
+            <param name="Floor"></param>
+            <param name="DVR_ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(OnMonitor.Monitor.UpdateDVRCheckInfoDto)">
+            <summary>
+            条件查询获取主机信息
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetDVRCameraTotalAsync">
+            <summary>
+            获取主机/镜头/异常镜头按监控室分类数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetDVROnlineTotal">
+            <summary>
+            获取在线DVR数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.UrseJurisdictionService.GramtPermissionForUserAsync(System.Guid,System.String)">
+            <summary>
+            给特定用户设定权限->权限名称1.查看监控"CCTV_VideoViewing"2.修改资料库资料"CCTV_Modification"
+            </summary>
+            <param name="userId">用户GUID</param>
+            <param name="permissionName">权限名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.UrseJurisdictionService.ProhibitPermissionForUserAsync(System.Guid,System.String)">
+            <summary>
+            取消用户特定权限
+            </summary>
+            <param name="userId">用户GUID</param>
+            <param name="permissionName">权限名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.UrseJurisdictionService.GramtPermissionForRoleAsync(System.String,System.String)">
+            <summary>
+            给角色设定权限
+            </summary>
+            <param name="roleName">角色名称</param>
+            <param name="permissionName">权限名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.UrseJurisdictionService.ProhibitPermissionForRoleAsync(System.String,System.String)">
+            <summary>
+            取消角色特定权限
+            </summary>
+            <param name="roleName">角色名称</param>
+            <param name="permissionName">权限名称</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
