@@ -159,6 +159,7 @@ namespace OnMonitor.MonitorRepair
                            LastModificationTime = b.LastModificationTime,
                            LastModifierId = b.LastModifierId,
                        };
+
             #region 维修状态筛选
             if (!string.IsNullOrEmpty(condition.AnomalyTime))
             {

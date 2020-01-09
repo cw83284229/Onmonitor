@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Learun.Util;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.International.Converters.TraditionalChineseToSimplifiedConverter;
 using System;
 using System.Collections.Generic;
@@ -76,46 +77,85 @@ namespace OnMonitor.Monitor
 
         #endregion
 
-        //public async Task<List<TreeViewDto>> GetTreeViewAsync()
+        public List<TreeModelEx<DVRCameraDto>>  GetTreeViewAsync()
 
-        //{
+        {
+            //查询全部数据
+            var data = from c in _dvrrepository
+                       join b in _camerarepository on c.DVR_ID equals b.DVR_ID
+                       select new DVRCameraDto
+                       {
+                           Factory = c.Factory,
+                           Monitoring_room = c.Monitoring_room,
+                           Build = b.Build,
+                           floor = b.floor,
+                           DVR_ID = c.DVR_ID,
+                           CameraID = b.Camera_ID,
+                           Direction = b.Direction,
+                           Location = b.Location
+                       };
 
-        //    var data = from a in _dvrrepository
-        //               join b in _camerarepository on a.DVR_ID equals b.DVR_ID
-        //               select new dvrCameraDto
-        //               {
-        //                   Factory = a.Factory,
-        //                   Monitoring_room = a.Monitoring_room,
-        //                   Camera_build = b.Build,
-        //                   Camera_foor = b.floor,
-        //                   DVR_ID = a.DVR_ID,
-        //                   channel_ID = b.channel_ID,
-        //                   Camera_ID = b.Camera_ID,
-        //                   Location = b.Direction + b.Location
-        //               };
+            List<TreeModelEx<DVRCameraDto>> treeModels = new List<Learun.Util.TreeModelEx<DVRCameraDto>>();
+
+ 
+            foreach (var item in data)
+            {
+                if (treeModels.Where(u=>u.id==item.Factory).FirstOrDefault()==null)//加载厂区
+                {
+                    TreeModelEx<DVRCameraDto> treeModel1 = new TreeModelEx<DVRCameraDto>();
+                    treeModel1.id = item.Factory;
+                    treeModel1.parentId = "0";
+                
+                    treeModels.Add(treeModel1);
+                }
+                if (treeModels.Where(u => u.id == item.Monitoring_room).FirstOrDefault() == null)//加载监控室
+                {
+                    TreeModelEx<DVRCameraDto> treeModel1 = new TreeModelEx<DVRCameraDto>();
+                    treeModel1.id = item.Monitoring_room;
+                    treeModel1.parentId = item.Factory;
+                 
+                    treeModels.Add(treeModel1);
+                }
+
+                if (treeModels.Where(u => u.id ==$"{item.Build}-{item.floor}").FirstOrDefault() == null)//加载楼层
+                {
+                    TreeModelEx<DVRCameraDto> treeModel1 = new TreeModelEx<DVRCameraDto>();
+                    treeModel1.id = $"{item.Build}-{item.floor}";
+                    treeModel1.parentId = item.Monitoring_room;
+
+                    treeModels.Add(treeModel1);
+                }
+
+                if (treeModels.Where(u => u.id == item.DVR_ID).FirstOrDefault() == null)//加载主机
+                {
+                    TreeModelEx<DVRCameraDto> treeModel1 = new TreeModelEx<DVRCameraDto>();
+                    treeModel1.id = item.DVR_ID;
+                    treeModel1.parentId =$"{item.Build}-{item.floor}";
+                   
+                    treeModels.Add(treeModel1);
+                }
+                if (treeModels.Where(u => u.id == item.CameraID).FirstOrDefault() == null)//加载镜头
+                {
+                    TreeModelEx<DVRCameraDto> treeModel1 = new TreeModelEx<DVRCameraDto>();
+                    treeModel1.id = item.CameraID;
+                    treeModel1.parentId =item.DVR_ID;
+                    treeModel1.data = item;
+                    treeModels.Add(treeModel1);
+                }
+
+            }
+
+          
 
 
 
+            treeModels = treeModels.ToTree();
 
 
-        //    List<TreeViewDto> treeViewdata = new List<TreeViewDto>();
-        //    foreach (var item in data)
-        //    {
-        //        TreeViewDto tree = new TreeViewDto();
-        //        tree.name = item.Factory;
-        //        tree.id = item.;
-
-        //        treeViewdata.Add(tree);
-        //    }
+            return treeModels;
 
 
-
-
-
-
-
-
-        //}
+        }
 
         #region 重写增/改方法，增加简繁转换
         [Authorize("CCTV_Modification")]

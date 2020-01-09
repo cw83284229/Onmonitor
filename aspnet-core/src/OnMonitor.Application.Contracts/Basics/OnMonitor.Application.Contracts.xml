@@ -4,6 +4,26 @@
         <name>OnMonitor.Application.Contracts</name>
     </assembly>
     <members>
+        <member name="M:OnMonitor.Common.DynamicLinq.CreateLambdaParam``1(System.String)">
+            <summary>
+            创建lambda中的参数,即c=>c.xxx==xx 中的c
+            </summary>
+        </member>
+        <member name="M:OnMonitor.Common.DynamicLinq.GenerateBody``1(System.Linq.Expressions.ParameterExpression,OnMonitor.Common.Filter)">
+            <summary>
+            创建linq表达示的body部分,即c=>c.xxx==xx 中的c.xxx==xx
+            </summary>
+        </member>
+        <member name="M:OnMonitor.Common.DynamicLinq.GenerateLambda(System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建完整的lambda,即c=>c.xxx==xx
+            </summary>
+        </member>
+        <member name="M:OnMonitor.Common.DynamicLinq.GenerateTypeLambda``1(System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建完整的lambda，为了兼容EF中的where语句
+            </summary>
+        </member>
         <member name="M:OnMonitor.Common.Excel.ExcelHelper.DataTableToExcel(System.Data.DataTable,System.String,System.String,System.Boolean)">
             <summary>
             将DataTable数据导入到excel中
@@ -13,6 +33,16 @@
             <param name="isColumnWritten">DataTable的列名是否要导入</param>
             <param name="sheetName">要导入的excel的sheet的名称</param>
             <returns>导入数据行数(包含列名那一行)</returns>
+        </member>
+        <member name="M:OnMonitor.Common.Excel.ExcelHelper.ListtoExcel``1(System.String,System.Collections.Generic.List{``0},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            list转Excel
+            </summary>
+            <typeparam name="T">传入list 类型 </typeparam>
+            <param name="SheetName">sheet名称</param>
+            <param name="list">list集合</param>
+            <param name="FiedNames">名称序列</param>
+            <returns></returns>
         </member>
         <member name="M:OnMonitor.Common.Excel.ExcelHelper.ExcelToDataTable(System.String,System.String,System.Boolean)">
             <summary>
@@ -522,6 +552,16 @@
         <member name="P:OnMonitor.Monitor.DVRCameraDto.CameraID">
             <summary>
             镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCameraDto.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCameraDto.Location">
+            <summary>
+            位置
             </summary>
         </member>
         <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.DVR_ID">

@@ -40,6 +40,19 @@ namespace OnMonitor.Monitor
         /// 镜头号
         /// </summary>
         public string CameraID { get; set; }
+        /// <summary>
+        /// 方向
+        /// </summary>
+
+
+        public string Direction { get; set; }
+
+        /// <summary>
+        /// 位置
+        /// </summary>
+
+
+        public string Location { get; set; }
 
     }
 }
