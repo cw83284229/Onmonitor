@@ -45,8 +45,8 @@ namespace OnMonitor.MonitorRepair
         public async Task<PagedResultDto<CameraRepairDto>> GetRepairsList(PagedAndSortedResultRequestDto input)
         {
 
-            var cameras = await _camerarepository.GetListAsync();
-            var cameraRepair = await _cameraRepairrepository.GetListAsync();
+          //  var cameras = await _camerarepository.GetListAsync();
+          //  var cameraRepair = await _cameraRepairrepository.GetListAsync();
             //加载CameraDto
             var data = from a in _camerarepository
                        join b in _cameraRepairrepository on a.Camera_ID equals b.Camera_ID
@@ -102,7 +102,7 @@ namespace OnMonitor.MonitorRepair
             return new PagedResultDto<CameraRepairDto>()
 
             {
-                TotalCount = cameraRepairDtos.Count(),
+                TotalCount = data.Count(),
                 Items = cameraRepairDtos
             };
         }
@@ -119,8 +119,8 @@ namespace OnMonitor.MonitorRepair
         public async Task<PagedResultDto<CameraRepairDto>> GetRepairsListByCondition(QueryCondition condition, PagedAndSortedResultRequestDto input)
         {
 
-            var cameras = await _camerarepository.GetListAsync();
-            var cameraRepair = await _cameraRepairrepository.GetListAsync();
+          //  var cameras = await _camerarepository.GetListAsync();
+          //  var cameraRepair = await _cameraRepairrepository.GetListAsync();
             //加载CameraDto
             var data = from a in _camerarepository
                        join b in _cameraRepairrepository on a.Camera_ID equals b.Camera_ID
@@ -255,7 +255,7 @@ namespace OnMonitor.MonitorRepair
             return new PagedResultDto<CameraRepairDto>()
 
             {
-                TotalCount = cameraRepairDtos.Count(),
+                TotalCount = data.Count(),
                 Items = cameraRepairDtos
             };
         }

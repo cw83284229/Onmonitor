@@ -22,7 +22,7 @@ namespace Learun.Util
         /// <summary>
         /// 数据
         /// </summary>
-        public T data { get; set; }
+        public string  data { get; set; }
         /// <summary>
         /// 子节点列表数据
         /// </summary>

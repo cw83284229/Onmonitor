@@ -77,27 +77,33 @@ namespace OnMonitor.Monitor
 
         #endregion
 
-        public List<TreeModelEx<DVRCameraDto>>  GetTreeViewAsync()
+        /// <summary>
+        /// 获取DVR/Camera数据树形结构
+        /// </summary>
+        /// <returns></returns>
+        public string  GetTreeViewAsync()
 
         {
+            var cameradata = _camerarepository.GetList();
             //查询全部数据
             var data = from c in _dvrrepository
-                       join b in _camerarepository on c.DVR_ID equals b.DVR_ID
+                     // join b in _camerarepository on c.DVR_ID equals b.DVR_ID
                        select new DVRCameraDto
                        {
                            Factory = c.Factory,
                            Monitoring_room = c.Monitoring_room,
-                           Build = b.Build,
-                           floor = b.floor,
+                           Build = c.Camera_build,
+                           floor = c.Camera_foor,
                            DVR_ID = c.DVR_ID,
-                           CameraID = b.Camera_ID,
-                           Direction = b.Direction,
-                           Location = b.Location
+                           //CameraID = b.Camera_ID,
+                           //Direction = b.Direction,
+                           //Location = b.Location
                        };
 
             List<TreeModelEx<DVRCameraDto>> treeModels = new List<Learun.Util.TreeModelEx<DVRCameraDto>>();
 
- 
+            List<Tree> trees = new List<Tree>();
+             //循环加载树形
             foreach (var item in data)
             {
                 if (treeModels.Where(u=>u.id==item.Factory).FirstOrDefault()==null)//加载厂区
@@ -105,16 +111,16 @@ namespace OnMonitor.Monitor
                     TreeModelEx<DVRCameraDto> treeModel1 = new TreeModelEx<DVRCameraDto>();
                     treeModel1.id = item.Factory;
                     treeModel1.parentId = "0";
-                
                     treeModels.Add(treeModel1);
+
                 }
                 if (treeModels.Where(u => u.id == item.Monitoring_room).FirstOrDefault() == null)//加载监控室
                 {
                     TreeModelEx<DVRCameraDto> treeModel1 = new TreeModelEx<DVRCameraDto>();
                     treeModel1.id = item.Monitoring_room;
                     treeModel1.parentId = item.Factory;
-                 
                     treeModels.Add(treeModel1);
+
                 }
 
                 if (treeModels.Where(u => u.id ==$"{item.Build}-{item.floor}").FirstOrDefault() == null)//加载楼层
@@ -122,8 +128,8 @@ namespace OnMonitor.Monitor
                     TreeModelEx<DVRCameraDto> treeModel1 = new TreeModelEx<DVRCameraDto>();
                     treeModel1.id = $"{item.Build}-{item.floor}";
                     treeModel1.parentId = item.Monitoring_room;
-
                     treeModels.Add(treeModel1);
+
                 }
 
                 if (treeModels.Where(u => u.id == item.DVR_ID).FirstOrDefault() == null)//加载主机
@@ -131,28 +137,32 @@ namespace OnMonitor.Monitor
                     TreeModelEx<DVRCameraDto> treeModel1 = new TreeModelEx<DVRCameraDto>();
                     treeModel1.id = item.DVR_ID;
                     treeModel1.parentId =$"{item.Build}-{item.floor}";
-                   
+                    var camed = cameradata.Where(u => u.DVR_ID == item.DVR_ID);//获取镜头信息
+                    List<string> vs = new List<string>();
+                    //镜头信息拼装
+                    //foreach (var tem in camed)
+                    //{
+                    //    string str = $"{tem.Camera_ID} {tem.Build}-{tem.floor} {tem.Direction}{tem.Location}";
+                    //    vs.Add(str);
+                    //}
+                    //treeModel1.data = Newtonsoft.Json.JsonConvert.SerializeObject(vs);
                     treeModels.Add(treeModel1);
-                }
-                if (treeModels.Where(u => u.id == item.CameraID).FirstOrDefault() == null)//加载镜头
-                {
-                    TreeModelEx<DVRCameraDto> treeModel1 = new TreeModelEx<DVRCameraDto>();
-                    treeModel1.id = item.CameraID;
-                    treeModel1.parentId =item.DVR_ID;
-                    treeModel1.data = item;
-                    treeModels.Add(treeModel1);
-                }
 
+                }
             }
-
-          
-
-
-
+            //调用递归加载
             treeModels = treeModels.ToTree();
 
 
-            return treeModels;
+            var dadd = from c in treeModels
+                       select new { c.ChildNodes, c.id };
+
+
+
+            string requst = Newtonsoft.Json.JsonConvert.SerializeObject(dadd);
+
+
+            return requst;
 
 
         }

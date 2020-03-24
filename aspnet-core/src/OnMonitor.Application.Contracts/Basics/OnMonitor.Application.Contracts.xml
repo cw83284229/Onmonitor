@@ -4,81 +4,6 @@
         <name>OnMonitor.Application.Contracts</name>
     </assembly>
     <members>
-        <member name="M:OnMonitor.Common.DynamicLinq.CreateLambdaParam``1(System.String)">
-            <summary>
-            创建lambda中的参数,即c=>c.xxx==xx 中的c
-            </summary>
-        </member>
-        <member name="M:OnMonitor.Common.DynamicLinq.GenerateBody``1(System.Linq.Expressions.ParameterExpression,OnMonitor.Common.Filter)">
-            <summary>
-            创建linq表达示的body部分,即c=>c.xxx==xx 中的c.xxx==xx
-            </summary>
-        </member>
-        <member name="M:OnMonitor.Common.DynamicLinq.GenerateLambda(System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.Expression)">
-            <summary>
-            创建完整的lambda,即c=>c.xxx==xx
-            </summary>
-        </member>
-        <member name="M:OnMonitor.Common.DynamicLinq.GenerateTypeLambda``1(System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.Expression)">
-            <summary>
-            创建完整的lambda，为了兼容EF中的where语句
-            </summary>
-        </member>
-        <member name="M:OnMonitor.Common.Excel.ExcelHelper.DataTableToExcel(System.Data.DataTable,System.String,System.String,System.Boolean)">
-            <summary>
-            将DataTable数据导入到excel中
-            </summary>
-            <param name="data">要导入的数据</param>
-            <param name="fileName">写入的目标Excel的完整名称</param>
-            <param name="isColumnWritten">DataTable的列名是否要导入</param>
-            <param name="sheetName">要导入的excel的sheet的名称</param>
-            <returns>导入数据行数(包含列名那一行)</returns>
-        </member>
-        <member name="M:OnMonitor.Common.Excel.ExcelHelper.ListtoExcel``1(System.String,System.Collections.Generic.List{``0},System.Collections.Generic.Dictionary{System.String,System.String})">
-            <summary>
-            list转Excel
-            </summary>
-            <typeparam name="T">传入list 类型 </typeparam>
-            <param name="SheetName">sheet名称</param>
-            <param name="list">list集合</param>
-            <param name="FiedNames">名称序列</param>
-            <returns></returns>
-        </member>
-        <member name="M:OnMonitor.Common.Excel.ExcelHelper.ExcelToDataTable(System.String,System.String,System.Boolean)">
-            <summary>
-            将excel中的数据导入到DataTable中
-            </summary>
-            <param name="fileName">读取的Excel的完整名称</param>
-            <param name="sheetName">excel工作薄sheet的名称</param>
-            <param name="isFirstRowColumn">第一行是否是DataTable的列名</param>
-            <returns>返回的DataTable</returns>
-        </member>
-        <member name="M:OnMonitor.Common.Excel.ExcelHelper.ExcelToDataTable(System.IO.Stream,System.String,System.String,System.Boolean)">
-            <summary>
-            把Excel的stream导入到表
-            </summary>
-            <param name="fs"></param>
-            <param name="fileName"></param>
-            <param name="sheetName"></param>
-            <param name="isFirstRowColumn"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OnMonitor.Common.Excel.ExcelHelper.OutputExcel(System.Collections.Generic.List{NPOI.SS.Formula.Functions.T},System.String[])">
-            <summary>
-            使用实体数据导出
-            </summary>
-            <param name="entitys"></param>
-            <param name="title"></param>
-            <returns></returns>
-        </member>
-        <member name="T:OnMonitor.Common.Excel.ImportExcelUtil`1">
-            <summary>
-            Excel导入帮助类
-            </summary>
-        </member>
-        <!-- 对于成员“M:OnMonitor.Common.Excel.ImportExcelUtil`1.InputExcel(Microsoft.AspNetCore.Http.IFormFile,System.String)”忽略有格式错误的 XML 注释 -->
-        <!-- 对于成员“M:OnMonitor.Common.Excel.ImportExcelUtil`1.InputExcel(System.String,System.String)”忽略有格式错误的 XML 注释 -->
-        <!-- 对于成员“M:OnMonitor.Common.Excel.ImportExcelUtil`1.InputExcel(System.IO.Stream,System.String)”忽略有格式错误的 XML 注释 -->
         <member name="P:OnMonitor.Monitor.AlarmDto.Monitoring_room">
             <summary>
             监控室
@@ -1228,22 +1153,6 @@
             <summary>
             备注
             </summary>
-        </member>
-        <member name="M:cctvsystem.Common.Excel.ListToDataTable.toDataTable``1(System.Collections.Generic.List{``0})">
-            <summary>
-            傳入list轉換為DataTable
-            </summary>
-            <typeparam name="T">泛型類別</typeparam>
-            <param name="data">數據源</param>
-            <returns></returns>
-        </member>
-        <member name="M:cctvsystem.Common.Excel.ListToDataTable.tolist``1(System.Data.DataTable)">
-            <summary>
-            DataTable 轉換為list
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="data"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>

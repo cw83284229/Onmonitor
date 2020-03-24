@@ -4,12 +4,12 @@
         <name>OnMonitor.Application</name>
     </assembly>
     <members>
-        <member name="M:Service.DVRInfoService.GetChannelName(System.String)">
-            <summary>
-            异步获取通道名称
-            </summary>
-            <param name="CameraID"></param>
-            <returns></returns>
+        <member name="M:Service.DVRInfoService.GetCameraName(System.String)">
+             <summary>
+            获取资料库镜头位置信息
+             </summary>
+             <param name="DVR_ID"></param>
+             <returns></returns>
         </member>
         <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsList(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
             <summary>
@@ -92,6 +92,12 @@
             <param name="Build"></param>
             <param name="Floor"></param>
             <param name="DVR_ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.DVRAppService.GetTreeViewAsync">
+            <summary>
+            获取DVR/Camera数据树形结构
+            </summary>
             <returns></returns>
         </member>
         <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(OnMonitor.Monitor.UpdateDVRCheckInfoDto)">

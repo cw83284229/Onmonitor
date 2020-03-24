@@ -176,13 +176,15 @@ namespace OnMonitor.Monitor
         
             if (!input.Sorting.IsNullOrWhiteSpace())
             {
-                data = data.OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount);
+              var  data1 = data.OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount);
+                return new PagedResultDto<CameraDto> { TotalCount = data.ToList().Count, Items = data1.ToList() };
             }
             else
             {
-                data = data.OrderBy(d => d.Id).PageBy(input.SkipCount, input.MaxResultCount);
+              var  data2 = data.OrderBy(d => d.Id).PageBy(input.SkipCount, input.MaxResultCount);
+                return new PagedResultDto<CameraDto> { TotalCount = data.ToList().Count, Items = data2.ToList() };
             }
-            return new PagedResultDto<CameraDto> { TotalCount = data.ToList().Count, Items = data.ToList() };
+         //   return new PagedResultDto<CameraDto> { TotalCount = data.ToList().Count, Items = data.ToList() };
 
         }
 
