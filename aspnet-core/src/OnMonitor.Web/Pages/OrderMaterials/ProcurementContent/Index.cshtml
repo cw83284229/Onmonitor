@@ -1,0 +1,50 @@
+@page
+@using OnMonitor.Web.Pages.OrderMaterials.ProcurementContent
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@inherits OnMonitor.Web.Pages.OnMonitorPage
+@model IndexModel
+@inject IPageLayout PageLayout
+@{
+    PageLayout.Content.Title = L["ProcurementContent"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:ProcurementContent"].Value);
+    PageLayout.Content.MenuItemName = "ProcurementContent";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/OrderMaterials/ProcurementContent/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/OrderMaterials/ProcurementContent/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["ProcurementContent"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+                <abp-button id="NewProcurementContentButton"
+                            text="@L["CreateProcurementContent"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="ProcurementContentTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["ProcurementContentManufacturer"]</th>
+                <th>@L["ProcurementContentProcurementTime"]</th>
+                <th>@L["ProcurementContentProcurementMethod"]</th>
+                <th>@L["ProcurementContentRemark"]</th>
+                <th>@L["ProcurementContentIsShipments"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

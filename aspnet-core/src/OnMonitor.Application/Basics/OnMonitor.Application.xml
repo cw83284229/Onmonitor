@@ -11,6 +11,21 @@
              <param name="DVR_ID"></param>
              <returns></returns>
         </member>
+        <member name="M:OnMonitor.MenusInfos.SystemMenuAppService.GetSystemMenuDtobyPid(System.Nullable{System.Int64})">
+            <summary>
+            获取树形结构
+            </summary>
+            <param name="Pid">父节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.MenusInfos.SystemMenuAppService.GetSystemMenuDto(System.Collections.Generic.List{OnMonitor.MenusInfos.SystemMenu},OnMonitor.MenusInfos.Dtos.SystemMenuDto)">
+            <summary>
+            循环加载SystemMenu树形结构
+            </summary>
+            <param name="listsystemMenus"></param>
+            <param name="systemMenuDto"></param>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsList(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
             <summary>
             分页查询数据

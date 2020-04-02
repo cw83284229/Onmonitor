@@ -1154,5 +1154,65 @@
             备注
             </summary>
         </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.CreateUpdateMaterialRepertoryDto.ProductInfoId">
+            <summary>
+            材料Id
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.CreateUpdateMaterialRepertoryDto.Count">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.CreateUpdateMaterialRepertoryDto.Price">
+            <summary>
+            单价
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.CreateUpdateMaterialRepertoryDto.RepertoryLocation">
+            <summary>
+            存储位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.CreateUpdateProductInfoDto.MaterialSpecification">
+            <summary>
+            材料型号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.CreateUpdateProductInfoDto.MaterialManufacturer">
+            <summary>
+            生产厂家
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.MaterialRepertoryDto.ProductInfoId">
+            <summary>
+            材料Id
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.MaterialRepertoryDto.Count">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.MaterialRepertoryDto.Price">
+            <summary>
+            单价
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.MaterialRepertoryDto.RepertoryLocation">
+            <summary>
+            存储位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.ProductInfoDto.MaterialSpecification">
+            <summary>
+            材料型号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.Dtos.ProductInfoDto.MaterialManufacturer">
+            <summary>
+            生产厂家
+            </summary>
+        </member>
     </members>
 </doc>

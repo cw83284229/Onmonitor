@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+using OnMonitor.OrderMaterials;
+using OnMonitor.MenusInfos;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using OnMonitor;
 using OnMonitor.Monitor;
 using OnMonitor.MonitorRepair;
 using Volo.Abp;
@@ -55,6 +56,55 @@ namespace OnMonitor.EntityFrameworkCore
                 b.ToTable(OnMonitorConsts.DbTablePrefix + "Alarms", OnMonitorConsts.DbSchema);
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Id).IsRequired().HasMaxLength(128);
+            });
+
+            builder.Entity<SystemMenu>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "SystemMenus", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
+
+            builder.Entity<MaterialRepertory>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "MaterialRepertories", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
+
+            builder.Entity<ProcurementContent>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "ProcurementContents", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
+
+            builder.Entity<ProcurementDeltail>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "ProcurementDeltails", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
+
+            builder.Entity<ProductInfo>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "ProductInfos", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
+
+            builder.Entity<SaleContent>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "SaleContents", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
+
+            builder.Entity<SaleDeltail>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "SaleDeltails", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
             });
         }
 

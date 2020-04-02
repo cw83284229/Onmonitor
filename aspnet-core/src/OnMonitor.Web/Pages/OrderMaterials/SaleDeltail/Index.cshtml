@@ -1,0 +1,49 @@
+@page
+@using OnMonitor.Web.Pages.OrderMaterials.SaleDeltail
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@inherits OnMonitor.Web.Pages.OnMonitorPage
+@model IndexModel
+@inject IPageLayout PageLayout
+@{
+    PageLayout.Content.Title = L["SaleDeltail"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:SaleDeltail"].Value);
+    PageLayout.Content.MenuItemName = "SaleDeltail";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/OrderMaterials/SaleDeltail/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/OrderMaterials/SaleDeltail/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["SaleDeltail"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+                <abp-button id="NewSaleDeltailButton"
+                            text="@L["CreateSaleDeltail"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="SaleDeltailTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["SaleDeltailSaleContentId"]</th>
+                <th>@L["SaleDeltailProductInfoId"]</th>
+                <th>@L["SaleDeltailCount"]</th>
+                <th>@L["SaleDeltailPrice"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

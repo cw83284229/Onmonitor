@@ -1,0 +1,49 @@
+@page
+@using OnMonitor.Web.Pages.OrderMaterials.ProcurementDeltail
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@inherits OnMonitor.Web.Pages.OnMonitorPage
+@model IndexModel
+@inject IPageLayout PageLayout
+@{
+    PageLayout.Content.Title = L["ProcurementDeltail"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:ProcurementDeltail"].Value);
+    PageLayout.Content.MenuItemName = "ProcurementDeltail";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/OrderMaterials/ProcurementDeltail/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/OrderMaterials/ProcurementDeltail/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["ProcurementDeltail"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+                <abp-button id="NewProcurementDeltailButton"
+                            text="@L["CreateProcurementDeltail"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="ProcurementDeltailTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["ProcurementDeltailProcurementContentId"]</th>
+                <th>@L["ProcurementDeltailProductInfoId"]</th>
+                <th>@L["ProcurementDeltailCount"]</th>
+                <th>@L["ProcurementDeltailPrice"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

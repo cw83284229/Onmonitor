@@ -1,5 +1,9 @@
-﻿using AutoMapper;
+using AutoMapper;
 using OnMonitor.Monitor;
+using OnMonitor.MenusInfos;
+using OnMonitor.MenusInfos.Dtos;
+using OnMonitor.OrderMaterials;
+using OnMonitor.OrderMaterials.Dtos;
 using OnMonitor.MonitorRepair;
 
 namespace OnMonitor
@@ -25,6 +29,21 @@ namespace OnMonitor
             CreateMap<UpdateAlarmDto, Alarm>();
 
 
+            CreateMap<SystemMenu, SystemMenuDto>();
+            CreateMap<CreateUpdateSystemMenuDto, SystemMenu>(MemberList.Source);
+           
+            CreateMap<MaterialRepertory, MaterialRepertoryDto>();
+            CreateMap<CreateUpdateMaterialRepertoryDto, MaterialRepertory>(MemberList.Source);
+            CreateMap<ProcurementContent, ProcurementContentDto>();
+            CreateMap<CreateUpdateProcurementContentDto, ProcurementContent>(MemberList.Source);
+            CreateMap<ProcurementDeltail, ProcurementDeltailDto>();
+            CreateMap<CreateUpdateProcurementDeltailDto, ProcurementDeltail>(MemberList.Source);
+            CreateMap<ProductInfo, ProductInfoDto>();
+            CreateMap<CreateUpdateProductInfoDto, ProductInfo>(MemberList.Source);
+            CreateMap<SaleContent, SaleContentDto>();
+            CreateMap<CreateUpdateSaleContentDto, SaleContent>(MemberList.Source);
+            CreateMap<SaleDeltail, SaleDeltailDto>();
+            CreateMap<CreateUpdateSaleDeltailDto, SaleDeltail>(MemberList.Source);
         }
     }
 }

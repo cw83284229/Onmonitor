@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using OnMonitor.Users;
 using OnMonitor.Monitor;
 using OnMonitor.MonitorRepair;
@@ -6,6 +6,8 @@ using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.Users.EntityFrameworkCore;
+using OnMonitor.MenusInfos;
+using OnMonitor.OrderMaterials;
 
 namespace OnMonitor.EntityFrameworkCore
 {
@@ -34,6 +36,14 @@ namespace OnMonitor.EntityFrameworkCore
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside OnMonitorDbContextModelCreatingExtensions.ConfigureOnMonitor
          */
+        public DbSet<SystemMenu> SystemMenus { get; set; }
+      
+        public DbSet<MaterialRepertory> MaterialRepertories { get; set; }
+        public DbSet<ProcurementContent> ProcurementContents { get; set; }
+        public DbSet<ProcurementDeltail> ProcurementDeltails { get; set; }
+        public DbSet<ProductInfo> ProductInfos { get; set; }
+        public DbSet<SaleContent> SaleContents { get; set; }
+        public DbSet<SaleDeltail> SaleDeltails { get; set; }
 
         public OnMonitorDbContext(DbContextOptions<OnMonitorDbContext> options)
             : base(options)

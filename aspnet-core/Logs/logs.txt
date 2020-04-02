@@ -1,0 +1,1002 @@
+2020-04-01 11:30:57.106 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor\aspnet-core`
+2020-04-01 11:30:57.655 +08:00 [INF] Command 'crud' started.
+2020-04-01 11:30:57.848 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:30:57.864 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor\aspnet-core, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 11:30:57.866 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:30:57.868 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'SystemMenu.cs'
+2020-04-01 11:30:57.923 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:30:57.968 +08:00 [DBG] EntityParserStep Input [entityFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs'
+2020-04-01 11:30:58.178 +08:00 [DBG] EntityParserStep Output [entityInfo]: 'EasyAbp.AbpHelper.Models.EntityInfo'
+2020-04-01 11:30:58.185 +08:00 [DBG] EntityConstructorsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs'
+2020-04-01 11:30:58.295 +08:00 [DBG] EntityConstructorsStep Output [modifications]: Modifications count: 1
+2020-04-01 11:30:58.301 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs'
+2020-04-01 11:30:58.302 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 11:30:58.315 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:30:58.315 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityNamespace'
+2020-04-01 11:30:58.316 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor\aspnet-core, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:30:58.317 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityUsingText'
+2020-04-01 11:30:58.318 +08:00 [DBG] TextGenerationStep Output [text]: Length: 27
+2020-04-01 11:30:58.319 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:30:58.319 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityDtoNamespace'
+2020-04-01 11:30:58.320 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor\aspnet-core, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:30:58.320 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityDtoUsingText'
+2020-04-01 11:30:58.321 +08:00 [DBG] TextGenerationStep Output [text]: Length: 32
+2020-04-01 11:30:58.321 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:30:58.328 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorDbContext.cs'
+2020-04-01 11:30:58.380 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:30:58.381 +08:00 [DBG] DbContextClassStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 11:30:58.470 +08:00 [DBG] DbContextClassStep Output [modifications]: Modifications count: 2
+2020-04-01 11:30:58.471 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 11:30:58.472 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 11:30:58.480 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:30:58.480 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*DbContextModelCreatingExtensions.cs'
+2020-04-01 11:30:58.529 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:30:58.530 +08:00 [DBG] DbContextModelCreatingExtensionsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 11:30:58.557 +08:00 [DBG] DbContextModelCreatingExtensionsStep Output [modifications]: Modifications count: 2
+2020-04-01 11:30:58.557 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 11:30:58.558 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 11:30:58.563 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:30:58.563 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'Service'
+2020-04-01 11:30:58.564 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core\aspnet-core'
+2020-04-01 11:30:58.565 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 11:30:58.566 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor\aspnet-core, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:30:58.569 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 11:30:58.576 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\aspnet-core\src\OnMonitor.Application\Qinweir/MenusInfos\SystemMenuAppService.cs successfully generated.
+2020-04-01 11:30:58.576 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\I{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 11:30:58.580 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\aspnet-core\src\OnMonitor.Application.Contracts\Qinweir/MenusInfos\ISystemMenuAppService.cs successfully generated.
+2020-04-01 11:30:58.580 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\CreateUpdate{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:30:58.586 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\aspnet-core\src\OnMonitor.Application.Contracts\Qinweir/MenusInfos\Dtos\CreateUpdateSystemMenuDto.cs successfully generated.
+2020-04-01 11:30:58.586 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Create{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:30:58.588 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 11:30:58.588 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Update{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:30:58.590 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 11:30:58.590 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:30:58.594 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\aspnet-core\src\OnMonitor.Application.Contracts\Qinweir/MenusInfos\Dtos\SystemMenuDto.cs successfully generated.
+2020-04-01 11:30:58.596 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:30:58.596 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*ApplicationAutoMapperProfile.cs'
+2020-04-01 11:30:58.653 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:30:58.654 +08:00 [DBG] ApplicationAutoMapperProfileStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 11:30:58.657 +08:00 [DBG] ApplicationAutoMapperProfileStep Output [modifications]: Modifications count: 3
+2020-04-01 11:30:58.658 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 11:30:58.659 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 3
+2020-04-01 11:30:58.661 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:30:58.662 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'Localization'
+2020-04-01 11:30:58.662 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor\aspnet-core, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:30:58.663 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'GeneratedText'
+2020-04-01 11:30:58.663 +08:00 [DBG] TextGenerationStep Output [text]: Length: 605
+2020-04-01 11:30:58.666 +08:00 [DBG] MultiFileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core\aspnet-core/src/OnMonitor.Domain.Shared/Localization'
+2020-04-01 11:30:58.666 +08:00 [DBG] MultiFileFinderStep Input [SearchFileName]: '*.json'
+2020-04-01 11:30:58.673 +08:00 [ERR] Error while invoking activity activity-35 of workflow 25e08d5ff0ad4c85bc0b54994aff5b9b
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'D:\Git\github\Onmonitor\aspnet-core\aspnet-core\src\OnMonitor.Domain.Shared\Localization'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at System.IO.Directory.EnumerateFiles(String path, String searchPattern, SearchOption searchOption)
+   at EasyAbp.AbpHelper.Steps.Common.MultiFileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\MultiFilesFinderStep.cs:line 42
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
+2020-04-01 11:34:40.614 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor\aspnet-core`
+2020-04-01 11:34:41.083 +08:00 [INF] Command 'crud' started.
+2020-04-01 11:34:41.252 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:34:41.267 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor\aspnet-core, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 11:34:41.269 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:34:41.270 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'SystemMenu.cs'
+2020-04-01 11:34:41.319 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:34:41.334 +08:00 [DBG] EntityParserStep Input [entityFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs'
+2020-04-01 11:34:41.481 +08:00 [DBG] EntityParserStep Output [entityInfo]: 'EasyAbp.AbpHelper.Models.EntityInfo'
+2020-04-01 11:34:41.488 +08:00 [DBG] EntityConstructorsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs'
+2020-04-01 11:34:41.592 +08:00 [DBG] EntityConstructorsStep Output [modifications]: Modifications count: 2
+2020-04-01 11:34:41.597 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs'
+2020-04-01 11:34:41.598 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 11:34:41.612 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:34:41.612 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityNamespace'
+2020-04-01 11:34:41.614 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor\aspnet-core, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:34:41.615 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityUsingText'
+2020-04-01 11:34:41.615 +08:00 [DBG] TextGenerationStep Output [text]: Length: 27
+2020-04-01 11:34:41.616 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:34:41.616 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityDtoNamespace'
+2020-04-01 11:34:41.617 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor\aspnet-core, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:34:41.618 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityDtoUsingText'
+2020-04-01 11:34:41.618 +08:00 [DBG] TextGenerationStep Output [text]: Length: 32
+2020-04-01 11:34:41.619 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:34:41.626 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorDbContext.cs'
+2020-04-01 11:34:41.679 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:34:41.680 +08:00 [DBG] DbContextClassStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 11:34:41.782 +08:00 [DBG] DbContextClassStep Output [modifications]: Modifications count: 0
+2020-04-01 11:34:41.783 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 11:34:41.783 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 0
+2020-04-01 11:34:41.791 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:34:41.791 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*DbContextModelCreatingExtensions.cs'
+2020-04-01 11:34:41.837 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:34:41.839 +08:00 [DBG] DbContextModelCreatingExtensionsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 11:34:41.858 +08:00 [DBG] DbContextModelCreatingExtensionsStep Output [modifications]: Modifications count: 0
+2020-04-01 11:34:41.859 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 11:34:41.859 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 0
+2020-04-01 11:34:41.863 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:34:41.863 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'Service'
+2020-04-01 11:34:41.864 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core\aspnet-core'
+2020-04-01 11:34:41.865 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 11:34:41.866 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor\aspnet-core, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:34:41.870 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 11:34:41.873 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\aspnet-core\src\OnMonitor.Application\Qinweir/MenusInfos\SystemMenuAppService.cs successfully generated.
+2020-04-01 11:34:41.874 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\I{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 11:34:41.875 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\aspnet-core\src\OnMonitor.Application.Contracts\Qinweir/MenusInfos\ISystemMenuAppService.cs successfully generated.
+2020-04-01 11:34:41.875 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\CreateUpdate{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:34:41.880 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\aspnet-core\src\OnMonitor.Application.Contracts\Qinweir/MenusInfos\Dtos\CreateUpdateSystemMenuDto.cs successfully generated.
+2020-04-01 11:34:41.880 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Create{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:34:41.881 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 11:34:41.881 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Update{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:34:41.882 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 11:34:41.882 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:34:41.885 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\aspnet-core\src\OnMonitor.Application.Contracts\Qinweir/MenusInfos\Dtos\SystemMenuDto.cs successfully generated.
+2020-04-01 11:34:41.886 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:34:41.887 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*ApplicationAutoMapperProfile.cs'
+2020-04-01 11:34:41.940 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:34:41.941 +08:00 [DBG] ApplicationAutoMapperProfileStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 11:34:41.946 +08:00 [DBG] ApplicationAutoMapperProfileStep Output [modifications]: Modifications count: 0
+2020-04-01 11:34:41.947 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 11:34:41.947 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 0
+2020-04-01 11:34:41.950 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:34:41.950 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'Localization'
+2020-04-01 11:34:41.950 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor\aspnet-core, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:34:41.951 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'GeneratedText'
+2020-04-01 11:34:41.951 +08:00 [DBG] TextGenerationStep Output [text]: Length: 605
+2020-04-01 11:34:41.953 +08:00 [DBG] MultiFileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core\aspnet-core/src/OnMonitor.Domain.Shared/Localization'
+2020-04-01 11:34:41.954 +08:00 [DBG] MultiFileFinderStep Input [SearchFileName]: '*.json'
+2020-04-01 11:34:41.957 +08:00 [ERR] Error while invoking activity activity-35 of workflow 5232e58647d54dcfa591cd31d629ccc0
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'D:\Git\github\Onmonitor\aspnet-core\aspnet-core\src\OnMonitor.Domain.Shared\Localization'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at System.IO.Directory.EnumerateFiles(String path, String searchPattern, SearchOption searchOption)
+   at EasyAbp.AbpHelper.Steps.Common.MultiFileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\MultiFilesFinderStep.cs:line 42
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
+2020-04-01 11:39:09.418 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor`
+2020-04-01 11:39:09.902 +08:00 [INF] Command 'crud' started.
+2020-04-01 11:39:10.074 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:39:10.117 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 11:39:10.119 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:39:10.121 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'SystemMenu.cs'
+2020-04-01 11:39:10.236 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:39:10.251 +08:00 [DBG] EntityParserStep Input [entityFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs'
+2020-04-01 11:39:10.393 +08:00 [DBG] EntityParserStep Output [entityInfo]: 'EasyAbp.AbpHelper.Models.EntityInfo'
+2020-04-01 11:39:10.400 +08:00 [DBG] EntityConstructorsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs'
+2020-04-01 11:39:10.508 +08:00 [DBG] EntityConstructorsStep Output [modifications]: Modifications count: 2
+2020-04-01 11:39:10.514 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\MenusInfos\SystemMenu.cs'
+2020-04-01 11:39:10.514 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 11:39:10.526 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:39:10.527 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityNamespace'
+2020-04-01 11:39:10.528 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:39:10.529 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityUsingText'
+2020-04-01 11:39:10.530 +08:00 [DBG] TextGenerationStep Output [text]: Length: 29
+2020-04-01 11:39:10.531 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:39:10.531 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityDtoNamespace'
+2020-04-01 11:39:10.532 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:39:10.532 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityDtoUsingText'
+2020-04-01 11:39:10.533 +08:00 [DBG] TextGenerationStep Output [text]: Length: 34
+2020-04-01 11:39:10.534 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:39:10.541 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorDbContext.cs'
+2020-04-01 11:39:10.677 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:39:10.678 +08:00 [DBG] DbContextClassStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 11:39:10.790 +08:00 [DBG] DbContextClassStep Output [modifications]: Modifications count: 1
+2020-04-01 11:39:10.791 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 11:39:10.792 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 11:39:10.799 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:39:10.799 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*DbContextModelCreatingExtensions.cs'
+2020-04-01 11:39:10.910 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:39:10.911 +08:00 [DBG] DbContextModelCreatingExtensionsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 11:39:10.932 +08:00 [DBG] DbContextModelCreatingExtensionsStep Output [modifications]: Modifications count: 1
+2020-04-01 11:39:10.933 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 11:39:10.933 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 11:39:10.937 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:39:10.937 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'Service'
+2020-04-01 11:39:10.938 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:39:10.939 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 11:39:10.940 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:39:10.944 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 11:39:10.949 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\MenusInfos\SystemMenuAppService.cs successfully generated.
+2020-04-01 11:39:10.949 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\I{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 11:39:10.952 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\MenusInfos\ISystemMenuAppService.cs successfully generated.
+2020-04-01 11:39:10.952 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\CreateUpdate{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:39:10.958 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\MenusInfos\Dtos\CreateUpdateSystemMenuDto.cs successfully generated.
+2020-04-01 11:39:10.958 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Create{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:39:10.959 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 11:39:10.959 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Update{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:39:10.960 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 11:39:10.960 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:39:10.962 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\MenusInfos\Dtos\SystemMenuDto.cs successfully generated.
+2020-04-01 11:39:10.964 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:39:10.964 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*ApplicationAutoMapperProfile.cs'
+2020-04-01 11:39:11.092 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:39:11.093 +08:00 [DBG] ApplicationAutoMapperProfileStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 11:39:11.096 +08:00 [DBG] ApplicationAutoMapperProfileStep Output [modifications]: Modifications count: 2
+2020-04-01 11:39:11.096 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 11:39:11.096 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 11:39:11.098 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:39:11.099 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'Localization'
+2020-04-01 11:39:11.099 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:39:11.100 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'GeneratedText'
+2020-04-01 11:39:11.100 +08:00 [DBG] TextGenerationStep Output [text]: Length: 605
+2020-04-01 11:39:11.102 +08:00 [DBG] MultiFileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization'
+2020-04-01 11:39:11.103 +08:00 [DBG] MultiFileFinderStep Input [SearchFileName]: '*.json'
+2020-04-01 11:39:11.104 +08:00 [DBG] MultiFileFinderStep Output [files]: Found files count: 7, stored in parameter: 'MultiFilesFinderResult'
+2020-04-01 11:39:11.112 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\cs.json'
+2020-04-01 11:39:11.122 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\en.json'
+2020-04-01 11:39:11.125 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pl.json'
+2020-04-01 11:39:11.128 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pt-BR.json'
+2020-04-01 11:39:11.131 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\tr.json'
+2020-04-01 11:39:11.134 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\vi.json'
+2020-04-01 11:39:11.136 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\zh-Hans.json'
+2020-04-01 11:39:11.147 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:39:11.148 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'UiRazor'
+2020-04-01 11:39:11.148 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:39:11.149 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 11:39:11.149 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:39:11.154 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.cs.sbntxt
+2020-04-01 11:39:11.159 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\MenusInfos\SystemMenu\CreateModal.cshtml.cs successfully generated.
+2020-04-01 11:39:11.159 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.sbntxt
+2020-04-01 11:39:11.161 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\MenusInfos\SystemMenu\CreateModal.cshtml successfully generated.
+2020-04-01 11:39:11.161 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.cs.sbntxt
+2020-04-01 11:39:11.164 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\MenusInfos\SystemMenu\EditModal.cshtml.cs successfully generated.
+2020-04-01 11:39:11.164 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.sbntxt
+2020-04-01 11:39:11.166 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\MenusInfos\SystemMenu\EditModal.cshtml successfully generated.
+2020-04-01 11:39:11.166 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.cs.sbntxt
+2020-04-01 11:39:11.168 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\MenusInfos\SystemMenu\Index.cshtml.cs successfully generated.
+2020-04-01 11:39:11.168 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.sbntxt
+2020-04-01 11:39:11.170 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\MenusInfos\SystemMenu\Index.cshtml successfully generated.
+2020-04-01 11:39:11.170 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.css.sbntxt
+2020-04-01 11:39:11.173 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\MenusInfos\SystemMenu\index.css successfully generated.
+2020-04-01 11:39:11.173 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.js.sbntxt
+2020-04-01 11:39:11.176 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\MenusInfos\SystemMenu\index.js successfully generated.
+2020-04-01 11:39:11.177 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:39:11.177 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorMenuContributor.cs'
+2020-04-01 11:39:11.308 +08:00 [ERR] Error while invoking activity activity-41 of workflow d50f09788e654ce9b65725c4a716840b
+System.IO.FileNotFoundException: OnMonitorMenuContributor.cs
+   at EasyAbp.AbpHelper.Steps.Common.FileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\FileFinderStep.cs:line 48
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
+2020-04-01 11:49:17.843 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor`
+2020-04-01 11:49:18.310 +08:00 [INF] Command 'crud' started.
+2020-04-01 11:49:18.486 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:49:18.543 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 11:49:18.545 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:49:18.547 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'MaterialRepertory.cs'
+2020-04-01 11:49:18.677 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\MaterialRepertory.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:49:18.691 +08:00 [DBG] EntityParserStep Input [entityFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\MaterialRepertory.cs'
+2020-04-01 11:49:18.832 +08:00 [DBG] EntityParserStep Output [entityInfo]: 'EasyAbp.AbpHelper.Models.EntityInfo'
+2020-04-01 11:49:18.838 +08:00 [DBG] EntityConstructorsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\MaterialRepertory.cs'
+2020-04-01 11:49:18.941 +08:00 [DBG] EntityConstructorsStep Output [modifications]: Modifications count: 2
+2020-04-01 11:49:18.946 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\MaterialRepertory.cs'
+2020-04-01 11:49:18.947 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 11:49:18.958 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:49:18.959 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityNamespace'
+2020-04-01 11:49:18.960 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:49:18.961 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityUsingText'
+2020-04-01 11:49:18.961 +08:00 [DBG] TextGenerationStep Output [text]: Length: 33
+2020-04-01 11:49:18.962 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:49:18.963 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityDtoNamespace'
+2020-04-01 11:49:18.963 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:49:18.964 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityDtoUsingText'
+2020-04-01 11:49:18.964 +08:00 [DBG] TextGenerationStep Output [text]: Length: 38
+2020-04-01 11:49:18.965 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:49:18.973 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorDbContext.cs'
+2020-04-01 11:49:19.129 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:49:19.131 +08:00 [DBG] DbContextClassStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 11:49:19.243 +08:00 [DBG] DbContextClassStep Output [modifications]: Modifications count: 2
+2020-04-01 11:49:19.244 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 11:49:19.245 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 11:49:19.255 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:49:19.256 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*DbContextModelCreatingExtensions.cs'
+2020-04-01 11:49:19.388 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:49:19.389 +08:00 [DBG] DbContextModelCreatingExtensionsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 11:49:19.419 +08:00 [DBG] DbContextModelCreatingExtensionsStep Output [modifications]: Modifications count: 2
+2020-04-01 11:49:19.420 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 11:49:19.420 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 11:49:19.424 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:49:19.425 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'Service'
+2020-04-01 11:49:19.426 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:49:19.426 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 11:49:19.427 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:49:19.432 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 11:49:19.436 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OrderMaterials\OrderStoreAppService.cs successfully generated.
+2020-04-01 11:49:19.437 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\I{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 11:49:19.439 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\IOrderStoreAppService.cs successfully generated.
+2020-04-01 11:49:19.439 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\CreateUpdate{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:49:19.444 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\CreateUpdateOrderStoreDto.cs successfully generated.
+2020-04-01 11:49:19.444 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Create{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:49:19.445 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 11:49:19.445 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Update{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:49:19.446 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 11:49:19.446 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 11:49:19.449 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\OrderStoreDto.cs successfully generated.
+2020-04-01 11:49:19.450 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:49:19.451 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*ApplicationAutoMapperProfile.cs'
+2020-04-01 11:49:19.593 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 11:49:19.594 +08:00 [DBG] ApplicationAutoMapperProfileStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 11:49:19.597 +08:00 [DBG] ApplicationAutoMapperProfileStep Output [modifications]: Modifications count: 3
+2020-04-01 11:49:19.597 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 11:49:19.598 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 3
+2020-04-01 11:49:19.600 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:49:19.600 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'Localization'
+2020-04-01 11:49:19.601 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:49:19.601 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'GeneratedText'
+2020-04-01 11:49:19.602 +08:00 [DBG] TextGenerationStep Output [text]: Length: 520
+2020-04-01 11:49:19.604 +08:00 [DBG] MultiFileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization'
+2020-04-01 11:49:19.604 +08:00 [DBG] MultiFileFinderStep Input [SearchFileName]: '*.json'
+2020-04-01 11:49:19.605 +08:00 [DBG] MultiFileFinderStep Output [files]: Found files count: 7, stored in parameter: 'MultiFilesFinderResult'
+2020-04-01 11:49:19.614 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\cs.json'
+2020-04-01 11:49:19.625 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\en.json'
+2020-04-01 11:49:19.628 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pl.json'
+2020-04-01 11:49:19.630 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pt-BR.json'
+2020-04-01 11:49:19.633 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\tr.json'
+2020-04-01 11:49:19.635 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\vi.json'
+2020-04-01 11:49:19.637 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\zh-Hans.json'
+2020-04-01 11:49:19.645 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 11:49:19.645 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'UiRazor'
+2020-04-01 11:49:19.646 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 11:49:19.647 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 11:49:19.647 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 11:49:19.648 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.cs.sbntxt
+2020-04-01 11:49:19.651 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\OrderStore\CreateModal.cshtml.cs successfully generated.
+2020-04-01 11:49:19.651 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.sbntxt
+2020-04-01 11:49:19.653 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\OrderStore\CreateModal.cshtml successfully generated.
+2020-04-01 11:49:19.653 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.cs.sbntxt
+2020-04-01 11:49:19.655 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\OrderStore\EditModal.cshtml.cs successfully generated.
+2020-04-01 11:49:19.655 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.sbntxt
+2020-04-01 11:49:19.656 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\OrderStore\EditModal.cshtml successfully generated.
+2020-04-01 11:49:19.656 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.cs.sbntxt
+2020-04-01 11:49:19.658 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\OrderStore\Index.cshtml.cs successfully generated.
+2020-04-01 11:49:19.658 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.sbntxt
+2020-04-01 11:49:19.660 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\OrderStore\Index.cshtml successfully generated.
+2020-04-01 11:49:19.660 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.css.sbntxt
+2020-04-01 11:49:19.661 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\OrderStore\index.css successfully generated.
+2020-04-01 11:49:19.661 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.js.sbntxt
+2020-04-01 11:49:19.663 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\OrderStore\index.js successfully generated.
+2020-04-01 11:49:19.664 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 11:49:19.665 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorMenuContributor.cs'
+2020-04-01 11:49:19.818 +08:00 [ERR] Error while invoking activity activity-41 of workflow 259ea951593441448aa135c78fda7ddd
+System.IO.FileNotFoundException: OnMonitorMenuContributor.cs
+   at EasyAbp.AbpHelper.Steps.Common.FileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\FileFinderStep.cs:line 48
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
+2020-04-01 13:43:14.573 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor`
+2020-04-01 13:43:15.043 +08:00 [INF] Command 'crud' started.
+2020-04-01 13:43:15.212 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 13:43:15.268 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 13:43:15.270 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 13:43:15.272 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'MaterialRepertory.cs'
+2020-04-01 13:43:15.409 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\MaterialRepertory.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 13:43:15.424 +08:00 [DBG] EntityParserStep Input [entityFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\MaterialRepertory.cs'
+2020-04-01 13:43:15.563 +08:00 [DBG] EntityParserStep Output [entityInfo]: 'EasyAbp.AbpHelper.Models.EntityInfo'
+2020-04-01 13:43:15.569 +08:00 [DBG] EntityConstructorsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\MaterialRepertory.cs'
+2020-04-01 13:43:15.669 +08:00 [DBG] EntityConstructorsStep Output [modifications]: Modifications count: 2
+2020-04-01 13:43:15.674 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\MaterialRepertory.cs'
+2020-04-01 13:43:15.675 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 13:43:15.685 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 13:43:15.686 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityNamespace'
+2020-04-01 13:43:15.687 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 13:43:15.688 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityUsingText'
+2020-04-01 13:43:15.688 +08:00 [DBG] TextGenerationStep Output [text]: Length: 33
+2020-04-01 13:43:15.690 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 13:43:15.690 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityDtoNamespace'
+2020-04-01 13:43:15.691 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 13:43:15.691 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityDtoUsingText'
+2020-04-01 13:43:15.692 +08:00 [DBG] TextGenerationStep Output [text]: Length: 38
+2020-04-01 13:43:15.693 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 13:43:15.700 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorDbContext.cs'
+2020-04-01 13:43:15.854 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 13:43:15.856 +08:00 [DBG] DbContextClassStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 13:43:15.950 +08:00 [DBG] DbContextClassStep Output [modifications]: Modifications count: 1
+2020-04-01 13:43:15.951 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 13:43:15.952 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 13:43:15.963 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 13:43:15.963 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*DbContextModelCreatingExtensions.cs'
+2020-04-01 13:43:16.099 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 13:43:16.100 +08:00 [DBG] DbContextModelCreatingExtensionsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 13:43:16.123 +08:00 [DBG] DbContextModelCreatingExtensionsStep Output [modifications]: Modifications count: 1
+2020-04-01 13:43:16.123 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 13:43:16.124 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 13:43:16.128 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 13:43:16.128 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'Service'
+2020-04-01 13:43:16.129 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 13:43:16.130 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 13:43:16.130 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 13:43:16.135 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 13:43:16.139 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OrderMaterials\MaterialRepertoryAppService.cs successfully generated.
+2020-04-01 13:43:16.139 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\I{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 13:43:16.141 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\IMaterialRepertoryAppService.cs successfully generated.
+2020-04-01 13:43:16.141 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\CreateUpdate{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 13:43:16.146 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\CreateUpdateMaterialRepertoryDto.cs successfully generated.
+2020-04-01 13:43:16.146 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Create{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 13:43:16.147 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 13:43:16.147 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Update{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 13:43:16.148 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 13:43:16.148 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 13:43:16.151 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\MaterialRepertoryDto.cs successfully generated.
+2020-04-01 13:43:16.157 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 13:43:16.158 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*ApplicationAutoMapperProfile.cs'
+2020-04-01 13:43:16.305 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 13:43:16.306 +08:00 [DBG] ApplicationAutoMapperProfileStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 13:43:16.309 +08:00 [DBG] ApplicationAutoMapperProfileStep Output [modifications]: Modifications count: 1
+2020-04-01 13:43:16.310 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 13:43:16.310 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 13:43:16.313 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 13:43:16.313 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'Localization'
+2020-04-01 13:43:16.313 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 13:43:16.314 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'GeneratedText'
+2020-04-01 13:43:16.315 +08:00 [DBG] TextGenerationStep Output [text]: Length: 646
+2020-04-01 13:43:16.317 +08:00 [DBG] MultiFileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization'
+2020-04-01 13:43:16.318 +08:00 [DBG] MultiFileFinderStep Input [SearchFileName]: '*.json'
+2020-04-01 13:43:16.318 +08:00 [DBG] MultiFileFinderStep Output [files]: Found files count: 7, stored in parameter: 'MultiFilesFinderResult'
+2020-04-01 13:43:16.327 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\cs.json'
+2020-04-01 13:43:16.340 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\en.json'
+2020-04-01 13:43:16.342 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pl.json'
+2020-04-01 13:43:16.345 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pt-BR.json'
+2020-04-01 13:43:16.347 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\tr.json'
+2020-04-01 13:43:16.350 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\vi.json'
+2020-04-01 13:43:16.353 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\zh-Hans.json'
+2020-04-01 13:43:16.361 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 13:43:16.361 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'UiRazor'
+2020-04-01 13:43:16.362 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 13:43:16.363 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 13:43:16.363 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 13:43:16.364 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.cs.sbntxt
+2020-04-01 13:43:16.368 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\MaterialRepertory\CreateModal.cshtml.cs successfully generated.
+2020-04-01 13:43:16.368 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.sbntxt
+2020-04-01 13:43:16.369 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\MaterialRepertory\CreateModal.cshtml successfully generated.
+2020-04-01 13:43:16.369 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.cs.sbntxt
+2020-04-01 13:43:16.371 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\MaterialRepertory\EditModal.cshtml.cs successfully generated.
+2020-04-01 13:43:16.371 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.sbntxt
+2020-04-01 13:43:16.372 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\MaterialRepertory\EditModal.cshtml successfully generated.
+2020-04-01 13:43:16.372 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.cs.sbntxt
+2020-04-01 13:43:16.374 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\MaterialRepertory\Index.cshtml.cs successfully generated.
+2020-04-01 13:43:16.374 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.sbntxt
+2020-04-01 13:43:16.375 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\MaterialRepertory\Index.cshtml successfully generated.
+2020-04-01 13:43:16.375 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.css.sbntxt
+2020-04-01 13:43:16.376 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\MaterialRepertory\index.css successfully generated.
+2020-04-01 13:43:16.377 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.js.sbntxt
+2020-04-01 13:43:16.378 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\MaterialRepertory\index.js successfully generated.
+2020-04-01 13:43:16.379 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 13:43:16.379 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorMenuContributor.cs'
+2020-04-01 13:43:16.544 +08:00 [ERR] Error while invoking activity activity-41 of workflow 2269f8c4d03a4b0f8e4c83d232807ccd
+System.IO.FileNotFoundException: OnMonitorMenuContributor.cs
+   at EasyAbp.AbpHelper.Steps.Common.FileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\FileFinderStep.cs:line 48
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
+2020-04-01 16:20:35.833 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor`
+2020-04-01 16:20:36.336 +08:00 [INF] Command 'crud' started.
+2020-04-01 16:20:36.515 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:20:36.556 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 16:20:36.559 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:20:36.560 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'ProcurementContent.cs'
+2020-04-01 16:20:36.620 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProcurementContent.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:20:36.660 +08:00 [DBG] EntityParserStep Input [entityFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProcurementContent.cs'
+2020-04-01 16:20:36.828 +08:00 [DBG] EntityParserStep Output [entityInfo]: 'EasyAbp.AbpHelper.Models.EntityInfo'
+2020-04-01 16:20:36.834 +08:00 [DBG] EntityConstructorsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProcurementContent.cs'
+2020-04-01 16:20:36.935 +08:00 [DBG] EntityConstructorsStep Output [modifications]: Modifications count: 2
+2020-04-01 16:20:36.940 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProcurementContent.cs'
+2020-04-01 16:20:36.941 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 16:20:36.954 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:20:36.954 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityNamespace'
+2020-04-01 16:20:36.956 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:20:36.957 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityUsingText'
+2020-04-01 16:20:36.958 +08:00 [DBG] TextGenerationStep Output [text]: Length: 33
+2020-04-01 16:20:36.959 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:20:36.959 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityDtoNamespace'
+2020-04-01 16:20:36.960 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:20:36.960 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityDtoUsingText'
+2020-04-01 16:20:36.961 +08:00 [DBG] TextGenerationStep Output [text]: Length: 38
+2020-04-01 16:20:36.961 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:20:36.968 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorDbContext.cs'
+2020-04-01 16:20:37.034 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:20:37.035 +08:00 [DBG] DbContextClassStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 16:20:37.151 +08:00 [DBG] DbContextClassStep Output [modifications]: Modifications count: 1
+2020-04-01 16:20:37.152 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 16:20:37.153 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:20:37.165 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:20:37.165 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*DbContextModelCreatingExtensions.cs'
+2020-04-01 16:20:37.221 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:20:37.222 +08:00 [DBG] DbContextModelCreatingExtensionsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 16:20:37.245 +08:00 [DBG] DbContextModelCreatingExtensionsStep Output [modifications]: Modifications count: 1
+2020-04-01 16:20:37.246 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 16:20:37.246 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:20:37.250 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:20:37.250 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'Service'
+2020-04-01 16:20:37.251 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 16:20:37.252 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 16:20:37.253 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:20:37.257 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 16:20:37.261 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OrderMaterials\ProcurementContentAppService.cs successfully generated.
+2020-04-01 16:20:37.262 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\I{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 16:20:37.264 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\IProcurementContentAppService.cs successfully generated.
+2020-04-01 16:20:37.265 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\CreateUpdate{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:20:37.271 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\CreateUpdateProcurementContentDto.cs successfully generated.
+2020-04-01 16:20:37.271 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Create{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:20:37.273 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 16:20:37.273 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Update{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:20:37.276 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 16:20:37.276 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:20:37.279 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\ProcurementContentDto.cs successfully generated.
+2020-04-01 16:20:37.287 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:20:37.288 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*ApplicationAutoMapperProfile.cs'
+2020-04-01 16:20:37.343 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:20:37.343 +08:00 [DBG] ApplicationAutoMapperProfileStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 16:20:37.345 +08:00 [DBG] ApplicationAutoMapperProfileStep Output [modifications]: Modifications count: 1
+2020-04-01 16:20:37.346 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 16:20:37.346 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:20:37.348 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:20:37.349 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'Localization'
+2020-04-01 16:20:37.349 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:20:37.350 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'GeneratedText'
+2020-04-01 16:20:37.350 +08:00 [DBG] TextGenerationStep Output [text]: Length: 757
+2020-04-01 16:20:37.352 +08:00 [DBG] MultiFileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization'
+2020-04-01 16:20:37.353 +08:00 [DBG] MultiFileFinderStep Input [SearchFileName]: '*.json'
+2020-04-01 16:20:37.353 +08:00 [DBG] MultiFileFinderStep Output [files]: Found files count: 7, stored in parameter: 'MultiFilesFinderResult'
+2020-04-01 16:20:37.360 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\cs.json'
+2020-04-01 16:20:37.372 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\en.json'
+2020-04-01 16:20:37.375 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pl.json'
+2020-04-01 16:20:37.378 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pt-BR.json'
+2020-04-01 16:20:37.380 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\tr.json'
+2020-04-01 16:20:37.382 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\vi.json'
+2020-04-01 16:20:37.385 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\zh-Hans.json'
+2020-04-01 16:20:37.392 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:20:37.392 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'UiRazor'
+2020-04-01 16:20:37.392 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 16:20:37.393 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 16:20:37.393 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:20:37.394 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.cs.sbntxt
+2020-04-01 16:20:37.397 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementContent\CreateModal.cshtml.cs successfully generated.
+2020-04-01 16:20:37.397 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.sbntxt
+2020-04-01 16:20:37.399 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementContent\CreateModal.cshtml successfully generated.
+2020-04-01 16:20:37.399 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.cs.sbntxt
+2020-04-01 16:20:37.402 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementContent\EditModal.cshtml.cs successfully generated.
+2020-04-01 16:20:37.402 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.sbntxt
+2020-04-01 16:20:37.404 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementContent\EditModal.cshtml successfully generated.
+2020-04-01 16:20:37.404 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.cs.sbntxt
+2020-04-01 16:20:37.406 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementContent\Index.cshtml.cs successfully generated.
+2020-04-01 16:20:37.406 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.sbntxt
+2020-04-01 16:20:37.408 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementContent\Index.cshtml successfully generated.
+2020-04-01 16:20:37.409 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.css.sbntxt
+2020-04-01 16:20:37.410 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementContent\index.css successfully generated.
+2020-04-01 16:20:37.410 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.js.sbntxt
+2020-04-01 16:20:37.415 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementContent\index.js successfully generated.
+2020-04-01 16:20:37.416 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:20:37.416 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorMenuContributor.cs'
+2020-04-01 16:20:37.477 +08:00 [ERR] Error while invoking activity activity-41 of workflow 7a4594613fd84ee68abb52df5466ee84
+System.IO.FileNotFoundException: OnMonitorMenuContributor.cs
+   at EasyAbp.AbpHelper.Steps.Common.FileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\FileFinderStep.cs:line 48
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
+2020-04-01 16:22:45.970 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor`
+2020-04-01 16:22:46.434 +08:00 [INF] Command 'crud' started.
+2020-04-01 16:22:46.604 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:22:46.634 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 16:22:46.636 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:22:46.638 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'ProcurementDeltail.cs'
+2020-04-01 16:22:46.692 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProcurementDeltail.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:22:46.706 +08:00 [DBG] EntityParserStep Input [entityFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProcurementDeltail.cs'
+2020-04-01 16:22:46.845 +08:00 [DBG] EntityParserStep Output [entityInfo]: 'EasyAbp.AbpHelper.Models.EntityInfo'
+2020-04-01 16:22:46.851 +08:00 [DBG] EntityConstructorsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProcurementDeltail.cs'
+2020-04-01 16:22:46.951 +08:00 [DBG] EntityConstructorsStep Output [modifications]: Modifications count: 2
+2020-04-01 16:22:46.956 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProcurementDeltail.cs'
+2020-04-01 16:22:46.957 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 16:22:46.969 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:22:46.970 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityNamespace'
+2020-04-01 16:22:46.971 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:22:46.972 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityUsingText'
+2020-04-01 16:22:46.973 +08:00 [DBG] TextGenerationStep Output [text]: Length: 33
+2020-04-01 16:22:46.974 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:22:46.974 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityDtoNamespace'
+2020-04-01 16:22:46.975 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:22:46.975 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityDtoUsingText'
+2020-04-01 16:22:46.976 +08:00 [DBG] TextGenerationStep Output [text]: Length: 38
+2020-04-01 16:22:46.977 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:22:46.984 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorDbContext.cs'
+2020-04-01 16:22:47.044 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:22:47.045 +08:00 [DBG] DbContextClassStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 16:22:47.171 +08:00 [DBG] DbContextClassStep Output [modifications]: Modifications count: 1
+2020-04-01 16:22:47.172 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 16:22:47.172 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:22:47.182 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:22:47.182 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*DbContextModelCreatingExtensions.cs'
+2020-04-01 16:22:47.235 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:22:47.236 +08:00 [DBG] DbContextModelCreatingExtensionsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 16:22:47.257 +08:00 [DBG] DbContextModelCreatingExtensionsStep Output [modifications]: Modifications count: 1
+2020-04-01 16:22:47.258 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 16:22:47.258 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:22:47.267 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:22:47.267 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'Service'
+2020-04-01 16:22:47.268 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 16:22:47.269 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 16:22:47.269 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:22:47.274 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 16:22:47.277 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OrderMaterials\ProcurementDeltailAppService.cs successfully generated.
+2020-04-01 16:22:47.277 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\I{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 16:22:47.279 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\IProcurementDeltailAppService.cs successfully generated.
+2020-04-01 16:22:47.279 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\CreateUpdate{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:22:47.284 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\CreateUpdateProcurementDeltailDto.cs successfully generated.
+2020-04-01 16:22:47.284 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Create{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:22:47.285 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 16:22:47.285 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Update{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:22:47.285 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 16:22:47.286 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:22:47.293 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\ProcurementDeltailDto.cs successfully generated.
+2020-04-01 16:22:47.294 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:22:47.294 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*ApplicationAutoMapperProfile.cs'
+2020-04-01 16:22:47.347 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:22:47.348 +08:00 [DBG] ApplicationAutoMapperProfileStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 16:22:47.350 +08:00 [DBG] ApplicationAutoMapperProfileStep Output [modifications]: Modifications count: 1
+2020-04-01 16:22:47.351 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 16:22:47.352 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:22:47.354 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:22:47.354 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'Localization'
+2020-04-01 16:22:47.355 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:22:47.355 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'GeneratedText'
+2020-04-01 16:22:47.356 +08:00 [DBG] TextGenerationStep Output [text]: Length: 672
+2020-04-01 16:22:47.358 +08:00 [DBG] MultiFileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization'
+2020-04-01 16:22:47.358 +08:00 [DBG] MultiFileFinderStep Input [SearchFileName]: '*.json'
+2020-04-01 16:22:47.359 +08:00 [DBG] MultiFileFinderStep Output [files]: Found files count: 7, stored in parameter: 'MultiFilesFinderResult'
+2020-04-01 16:22:47.366 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\cs.json'
+2020-04-01 16:22:47.377 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\en.json'
+2020-04-01 16:22:47.379 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pl.json'
+2020-04-01 16:22:47.381 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pt-BR.json'
+2020-04-01 16:22:47.384 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\tr.json'
+2020-04-01 16:22:47.386 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\vi.json'
+2020-04-01 16:22:47.388 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\zh-Hans.json'
+2020-04-01 16:22:47.395 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:22:47.395 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'UiRazor'
+2020-04-01 16:22:47.396 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 16:22:47.396 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 16:22:47.397 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:22:47.397 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.cs.sbntxt
+2020-04-01 16:22:47.400 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementDeltail\CreateModal.cshtml.cs successfully generated.
+2020-04-01 16:22:47.400 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.sbntxt
+2020-04-01 16:22:47.401 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementDeltail\CreateModal.cshtml successfully generated.
+2020-04-01 16:22:47.401 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.cs.sbntxt
+2020-04-01 16:22:47.403 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementDeltail\EditModal.cshtml.cs successfully generated.
+2020-04-01 16:22:47.403 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.sbntxt
+2020-04-01 16:22:47.404 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementDeltail\EditModal.cshtml successfully generated.
+2020-04-01 16:22:47.404 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.cs.sbntxt
+2020-04-01 16:22:47.405 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementDeltail\Index.cshtml.cs successfully generated.
+2020-04-01 16:22:47.405 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.sbntxt
+2020-04-01 16:22:47.408 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementDeltail\Index.cshtml successfully generated.
+2020-04-01 16:22:47.408 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.css.sbntxt
+2020-04-01 16:22:47.409 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementDeltail\index.css successfully generated.
+2020-04-01 16:22:47.409 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.js.sbntxt
+2020-04-01 16:22:47.411 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProcurementDeltail\index.js successfully generated.
+2020-04-01 16:22:47.412 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:22:47.412 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorMenuContributor.cs'
+2020-04-01 16:22:47.469 +08:00 [ERR] Error while invoking activity activity-41 of workflow 4adf67b4845f44958b554b224f603566
+System.IO.FileNotFoundException: OnMonitorMenuContributor.cs
+   at EasyAbp.AbpHelper.Steps.Common.FileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\FileFinderStep.cs:line 48
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
+2020-04-01 16:24:25.270 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor`
+2020-04-01 16:24:25.724 +08:00 [INF] Command 'crud' started.
+2020-04-01 16:24:25.887 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:24:25.916 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 16:24:25.919 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:24:25.920 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'ProcurementInfo.cs'
+2020-04-01 16:24:25.973 +08:00 [ERR] Error while invoking activity activity-6 of workflow 59698d7049a1410090e511c7123136b4
+System.IO.FileNotFoundException: ProcurementInfo.cs
+   at EasyAbp.AbpHelper.Steps.Common.FileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\FileFinderStep.cs:line 48
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
+2020-04-01 16:26:14.960 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor`
+2020-04-01 16:26:15.418 +08:00 [INF] Command 'crud' started.
+2020-04-01 16:26:15.587 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:26:15.618 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 16:26:15.620 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:26:15.622 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'ProductInfo.cs'
+2020-04-01 16:26:15.676 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProductInfo.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:26:15.691 +08:00 [DBG] EntityParserStep Input [entityFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProductInfo.cs'
+2020-04-01 16:26:15.831 +08:00 [DBG] EntityParserStep Output [entityInfo]: 'EasyAbp.AbpHelper.Models.EntityInfo'
+2020-04-01 16:26:15.837 +08:00 [DBG] EntityConstructorsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProductInfo.cs'
+2020-04-01 16:26:15.941 +08:00 [DBG] EntityConstructorsStep Output [modifications]: Modifications count: 2
+2020-04-01 16:26:15.947 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\ProductInfo.cs'
+2020-04-01 16:26:15.947 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 16:26:15.962 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:26:15.962 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityNamespace'
+2020-04-01 16:26:15.964 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:26:15.965 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityUsingText'
+2020-04-01 16:26:15.965 +08:00 [DBG] TextGenerationStep Output [text]: Length: 33
+2020-04-01 16:26:15.966 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:26:15.966 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityDtoNamespace'
+2020-04-01 16:26:15.966 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:26:15.967 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityDtoUsingText'
+2020-04-01 16:26:15.967 +08:00 [DBG] TextGenerationStep Output [text]: Length: 38
+2020-04-01 16:26:15.968 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:26:15.976 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorDbContext.cs'
+2020-04-01 16:26:16.040 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:26:16.040 +08:00 [DBG] DbContextClassStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 16:26:16.156 +08:00 [DBG] DbContextClassStep Output [modifications]: Modifications count: 1
+2020-04-01 16:26:16.157 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 16:26:16.158 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:26:16.166 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:26:16.166 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*DbContextModelCreatingExtensions.cs'
+2020-04-01 16:26:16.220 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:26:16.221 +08:00 [DBG] DbContextModelCreatingExtensionsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 16:26:16.243 +08:00 [DBG] DbContextModelCreatingExtensionsStep Output [modifications]: Modifications count: 1
+2020-04-01 16:26:16.244 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 16:26:16.244 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:26:16.252 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:26:16.252 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'Service'
+2020-04-01 16:26:16.253 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 16:26:16.254 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 16:26:16.255 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:26:16.258 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 16:26:16.262 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OrderMaterials\ProductInfoAppService.cs successfully generated.
+2020-04-01 16:26:16.262 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\I{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 16:26:16.264 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\IProductInfoAppService.cs successfully generated.
+2020-04-01 16:26:16.264 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\CreateUpdate{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:26:16.268 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\CreateUpdateProductInfoDto.cs successfully generated.
+2020-04-01 16:26:16.268 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Create{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:26:16.270 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 16:26:16.270 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Update{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:26:16.270 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 16:26:16.270 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:26:16.277 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\ProductInfoDto.cs successfully generated.
+2020-04-01 16:26:16.279 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:26:16.279 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*ApplicationAutoMapperProfile.cs'
+2020-04-01 16:26:16.334 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:26:16.335 +08:00 [DBG] ApplicationAutoMapperProfileStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 16:26:16.338 +08:00 [DBG] ApplicationAutoMapperProfileStep Output [modifications]: Modifications count: 1
+2020-04-01 16:26:16.338 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 16:26:16.339 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:26:16.341 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:26:16.341 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'Localization'
+2020-04-01 16:26:16.342 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:26:16.342 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'GeneratedText'
+2020-04-01 16:26:16.343 +08:00 [DBG] TextGenerationStep Output [text]: Length: 770
+2020-04-01 16:26:16.345 +08:00 [DBG] MultiFileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization'
+2020-04-01 16:26:16.346 +08:00 [DBG] MultiFileFinderStep Input [SearchFileName]: '*.json'
+2020-04-01 16:26:16.346 +08:00 [DBG] MultiFileFinderStep Output [files]: Found files count: 7, stored in parameter: 'MultiFilesFinderResult'
+2020-04-01 16:26:16.354 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\cs.json'
+2020-04-01 16:26:16.366 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\en.json'
+2020-04-01 16:26:16.368 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pl.json'
+2020-04-01 16:26:16.371 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pt-BR.json'
+2020-04-01 16:26:16.373 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\tr.json'
+2020-04-01 16:26:16.375 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\vi.json'
+2020-04-01 16:26:16.378 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\zh-Hans.json'
+2020-04-01 16:26:16.385 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:26:16.386 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'UiRazor'
+2020-04-01 16:26:16.386 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 16:26:16.387 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 16:26:16.387 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:26:16.388 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.cs.sbntxt
+2020-04-01 16:26:16.390 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProductInfo\CreateModal.cshtml.cs successfully generated.
+2020-04-01 16:26:16.390 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.sbntxt
+2020-04-01 16:26:16.392 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProductInfo\CreateModal.cshtml successfully generated.
+2020-04-01 16:26:16.392 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.cs.sbntxt
+2020-04-01 16:26:16.394 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProductInfo\EditModal.cshtml.cs successfully generated.
+2020-04-01 16:26:16.394 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.sbntxt
+2020-04-01 16:26:16.395 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProductInfo\EditModal.cshtml successfully generated.
+2020-04-01 16:26:16.395 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.cs.sbntxt
+2020-04-01 16:26:16.397 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProductInfo\Index.cshtml.cs successfully generated.
+2020-04-01 16:26:16.397 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.sbntxt
+2020-04-01 16:26:16.399 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProductInfo\Index.cshtml successfully generated.
+2020-04-01 16:26:16.399 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.css.sbntxt
+2020-04-01 16:26:16.400 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProductInfo\index.css successfully generated.
+2020-04-01 16:26:16.400 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.js.sbntxt
+2020-04-01 16:26:16.402 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\ProductInfo\index.js successfully generated.
+2020-04-01 16:26:16.403 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:26:16.403 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorMenuContributor.cs'
+2020-04-01 16:26:16.460 +08:00 [ERR] Error while invoking activity activity-41 of workflow 3e35ca52cf664727b59e65d8ff186640
+System.IO.FileNotFoundException: OnMonitorMenuContributor.cs
+   at EasyAbp.AbpHelper.Steps.Common.FileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\FileFinderStep.cs:line 48
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
+2020-04-01 16:27:51.697 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor`
+2020-04-01 16:27:52.161 +08:00 [INF] Command 'crud' started.
+2020-04-01 16:27:52.337 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:27:52.368 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 16:27:52.370 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:27:52.372 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'SaleContent.cs'
+2020-04-01 16:27:52.425 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\SaleContent.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:27:52.439 +08:00 [DBG] EntityParserStep Input [entityFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\SaleContent.cs'
+2020-04-01 16:27:52.574 +08:00 [DBG] EntityParserStep Output [entityInfo]: 'EasyAbp.AbpHelper.Models.EntityInfo'
+2020-04-01 16:27:52.580 +08:00 [DBG] EntityConstructorsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\SaleContent.cs'
+2020-04-01 16:27:52.682 +08:00 [DBG] EntityConstructorsStep Output [modifications]: Modifications count: 2
+2020-04-01 16:27:52.687 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\SaleContent.cs'
+2020-04-01 16:27:52.688 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 2
+2020-04-01 16:27:52.701 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:27:52.702 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityNamespace'
+2020-04-01 16:27:52.704 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:27:52.705 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityUsingText'
+2020-04-01 16:27:52.705 +08:00 [DBG] TextGenerationStep Output [text]: Length: 33
+2020-04-01 16:27:52.706 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:27:52.707 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityDtoNamespace'
+2020-04-01 16:27:52.708 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:27:52.709 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityDtoUsingText'
+2020-04-01 16:27:52.709 +08:00 [DBG] TextGenerationStep Output [text]: Length: 38
+2020-04-01 16:27:52.710 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:27:52.717 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorDbContext.cs'
+2020-04-01 16:27:52.779 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:27:52.780 +08:00 [DBG] DbContextClassStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 16:27:52.902 +08:00 [DBG] DbContextClassStep Output [modifications]: Modifications count: 1
+2020-04-01 16:27:52.903 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 16:27:52.904 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:27:52.914 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:27:52.914 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*DbContextModelCreatingExtensions.cs'
+2020-04-01 16:27:52.967 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:27:52.968 +08:00 [DBG] DbContextModelCreatingExtensionsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 16:27:52.994 +08:00 [DBG] DbContextModelCreatingExtensionsStep Output [modifications]: Modifications count: 1
+2020-04-01 16:27:52.995 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 16:27:52.995 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:27:53.005 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:27:53.005 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'Service'
+2020-04-01 16:27:53.006 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 16:27:53.007 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 16:27:53.007 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:27:53.011 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 16:27:53.015 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OrderMaterials\SaleContentAppService.cs successfully generated.
+2020-04-01 16:27:53.015 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\I{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 16:27:53.017 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\ISaleContentAppService.cs successfully generated.
+2020-04-01 16:27:53.017 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\CreateUpdate{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:27:53.021 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\CreateUpdateSaleContentDto.cs successfully generated.
+2020-04-01 16:27:53.021 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Create{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:27:53.022 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 16:27:53.022 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Update{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:27:53.023 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 16:27:53.023 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:27:53.026 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\SaleContentDto.cs successfully generated.
+2020-04-01 16:27:53.027 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:27:53.027 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*ApplicationAutoMapperProfile.cs'
+2020-04-01 16:27:53.081 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:27:53.082 +08:00 [DBG] ApplicationAutoMapperProfileStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 16:27:53.085 +08:00 [DBG] ApplicationAutoMapperProfileStep Output [modifications]: Modifications count: 1
+2020-04-01 16:27:53.085 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 16:27:53.086 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:27:53.088 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:27:53.089 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'Localization'
+2020-04-01 16:27:53.089 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:27:53.090 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'GeneratedText'
+2020-04-01 16:27:53.090 +08:00 [DBG] TextGenerationStep Output [text]: Length: 591
+2020-04-01 16:27:53.093 +08:00 [DBG] MultiFileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization'
+2020-04-01 16:27:53.093 +08:00 [DBG] MultiFileFinderStep Input [SearchFileName]: '*.json'
+2020-04-01 16:27:53.094 +08:00 [DBG] MultiFileFinderStep Output [files]: Found files count: 7, stored in parameter: 'MultiFilesFinderResult'
+2020-04-01 16:27:53.102 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\cs.json'
+2020-04-01 16:27:53.118 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\en.json'
+2020-04-01 16:27:53.121 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pl.json'
+2020-04-01 16:27:53.124 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pt-BR.json'
+2020-04-01 16:27:53.126 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\tr.json'
+2020-04-01 16:27:53.129 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\vi.json'
+2020-04-01 16:27:53.132 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\zh-Hans.json'
+2020-04-01 16:27:53.140 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:27:53.141 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'UiRazor'
+2020-04-01 16:27:53.141 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 16:27:53.142 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 16:27:53.142 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:27:53.143 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.cs.sbntxt
+2020-04-01 16:27:53.146 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleContent\CreateModal.cshtml.cs successfully generated.
+2020-04-01 16:27:53.146 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.sbntxt
+2020-04-01 16:27:53.148 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleContent\CreateModal.cshtml successfully generated.
+2020-04-01 16:27:53.148 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.cs.sbntxt
+2020-04-01 16:27:53.149 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleContent\EditModal.cshtml.cs successfully generated.
+2020-04-01 16:27:53.149 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.sbntxt
+2020-04-01 16:27:53.151 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleContent\EditModal.cshtml successfully generated.
+2020-04-01 16:27:53.151 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.cs.sbntxt
+2020-04-01 16:27:53.153 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleContent\Index.cshtml.cs successfully generated.
+2020-04-01 16:27:53.153 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.sbntxt
+2020-04-01 16:27:53.161 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleContent\Index.cshtml successfully generated.
+2020-04-01 16:27:53.161 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.css.sbntxt
+2020-04-01 16:27:53.162 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleContent\index.css successfully generated.
+2020-04-01 16:27:53.162 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.js.sbntxt
+2020-04-01 16:27:53.165 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleContent\index.js successfully generated.
+2020-04-01 16:27:53.166 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:27:53.167 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorMenuContributor.cs'
+2020-04-01 16:27:53.223 +08:00 [ERR] Error while invoking activity activity-41 of workflow 0005c3aeb5744ccc8a2224c2d027778e
+System.IO.FileNotFoundException: OnMonitorMenuContributor.cs
+   at EasyAbp.AbpHelper.Steps.Common.FileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\FileFinderStep.cs:line 48
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
+2020-04-01 16:30:30.625 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor`
+2020-04-01 16:30:31.094 +08:00 [INF] Command 'crud' started.
+2020-04-01 16:30:31.265 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:30:31.296 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 16:30:31.299 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:30:31.301 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'SaleDeltial.cs'
+2020-04-01 16:30:31.357 +08:00 [ERR] Error while invoking activity activity-6 of workflow 2db63083db4e4706b5e34770f26f8de2
+System.IO.FileNotFoundException: SaleDeltial.cs
+   at EasyAbp.AbpHelper.Steps.Common.FileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\FileFinderStep.cs:line 48
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
+2020-04-01 16:31:10.609 +08:00 [INF] Use directory: `D:\Git\github\Onmonitor`
+2020-04-01 16:31:11.067 +08:00 [INF] Command 'crud' started.
+2020-04-01 16:31:11.233 +08:00 [DBG] ProjectInfoProviderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:31:11.262 +08:00 [DBG] ProjectInfoProviderStep Output [projectInfo]: 'BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False'
+2020-04-01 16:31:11.265 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:31:11.266 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'SaleDeltail.cs'
+2020-04-01 16:31:11.318 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\SaleDeltail.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:31:11.332 +08:00 [DBG] EntityParserStep Input [entityFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\SaleDeltail.cs'
+2020-04-01 16:31:11.494 +08:00 [DBG] EntityParserStep Output [entityInfo]: 'EasyAbp.AbpHelper.Models.EntityInfo'
+2020-04-01 16:31:11.500 +08:00 [DBG] EntityConstructorsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\SaleDeltail.cs'
+2020-04-01 16:31:11.591 +08:00 [DBG] EntityConstructorsStep Output [modifications]: Modifications count: 0
+2020-04-01 16:31:11.596 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Domain\OrderMaterial\SaleDeltail.cs'
+2020-04-01 16:31:11.596 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 0
+2020-04-01 16:31:11.614 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:31:11.614 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityNamespace'
+2020-04-01 16:31:11.616 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:31:11.617 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityUsingText'
+2020-04-01 16:31:11.617 +08:00 [DBG] TextGenerationStep Output [text]: Length: 33
+2020-04-01 16:31:11.618 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:31:11.619 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'UsingEntityDtoNamespace'
+2020-04-01 16:31:11.619 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:31:11.620 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'EntityDtoUsingText'
+2020-04-01 16:31:11.620 +08:00 [DBG] TextGenerationStep Output [text]: Length: 38
+2020-04-01 16:31:11.621 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:31:11.629 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorDbContext.cs'
+2020-04-01 16:31:11.696 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:31:11.697 +08:00 [DBG] DbContextClassStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 16:31:11.790 +08:00 [DBG] DbContextClassStep Output [modifications]: Modifications count: 1
+2020-04-01 16:31:11.791 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContext.cs'
+2020-04-01 16:31:11.792 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:31:11.801 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:31:11.802 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*DbContextModelCreatingExtensions.cs'
+2020-04-01 16:31:11.858 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:31:11.859 +08:00 [DBG] DbContextModelCreatingExtensionsStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 16:31:11.879 +08:00 [DBG] DbContextModelCreatingExtensionsStep Output [modifications]: Modifications count: 1
+2020-04-01 16:31:11.880 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.EntityFrameworkCore\EntityFrameworkCore\OnMonitorDbContextModelCreatingExtensions.cs'
+2020-04-01 16:31:11.880 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:31:11.891 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:31:11.891 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'Service'
+2020-04-01 16:31:11.892 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 16:31:11.893 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 16:31:11.894 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:31:11.898 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 16:31:11.901 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OrderMaterials\SaleDeltailAppService.cs successfully generated.
+2020-04-01 16:31:11.901 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\I{ EntityInfo.Name }AppService.cs.sbntxt
+2020-04-01 16:31:11.903 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\ISaleDeltailAppService.cs successfully generated.
+2020-04-01 16:31:11.903 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\CreateUpdate{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:31:11.907 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\CreateUpdateSaleDeltailDto.cs successfully generated.
+2020-04-01 16:31:11.908 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Create{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:31:11.908 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 16:31:11.908 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\Update{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:31:11.909 +08:00 [INF] Evaluated value of `SKIP_GENERATE` is true, skip generating.
+2020-04-01 16:31:11.909 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\Service\src\{ ProjectInfo.FullName }.Application.Contracts\{ EntityInfo.RelativeDirectory }\Dtos\{ EntityInfo.Name }Dto.cs.sbntxt
+2020-04-01 16:31:11.917 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application.Contracts\OrderMaterials\Dtos\SaleDeltailDto.cs successfully generated.
+2020-04-01 16:31:11.918 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:31:11.918 +08:00 [DBG] FileFinderStep Input [searchFileName]: '*ApplicationAutoMapperProfile.cs'
+2020-04-01 16:31:11.971 +08:00 [DBG] FileFinderStep Output [filePathName]: Found file: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs', stored in parameter: 'FileFinderResult'
+2020-04-01 16:31:11.972 +08:00 [DBG] ApplicationAutoMapperProfileStep Input [file]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 16:31:11.975 +08:00 [DBG] ApplicationAutoMapperProfileStep Output [modifications]: Modifications count: 1
+2020-04-01 16:31:11.975 +08:00 [DBG] FileModifierStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Application\OnMonitoringApplicationAutoMapperProfile.cs'
+2020-04-01 16:31:11.975 +08:00 [DBG] FileModifierStep Input [modifications]: Modifications count: 1
+2020-04-01 16:31:11.978 +08:00 [DBG] TextGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:31:11.978 +08:00 [DBG] TextGenerationStep Input [TemplateName]: 'Localization'
+2020-04-01 16:31:11.979 +08:00 [DBG] TextGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:31:11.979 +08:00 [DBG] TextGenerationStep Input [GeneratedTextKey]: 'GeneratedText'
+2020-04-01 16:31:11.980 +08:00 [DBG] TextGenerationStep Output [text]: Length: 532
+2020-04-01 16:31:11.982 +08:00 [DBG] MultiFileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization'
+2020-04-01 16:31:11.982 +08:00 [DBG] MultiFileFinderStep Input [SearchFileName]: '*.json'
+2020-04-01 16:31:11.983 +08:00 [DBG] MultiFileFinderStep Output [files]: Found files count: 7, stored in parameter: 'MultiFilesFinderResult'
+2020-04-01 16:31:11.991 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\cs.json'
+2020-04-01 16:31:12.003 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\en.json'
+2020-04-01 16:31:12.005 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pl.json'
+2020-04-01 16:31:12.008 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\pt-BR.json'
+2020-04-01 16:31:12.011 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\tr.json'
+2020-04-01 16:31:12.013 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\vi.json'
+2020-04-01 16:31:12.016 +08:00 [DBG] LocalizationJsonModificationCreatorStep Input [targetFile]: 'D:\Git\github\Onmonitor\aspnet-core/src/OnMonitor.Domain.Shared/Localization\OnMonitor\zh-Hans.json'
+2020-04-01 16:31:12.023 +08:00 [DBG] GroupGenerationStep Input [templateDir]: 'Templates/Crud'
+2020-04-01 16:31:12.024 +08:00 [DBG] GroupGenerationStep Input [GroupName]: 'UiRazor'
+2020-04-01 16:31:12.024 +08:00 [DBG] GroupGenerationStep Input [targetDirectory]: 'D:\Git\github\Onmonitor\aspnet-core'
+2020-04-01 16:31:12.025 +08:00 [DBG] GroupGenerationStep Input [Overwrite]: 'Overwrite'
+2020-04-01 16:31:12.025 +08:00 [DBG] GroupGenerationStep Input [model]: '{ ProjectInfo = BaseDirectory: D:\Git\github\Onmonitor, FullName: OnMonitor, Name: OnMonitor, TemplateType: Application, UiFramework: RazorPages, Tiered: False, Option = EasyAbp.AbpHelper.Commands.CrudCommand+CommandOption, EntityInfo = EasyAbp.AbpHelper.Models.EntityInfo, ServiceInfo = , Bag = System.Dynamic.ExpandoObject }'
+2020-04-01 16:31:12.026 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.cs.sbntxt
+2020-04-01 16:31:12.028 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleDeltail\CreateModal.cshtml.cs successfully generated.
+2020-04-01 16:31:12.028 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\CreateModal.cshtml.sbntxt
+2020-04-01 16:31:12.029 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleDeltail\CreateModal.cshtml successfully generated.
+2020-04-01 16:31:12.029 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.cs.sbntxt
+2020-04-01 16:31:12.031 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleDeltail\EditModal.cshtml.cs successfully generated.
+2020-04-01 16:31:12.031 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\EditModal.cshtml.sbntxt
+2020-04-01 16:31:12.032 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleDeltail\EditModal.cshtml successfully generated.
+2020-04-01 16:31:12.033 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.cs.sbntxt
+2020-04-01 16:31:12.034 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleDeltail\Index.cshtml.cs successfully generated.
+2020-04-01 16:31:12.034 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\Index.cshtml.sbntxt
+2020-04-01 16:31:12.035 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleDeltail\Index.cshtml successfully generated.
+2020-04-01 16:31:12.035 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.css.sbntxt
+2020-04-01 16:31:12.039 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleDeltail\index.css successfully generated.
+2020-04-01 16:31:12.039 +08:00 [DBG] Generating using template file: C:\Users\Administrator\.dotnet\tools\.store\easyabp.abphelper\0.2.0\easyabp.abphelper\0.2.0\tools\netcoreapp3.1\any\Templates/Crud\Groups\UiRazor\src\{ ProjectInfo.FullName }.Web\Pages\{ EntityInfo.RelativeDirectory }\{ EntityInfo.Name }\index.js.sbntxt
+2020-04-01 16:31:12.040 +08:00 [INF] File D:\Git\github\Onmonitor\aspnet-core\src\OnMonitor.Web\Pages\OrderMaterials\SaleDeltail\index.js successfully generated.
+2020-04-01 16:31:12.041 +08:00 [DBG] FileFinderStep Input [baseDirectory]: 'D:\Git\github\Onmonitor'
+2020-04-01 16:31:12.042 +08:00 [DBG] FileFinderStep Input [searchFileName]: 'OnMonitorMenuContributor.cs'
+2020-04-01 16:31:12.101 +08:00 [ERR] Error while invoking activity activity-41 of workflow e480d9cc33a94907a4dcdb1017073274
+System.IO.FileNotFoundException: OnMonitorMenuContributor.cs
+   at EasyAbp.AbpHelper.Steps.Common.FileFinderStep.OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken) in D:\Repos\EasyAbp\AbpHelper.CLI\src\AbpHelper\Steps\Common\FileFinderStep.cs:line 48
+   at Elsa.Services.ActivityInvoker.InvokeAsync(WorkflowExecutionContext workflowContext, IActivity activity, Func`2 invokeAction)
