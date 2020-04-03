@@ -3,7 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>OnMonitor</RootNamespace>
   </PropertyGroup>
 
@@ -19,11 +19,11 @@
   <ItemGroup>
     <PackageReference Include="DotNetCore.NPOI" Version="1.2.2" />
     <PackageReference Include="NPOI" Version="2.4.1" />
-    <PackageReference Include="Volo.Abp.Account.HttpApi" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.Identity.HttpApi" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.TenantManagement.HttpApi" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" Version="1.0.2" />
+    <PackageReference Include="Volo.Abp.Account.HttpApi" Version="2.3.0" />
+    <PackageReference Include="Volo.Abp.Identity.HttpApi" Version="2.3.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="2.3.0" />
+    <PackageReference Include="Volo.Abp.TenantManagement.HttpApi" Version="2.3.0" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>

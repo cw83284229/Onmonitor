@@ -214,8 +214,8 @@ namespace OnMonitor.Monitor
 
             foreach (var item in data2)
             {
-                var camera = _repository.Insert(item);
-                cameras.Add(camera);
+                var camera = _repository.InsertAsync(item);
+                cameras.Add(camera.Result);
             }
             var camerasdto = ObjectMapper.Map<List<Camera>, List<CameraDto>>(cameras);
             return new PagedResultDto<CameraDto> { TotalCount = camerasdto.Count, Items = camerasdto };

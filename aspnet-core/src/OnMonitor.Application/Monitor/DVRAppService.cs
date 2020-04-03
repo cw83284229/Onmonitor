@@ -84,7 +84,7 @@ namespace OnMonitor.Monitor
         public string  GetTreeViewAsync()
 
         {
-            var cameradata = _camerarepository.GetList();
+           // var cameradata = _camerarepository.GetList();
             //查询全部数据
             var data = from c in _dvrrepository
                      // join b in _camerarepository on c.DVR_ID equals b.DVR_ID
@@ -137,7 +137,7 @@ namespace OnMonitor.Monitor
                     TreeModelEx<DVRCameraDto> treeModel1 = new TreeModelEx<DVRCameraDto>();
                     treeModel1.id = item.DVR_ID;
                     treeModel1.parentId =$"{item.Build}-{item.floor}";
-                    var camed = cameradata.Where(u => u.DVR_ID == item.DVR_ID);//获取镜头信息
+                    var camed = _camerarepository.Where(u => u.DVR_ID == item.DVR_ID);//获取镜头信息
                     List<string> vs = new List<string>();
                     //镜头信息拼装
                     //foreach (var tem in camed)

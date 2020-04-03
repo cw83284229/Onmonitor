@@ -25,12 +25,12 @@ namespace Service
         /// </summary>
         /// <param name="DVR_ID"></param>
         /// <returns></returns>
-        public Dictionary<int,string> GetCameraName (string DVR_ID)
+        public async System.Threading.Tasks.Task<Dictionary<int, string>> GetCameraNameAsync (string DVR_ID)
         {
 
             //   var dvrdata = _dvrrepository.GetList().Where(u => u.DVR_ID == cameradata.DVR_ID).FirstOrDefault();
-            var cameradata = _camerarepository.GetList().Where(u => u.DVR_ID == DVR_ID);
-
+            var cameradata = _camerarepository.Where(u => u.DVR_ID == DVR_ID);
+           
             Dictionary<int, string> keyValuePairs = new Dictionary<int, string>();
             int i = 0;
             foreach (var item in cameradata)

@@ -4,7 +4,7 @@
         <name>OnMonitor.Application</name>
     </assembly>
     <members>
-        <member name="M:Service.DVRInfoService.GetCameraName(System.String)">
+        <member name="M:Service.DVRInfoService.GetCameraNameAsync(System.String)">
              <summary>
             获取资料库镜头位置信息
              </summary>
@@ -13,7 +13,7 @@
         </member>
         <member name="M:OnMonitor.MenusInfos.SystemMenuAppService.GetSystemMenuDtobyPid(System.Nullable{System.Int64})">
             <summary>
-            获取树形结构
+            获取树形结构/无参获取全部节点/PID获取当前路线下节点
             </summary>
             <param name="Pid">父节点</param>
             <returns></returns>

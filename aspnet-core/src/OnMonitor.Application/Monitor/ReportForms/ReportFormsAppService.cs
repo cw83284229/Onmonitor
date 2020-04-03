@@ -128,7 +128,7 @@ namespace OnMonitor.Monitor
             string url = "http://172.30.116.49/api/DVRInfo?";
             foreach (var item in DVRRooms)
             {
-                var data = _dvrrepository.GetList().Where(u => u.Monitoring_room == item.Monitoring_room).ToList();
+                var data = _dvrrepository.Where(u => u.Monitoring_room == item.Monitoring_room).ToList();
 
                 foreach (var tem in data)
                 {
