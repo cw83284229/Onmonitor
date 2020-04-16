@@ -122,7 +122,7 @@
             <param name="condition"></param>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetDVRCameraTotalAsync">
+        <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetDVRCameraTotal">
             <summary>
             获取主机/镜头/异常镜头按监控室分类数据
             </summary>

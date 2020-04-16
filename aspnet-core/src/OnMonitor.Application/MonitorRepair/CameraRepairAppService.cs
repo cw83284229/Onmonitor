@@ -42,7 +42,7 @@ namespace OnMonitor.MonitorRepair
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<PagedResultDto<CameraRepairDto>> GetRepairsList(PagedAndSortedResultRequestDto input)
+        public  PagedResultDto<CameraRepairDto> GetRepairsList(PagedAndSortedResultRequestDto input)
         {
 
           //  var cameras = await _camerarepository.GetListAsync();
@@ -116,7 +116,7 @@ namespace OnMonitor.MonitorRepair
         /// <param name="condition">条件</param>
         /// <param name="input">分页</param>
         /// <returns></returns>
-        public async Task<PagedResultDto<CameraRepairDto>> GetRepairsListByCondition(QueryCondition condition, PagedAndSortedResultRequestDto input)
+        public  PagedResultDto<CameraRepairDto> GetRepairsListByCondition(QueryCondition condition, PagedAndSortedResultRequestDto input)
         {
 
           //  var cameras = await _camerarepository.GetListAsync();

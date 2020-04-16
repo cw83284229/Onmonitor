@@ -21,9 +21,9 @@ namespace OnMonitor.Monitor
     {
         //   public String GetList();
 
-        public Task<PagedResultDto<CameraDto>> GetListByCondition(CameraCondition condition, PagedAndSortedResultRequestDto input);
+        public Task< PagedResultDto<CameraDto>> GetListByCondition(CameraCondition condition, PagedAndSortedResultRequestDto input);
 
-        public Task<List<CameraDto>> GetListByCameraID(string CameraID);
+        public Task< List<CameraDto>> GetListByCameraID(string CameraID);
 
 
     }

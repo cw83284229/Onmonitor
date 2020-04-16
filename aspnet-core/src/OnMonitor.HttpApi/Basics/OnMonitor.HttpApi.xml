@@ -11,6 +11,31 @@
             <param name="Camera_ID"></param>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Controllers.DVRInfoController.DownloadVideoByFileName(System.String)">
+            <summary>
+            按文件名称下载录像
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.DVRInfoController.GetVideoFileName">
+            <summary>
+            获取全部备份录像文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.DVRInfoController.BackupsVideoByTime(System.String,System.String,System.String)">
+            <summary>
+            按时间/镜头编号备份视频文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.DVRInfoController.DeleteVideoFile(System.String)">
+            <summary>
+            按名称删除录像文件
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Controllers.DVRInfoController.SetChannelName(System.String)">
             <summary>
             自动设定通道名称与数据库同步

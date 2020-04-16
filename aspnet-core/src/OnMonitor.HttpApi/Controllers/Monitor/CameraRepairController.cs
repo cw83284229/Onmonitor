@@ -41,7 +41,7 @@ namespace OnMonitor.Controllers
             for (int i = 0; i < 10; i++)
             {
                 string year = (time - i).ToString();
-                var data1 = data.Result.Items.Where(u => u.install_time.Contains(year));
+                var data1 = data.Items.Where(u => u.install_time.Contains(year));
 
                 keyValues.Add(year, data1.Count());
 
@@ -63,7 +63,7 @@ namespace OnMonitor.Controllers
 
             PagedAndSortedResultRequestDto resultRequestDto = new PagedAndSortedResultRequestDto() { MaxResultCount = 200000, SkipCount = 0};
             var data = _cameraRepairAppService.GetRepairsListByCondition(condition, resultRequestDto);
-            var list = data.Result.Items.ToList();
+            var list = data.Items.ToList();
 
             DataTable dataTable = ListToDataTable.toDataTable<CameraRepairDto>(list);
 
@@ -92,7 +92,7 @@ namespace OnMonitor.Controllers
             PagedAndSortedResultRequestDto resultRequestDto = new PagedAndSortedResultRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = null };
 
             Dictionary<string, int> keyValues = new Dictionary<string, int>();
-            var data = _cameraRepairAppService.GetRepairsList(resultRequestDto).Result.Items.ToList();
+            var data = _cameraRepairAppService.GetRepairsList(resultRequestDto).Items.ToList();
             var databuild = data.Select(i => new { Build = i.Build }).Distinct();
 
             foreach (var item in databuild)

@@ -22,8 +22,8 @@ namespace OnMonitor.MonitorRepair
         //  public List<CameraRepairDto> GetList();
 
 
-        public  Task<PagedResultDto<CameraRepairDto>> GetRepairsList(PagedAndSortedResultRequestDto input);
-        public Task<PagedResultDto<CameraRepairDto>> GetRepairsListByCondition(QueryCondition condition, PagedAndSortedResultRequestDto input);
+        public  PagedResultDto<CameraRepairDto> GetRepairsList(PagedAndSortedResultRequestDto input);
+        public PagedResultDto<CameraRepairDto> GetRepairsListByCondition(QueryCondition condition, PagedAndSortedResultRequestDto input);
 
     }
 }

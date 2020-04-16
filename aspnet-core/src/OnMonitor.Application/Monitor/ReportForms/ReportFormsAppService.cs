@@ -38,7 +38,7 @@ namespace OnMonitor.Monitor
         /// 获取主机/镜头/异常镜头按监控室分类数据
         /// </summary>
         /// <returns></returns>
-        public async Task<List<ReportFormsDto>> GetDVRCameraTotalAsync()
+        public List<ReportFormsDto> GetDVRCameraTotal()
 
         {
             List<ReportFormsDto> listreportForms = new List<ReportFormsDto>();
@@ -46,7 +46,7 @@ namespace OnMonitor.Monitor
             QueryCondition queryCondition = new QueryCondition() { RepairState = false };
             var DVRRooms = _dvrrepository.Select(i => new { Monitoring_room = i.Monitoring_room }).Distinct();
             //获取未维修数据待修正
-            var dataCameraRepair = _cameraRepairAppService.GetRepairsListByCondition(queryCondition,resultRequestDto).Result.Items;
+            var dataCameraRepair = _cameraRepairAppService.GetRepairsListByCondition(queryCondition, resultRequestDto).Items;
             var data = from a in _dvrrepository
                        join b in _camerarepository on a.DVR_ID equals b.DVR_ID
                        select new DVRCameraDto
@@ -63,21 +63,21 @@ namespace OnMonitor.Monitor
 
             //获取各监控室DVR在线数量
 
-            var dataDvrcheckInfo =  _dVRCheckInfoAppService.GetListAsync(resultRequestDto).Result.Items;
+            var dataDvrcheckInfo = _dVRCheckInfoAppService.GetListAsync(resultRequestDto).Result.Items;
             var listDvrcheckInfo = dataDvrcheckInfo.Where(u => u.DVR_Online == true);
-            List<DVR> dataDvrOnline = new List<DVR>(); 
+            List<DVR> dataDvrOnline = new List<DVR>();
 
 
             foreach (var item in listDvrcheckInfo)
             {
-               
-                dataDvrOnline .Add(_dvrrepository.Where(u => u.DVR_ID == item.DVR_ID).FirstOrDefault());
+
+                dataDvrOnline.Add(_dvrrepository.Where(u => u.DVR_ID == item.DVR_ID).FirstOrDefault());
 
             }
 
 
 
-           // var listDvrOnline = dataDvrOnline.ToList();
+            // var listDvrOnline = dataDvrOnline.ToList();
 
 
 
@@ -88,10 +88,10 @@ namespace OnMonitor.Monitor
                 //加载主机棕色
                 var totalDVR = data1.Where(u => u.Monitoring_room == item.Monitoring_room).Select(i => new { DVR_ID = i.DVR_ID }).Distinct().Count();
                 var totalCamera = data1.Where(u => u.Monitoring_room == item.Monitoring_room).Select(i => new { CameraID = i.CameraID }).Distinct().Count();
-                 //加载维修数据
-                var totalCameraRepair= dataCameraRepair.Where(u => u.DVR_Room == item.Monitoring_room).Select(i => new { CameraID = i.Camera_ID }).Distinct().Count();
+                //加载维修数据
+                var totalCameraRepair = dataCameraRepair.Where(u => u.DVR_Room == item.Monitoring_room).Select(i => new { CameraID = i.Camera_ID }).Distinct().Count();
                 //加载在线主机数
-                var totalDVROnline= dataDvrOnline.Where(u => u.Monitoring_room == item.Monitoring_room).Select(i => new { DVR_ID = i.DVR_ID }).Distinct().Count();
+                var totalDVROnline = dataDvrOnline.Where(u => u.Monitoring_room == item.Monitoring_room).Select(i => new { DVR_ID = i.DVR_ID }).Distinct().Count();
                 formsDto.CameraAnomaly = totalCameraRepair;
                 formsDto.DVROnLine = totalDVROnline;
                 formsDto.CameraTotal = totalCamera;
@@ -100,7 +100,7 @@ namespace OnMonitor.Monitor
                 listreportForms.Add(formsDto);
             }
             ReportFormsDto formsDto1 = new ReportFormsDto();
-            formsDto1.DVRRoom ="Total";
+            formsDto1.DVRRoom = "Total";
             formsDto1.CameraAnomaly = dataCameraRepair.Select(i => new { CameraID = i.Camera_ID }).Distinct().Count();
             formsDto1.DVROnLine = dataDvrOnline.Select(i => new { DVR_ID = i.DVR_ID }).Distinct().Count(); ;
             formsDto1.CameraTotal = data1.Select(i => new { CameraID = i.CameraID }).Distinct().Count();

@@ -65,6 +65,100 @@ namespace OnMonitor.Controllers
 
         }
 
+        /// <summary>
+        /// 按文件名称下载录像
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        [Authorize("CCTV_VideoViewing")]
+        [HttpGet]
+        [Route("DownloadVideoByFileName")]
+        public IActionResult DownloadVideoByFileName(string fileName)
+        {
+
+            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+
+            string url = $"{dvrurl}/api/DVRClannel/DownloadVideoFile?fileName={fileName}";
+
+            var handler = new HttpClientHandler();
+            var response = _httpClient.GetAsync(url).Result;
+            var dt = response.Content.ReadAsByteArrayAsync().Result;
+            var type = response.Content.Headers.ContentType.ToString();
+            
+            return File(dt, type,fileName);
+
+        }
+        /// <summary>
+        /// 获取全部备份录像文件
+        /// </summary>
+        /// <returns></returns>
+        [Authorize("CCTV_VideoViewing")]
+        [HttpGet]
+        [Route("GetVideoFileName")]
+        public string GetVideoFileName()
+        {
+
+            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+
+            string url = $"{dvrurl}/api/DVRClannel/GetVideoFiles";
+
+            var handler = new HttpClientHandler();
+            var response = _httpClient.GetAsync(url).Result;
+            return response.Content.ReadAsStringAsync().Result;
+
+        }
+
+        /// <summary>
+        /// 按时间/镜头编号备份视频文件
+        /// </summary>
+        /// <returns></returns>
+        [Authorize("CCTV_VideoViewing")]
+        [HttpGet]
+        [Route("BackupsVideoByTime")]
+        public string BackupsVideoByTime(string Camera_ID,string startTime,string endTime)
+        {
+            var cameradata = _cameraAppService.GetListByCameraID(Camera_ID).Result.ToList().FirstOrDefault();
+
+            if (cameradata == null)
+            {
+                return "无此镜头";
+            }
+
+            var dvrdata = _dVRAppService.GetListByCondition(null, null, null, cameradata.DVR_ID).Result.Items.FirstOrDefault();
+
+
+
+            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+
+            string url = $"{dvrurl}/api/DVRClannel/GetVideoData?DVR_IP={dvrdata.DVR_IP} &DVR_Name={dvrdata.DVR_usre}&DVR_PassWord={dvrdata.DVR_possword}&ChannelID={cameradata.channel_ID}&startTime={startTime}&endTime={endTime}";
+
+            var handler = new HttpClientHandler();
+            var response = _httpClient.GetAsync(url).Result;
+            return response.Content.ReadAsStringAsync().Result;
+
+        }
+
+        /// <summary>
+        /// 按名称删除录像文件
+        /// </summary>
+        /// <returns></returns>
+        [Authorize("CCTV_VideoViewing")]
+        [HttpPost]
+        [Route("DeleteVideoFile")]
+        public string DeleteVideoFile(string fileName)
+        {
+
+            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+
+            string url = $"{dvrurl}/api/DVRClannel/DeleteVideoFile?fileName={fileName}";
+
+            var handler = new HttpClientHandler();
+            Dictionary<string, string> dic = new Dictionary<string, string>() { { "fileName", fileName } };
+            var content = new FormUrlEncodedContent(dic);
+            var response = _httpClient.PostAsync(url,content).Result;
+            return response.Content.ReadAsStringAsync().Result;
+
+        }
 
         /// <summary>
         /// 自动设定通道名称与数据库同步
