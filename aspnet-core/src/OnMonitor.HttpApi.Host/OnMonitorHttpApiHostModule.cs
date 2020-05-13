@@ -23,6 +23,7 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
+using System.Collections.Generic;
 
 namespace OnMonitor
 {
@@ -106,19 +107,47 @@ namespace OnMonitor
         private static void ConfigureSwaggerServices(ServiceConfigurationContext context)
         {
 
-          var pathApplication = $"{System.AppDomain.CurrentDomain.BaseDirectory}/Basics/OnMonitor.Application.xml";
-          var pathApplicationContracts = $"{System.AppDomain.CurrentDomain.BaseDirectory}/Basics/OnMonitor.Application.Contracts.xml";
-          var pathHttpApi = $"{System.AppDomain.CurrentDomain.BaseDirectory}/Basics/OnMonitor.HttpApi.xml";
+            var pathApplication = $"{System.AppDomain.CurrentDomain.BaseDirectory}/Basics/OnMonitor.Application.xml";
+            var pathApplicationContracts = $"{System.AppDomain.CurrentDomain.BaseDirectory}/Basics/OnMonitor.Application.Contracts.xml";
+            var pathHttpApi = $"{System.AppDomain.CurrentDomain.BaseDirectory}/Basics/OnMonitor.HttpApi.xml";
 
             context.Services.AddSwaggerGen(
                 options =>
                 {
-                    options.SwaggerDoc("v1", new OpenApiInfo {Title = "OnMonitor API", Version = "v1"});
-                   options.DocInclusionPredicate((docName, description) => true);
+                    options.SwaggerDoc("v1", new OpenApiInfo { Title = "OnMonitor API", Version = "v1" });
+                    options.DocInclusionPredicate((docName, description) => true);
                     options.IncludeXmlComments(pathApplication, true);
                     options.IncludeXmlComments(pathApplicationContracts, true);
                     options.IncludeXmlComments(pathHttpApi, true);
+                    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                    {
+                        Type = SecuritySchemeType.OAuth2,
+                        Flows = new OpenApiOAuthFlows
+                        {
+                            Implicit = new OpenApiOAuthFlow
+                            {
+                                AuthorizationUrl = new Uri($"https://localhost:44365/account/login"),
+
+                                Scopes = new Dictionary<string, string> {
+                                {
+                                  "OnMOnitor","ApiResource id"
+                                }
+
+                            }
+                            }
+                        }
+
+
+
+                    });
+               
+
+                        
+                        
+                        
                 });
+           
+            
         }
         //配置多语言支持
         private void ConfigureLocalization()
