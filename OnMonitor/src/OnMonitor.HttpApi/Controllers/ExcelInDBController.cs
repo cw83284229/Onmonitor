@@ -19,13 +19,6 @@ namespace OnMonitor.Controllers
            
         }
 
-        //[HttpGet]
-        //public async Task<List<DVRDto>> GetDVRInfoAsync(IFormFile files)
-        //{
-
-           
-
-
-        //}
+       
     }
 }
