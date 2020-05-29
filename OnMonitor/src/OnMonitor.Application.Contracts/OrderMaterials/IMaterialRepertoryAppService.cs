@@ -13,6 +13,6 @@ namespace OnMonitor.OrderMaterials
             CreateUpdateMaterialRepertoryDto,
             CreateUpdateMaterialRepertoryDto>
     {
-
+        public string getlist();
     }
 }

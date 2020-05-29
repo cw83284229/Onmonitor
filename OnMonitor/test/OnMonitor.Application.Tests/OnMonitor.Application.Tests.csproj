@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
-  
+
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>OnMonitor</RootNamespace>
@@ -10,9 +10,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\OnMonitor.Application\OnMonitor.Application.csproj" />
     <ProjectReference Include="..\OnMonitor.Domain.Tests\OnMonitor.Domain.Tests.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
   </ItemGroup>
 

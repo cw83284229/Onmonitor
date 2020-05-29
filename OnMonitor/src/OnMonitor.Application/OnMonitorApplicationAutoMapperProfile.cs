@@ -15,22 +15,24 @@ namespace OnMonitor
             /* You can configure your AutoMapper mapping configuration here.
              * Alternatively, you can split your mapping configurations
              * into multiple profile classes for a better organization. */
+
             CreateMap<Camera, CameraDto>();
-            CreateMap<UpdateCameraDto, Camera>();
+            CreateMap<UpdateCameraDto, Camera>(MemberList.Source);
             CreateMap<DVR, DVRDto>();
-            CreateMap<UpdateDVRDto, DVR>();
-            CreateMap<CameraRepair, CameraRepairDto>();
-            CreateMap<UpdateCameraRepairDto, CameraRepair>();
+            CreateMap<UpdateDVRDto, DVR>(MemberList.Source);
+           // CreateMap<CameraRepair, CameraRepairDto>();
+            CreateMap<UpdateCameraRepairDto, CameraRepair>(MemberList.Source);
             CreateMap<ProjectManages, ProjectManagesDto>();
-            CreateMap<ProjectManagesDto, ProjectManages>();
+            CreateMap<ProjectManagesDto, ProjectManages>(MemberList.Source);
             CreateMap<DVRCheckInfo, DVRCheckInfoDto>();
-            CreateMap<UpdateDVRCheckInfoDto, DVRCheckInfo>();
+            CreateMap<UpdateDVRCheckInfoDto, DVRCheckInfo>(MemberList.Source);
             CreateMap<Alarm, AlarmDto>();
-            CreateMap<UpdateAlarmDto, Alarm>();
+            CreateMap<UpdateAlarmDto, Alarm>(MemberList.Source);
 
 
-            CreateMap<SystemMenu, SystemMenuDto>();
-            CreateMap<CreateUpdateSystemMenuDto, SystemMenu>(MemberList.Source);
+          // CreateMap<SystemMenu, SystemMenuDto>();
+           CreateMap<CreateUpdateSystemMenuDto, SystemMenu>(MemberList.Source);
+
 
             CreateMap<MaterialRepertory, MaterialRepertoryDto>();
             CreateMap<CreateUpdateMaterialRepertoryDto, MaterialRepertory>(MemberList.Source);

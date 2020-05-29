@@ -5,22 +5,22 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>OnMonitor</RootNamespace>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="2.8.0" />
+    <ProjectReference Include="..\..\host\OnMonitor.Host.Shared\OnMonitor.Host.Shared.csproj" />
     <ProjectReference Include="..\OnMonitor.Domain.Shared\OnMonitor.Domain.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Identity.Domain" Version="2.6.2" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="2.6.2" />
-    <PackageReference Include="Volo.Abp.IdentityServer.Domain" Version="2.6.2" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.IdentityServer" Version="2.6.2" />
-    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain" Version="2.6.2" />
-    <PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="2.6.2" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="2.6.2" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="2.6.2" />
-    <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="2.6.2" />
+    <Reference Include="Volo.Abp.TenantManagement.Domain">
+      <HintPath>C:\Users\Administrator\.nuget\packages\volo.abp.tenantmanagement.domain\2.6.2\lib\netstandard2.0\Volo.Abp.TenantManagement.Domain.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..\OnMonitor.HttpApi.Host\OnMonitor.Domain.xml</DocumentationFile>
+  </PropertyGroup>
 </Project>

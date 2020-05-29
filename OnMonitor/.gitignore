@@ -252,9 +252,7 @@ paket-files/
 *.sln.iml
 
 # OnMonitor
-src/OnMonitor.Web/Logs/*
-src/OnMonitor.Web/Logs/*
-src/OnMonitor.IdentityServer/Logs/*
-src/OnMonitor.HttpApi.Host/Logs/*
-src/OnMonitor.HttpApi.HostWithIds/Logs/*
-src/OnMonitor.DbMigrator/Logs/*
+host/OnMonitor.IdentityServer/Logs/logs.txt
+host/OnMonitor.HttpApi.Host/Logs/logs.txt
+host/OnMonitor.Web.Host/Logs/logs.txt
+host/OnMonitor.Web.Unified/Logs/logs.txt

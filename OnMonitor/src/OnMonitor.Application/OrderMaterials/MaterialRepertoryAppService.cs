@@ -12,5 +12,13 @@ namespace OnMonitor.OrderMaterials
         public MaterialRepertoryAppService(IRepository<MaterialRepertory, int> repository) : base(repository)
         {
         }
+
+
+        public string getlist()
+        {
+
+
+            return "∑µªÿ≤‚ ‘";
+        }
     }
 }

@@ -5,6 +5,6 @@ namespace OnMonitor.Localization
     [LocalizationResourceName("OnMonitor")]
     public class OnMonitorResource
     {
-
+        
     }
 }

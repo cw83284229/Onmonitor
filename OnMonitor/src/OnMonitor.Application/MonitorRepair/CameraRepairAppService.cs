@@ -15,7 +15,7 @@ using Volo.Abp.ObjectMapping;
 namespace OnMonitor.MonitorRepair
 {
 
-    [Authorize(Roles = "admin")]
+   // [Authorize(Roles = "admin")]
     public class CameraRepairAppService ://ApplicationService
     CrudAppService<
     CameraRepair,//定义实体
@@ -163,7 +163,11 @@ namespace OnMonitor.MonitorRepair
             #region 维修状态筛选
             if (!string.IsNullOrEmpty(condition.AnomalyTime))
             {
-                data = data.Where(u => u.AnomalyTime == condition.AnomalyTime);
+                data = data.Where(u => u.AnomalyTime.Contains(condition.AnomalyTime));
+            }
+            if (!string.IsNullOrEmpty(condition.CollectTime))
+            {
+                data = data.Where(u => u.AnomalyTime.Contains(condition.CollectTime));
             }
             if (!string.IsNullOrEmpty(condition.AnomalyType))
             {
@@ -183,7 +187,7 @@ namespace OnMonitor.MonitorRepair
             }
             if (!string.IsNullOrEmpty(condition.RepairedTime))
             {
-                data = data.Where(u => u.RepairedTime == condition.RepairedTime);
+                data = data.Where(u => u.RepairedTime.Contains(condition.RepairedTime));
 
             }
             if (!string.IsNullOrEmpty(condition.RepairFirm))
@@ -231,7 +235,7 @@ namespace OnMonitor.MonitorRepair
             }
             if (!string.IsNullOrEmpty(condition.Location))
             {
-                data = data.Where(u => u.Location == condition.Location);
+                data = data.Where(u => u.Location.Contains(condition.Location));
             }
             if (!string.IsNullOrEmpty(condition.department))
             {
@@ -299,7 +303,128 @@ namespace OnMonitor.MonitorRepair
         }
         #endregion
 
+        #region 模糊查询功能
+        // 模糊查询 按 楼栋-楼层位置搜索
+        public List<CameraRepairDto> GetRepairsListBylike(string condition,bool? RepairSatate,string AnomalyTime,string RepairedTime)
+        {
+            //加载CameraDto
+            var dataall = from a in _camerarepository
+                       join b in _cameraRepairrepository on a.Camera_ID equals b.Camera_ID
+                       select new CameraRepairDto
+                       {
+                           DVR_Room = a.Monitoring_room,
+                           DVR_ID = a.DVR_ID,
+                           channel_ID = a.channel_ID,
+                           Camera_ID = a.Camera_ID,
+                           Build = a.Build,
+                           floor = a.floor,
+                           Direction = a.Direction,
+                           Location = a.Location,
+                           department = a.department,
+                           Camera_Tpye = a.Camera_Tpye,
+                           install_time = a.install_time,
+                           manufacturer = a.manufacturer,
+                           AnomalyTime = b.AnomalyTime,
+                           CollectTime = b.CollectTime,
+                           AnomalyType = b.AnomalyType,
+                           AnomalyGrade = b.AnomalyGrade,
+                           Registrar = b.Registrar,
+                           RepairState = b.RepairState,
+                           RepairedTime = b.RepairedTime,
+                           Accendant = b.Accendant,
+                           RepairDetails = b.RepairDetails,
+                           RepairFirm = b.RepairFirm,
+                           Supervisor = b.Supervisor,
+                           ReplacePart = b.ReplacePart,
+                           ProjectAnomaly = b.ProjectAnomaly,
+                           NoSignal = b.NoSignal,
+                           Remark = b.Remark,
+                           Id = b.Id,
+                           CreatorId = b.CreatorId,
+                           CreationTime = b.CreationTime,
+                           LastModificationTime = b.LastModificationTime,
+                           LastModifierId = b.LastModifierId,
+                       };
 
+            var data = dataall.Where(u => u.RepairState == RepairSatate);
+            
+            if (!string.IsNullOrEmpty(AnomalyTime))
+            {
+                data = data.Where(u => u.AnomalyTime.Contains(AnomalyTime));
+            }
+            if (!string.IsNullOrEmpty(RepairedTime))
+            {
+                data = data.Where(u => u.RepairedTime.Contains(RepairedTime));
+            }
+           
+           
+           
+           
+            if (condition.IsNullOrEmpty())
+            {
+                return data.ToList();
+            }
+            else
+            {
+                //按 楼栋-楼层位置搜索
+
+                if (condition.Length>4)
+                {
+              
+                if (data.Where(u => u.Build.Contains(condition.Substring(0, 3))).ToList().Count != 0)
+                {
+                    data = data.Where(u => u.Build.Contains(condition.Substring(0, 3)));
+
+                    string str1 = condition.Split('F')[0];
+
+                    if (data.Where(u => u.floor.Contains(str1.Substring(4))).Count() != 0)
+                    {
+                        data = data.Where(u => u.floor.Contains(str1.Substring(4)));
+                        string str2 = condition.Split('F')[1];
+                        if (!str2.IsNullOrEmpty())
+                            {
+                          if (data.Where(u => u.Location.Contains(str2)).Count() != 0)
+                               {
+                                 return data.Where(u => u.Location.Contains(str2)).ToList();
+
+                               }
+                                return null;
+                            }
+                            else
+                            {
+                                return data.ToList();
+                            }
+                           
+                    }
+                    return data.ToList();
+                }
+                }
+                if (data.Where(u => u.DVR_ID.Contains(condition)).Count() != 0)
+                {
+                    return data.Where(u => u.DVR_ID.Contains(condition)).ToList();
+
+                }
+                if (data.Where(u => u.Camera_ID.Contains(condition)).Count() != 0)
+                {
+                    return data.Where(u => u.Camera_ID.Contains(condition)).ToList();
+
+                }
+                if (data.Where(u => u.Location.Contains(condition)).Count() != 0)
+                {
+                    return data.Where(u => u.Location.Contains(condition)).ToList();
+
+                }
+                if (data.Where(u => u.department.Contains(condition)).Count() != 0)
+                {
+                    return data.Where(u => u.Direction.Contains(condition)).ToList();
+
+                }
+
+                return null;
+            }
+        }
+
+        #endregion
     }
 }
 

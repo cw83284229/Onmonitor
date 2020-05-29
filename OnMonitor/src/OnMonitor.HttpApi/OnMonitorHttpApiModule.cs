@@ -1,22 +1,34 @@
-﻿using Volo.Abp.Account;
-using Volo.Abp.FeatureManagement;
-using Volo.Abp.Identity;
+﻿using Localization.Resources.AbpUi;
+using OnMonitor.Localization;
+using Volo.Abp.AspNetCore.Mvc;
+using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
-using Volo.Abp.PermissionManagement.HttpApi;
-using Volo.Abp.TenantManagement;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace OnMonitor
 {
     [DependsOn(
         typeof(OnMonitorApplicationContractsModule),
-        typeof(AbpAccountHttpApiModule),
-        typeof(AbpIdentityHttpApiModule),
-        typeof(AbpPermissionManagementHttpApiModule),
-        typeof(AbpTenantManagementHttpApiModule),
-        typeof(AbpFeatureManagementHttpApiModule)
-        )]
+        typeof(AbpAspNetCoreMvcModule))]
     public class OnMonitorHttpApiModule : AbpModule
     {
-        
+        public override void PreConfigureServices(ServiceConfigurationContext context)
+        {
+            PreConfigure<IMvcBuilder>(mvcBuilder =>
+            {
+                mvcBuilder.AddApplicationPartIfNotExists(typeof(OnMonitorHttpApiModule).Assembly);
+               
+            });
+        }
+
+        public override void ConfigureServices(ServiceConfigurationContext context)
+        {
+            Configure<AbpLocalizationOptions>(options =>
+            {
+                options.Resources
+                    .Get<OnMonitorResource>()
+                    .AddBaseTypes(typeof(AbpUiResource));
+            });
+        }
     }
 }

@@ -8,14 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\OnMonitor.EntityFrameworkCore.DbMigrations\OnMonitor.EntityFrameworkCore.DbMigrations.csproj" />
-    <ProjectReference Include="..\OnMonitor.TestBase\OnMonitor.TestBase.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.0" />
+    <ProjectReference Include="..\..\src\OnMonitor.EntityFrameworkCore\OnMonitor.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\OnMonitor.TestBase\OnMonitor.TestBase.csproj" />
   </ItemGroup>
 
 </Project>

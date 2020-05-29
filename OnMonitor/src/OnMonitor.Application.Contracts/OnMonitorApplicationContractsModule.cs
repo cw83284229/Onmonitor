@@ -1,27 +1,23 @@
-﻿using Volo.Abp.Account;
-using Volo.Abp.FeatureManagement;
-using Volo.Abp.Identity;
+﻿using Volo.Abp.Application;
 using Volo.Abp.Modularity;
-using Volo.Abp.ObjectExtending;
-using Volo.Abp.PermissionManagement;
-using Volo.Abp.TenantManagement;
+using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.Authorization;
 
 namespace OnMonitor
 {
     [DependsOn(
         typeof(OnMonitorDomainSharedModule),
-        typeof(AbpAccountApplicationContractsModule),
-        typeof(AbpFeatureManagementApplicationContractsModule),
-        typeof(AbpIdentityApplicationContractsModule),
-        typeof(AbpPermissionManagementApplicationContractsModule),
-        typeof(AbpTenantManagementApplicationContractsModule),
-        typeof(AbpObjectExtendingModule)
-    )]
+        typeof(AbpDddApplicationContractsModule),
+        typeof(AbpAuthorizationModule)
+        )]
     public class OnMonitorApplicationContractsModule : AbpModule
     {
-        public override void PreConfigureServices(ServiceConfigurationContext context)
+        public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            OnMonitorDtoExtensions.Configure();
+            Configure<AbpVirtualFileSystemOptions>(options =>
+            {
+                options.FileSets.AddEmbedded<OnMonitorApplicationContractsModule>("OnMonitor");
+            });
         }
     }
 }

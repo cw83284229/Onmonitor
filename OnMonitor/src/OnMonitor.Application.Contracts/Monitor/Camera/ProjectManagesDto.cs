@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 using Volo.Abp.Application.Dtos;
-using Volo.Abp.Domain.Entities.Auditing;
 
 namespace OnMonitor.Monitor
 {
-    
+
     public partial class ProjectManagesDto : AuditedEntityDto<Int32>
     {
         

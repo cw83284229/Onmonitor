@@ -12,7 +12,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace OnMonitor.Monitor
 {
-    [Authorize(Roles = "admin")]
+  //  [Authorize(Roles = "admin")]
    
     public class CameraAppService :// ApplicationService
    CrudAppService<
@@ -25,10 +25,10 @@ namespace OnMonitor.Monitor
    , ICameraAppService
 
     {
-        IRepository<Camera, Int32> _repository;
+        IRepository<Camera, int> _repository;
 
 
-        public CameraAppService(IRepository<Camera, Int32> repository) : base(repository)
+        public CameraAppService(IRepository<Camera, int> repository) : base(repository)
         {
             _repository = repository;
         }
@@ -75,40 +75,8 @@ namespace OnMonitor.Monitor
 
             return data;
         }
-        /// <summary>
-        /// 通过楼栋搜索数据库
-        /// </summary>
-        /// <param name="Build"></param>
-        /// <returns></returns>
-        public async Task<List<CameraDto>> GetListByBuild(String Build)
-        {
-            var data1 = _repository.AsQueryable().Where(u => u.Build == Build);
-
-
-
-            var data = ObjectMapper.Map<IQueryable<Camera>, List<CameraDto>>(data1);
-
-            return data;
-
-
-        }
-
-        /// <summary>
-        /// 通过楼层搜索数据库
-        /// </summary>
-        /// <param name="Build"></param>
-        /// <param name="Floor"></param>
-        /// <param name="Floors"></param>
-        /// <returns></returns>
-        public async Task<List<CameraDto>> GetListByFloor(String Build, String Floor)
-        {
-            var data1 = _repository.AsQueryable().Where(i => i.Build == Build)
-                                                 .Where(u => u.floor == Floor);
-            var data = ObjectMapper.Map<IQueryable<Camera>, List<CameraDto>>(data1);
-
-            return data;
-
-        }
+       
+       
         #endregion
 
         #region 多条件查询
@@ -186,6 +154,98 @@ namespace OnMonitor.Monitor
             }
          //   return new PagedResultDto<CameraDto> { TotalCount = data.ToList().Count, Items = data.ToList() };
 
+        }
+
+        #endregion
+
+        #region 模糊搜索
+        public List<CameraDto> GetListBylike(string condition)
+        {
+            //加载CameraDto
+            var data = from a in _repository
+                       select new CameraDto
+                       {
+                           Id = a.Id,
+                           DVR_ID = a.DVR_ID,
+                           channel_ID = a.channel_ID,
+                           Camera_ID = a.Camera_ID,
+                           Camera_Tpye = a.Camera_Tpye,
+                           Build = a.Build,
+                           floor = a.floor,
+                           Direction = a.Direction,
+                           Location = a.Location,
+                           department = a.department,
+                           Alarm_ID = a.Alarm_ID,
+                           category = a.category,
+                           Cost_code = a.Cost_code,
+                           CreationTime = a.CreationTime,
+                           CreatorId = a.CreatorId,
+                           install_time = a.install_time,
+                           LastModificationTime = a.LastModificationTime,
+                           LastModifierId = a.LastModifierId,
+                           manufacturer = a.manufacturer,
+                           MonitorClassification = a.MonitorClassification,
+                           Monitoring_room = a.Monitoring_room,
+                           Remark = a.Remark
+                       };
+
+           
+            if (condition.IsNullOrEmpty())
+            {
+                return data.ToList();
+            }
+            else
+            {
+                //按 楼栋-楼层位置搜索
+                if (condition.Length > 4)
+                {
+
+                    if (data.Where(u => u.Build.Contains(condition.Substring(0, 3))).ToList().Count != 0)
+                    {
+                        data = data.Where(u => u.Build.Contains(condition.Substring(0, 3)));
+
+                        string str1 = condition.Split('F')[0];
+
+                        if (data.Where(u => u.floor.Contains(str1.Substring(4))).Count() != 0)
+                        {
+                            data = data.Where(u => u.floor.Contains(str1.Substring(4)));
+                            string str2 = condition.Split('F')[1];
+                            if (!str2.IsNullOrEmpty())
+                            {
+                                if (data.Where(u => u.Location.Contains(str2)).Count() != 0)
+                                {
+                                    return data.Where(u => u.Location.Contains(str2)).ToList();
+
+                                }
+                                return null;
+                            }
+                            else
+                            {
+                                return data.ToList();
+                            }
+
+                        }
+                        return data.ToList();
+                    }
+                }
+                if (data.Where(u => u.DVR_ID.Contains(condition)).Count() != 0)
+                {
+                    return data.Where(u => u.DVR_ID.Contains(condition)).ToList();
+
+                }
+                if (data.Where(u => u.Camera_ID.Contains(condition)).Count() != 0)
+                {
+                    return data.Where(u => u.Camera_ID.Contains(condition)).ToList();
+
+                }
+                if (data.Where(u => u.Location.Contains(condition)).Count() != 0)
+                {
+                    return data.Where(u => u.Location.Contains(condition)).ToList();
+
+                }
+
+                return null;
+            }
         }
 
         #endregion

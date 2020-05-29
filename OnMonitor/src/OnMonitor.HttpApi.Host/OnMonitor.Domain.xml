@@ -1,0 +1,678 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OnMonitor.Domain</name>
+    </assembly>
+    <members>
+        <member name="P:OnMonitor.MenusInfos.SystemMenu.pid">
+            <summary>
+            父级ID
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MenusInfos.SystemMenu.title">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MenusInfos.SystemMenu.icon">
+            <summary>
+            菜单图标
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MenusInfos.SystemMenu.href">
+            <summary>
+            链接
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MenusInfos.SystemMenu.target">
+            <summary>
+            新Tab打开方式
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MenusInfos.SystemMenu.sort">
+            <summary>
+            排序编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MenusInfos.SystemMenu.status">
+            <summary>
+            是否菜单
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.AnomalyTime">
+            <summary>
+            异常时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.CollectTime">
+            <summary>
+            统计时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.AnomalyType">
+            <summary>
+            异常类别
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.AnomalyGrade">
+            <summary>
+            异常等级
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.Registrar">
+            <summary>
+            统计人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.RepairState">
+            <summary>
+            修复状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.RepairedTime">
+            <summary>
+            修复时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.Accendant">
+            <summary>
+            维修人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.RepairDetails">
+            <summary>
+            维修内容
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.RepairFirm">
+            <summary>
+            厂商维修
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.Supervisor">
+            <summary>
+            监工确认
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.ReplacePart">
+            <summary>
+            更换配件
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.ProjectAnomaly">
+            <summary>
+            工程异常
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.NoSignal">
+            <summary>
+            灰屏确认
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.CameraRepair.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.channel_ID">
+            <summary>
+            通道号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.MonitorClassification">
+            <summary>
+            监控分类
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.Camera_Tpye">
+            <summary>
+            镜头类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.manufacturer">
+            <summary>
+            设备厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.category">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.Alarm_ID">
+            <summary>
+            报警号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Camera.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost_ID">
+            <summary>
+            报警主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm_ID">
+            <summary>
+            报警主机编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.GeteType">
+            <summary>
+            门岗类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.SensorType">
+            <summary>
+            传感器类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.category">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.IsAlertor">
+            <summary>
+            有无报警器
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.IsOpenOrClosed">
+            <summary>
+            是否开岗
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.Factory">
+            <summary>
+            厂区
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.Camera_build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.Camera_foor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.Home_server">
+            <summary>
+            归属服务器
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.Hard_drive">
+            <summary>
+            硬盘容量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.DVR_IP">
+            <summary>
+            主机IP
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.DVR_port">
+            <summary>
+            主机端口
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.DVR_usre">
+            <summary>
+            DVR账户
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.DVR_possword">
+            <summary>
+            DVR密码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.Manufacturer">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.DVR_type">
+            <summary>
+            DVR类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.DVR_SN">
+            <summary>
+            设备SN
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.DVR_Channel">
+            <summary>
+            DVR 通道数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVR.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.DVR_SN">
+            <summary>
+            序列号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.DVR_type">
+            <summary>
+            DVR类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.DVR_Channel">
+            <summary>
+            DVR 通道数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.DiskTotal">
+            <summary>
+            硬盘总量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.DVRDISK">
+            <summary>
+            硬盘信息？josn类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.DVRChannelInfo">
+            <summary>
+            DVR通道位置信息?josn类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.DVRTime">
+            <summary>
+            dvr时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.DVR_Online">
+            <summary>
+            主机在线状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.TimeInfoChenk">
+            <summary>
+            时间信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.DiskChenk">
+            <summary>
+            硬盘信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.SNChenk">
+            <summary>
+            SN信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.ProjectManageType">
+            <summary>
+            工程变更类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.ProjectName">
+            <summary>
+            工程名称
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.ProjectOrder">
+            <summary>
+            工程单号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.StartWorkDate">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.CompleteDate">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.AcceptanceData">
+            <summary>
+            验收时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.ManufacturerName">
+            <summary>
+            施工厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.ProjectSpecifications">
+            <summary>
+            工程说明
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.Build">
+            <summary>
+            改造楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.Floor">
+            <summary>
+            改造楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.Camera_ID">
+            <summary>
+            镜头编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.AcceptanceResult">
+            <summary>
+            验收结果说明
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManages.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.MaterialRepertory.ProductInfoId">
+            <summary>
+            材料Id
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.MaterialRepertory.Count">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.MaterialRepertory.Price">
+            <summary>
+            单价
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.MaterialRepertory.RepertoryLocation">
+            <summary>
+            存储位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProcurementContent.Manufacturer">
+            <summary>
+            供货厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProcurementContent.ProcurementTime">
+            <summary>
+            入库时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProcurementContent.ProcurementMethod">
+            <summary>
+            入口方法
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProcurementContent.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProcurementContent.IsShipments">
+            <summary>
+            是否入系统
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProcurementDeltail.ProcurementContentId">
+            <summary>
+            订单Id
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProcurementDeltail.ProductInfoId">
+            <summary>
+            材料Id
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProcurementDeltail.Count">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProcurementDeltail.Price">
+            <summary>
+            单价
+            </summary>
+        </member>
+        <member name="T:OnMonitor.OrderMaterials.ProductInfo">
+            <summary>
+            货品信息
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProductInfo.MaterialsNumber">
+            <summary>
+            产品编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProductInfo.MaterialsType">
+            <summary>
+            材料类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProductInfo.MaterialsName">
+            <summary>
+            材料名称
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProductInfo.MaterialSpecification">
+            <summary>
+            材料型号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProductInfo.MaterialManufacturer">
+            <summary>
+            生产厂家
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProductInfo.Picture">
+            <summary>
+            材料图片
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProductInfo.units">
+            <summary>
+            单位
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProductInfo.MateriralsPrice">
+            <summary>
+            原始价格
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProductInfo.MarketPrice">
+            <summary>
+            销售价格
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.ProductInfo.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.SaleContent.SaleStore">
+            <summary>
+            出货位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.SaleContent.SaleTime">
+            <summary>
+            订货时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.SaleContent.ShipmentMethod">
+            <summary>
+            出货方式
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.SaleContent.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.SaleContent.IsShipments">
+            <summary>
+            是否入装好使用
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.SaleDeltail.SaleContentId">
+            <summary>
+            订单Id
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.SaleDeltail.ProductInfoId">
+            <summary>
+            材料Id
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.SaleDeltail.Count">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.OrderMaterials.SaleDeltail.Price">
+            <summary>
+            单价
+            </summary>
+        </member>
+    </members>
+</doc>

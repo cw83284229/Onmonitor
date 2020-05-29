@@ -3,28 +3,18 @@ using OnMonitor.MenusInfos;
 using OnMonitor.Monitor;
 using OnMonitor.MonitorRepair;
 using OnMonitor.OrderMaterials;
-using OnMonitor.Users;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.Modeling;
-using Volo.Abp.Identity;
-using Volo.Abp.Users.EntityFrameworkCore;
 
 namespace OnMonitor.EntityFrameworkCore
 {
-    /* This is your actual DbContext used on runtime.
-     * It includes only your entities.
-     * It does not include entities of the used modules, because each module has already
-     * its own DbContext class. If you want to share some database tables with the used modules,
-     * just create a structure like done for AppUser.
-     *
-     * Don't use this DbContext for database migrations since it does not contain tables of the
-     * used modules (as explained above). See OnMonitorMigrationsDbContext for migrations.
-     */
-    [ConnectionStringName("Default")]
-    public class OnMonitorDbContext : AbpDbContext<OnMonitorDbContext>
+    [ConnectionStringName(OnMonitorDbProperties.ConnectionStringName)]
+    public class OnMonitorDbContext : AbpDbContext<OnMonitorDbContext>, IOnMonitorDbContext
     {
-        public DbSet<AppUser> Users { get; set; }
+        /* Add DbSet for each Aggregate Root here. Example:
+         * public DbSet<Question> Questions { get; set; }
+         */
+
 
         //设定监控镜头实体类
         public DbSet<Camera> Cameras { get; set; }
@@ -35,19 +25,15 @@ namespace OnMonitor.EntityFrameworkCore
         public DbSet<Alarm> Alarms { get; set; }
 
 
-        /* Add DbSet properties for your Aggregate Roots / Entities here.
-         * Also map them inside OnMonitorDbContextModelCreatingExtensions.ConfigureOnMonitor
-         */
+     
         public DbSet<SystemMenu> SystemMenus { get; set; }
-
         public DbSet<MaterialRepertory> MaterialRepertories { get; set; }
         public DbSet<ProcurementContent> ProcurementContents { get; set; }
         public DbSet<ProcurementDeltail> ProcurementDeltails { get; set; }
         public DbSet<ProductInfo> ProductInfos { get; set; }
         public DbSet<SaleContent> SaleContents { get; set; }
         public DbSet<SaleDeltail> SaleDeltails { get; set; }
-
-        public OnMonitorDbContext(DbContextOptions<OnMonitorDbContext> options)
+        public OnMonitorDbContext(DbContextOptions<OnMonitorDbContext> options) 
             : base(options)
         {
 
@@ -56,22 +42,6 @@ namespace OnMonitor.EntityFrameworkCore
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-            /* Configure the shared tables (with included modules) here */
-
-            builder.Entity<AppUser>(b =>
-            {
-                b.ToTable(AbpIdentityDbProperties.DbTablePrefix + "Users"); //Sharing the same table "AbpUsers" with the IdentityUser
-                
-                b.ConfigureByConvention();
-                b.ConfigureAbpUser();
-
-                /* Configure mappings for your additional properties
-                 * Also see the OnMonitorEfCoreEntityExtensionMappings class
-                 */
-            });
-
-            /* Configure your own tables/entities inside the ConfigureOnMonitor method */
 
             builder.ConfigureOnMonitor();
         }

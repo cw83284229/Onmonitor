@@ -267,34 +267,35 @@ namespace OnMonitor.Monitor
         {
             dVRCameraRepairlist();
             List<ReportFormsDto> listreportForms = new List<ReportFormsDto>();
-            var yeartimes = _camerarepository.Select(i => new { YearTime = i.install_time }).Distinct().DefaultIfEmpty().ToList();
-            List<string> yearlist =new List<string>() ;
-            foreach (var item in yeartimes)
-            {
+            //var yeartimes = _camerarepository.Select(i => new { YearTime = i.install_time }).Distinct().DefaultIfEmpty().ToList();
+            //List<string> yearlist =new List<string>() ;
+            //foreach (var item in yeartimes)
+            //{
 
-                if (item.YearTime!=null&& item.YearTime != "")
-                {
-                    yearlist.Add(item.YearTime.Substring(0, 4));
-                }
-               
-                
-               
-            }
-            yearlist = yearlist.Distinct().ToList();
+            //    if (item.YearTime!=null&& item.YearTime != "")
+            //    {
+            //        yearlist.Add(item.YearTime.Substring(0, 4));
+            //    }
 
 
-            foreach (var item in yearlist)
+
+            //}
+            //yearlist = yearlist.Distinct().ToList();
+
+
+            for (int i = 2007; i < DateTime.Now.Year; i++)
+            
             {
                 ReportFormsDto formsDto = new ReportFormsDto();
-                formsDto.install_time = item;
+                formsDto.install_time = i.ToString();
                 //加载主机总数
-                formsDto.DVRTotal = listDVRCameraRepair.Where(u => u.install_time.Contains(item)).Select(i => new { DVR_ID = i.DVR_ID }).Distinct().Count();
+                formsDto.DVRTotal = listDVRCameraRepair.Where(u => u.install_time.Contains(i.ToString())).Select(i => new { DVR_ID = i.DVR_ID }).Distinct().Count();
                 //镜头总数
-                formsDto.CameraTotal = listDVRCameraRepair.Where(u => u.install_time.Contains(item)).Select(i => new { CameraID = i.Camera_ID }).Distinct().Count();
+                formsDto.CameraTotal = listDVRCameraRepair.Where(u => u.install_time.Contains(i.ToString())).Select(i => new { CameraID = i.Camera_ID }).Distinct().Count();
                 //加载异常数量
-                formsDto.CameraAnomaly = listDVRCameraRepair.Where(u => u.install_time.Contains(item)).Where(i => i.RepairState == false).Distinct().Count();
+                formsDto.CameraAnomaly = listDVRCameraRepair.Where(u => u.install_time.Contains(i.ToString())).Where(i => i.RepairState == false).Distinct().Count();
                 //加载维修数据
-                formsDto.RepairTotal = listDVRCameraRepair.Where(u => u.install_time.Contains(item)).Where(i => i.RepairState == true).Distinct().Count();
+                formsDto.RepairTotal = listDVRCameraRepair.Where(u => u.install_time.Contains(i.ToString())).Where(i => i.RepairState == true).Distinct().Count();
                 //异常+维修总数
                 formsDto.CameraAnomalyRepair = formsDto.CameraAnomaly + formsDto.RepairTotal;
                 //异常比例
@@ -327,6 +328,36 @@ namespace OnMonitor.Monitor
             return listreportForms;
         }
         #endregion
+
+
+        #region 获取监控维修年份分析数据
+        /// <summary>
+        /// 获取监控镜头维修年份分析数据
+        /// </summary>
+        /// <returns></returns>
+       
+        public async Task<Dictionary<string, int>> GetVintageAnalysisAsync()
+        {
+            dVRCameraRepairlist();
+            int time = DateTime.Now.Year;
+
+           // var data = _cameraRepairrepository.GetListAsync().Result.ToList();
+            Dictionary<string, int> keyValues = new Dictionary<string, int>();
+            for (int i = 0; i < 15; i++)
+            {
+                string year = (time - i).ToString();
+                var data1 =listDVRCameraRepair.Where(u => u.install_time.Contains(year));
+
+                keyValues.Add(year, data1.Count());
+
+            }
+            return keyValues;
+        }
+        #endregion
+
+
+
+
 
         #region 获取在线DVR数量--未完成
         /// <summary>

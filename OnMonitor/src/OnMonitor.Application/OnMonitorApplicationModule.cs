@@ -1,29 +1,24 @@
-﻿using Volo.Abp.Account;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AutoMapper;
-using Volo.Abp.FeatureManagement;
-using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
-using Volo.Abp.PermissionManagement;
-using Volo.Abp.TenantManagement;
+using Volo.Abp.Application;
 
 namespace OnMonitor
 {
     [DependsOn(
         typeof(OnMonitorDomainModule),
-        typeof(AbpAccountApplicationModule),
         typeof(OnMonitorApplicationContractsModule),
-        typeof(AbpIdentityApplicationModule),
-        typeof(AbpPermissionManagementApplicationModule),
-        typeof(AbpTenantManagementApplicationModule),
-        typeof(AbpFeatureManagementApplicationModule)
+        typeof(AbpDddApplicationModule),
+        typeof(AbpAutoMapperModule)
         )]
     public class OnMonitorApplicationModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
+            context.Services.AddAutoMapperObjectMapper<OnMonitorApplicationModule>();
             Configure<AbpAutoMapperOptions>(options =>
             {
-                options.AddMaps<OnMonitorApplicationModule>();
+                options.AddMaps<OnMonitorApplicationModule>(validate: true);
             });
         }
     }

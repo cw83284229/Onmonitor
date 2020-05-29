@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using OnMonitor.MenusInfos;
 using OnMonitor.Monitor;
 using OnMonitor.MonitorRepair;
@@ -11,10 +11,38 @@ namespace OnMonitor.EntityFrameworkCore
 {
     public static class OnMonitorDbContextModelCreatingExtensions
     {
-        public static void ConfigureOnMonitor(this ModelBuilder builder)
+        public static void ConfigureOnMonitor(
+            this ModelBuilder builder,
+            Action<OnMonitorModelBuilderConfigurationOptions> optionsAction = null)
         {
             Check.NotNull(builder, nameof(builder));
 
+            var options = new OnMonitorModelBuilderConfigurationOptions(
+                OnMonitorDbProperties.DbTablePrefix,
+                OnMonitorDbProperties.DbSchema
+            );
+
+            optionsAction?.Invoke(options);
+
+            /* Configure all entities here. Example:
+
+            builder.Entity<Question>(b =>
+            {
+                //Configure table & schema name
+                b.ToTable(options.TablePrefix + "Questions", options.Schema);
+            
+                b.ConfigureByConvention();
+            
+                //Properties
+                b.Property(q => q.Title).IsRequired().HasMaxLength(QuestionConsts.MaxTitleLength);
+                
+                //Relations
+                b.HasMany(question => question.Tags).WithOne().HasForeignKey(qt => qt.QuestionId);
+
+                //Indexes
+                b.HasIndex(q => q.CreationTime);
+            });
+            */
             builder.Entity<Camera>(b =>
             {
                 b.ToTable(OnMonitorConsts.DbTablePrefix + "Cameras", OnMonitorConsts.DbSchema);
@@ -61,7 +89,6 @@ namespace OnMonitor.EntityFrameworkCore
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
-
             builder.Entity<MaterialRepertory>(b =>
             {
                 b.ToTable(OnMonitorConsts.DbTablePrefix + "MaterialRepertories", OnMonitorConsts.DbSchema);
@@ -83,7 +110,7 @@ namespace OnMonitor.EntityFrameworkCore
                 /* Configure more properties here */
             });
 
-            builder.Entity<OrderMaterials.ProductInfo>(b =>
+            builder.Entity<ProductInfo>(b =>
             {
                 b.ToTable(OnMonitorConsts.DbTablePrefix + "ProductInfos", OnMonitorConsts.DbSchema);
                 b.ConfigureByConvention();
@@ -103,6 +130,7 @@ namespace OnMonitor.EntityFrameworkCore
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
+
         }
     }
 }

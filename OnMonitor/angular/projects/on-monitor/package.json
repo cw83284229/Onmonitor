@@ -1,0 +1,8 @@
+{
+  "name": "on-monitor",
+  "version": "0.0.1",
+  "dependencies": {
+    "@abp/ng.theme.shared": "~2.6.2",
+    "on-monitor.config": "^0.0.1"
+  }
+}

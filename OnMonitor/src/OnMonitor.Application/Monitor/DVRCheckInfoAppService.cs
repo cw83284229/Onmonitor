@@ -166,10 +166,10 @@ namespace OnMonitor.Monitor
              data1 = data1.Where(u => u.DVR_Online == condition.DVR_Online).ToList();
             }
 
-            if (condition.InfoChenk!=null)
-            {
-               data1 = data1.Where(u => u.InfoChenk == condition.InfoChenk).ToList();
-            }
+            //if (condition.InfoChenk!=null)
+            //{
+            //   data1 = data1.Where(u => u.InfoChenk == condition.InfoChenk).ToList();
+            //}
 
             var data = ObjectMapper.Map<List<DVRCheckInfo>, List<DVRCheckInfoDto>>(data1);
 

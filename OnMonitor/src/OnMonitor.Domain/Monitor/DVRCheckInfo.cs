@@ -29,6 +29,10 @@ namespace OnMonitor.Monitor
         /// </summary>
         public int? DVR_Channel { get; set; }
         /// <summary>
+        /// 硬盘总量
+        /// </summary>
+        public int? DiskTotal { get; set; }
+        /// <summary>
         /// 硬盘信息？josn类型
         /// </summary>
         public string DVRDISK { get; set; }
@@ -37,34 +41,33 @@ namespace OnMonitor.Monitor
         /// </summary>
         public string DVRChannelInfo { get; set; }
         /// <summary>
-        /// Libtaty通道位置信息?josn类型
+        /// dvr时间
         /// </summary>
-        public string LibraryChannelInfo { get; set; }
+        public string DVRTime { get; set; }
 
         /// <summary>
         /// 主机在线状态
         /// </summary>
         public bool? DVR_Online { get; set; }
         /// <summary>
-        /// 异常信息检查
+        /// 时间信息检查
         /// </summary>
-        public bool? InfoChenk { get; set; }
-        /// <summary>
-        /// 硬盘总量
-        /// </summary>
-        public int? DiskTotal { get; set; }
-        /// <summary>
-        /// 通道信息异常检查
-        /// </summary>
-        public bool? ChannelChenk { get; set; }
+        public bool? TimeInfoChenk { get; set; }
 
+        /// <summary>
+        /// 硬盘信息检查
+        /// </summary>
+        public bool? DiskChenk { get; set; }
 
+        /// <summary>
+        /// SN信息检查
+        /// </summary>
+        public bool? SNChenk { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
         [StringLength(255)]
         public string Remark { get; set; }
-
 
     }
 

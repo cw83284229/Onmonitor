@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>OnMonitor</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="Mongo2Go" Version="2.2.12" />
+    <ProjectReference Include="..\..\src\OnMonitor.MongoDB\OnMonitor.MongoDB.csproj" />
+    <ProjectReference Include="..\OnMonitor.TestBase\OnMonitor.TestBase.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,7 +1,7 @@
 ﻿using Volo.Abp.Http.Client.IdentityModel;
 using Volo.Abp.Modularity;
 
-namespace OnMonitor.HttpApi.Client.ConsoleTestApp
+namespace OnMonitor
 {
     [DependsOn(
         typeof(OnMonitorHttpApiClientModule),

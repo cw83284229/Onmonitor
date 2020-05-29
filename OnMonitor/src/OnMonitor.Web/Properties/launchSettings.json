@@ -1,10 +1,10 @@
-﻿{
+{
   "iisSettings": {
-    "windowsAuthentication": false, 
+    "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44364",
-      "sslPort": 44364
+      "applicationUrl": "http://localhost:56993/",
+      "sslPort": 0
     }
   },
   "profiles": {
@@ -18,10 +18,10 @@
     "OnMonitor.Web": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:44364",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "http://localhost:56994/"
     }
   }
 }
