@@ -63,6 +63,12 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetListAll">
+            <summary>
+            获取全部数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Monitor.CameraAppService.GetListByDVRID(System.String)">
             <summary>
             通道主机号搜索数据库
@@ -90,6 +96,12 @@
             <param name="cameraDtos"></param>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListAllAsync">
+            <summary>
+            获取全部数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Monitor.DVRAppService.GetListByCondition(System.String,System.String,System.String,System.String)">
             <summary>
             DVR多条件查询
@@ -106,7 +118,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(OnMonitor.Monitor.UpdateDVRCheckInfoDto)">
+        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(OnMonitor.Monitor.UpdateDVRCheckInfoDto,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
             <summary>
             条件查询获取主机信息
             </summary>

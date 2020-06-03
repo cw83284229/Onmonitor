@@ -18,7 +18,7 @@ namespace OnMonitor.Monitor
   
 
     {
-        public Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition(UpdateDVRCheckInfoDto condition);
+        public Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition(UpdateDVRCheckInfoDto condition, PagedAndSortedResultRequestDto input);
     }
 
 

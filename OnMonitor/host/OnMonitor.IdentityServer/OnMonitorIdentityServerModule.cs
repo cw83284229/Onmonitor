@@ -145,23 +145,38 @@ namespace OnMonitor
             //        .PersistKeysToStackExchangeRedis(redis, "OnMonitor-Protection-Keys");
             //}
 
+            //context.Services.AddCors(options =>
+            //{
+            //    options.AddPolicy(DefaultCorsPolicyName, builder =>
+            //    {
+            //        builder
+            //            .WithOrigins(
+            //                configuration["App:CorsOrigins"]
+            //                    .Split(",", StringSplitOptions.RemoveEmptyEntries)
+            //                    .Select(o => o.RemovePostFix("/"))
+            //                    .ToArray()
+            //            )
+            //            .WithAbpExposedHeaders()
+            //            .SetIsOriginAllowedToAllowWildcardSubdomains()
+            //            .AllowAnyHeader()
+            //            .AllowAnyMethod()
+            //            .AllowCredentials();
+            //    });
+            //});
+
             context.Services.AddCors(options =>
             {
                 options.AddPolicy(DefaultCorsPolicyName, builder =>
                 {
                     builder
-                        .WithOrigins(
-                            configuration["App:CorsOrigins"]
-                                .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                                .Select(o => o.RemovePostFix("/"))
-                                .ToArray()
-                        )
-                        .WithAbpExposedHeaders()
-                        .SetIsOriginAllowedToAllowWildcardSubdomains()
+                        .AllowAnyOrigin()
                         .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials();
+                        .WithMethods("GET", "POST", "HEAD", "PUT", "DELETE", "OPTIONS");
+                    // .AllowAnyMethod()
+                    // .AllowCredentials();
                 });
+
+
             });
         }
 

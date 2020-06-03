@@ -129,53 +129,40 @@ namespace OnMonitor.Monitor
         /// </summary>
         /// <param name="condition"></param>
         /// <returns></returns>
-        public async Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition(UpdateDVRCheckInfoDto condition)
+        public async Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition(UpdateDVRCheckInfoDto condition,PagedAndSortedResultRequestDto input)
         {
 
             var data1 = await _repository.GetListAsync();
 
             List<DVRCheckInfoDto> data2 = new List<DVRCheckInfoDto>();
-            if (!String.IsNullOrEmpty(condition.DVR_ID))
+          
+            
+
+            if (condition.DiskChenk!= null)
             {
-                data1 = data1.Where(u => u.DVR_ID == condition.DVR_ID).ToList();
-            }
-            if (!String.IsNullOrEmpty(condition.DVR_SN))
-            {
-                data1 = data1.Where(u => u.DVR_SN == condition.DVR_SN).ToList();
+                data1 = data1.Where(u => u.DiskChenk == condition.DiskChenk).ToList();
             }
 
-            if (condition.DiskTotal!=null)
+            if (condition.DVR_Online != null)
             {
-                data1 = data1.Where(u => u.DiskTotal >= condition.DiskTotal).ToList();
+                data1 = data1.Where(u => u.DVR_Online== condition.DVR_Online).ToList();
             }
-
-            if (condition.DVR_Channel!=null)
-            {
-                data1 = data1.Where(u => u.DVR_Channel >= condition.DVR_Channel).ToList();
-            }
-            if (!String.IsNullOrEmpty(condition.DVRChannelInfo))
-            {
-                data1 = data1.Where(u => u.DVRChannelInfo.Contains(condition.DVRChannelInfo)).ToList();
-            }
-            if (!String.IsNullOrEmpty(condition.DVRDISK))
-            {
-                data1 = data1.Where(u => u.DVRDISK.Contains(condition.DVRDISK)).ToList();
-            }
-            if (condition.DVR_Online!=null)
+           
+            if (condition.SNChenk!=null)
             {  
-             data1 = data1.Where(u => u.DVR_Online == condition.DVR_Online).ToList();
+             data1 = data1.Where(u => u.SNChenk == condition.SNChenk).ToList();
             }
 
-            //if (condition.InfoChenk!=null)
-            //{
-            //   data1 = data1.Where(u => u.InfoChenk == condition.InfoChenk).ToList();
-            //}
+            if (condition.TimeInfoChenk != null)
+            {
+                data1 = data1.Where(u => u.TimeInfoChenk == condition.TimeInfoChenk).ToList();
+            }
 
             var data = ObjectMapper.Map<List<DVRCheckInfo>, List<DVRCheckInfoDto>>(data1);
 
-           // data = data.AsQueryable().PageBy<CameraDto>(input.SkipCount, input.MaxResultCount).OrderBy(d => input.Sorting ?? d.Camera_ID).ToList();
+           var data3 = data.AsQueryable().OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount);
 
-            return new PagedResultDto<DVRCheckInfoDto> { TotalCount = data.Count, Items = data };
+            return new PagedResultDto<DVRCheckInfoDto> { TotalCount = data3.Count(), Items = data };
 
 
 

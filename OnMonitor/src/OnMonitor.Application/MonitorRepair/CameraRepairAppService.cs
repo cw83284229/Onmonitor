@@ -305,7 +305,7 @@ namespace OnMonitor.MonitorRepair
 
         #region 模糊查询功能
         // 模糊查询 按 楼栋-楼层位置搜索
-        public List<CameraRepairDto> GetRepairsListBylike(string condition,bool? RepairSatate,string AnomalyTime,string RepairedTime)
+        public PagedResultDto<CameraRepairDto> GetRepairsListBylike(string condition,bool? RepairSatate,string AnomalyTime,string RepairedTime,string AnomalyType, PagedAndSortedResultRequestDto input)
         {
             //加载CameraDto
             var dataall = from a in _camerarepository
@@ -345,6 +345,7 @@ namespace OnMonitor.MonitorRepair
                            LastModificationTime = b.LastModificationTime,
                            LastModifierId = b.LastModifierId,
                        };
+            IQueryable<CameraRepairDto> data1;
 
             var data = dataall.Where(u => u.RepairState == RepairSatate);
             
@@ -356,13 +357,24 @@ namespace OnMonitor.MonitorRepair
             {
                 data = data.Where(u => u.RepairedTime.Contains(RepairedTime));
             }
-           
-           
-           
-           
+            if (!string.IsNullOrEmpty(AnomalyType))
+            {
+                data = data.Where(u => u.AnomalyType.Contains(AnomalyType));
+            }
+            //条件为空返回
             if (condition.IsNullOrEmpty())
             {
-                return data.ToList();
+                if (!input.Sorting.IsNullOrWhiteSpace())
+                {
+                    data1 = data.OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount);
+                }
+                else
+                {
+                    data1 = data.OrderBy(d => d.Id).PageBy(input.SkipCount, input.MaxResultCount);
+                }
+
+
+                return  new PagedResultDto<CameraRepairDto>() { Items= data1.ToList() ,TotalCount=data.Count()} ;
             }
             else
             {
@@ -385,46 +397,104 @@ namespace OnMonitor.MonitorRepair
                             {
                           if (data.Where(u => u.Location.Contains(str2)).Count() != 0)
                                {
-                                 return data.Where(u => u.Location.Contains(str2)).ToList();
-
+                                    data= data.Where(u => u.Location.Contains(str2));
                                }
-                                return null;
+                                else
+                                {
+                                    return null;
+                                }
+
                             }
-                            else
-                            {
-                                return data.ToList();
-                            }
-                           
                     }
-                    return data.ToList();
+
                 }
                 }
+
+                //条件筛选
                 if (data.Where(u => u.DVR_ID.Contains(condition)).Count() != 0)
                 {
-                    return data.Where(u => u.DVR_ID.Contains(condition)).ToList();
-
+                    data = data.Where(u => u.DVR_ID.Contains(condition));
                 }
                 if (data.Where(u => u.Camera_ID.Contains(condition)).Count() != 0)
                 {
-                    return data.Where(u => u.Camera_ID.Contains(condition)).ToList();
-
+                    data = data.Where(u => u.Camera_ID.Contains(condition));
                 }
                 if (data.Where(u => u.Location.Contains(condition)).Count() != 0)
                 {
-                    return data.Where(u => u.Location.Contains(condition)).ToList();
-
+                    data = data.Where(u => u.Location.Contains(condition));
                 }
                 if (data.Where(u => u.department.Contains(condition)).Count() != 0)
                 {
-                    return data.Where(u => u.Direction.Contains(condition)).ToList();
+
+                    data = data.Where(u => u.Direction.Contains(condition));
 
                 }
-
-                return null;
+              
+                if (!input.Sorting.IsNullOrWhiteSpace())
+                {
+                   data1 = data.OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount);
+                }
+                else
+                {
+                    data1 = data.OrderBy(d => d.Id).PageBy(input.SkipCount, input.MaxResultCount);
+                }
+                return new PagedResultDto<CameraRepairDto>() { Items = data1.ToList(), TotalCount = data.Count() };
             }
         }
 
         #endregion
+        /// <summary>
+        /// 获取全部数据
+        /// </summary>
+        /// <returns></returns>
+        public List<CameraRepairDto> GetListAll()
+        {
+          
+          //加载CameraDto
+          var dataall = from a in _camerarepository
+                          join b in _cameraRepairrepository on a.Camera_ID equals b.Camera_ID
+                          select new CameraRepairDto
+                          {
+                              DVR_Room = a.Monitoring_room,
+                              DVR_ID = a.DVR_ID,
+                              channel_ID = a.channel_ID,
+                              Camera_ID = a.Camera_ID,
+                              Build = a.Build,
+                              floor = a.floor,
+                              Direction = a.Direction,
+                              Location = a.Location,
+                              department = a.department,
+                              Camera_Tpye = a.Camera_Tpye,
+                              install_time = a.install_time,
+                              manufacturer = a.manufacturer,
+                              AnomalyTime = b.AnomalyTime,
+                              CollectTime = b.CollectTime,
+                              AnomalyType = b.AnomalyType,
+                              AnomalyGrade = b.AnomalyGrade,
+                              Registrar = b.Registrar,
+                              RepairState = b.RepairState,
+                              RepairedTime = b.RepairedTime,
+                              Accendant = b.Accendant,
+                              RepairDetails = b.RepairDetails,
+                              RepairFirm = b.RepairFirm,
+                              Supervisor = b.Supervisor,
+                              ReplacePart = b.ReplacePart,
+                              ProjectAnomaly = b.ProjectAnomaly,
+                              NoSignal = b.NoSignal,
+                              Remark = b.Remark,
+                              Id = b.Id,
+                              CreatorId = b.CreatorId,
+                              CreationTime = b.CreationTime,
+                              LastModificationTime = b.LastModificationTime,
+                              LastModifierId = b.LastModifierId,
+                          };
+
+            return dataall.ToList();
+
+        }
+
+
+      
     }
 }
 

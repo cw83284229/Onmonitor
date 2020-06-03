@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using TimedTask.Host.Job;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
@@ -81,10 +82,10 @@ namespace OnMonitor
                     options.SwaggerDoc("v1", new OpenApiInfo { Title = "OnMonitor API", Version = "v1" });
                     // options.SwaggerDoc("v2", new OpenApiInfo { Title = "OnMonitor Abp", Version = "v2" });
 
-                   // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Domain.xml"));
-                   // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Application.xml"));
-                   // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Application.Contracts.xml"));
-                   // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.HttpApi.xml"));
+                    // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Domain.xml"));
+                    // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Application.xml"));
+                    // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Application.Contracts.xml"));
+                    // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.HttpApi.xml"));
 
                     options.DocInclusionPredicate((docName, description) => true);
                     options.CustomSchemaIds(type => type.FullName);
@@ -111,7 +112,7 @@ namespace OnMonitor
                     });
 
                 });
-           
+
 
             Configure<AbpLocalizationOptions>(options =>
             {
@@ -165,41 +166,44 @@ namespace OnMonitor
             //        .PersistKeysToStackExchangeRedis(redis, "OnMonitor-Protection-Keys");
             //}
             //配置跨域
-            context.Services.AddCors(options =>
-            {
-                options.AddPolicy(DefaultCorsPolicyName, builder =>
-                {
-                    builder
-                        .WithOrigins(
-                            configuration["App:CorsOrigins"]
-                                .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                                .Select(o => o.RemovePostFix("/"))
-                                .ToArray()
-                        )
-                        .WithAbpExposedHeaders()
-                        .SetIsOriginAllowedToAllowWildcardSubdomains()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials();
-                });
-            });
-            //});
-
             //context.Services.AddCors(options =>
             //{
             //    options.AddPolicy(DefaultCorsPolicyName, builder =>
             //    {
             //        builder
-            //            .AllowAnyOrigin()
+            //            .WithOrigins(
+            //                configuration["App:CorsOrigins"]
+            //                    .Split(",", StringSplitOptions.RemoveEmptyEntries)
+            //                    .Select(o => o.RemovePostFix("/"))
+            //                    .ToArray()
+            //            )
+            //            .WithAbpExposedHeaders()
+            //            .SetIsOriginAllowedToAllowWildcardSubdomains()
             //            .AllowAnyHeader()
-            //            .WithMethods("GET", "POST", "HEAD", "PUT", "DELETE", "OPTIONS");
-            //          // .AllowAnyMethod()
-            //          // .AllowCredentials();
+            //            .AllowAnyMethod()
+            //            .AllowCredentials();
             //    });
+            //});
+            //});
 
+            context.Services.AddCors(options =>
+            {
+                options.AddPolicy(DefaultCorsPolicyName, builder =>
+                {
+                    builder
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .WithMethods("GET", "POST", "HEAD", "PUT", "DELETE", "OPTIONS");
+                    // .AllowAnyMethod()
+                    // .AllowCredentials();
+                });
+
+
+            });
+            //定时任务
+            context.Services.AddSingleton<IHostedService, DVRInfoCheckJob>();
 
         }
-
       
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
         {
@@ -209,11 +213,12 @@ namespace OnMonitor
             {
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
+            
             app.UseCorrelationId();
             app.UseVirtualFiles();
             app.UseRouting();
             app.UseCors(DefaultCorsPolicyName);
+            app.UseHttpsRedirection();
             app.UseAuthentication();
             if (MultiTenancyConsts.IsEnabled)
             {

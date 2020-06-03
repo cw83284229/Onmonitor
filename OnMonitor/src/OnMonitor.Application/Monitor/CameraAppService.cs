@@ -159,7 +159,7 @@ namespace OnMonitor.Monitor
         #endregion
 
         #region 模糊搜索
-        public List<CameraDto> GetListBylike(string condition)
+        public PagedResultDto<CameraDto> GetListBylike(string condition, PagedAndSortedResultRequestDto input)
         {
             //加载CameraDto
             var data = from a in _repository
@@ -188,15 +188,24 @@ namespace OnMonitor.Monitor
                            Monitoring_room = a.Monitoring_room,
                            Remark = a.Remark
                        };
-
-           
+            IQueryable<CameraDto> data1;
+            //条件为空返回
             if (condition.IsNullOrEmpty())
             {
-                return data.ToList();
+                if (!input.Sorting.IsNullOrWhiteSpace())
+                {
+                    data1 = data.OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount);
+                }
+                else
+                {
+                    data1 = data.OrderBy(d => d.Id).PageBy(input.SkipCount, input.MaxResultCount);
+                }
+                return new PagedResultDto<CameraDto>() { Items = data1.ToList(), TotalCount = data.Count() };
             }
             else
             {
                 //按 楼栋-楼层位置搜索
+
                 if (condition.Length > 4)
                 {
 
@@ -214,37 +223,48 @@ namespace OnMonitor.Monitor
                             {
                                 if (data.Where(u => u.Location.Contains(str2)).Count() != 0)
                                 {
-                                    return data.Where(u => u.Location.Contains(str2)).ToList();
-
+                                    data = data.Where(u => u.Location.Contains(str2));
                                 }
-                                return null;
-                            }
-                            else
-                            {
-                                return data.ToList();
-                            }
+                                else
+                                {
+                                    return null;
+                                }
 
+                            }
                         }
-                        return data.ToList();
+
                     }
                 }
+
+                //条件筛选
                 if (data.Where(u => u.DVR_ID.Contains(condition)).Count() != 0)
                 {
-                    return data.Where(u => u.DVR_ID.Contains(condition)).ToList();
-
+                    data = data.Where(u => u.DVR_ID.Contains(condition));
                 }
                 if (data.Where(u => u.Camera_ID.Contains(condition)).Count() != 0)
                 {
-                    return data.Where(u => u.Camera_ID.Contains(condition)).ToList();
-
+                    data = data.Where(u => u.Camera_ID.Contains(condition));
                 }
                 if (data.Where(u => u.Location.Contains(condition)).Count() != 0)
                 {
-                    return data.Where(u => u.Location.Contains(condition)).ToList();
+                    data = data.Where(u => u.Location.Contains(condition));
+                }
+                if (data.Where(u => u.department.Contains(condition)).Count() != 0)
+                {
+
+                    data = data.Where(u => u.Direction.Contains(condition));
 
                 }
 
-                return null;
+                if (!input.Sorting.IsNullOrWhiteSpace())
+                {
+                    data1 = data.OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount);
+                }
+                else
+                {
+                    data1 = data.OrderBy(d => d.Id).PageBy(input.SkipCount, input.MaxResultCount);
+                }
+                return new PagedResultDto<CameraDto>() { Items = data1.ToList(), TotalCount = data.Count() };
             }
         }
 
@@ -309,5 +329,20 @@ namespace OnMonitor.Monitor
         }
 
         #endregion
+
+        /// <summary>
+        /// 获取全部数据
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<CameraDto>> GetListAllAsync()
+        {
+
+         var dataall= await _repository.GetListAsync();
+
+          var requst=  ObjectMapper.Map<List<Camera>, List<CameraDto>>(dataall);
+
+            return requst;
+
+        }
     }
 }

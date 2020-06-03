@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
+using OnMonitor.Job;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +10,39 @@ namespace TimedTask.Host.Job
 {
     public class DVRInfoCheckJob : BackgroundService
     {
+        //DVRInfoCheckService _DVRInfoCheckService;
+        //public DVRInfoCheckJob(DVRInfoCheckService DVRInfoCheckService) 
+        //{
+        //    _DVRInfoCheckService = DVRInfoCheckService;
+        //}
 
 
+      
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            while (!stoppingToken.IsCancellationRequested)
+            try
             {
-                var msg = $"{DateTime.Now},testok";
+                while (!stoppingToken.IsCancellationRequested)
+                {
+                    var msg = $"{DateTime.Now},testok";
 
-                Console.WriteLine(msg);
+                
 
-                await Task.Delay(100000, stoppingToken);
+                //    var data = _DVRInfoCheckService.GetDVRInfoCheck();
 
+                  //  Console.WriteLine(data);
+
+                    await Task.Delay(800000, stoppingToken);
+
+                }
             }
+            catch (Exception)
+            {
+
+               
+            }
+            
+          
 
         
         }

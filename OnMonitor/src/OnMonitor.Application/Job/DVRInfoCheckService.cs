@@ -5,33 +5,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 
 namespace OnMonitor.Job
 {
-    public class DVRInfoCheckService :// ApplicationService
-     CrudAppService<
-     DVRCheckInfo,//定义实体
-    DVRCheckInfoDto,//定义DTO
-     Int32, //实体的主键
-     PagedAndSortedResultRequestDto, //获取分页排序
-     UpdateDVRCheckInfoDto, //用于创建实体
-     UpdateDVRCheckInfoDto> //用于更新实体
+    public class DVRInfoCheckService :ApplicationService
+    // CrudAppService<
+    // DVRCheckInfo,//定义实体
+    //DVRCheckInfoDto,//定义DTO
+    // Int32, //实体的主键
+    // PagedAndSortedResultRequestDto, //获取分页排序
+    // UpdateDVRCheckInfoDto, //用于创建实体
+    // UpdateDVRCheckInfoDto> //用于更新实体
     {
 
         IRepository<DVRCheckInfo, int> _dVRCheckInforepository;
         IRepository<DVR, int> _dVRrepository;
         static public HttpClient _httpClient;
-        //public IConfiguration _configuration;
+        public IConfiguration _configuration;
 
 
-        public DVRInfoCheckService(IRepository<DVRCheckInfo,int> DVRCheckInforepository,IRepository<DVR, int> DVRrepository) : base(DVRCheckInforepository)
+        public DVRInfoCheckService(IRepository<DVRCheckInfo,int> DVRCheckInforepository,IRepository<DVR, int> DVRrepository, IConfiguration configuration) 
         {
             _dVRCheckInforepository=DVRCheckInforepository;
             _dVRrepository = DVRrepository;
-            //_configuration = configuration;
+            _configuration = configuration;
 
             if (_httpClient == null)
             {
@@ -39,16 +38,17 @@ namespace OnMonitor.Job
             }
         }
 
-            /// <summary>
-            /// 条件筛选，获取主机自动比对数据
-            /// </summary>
-            /// <param name="DVR_ID"></param>
-            /// <returns></returns>
- 
-            public async Task<List<DVRCheckInfoDto>> GetDVRInfoCheck()
+
+        /// <summary>
+        /// 条件筛选，获取主机自动比对数据
+        /// </summary>
+        /// <param name="DVR_ID"></param>
+        /// <returns></returns>
+
+        public async Task<List<DVRCheckInfoDto>> GetDVRInfoCheck()
             {
-                
-                var dvrurl = "http://172.30.116.49:8000";
+           // var configurationSection = _configuration.GetSection("IdentityServer:Clients");
+              var dvrurl = "http://172.30.116.49:8000";
                var dvrdata =await _dVRrepository.GetListAsync(); ;
               
                List<DVRCheckInfoDto> listdVRCheckInfo = new List<DVRCheckInfoDto>();
@@ -61,7 +61,7 @@ namespace OnMonitor.Job
                     var dt = response.Content.ReadAsStringAsync().Result;
                     var data = Newtonsoft.Json.JsonConvert.DeserializeObject<DVRInfoDto>(dt);
 
-                    UpdateDVRCheckInfoDto dVRCheckInfo = new UpdateDVRCheckInfoDto();
+                    DVRCheckInfo dVRCheckInfo = new DVRCheckInfo();
 
                     //硬盘检查
                     int dvrhard = (int)(item.Hard_drive * 0.91 / 1000);
@@ -95,7 +95,7 @@ namespace OnMonitor.Job
                     {
                         dVRCheckInfo.DVR_Online = false;
                     }
-
+                dVRCheckInfo.LastModificationTime = DateTime.Now;
                     //时间检查验证
                     var servertime = DateTime.Now;
                     DateTime dvrtime = Convert.ToDateTime(data.DVR_DateTine);
@@ -113,12 +113,12 @@ namespace OnMonitor.Job
                 int nuber = _dVRCheckInforepository.Where(u => u.DVR_ID == item.DVR_ID).Count();
                     if (nuber==0)
                 {
-                   var DD= await base.CreateAsync(dVRCheckInfo);
+                   var DD= await _dVRCheckInforepository.InsertAsync(dVRCheckInfo);
                 }
                 else
                 {
                     var id = _dVRCheckInforepository.Where(u => u.DVR_ID == item.DVR_ID).FirstOrDefault().Id;
-                    await base.UpdateAsync(id,dVRCheckInfo);
+                    await _dVRCheckInforepository.UpdateAsync(dVRCheckInfo);
                 }
                 Console.WriteLine($"DVR_ID+{DateTime.Now}+写入成功");
                 }
