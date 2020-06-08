@@ -11,12 +11,15 @@
              <param name="DVR_ID"></param>
              <returns></returns>
         </member>
-        <member name="M:OnMonitor.Job.DVRInfoCheckService.GetDVRInfoCheck">
+        <member name="M:TimedTask.Host.Job.DVRInfoCheckJob.GetDVRInfoCheck">
             <summary>
             条件筛选，获取主机自动比对数据
             </summary>
-            <param name="DVR_ID"></param>
-            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Job.DVRInfoCheckService.GetDVRInfoCheck">
+            <summary>
+            定时任务，自动对比数据，每天2:00启动一次
+            </summary>
         </member>
         <member name="M:OnMonitor.MenusInfos.SystemMenuAppService.GetSystemMenuDtobyPid(System.Nullable{System.Int64})">
             <summary>
@@ -118,11 +121,22 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(OnMonitor.Monitor.UpdateDVRCheckInfoDto,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
             <summary>
-            条件查询获取主机信息
+            按条件获取主机异常信息 
             </summary>
-            <param name="condition"></param>
+            <param name="DVR_room">监控室</param>
+            <param name="DiskChenk">硬盘检查</param>
+            <param name="DVR_Online">在线检查</param>
+            <param name="SNChenk">Sn号检查</param>
+            <param name="TimeInfoChenk">时间检查</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoCheckFalseByDVRroom(System.String)">
+            <summary>
+            按监控室获取主机异常信息
+            </summary>
+            <param name="DVR_room"></param>
             <returns></returns>
         </member>
         <member name="M:OnMonitor.Monitor.ReportFormsAppService.dVRCameraRepairlist">

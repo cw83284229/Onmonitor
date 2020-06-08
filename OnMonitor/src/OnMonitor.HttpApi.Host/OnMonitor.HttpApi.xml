@@ -4,6 +4,13 @@
         <name>OnMonitor.HttpApi</name>
     </assembly>
     <members>
+        <member name="M:OnMonitor.Controllers.DVRCheckInfoController.GetDVRCheckInfoByDVR_ID(System.String)">
+            <summary>
+            依据主机号获取比对数据
+            </summary>
+            <param name="DVR_ID"></param>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Controllers.DVRInfoController.GetChannelPicture(System.String)">
             <summary>
             获取通道截图/传入镜头编号
@@ -121,6 +128,91 @@
             按条件导出全部数据
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DVR_SN">
+            <summary>
+            序列号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DataDVR_SN">
+            <summary>
+            数据库序列号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DVR_type">
+            <summary>
+            DVR类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DVR_ChannelTotal">
+            <summary>
+            DVR 通道数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DataChannelTotal">
+            <summary>
+            数据库通道数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DiskTotal">
+            <summary>
+            硬盘总量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DataDiskTotal">
+            <summary>
+            数据库硬盘总量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DVRDISK">
+            <summary>
+            硬盘信息
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DVRChannelInfo">
+            <summary>
+            DVR通道位置信息?josn类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DVRTime">
+            <summary>
+            dvr时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.SystemTime">
+             <summary>
+            系统时间
+             </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DVR_Online">
+            <summary>
+            主机在线状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.TimeInfoChenk">
+            <summary>
+            时间信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.DiskChenk">
+            <summary>
+            硬盘信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.SNChenk">
+            <summary>
+            SN信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.DVRcheckinfoModel.Remark">
+            <summary>
+            备注
+            </summary>
         </member>
     </members>
 </doc>

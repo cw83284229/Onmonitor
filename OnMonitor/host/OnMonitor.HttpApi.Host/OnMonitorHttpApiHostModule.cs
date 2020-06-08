@@ -82,10 +82,10 @@ namespace OnMonitor
                     options.SwaggerDoc("v1", new OpenApiInfo { Title = "OnMonitor API", Version = "v1" });
                     // options.SwaggerDoc("v2", new OpenApiInfo { Title = "OnMonitor Abp", Version = "v2" });
 
-                    // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Domain.xml"));
-                    // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Application.xml"));
-                    // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Application.Contracts.xml"));
-                    // options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.HttpApi.xml"));
+                  //  options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Domain.xml"));
+                    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Application.xml"));
+                    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.Application.Contracts.xml"));
+                    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "OnMonitor.HttpApi.xml"));
 
                     options.DocInclusionPredicate((docName, description) => true);
                     options.CustomSchemaIds(type => type.FullName);
@@ -201,7 +201,7 @@ namespace OnMonitor
 
             });
             //定时任务
-            context.Services.AddSingleton<IHostedService, DVRInfoCheckJob>();
+          // context.Services.AddSingleton<IHostedService, DVRInfoCheckJob>();
 
         }
       

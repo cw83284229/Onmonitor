@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 
@@ -19,17 +20,19 @@ namespace OnMonitor.Monitor
         IRepository<DVR> _dvrrepository;
         IRepository<Camera> _camerarepository;
         IRepository<CameraRepair> _cameraRepairrepository;
-        IDVRCheckInfoAppService _dVRCheckInfoAppService;
+        IDVRCheckInfoAppService _dvrCheckInfoAppService;
         List<DVRCameraDto> listdVRCamera;
         List<CameraRepairDto> listcameraRepair;
         List<DVRCameraRepairDto> listDVRCameraRepair;
+        List<DVRCheckInfoDto> dVRCheckInfos;
+        List<DVRCheckInfoDto> dVRCheckOnlines;
 
-        public ReportFormsAppService(IRepository<DVR> dvrrepository, IRepository<Camera> camerarepository, IRepository<CameraRepair> cameraRepairrepository, IDVRCheckInfoAppService dVRCheckInfoAppService)
+        public ReportFormsAppService(IRepository<DVR> dvrrepository, IRepository<Camera> camerarepository, IRepository<CameraRepair> cameraRepairrepository, IDVRCheckInfoAppService dvrCheckInfoAppService)
         {
             _camerarepository = camerarepository;
             _dvrrepository = dvrrepository;
             _cameraRepairrepository = cameraRepairrepository;
-            _dVRCheckInfoAppService = dVRCheckInfoAppService;
+         _dvrCheckInfoAppService=dvrCheckInfoAppService; 
 
         }
 
@@ -79,6 +82,10 @@ namespace OnMonitor.Monitor
 
              listDVRCameraRepair = dVRCameraRepairDtos.ToList();
 
+           dVRCheckInfos = _dvrCheckInfoAppService.GetDVRInfoCheckFalseByDVRroom(null);
+            PagedAndSortedResultRequestDto input = new PagedAndSortedResultRequestDto() { SkipCount = 0, MaxResultCount = 999 };
+            dVRCheckOnlines = _dvrCheckInfoAppService.GetDVRInfoByCondition(null, null,true, null, null,input).Result.Items.ToList();
+
         }
 
 
@@ -94,13 +101,33 @@ namespace OnMonitor.Monitor
             dVRCameraRepairlist();
             List<ReportFormsDto> listreportForms = new List<ReportFormsDto>();
             var DVRRooms = _dvrrepository.Select(i => new { Monitoring_room = i.Monitoring_room }).Distinct();
+          
+
 
             foreach (var item in DVRRooms)
             {
                 ReportFormsDto formsDto = new ReportFormsDto();
                 formsDto.DVRRoom = item.Monitoring_room;
                 //加载主机总数
-                formsDto.DVRTotal  = listDVRCameraRepair.Where(u => u.DVR_Room == item.Monitoring_room).Select(i => new { DVR_ID = i.DVR_ID }).Distinct().Count();
+                var data = listDVRCameraRepair.Where(u => u.DVR_Room == item.Monitoring_room).Select(i => new { DVR_ID = i.DVR_ID }).Distinct();
+                formsDto.DVRTotal  = data.Count();
+                //加载主机异常数
+                List<DVRCheckInfoDto> data2 = new List<DVRCheckInfoDto>();
+                foreach (var tem in data)
+                {
+                    data2.Add(dVRCheckInfos.Where(u => u.DVR_ID == tem.DVR_ID).FirstOrDefault());
+                }
+                data2 = data2.Distinct().DefaultIfEmpty().ToList();
+                formsDto.DVRAnomaly = data2.Count;
+                //加载主机在线数据
+                List<DVRCheckInfoDto> data8 = new List<DVRCheckInfoDto>();
+                foreach (var tem in data)
+                {
+                    data8.Add(dVRCheckOnlines.Where(u => u.DVR_ID == tem.DVR_ID).FirstOrDefault());
+                }
+                data8 = data8.Distinct().DefaultIfEmpty().ToList();
+                formsDto.DVROnLine = data8.Count;
+
                 //镜头总数
                 formsDto.CameraTotal = listDVRCameraRepair.Where(u => u.DVR_Room == item.Monitoring_room).Select(i => new { CameraID = i.Camera_ID }).Distinct().Count();
                 //加载异常数量

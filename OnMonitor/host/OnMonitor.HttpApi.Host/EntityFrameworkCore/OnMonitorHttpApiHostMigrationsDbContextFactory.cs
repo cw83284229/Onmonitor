@@ -10,13 +10,14 @@ namespace OnMonitor.EntityFrameworkCore
         public OnMonitorHttpApiHostMigrationsDbContext CreateDbContext(string[] args)
         {
             var configuration = BuildConfiguration();
-
+            //指定数据库及连接地址
             var builder = new DbContextOptionsBuilder<OnMonitorHttpApiHostMigrationsDbContext>()
                 .UseSqlServer(configuration.GetConnectionString("OnMonitor"));
 
             return new OnMonitorHttpApiHostMigrationsDbContext(builder.Options);
         }
 
+       //配置获取Appsettings.json
         private static IConfigurationRoot BuildConfiguration()
         {
             var builder = new ConfigurationBuilder()

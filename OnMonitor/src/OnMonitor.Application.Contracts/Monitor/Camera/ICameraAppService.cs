@@ -24,6 +24,7 @@ namespace OnMonitor.Monitor
         public Task< PagedResultDto<CameraDto>> GetListByCondition(CameraCondition condition, PagedAndSortedResultRequestDto input);
 
         public Task< List<CameraDto>> GetListByCameraID(string CameraID);
+        public Task<List<CameraDto>> GetListByDVRID(string DVRID);
 
 
     }
