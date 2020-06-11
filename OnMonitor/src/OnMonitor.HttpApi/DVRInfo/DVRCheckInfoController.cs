@@ -9,6 +9,7 @@ using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 using System.Linq;
 using OnMonitor.Models;
+using Volo.Abp.MultiTenancy;
 
 namespace OnMonitor.Controllers
 {
@@ -62,7 +63,19 @@ namespace OnMonitor.Controllers
 
                 //硬盘检查装配
                 int dvrhard = (int)(dvrdata.Hard_drive * 0.91 / 1000);
-                dVRCheckInfo.DVRDISK = data.DVRDisk;
+                List<DVRDisk> listdvrdisk = new List<DVRDisk>();
+               
+                 //装配硬盘
+                foreach (var item in data.DVRDisk)
+                {
+                    DVRDisk dVRDisk = new DVRDisk();
+                    dVRDisk.Number = item.Number;
+                    dVRDisk.Disk = (int)(item.Disk/1000/1000);
+                     listdvrdisk.Add(dVRDisk);
+                }
+                dVRCheckInfo.DVRDISK = listdvrdisk;
+                dVRCheckInfo.DataDiskTotal = dvrhard;
+
                 if (dvrhard == data.HardDrive)
                 {
                     dVRCheckInfo.DiskTotal = data.HardDrive;
@@ -76,7 +89,7 @@ namespace OnMonitor.Controllers
                 //在线及sn检查
                 dVRCheckInfo.DataDVR_SN = dvrdata.DVR_SN;
                 dVRCheckInfo.DVR_ID = dvrdata.DVR_ID;
-                dVRCheckInfo.DataDiskTotal = dvrdata.Hard_drive;
+              
                 if (data.DVR_SN != null)
                 {
                     dVRCheckInfo.DVR_SN = data.DVR_SN;

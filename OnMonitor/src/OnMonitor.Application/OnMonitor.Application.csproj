@@ -8,18 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ChineseConverter" Version="1.0.0" />
     <PackageReference Include="Volo.Abp.AutoMapper" Version="2.8.0" />
     <PackageReference Include="Volo.Abp.Ddd.Application" Version="2.8.0" />
     <ProjectReference Include="..\OnMonitor.Application.Contracts\OnMonitor.Application.Contracts.csproj" />
     <ProjectReference Include="..\OnMonitor.Domain\OnMonitor.Domain.csproj" />
     <ProjectReference Include="..\Utility\Utility.csproj" />
   
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="ChineseConverter">
-      <HintPath>C:\Users\Administrator\.nuget\packages\traditionalchinesetosimplifiedconverter\1.0.0\lib\ChineseConverter.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

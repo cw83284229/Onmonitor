@@ -13,7 +13,7 @@
         </member>
         <member name="M:TimedTask.Host.Job.DVRInfoCheckJob.GetDVRInfoCheck">
             <summary>
-            条件筛选，获取主机自动比对数据
+            定时任务，自动对比数据，每天2:00启动一次
             </summary>
         </member>
         <member name="M:OnMonitor.Job.DVRInfoCheckService.GetDVRInfoCheck">
@@ -123,7 +123,7 @@
         </member>
         <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
             <summary>
-            按条件获取主机异常信息 
+            按条件获取主机异常信息 默认false 单条件其他为null
             </summary>
             <param name="DVR_room">监控室</param>
             <param name="DiskChenk">硬盘检查</param>

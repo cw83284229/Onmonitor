@@ -1,8 +1,10 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using OnMonitor.Job;
 using OnMonitor.Monitor;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
@@ -30,41 +32,28 @@ namespace TimedTask.Host.Job
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            try
-            {
+            
                 while (!stoppingToken.IsCancellationRequested)
                 {
                     var msg = $"{DateTime.Now},testok";
 
-
-
                    var data = await GetDVRInfoCheck();
 
+                    await Task.Delay(86400, stoppingToken);
 
-                    await Task.Delay(800000, stoppingToken);
-
-                }
-            }
-            catch (Exception)
-            {
-
-               
-            }
-            
-          
-
-        
+                }       
         }
 
 
-
         /// <summary>
-        /// 条件筛选，获取主机自动比对数据
+        /// 定时任务，自动对比数据，每天2:00启动一次
         /// </summary>
+
         public async Task<List<DVRCheckInfoDto>> GetDVRInfoCheck()
         {
-
-            var dvrurl = "http://172.30.116.49:8000";
+            var configuration = BuildConfiguration();
+            
+            var dvrurl = configuration.GetSection("DVRInfourl:url").Value;
             var dvrdata = await _dVRrepository.GetListAsync(); ;
 
             List<DVRCheckInfoDto> listdVRCheckInfo = new List<DVRCheckInfoDto>();
@@ -97,14 +86,16 @@ namespace TimedTask.Host.Job
                     dVRCheckInfo.DVR_SN = data.DVR_SN;
                     dVRCheckInfo.DVR_ID = item.DVR_ID;
                     dVRCheckInfo.DVR_Channel = data.ChannelTotal;
-                    dVRCheckInfo.DVR_Online = true;
+
                     if (item.DVR_SN == data.DVR_SN)
                     {
                         dVRCheckInfo.SNChenk = true;
+                        dVRCheckInfo.DVR_Online = true;
                     }
                     else
                     {
                         dVRCheckInfo.SNChenk = false;
+                        dVRCheckInfo.DVR_Online = false;
                     }
                 }
                 else
@@ -126,14 +117,15 @@ namespace TimedTask.Host.Job
                     dVRCheckInfo.DVRTime = data.DVR_DateTine;
                 }
 
-                int nuber = _dVRCheckInforepository.Where(u => u.DVR_ID == item.DVR_ID).Count();
+                  var dvrcheckdata = _dVRCheckInforepository.GetListAsync().Result;
+                 int nuber=dvrcheckdata.Where(u => u.DVR_ID == item.DVR_ID).Count();
                 if (nuber == 0)
                 {
                     var DD = await _dVRCheckInforepository.InsertAsync(dVRCheckInfo);
                 }
                 else
                 {
-                    var id = _dVRCheckInforepository.Where(u => u.DVR_ID == item.DVR_ID).FirstOrDefault().Id;
+                    var id = dvrcheckdata.Where(u => u.DVR_ID == item.DVR_ID).FirstOrDefault().Id;
                     await _dVRCheckInforepository.DeleteAsync(id);
                     var DD = await _dVRCheckInforepository.InsertAsync(dVRCheckInfo);
                 }
@@ -145,6 +137,15 @@ namespace TimedTask.Host.Job
 
         }
 
+        //配置获取Appsettings.json
+        private static IConfigurationRoot BuildConfiguration()
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false);
+
+            return builder.Build();
+        }
 
 
     }

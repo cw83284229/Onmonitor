@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using OnMonitor.Monitor;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
-using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -127,7 +123,7 @@ namespace OnMonitor.Monitor
         #endregion
 
         /// <summary>
-        /// 按条件获取主机异常信息 
+        /// 按条件获取主机异常信息 默认false 单条件其他为null
         /// </summary>
         /// <param name="DVR_room">监控室</param>
         /// <param name="DiskChenk">硬盘检查</param>
@@ -152,34 +148,18 @@ namespace OnMonitor.Monitor
                 data2.Add( data1.Where(u => u.DVR_ID == item.DVR_ID).FirstOrDefault());
             }
 
-            if (DiskChenk!= null)
+            foreach (var item in data2)
             {
-               data2 = data2.Where(u => u.DiskChenk == DiskChenk).ToList();
-               
+                if (item.DiskChenk == DiskChenk|| item.DVR_Online == DVR_Online || item.SNChenk == SNChenk || item.TimeInfoChenk == TimeInfoChenk)
+                {
+                    data3.Add(item);
+                }
             }
 
-            if (DVR_Online != null)
-            {
-               data2= data2.Where(u => u.DVR_Online== DVR_Online).ToList();
-                
-            }
-        
-           
-            if (SNChenk!=null)
-            {  
-            data2 = data2.Where(u => u.SNChenk == SNChenk).ToList();
-               
-            }
 
-            if (TimeInfoChenk != null)
-            {
-               data2 = data2.Where(u => u.TimeInfoChenk == TimeInfoChenk).ToList();
-               
-            }
+            var data9 = data3.Distinct();
 
-           var  data9= data2.Distinct();
-
-            var data = ObjectMapper.Map<List<DVRCheckInfo>, List<DVRCheckInfoDto>>(data2);
+            var data = ObjectMapper.Map<List<DVRCheckInfo>, List<DVRCheckInfoDto>>(data3);
 
            var data4 = data.Skip(input.SkipCount).Take(input.MaxResultCount);
               

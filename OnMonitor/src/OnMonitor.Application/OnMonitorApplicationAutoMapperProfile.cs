@@ -28,10 +28,12 @@ namespace OnMonitor
             CreateMap<UpdateDVRCheckInfoDto, DVRCheckInfo>(MemberList.Source);
             CreateMap<Alarm, AlarmDto>();
             CreateMap<UpdateAlarmDto, Alarm>(MemberList.Source);
+            CreateMap<MonitorRoom, MonitorRoomDto>();
+            CreateMap<UpdateMonitorRoomDto,MonitorRoom>(MemberList.Source);
 
 
-          // CreateMap<SystemMenu, SystemMenuDto>();
-           CreateMap<CreateUpdateSystemMenuDto, SystemMenu>(MemberList.Source);
+            // CreateMap<SystemMenu, SystemMenuDto>();
+            CreateMap<CreateUpdateSystemMenuDto, SystemMenu>(MemberList.Source);
 
 
             CreateMap<MaterialRepertory, MaterialRepertoryDto>();

@@ -23,6 +23,7 @@ namespace OnMonitor.EntityFrameworkCore
         public DbSet<ProjectManages> ProjectManages { get; set; }
         public DbSet<DVRCheckInfo> DVRCheckInfos { get; set; }
         public DbSet<Alarm> Alarms { get; set; }
+        public DbSet<MonitorRoom> MonitorRooms { get; set; }
 
 
      

@@ -1,8 +1,10 @@
 ﻿using AutoMapper.Configuration;
+using Microsoft.Extensions.Configuration;
 using NPOI.SS.Formula.Functions;
 using OnMonitor.Monitor;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -41,9 +43,11 @@ namespace OnMonitor.Job
 
         public async Task<List<DVRCheckInfoDto>> GetDVRInfoCheck()
             {
-          
-              var dvrurl = "http://172.30.116.49:8000";
-             var dvrdata =await _dVRrepository.GetListAsync(); ;
+
+            var configuration = BuildConfiguration();
+
+            var dvrurl = configuration.GetSection("DVRInfourl:url").Value;
+            var dvrdata =await _dVRrepository.GetListAsync(); ;
               
                List<DVRCheckInfoDto> listdVRCheckInfo = new List<DVRCheckInfoDto>();
 
@@ -126,5 +130,16 @@ namespace OnMonitor.Job
             }
 
 
+        //配置获取Appsettings.json
+        private static IConfigurationRoot BuildConfiguration()
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false);
+
+            return builder.Build();
         }
+
+
+    }
 }

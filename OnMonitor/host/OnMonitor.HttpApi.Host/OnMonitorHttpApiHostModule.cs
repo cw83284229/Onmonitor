@@ -201,7 +201,7 @@ namespace OnMonitor
 
             });
             //定时任务
-          // context.Services.AddSingleton<IHostedService, DVRInfoCheckJob>();
+           context.Services.AddSingleton<IHostedService, DVRInfoCheckJob>();
 
         }
       

@@ -809,6 +809,46 @@
             备注
             </summary>
         </member>
+        <member name="P:OnMonitor.Monitor.MonitorRoomDto.Factory">
+            <summary>
+            厂区
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.MonitorRoomDto.RoomLocation">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.MonitorRoomDto.RoomType">
+            <summary>
+            监控室类别
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.MonitorRoomDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateMonitorRoomDto.Factory">
+            <summary>
+            厂区
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateMonitorRoomDto.RoomLocation">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateMonitorRoomDto.RoomType">
+            <summary>
+            监控室类别
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateMonitorRoomDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="P:OnMonitor.Monitor.ReportFormsDto.DVRRoom">
             <summary>
             监控室

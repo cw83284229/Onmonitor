@@ -82,6 +82,12 @@ namespace OnMonitor.EntityFrameworkCore
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Id).IsRequired().HasMaxLength(128);
             });
+            builder.Entity<MonitorRoom>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "MonitorRooms", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention();
+                /* Configure more properties here */
+            });
 
             builder.Entity<SystemMenu>(b =>
             {
@@ -130,6 +136,7 @@ namespace OnMonitor.EntityFrameworkCore
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
+
 
         }
     }
