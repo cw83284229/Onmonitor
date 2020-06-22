@@ -85,7 +85,7 @@ namespace OnMonitor.Monitor
              listDVRCameraRepair = dVRCameraRepairDtos.ToList();
 
            dVRCheckInfos = _dvrCheckInfoAppService.GetDVRInfoCheckFalseByDVRroom(null);
-            PagedAndSortedResultRequestDto input = new PagedAndSortedResultRequestDto() { SkipCount = 0, MaxResultCount = 999 };
+            PagedSortedRequestDto input = new PagedSortedRequestDto() { SkipCount = 0, MaxResultCount = 999 };
             dVRCheckOnlines = _dvrCheckInfoAppService.GetDVRInfoByCondition(null, null,true, null, null,input).Result.Items.ToList();
 
         }

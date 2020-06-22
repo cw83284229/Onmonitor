@@ -131,7 +131,7 @@ namespace OnMonitor.Monitor
         /// <param name="SNChenk">Sn号检查</param>
         /// <param name="TimeInfoChenk">时间检查</param>
         /// <returns></returns>
-        public async Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition( string DVR_room,bool? DiskChenk, bool? DVR_Online, bool? SNChenk ,bool? TimeInfoChenk,PagedAndSortedResultRequestDto input)
+        public async Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition( string DVR_room,bool? DiskChenk, bool? DVR_Online, bool? SNChenk ,bool? TimeInfoChenk, PagedSortedRequestDto input)
         {
 
             var data1 = await _dvrchenkrepository.GetListAsync();

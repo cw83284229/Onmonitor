@@ -81,7 +81,7 @@ namespace OnMonitor.Controllers
         public IActionResult GetOutExcel(CameraCondition condition)
         {
 
-            PagedAndSortedResultRequestDto resultRequestDto = new PagedAndSortedResultRequestDto() { MaxResultCount = 200000, SkipCount = 0};
+            PagedSortedRequestDto resultRequestDto = new PagedSortedRequestDto() { MaxResultCount = 200000, SkipCount = 0};
             var data = _cameraAppService.GetListByCondition(condition, resultRequestDto);
             var list = data.Result.Items.ToList();
 

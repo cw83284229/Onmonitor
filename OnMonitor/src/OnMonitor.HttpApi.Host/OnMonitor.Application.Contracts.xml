@@ -909,64 +909,9 @@
             异常比例
             </summary>
         </member>
-        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.DVR_Room">
-            <summary>
-            监控室
-            </summary>
-        </member>
-        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.DVR_ID">
-            <summary>
-            主机号
-            </summary>
-        </member>
-        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.channel_ID">
-            <summary>
-            通道号
-            </summary>
-        </member>
-        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Build">
-            <summary>
-            楼栋
-            </summary>
-        </member>
-        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.floor">
-            <summary>
-            楼层
-            </summary>
-        </member>
-        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Direction">
-            <summary>
-            方向
-            </summary>
-        </member>
-        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Location">
-            <summary>
-            位置
-            </summary>
-        </member>
-        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.department">
-            <summary>
-            部门
-            </summary>
-        </member>
-        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Camera_Tpye">
-            <summary>
-            镜头类型
-            </summary>
-        </member>
         <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.Camera_ID">
             <summary>
             镜头号
-            </summary>
-        </member>
-        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.install_time">
-            <summary>
-            安装时间
-            </summary>
-        </member>
-        <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.manufacturer">
-            <summary>
-            设备厂商
             </summary>
         </member>
         <member name="P:OnMonitor.MonitorRepair.CameraRepairDto.AnomalyTime">
@@ -1147,6 +1092,141 @@
         <member name="P:OnMonitor.MonitorRepair.QueryCondition.NoSignal">
             <summary>
             灰屏确认
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.DVR_Room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.channel_ID">
+            <summary>
+            通道号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.Camera_Tpye">
+            <summary>
+            镜头类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.manufacturer">
+            <summary>
+            设备厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.AnomalyTime">
+            <summary>
+            异常时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.CollectTime">
+            <summary>
+            统计时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.AnomalyType">
+            <summary>
+            异常类别
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.AnomalyGrade">
+            <summary>
+            异常等级
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.Registrar">
+            <summary>
+            统计人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.RepairState">
+            <summary>
+            修复状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.RepairedTime">
+            <summary>
+            修复时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.Accendant">
+            <summary>
+            维修人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.RepairDetails">
+            <summary>
+            维修内容
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.RepairFirm">
+            <summary>
+            厂商维修
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.Supervisor">
+            <summary>
+            监工确认
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.ReplacePart">
+            <summary>
+            更换配件
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.ProjectAnomaly">
+            <summary>
+            工程异常
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.NoSignal">
+            <summary>
+            灰屏确认
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.Remark">
+            <summary>
+            备注
             </summary>
         </member>
         <member name="P:OnMonitor.MonitorRepair.UpdateCameraRepairDto.Camera_ID">

@@ -121,7 +121,7 @@ namespace OnMonitor.IdentityServer
             }
 
             //Console Test Client
-            var consoleClientId = configurationSection["OnMonitor_ConsoleTestApp:ClientId"];
+            var consoleClientId = configurationSection["OnMonitor_App:ClientId"];
             if (!consoleClientId.IsNullOrWhiteSpace())
             {
                 await CreateClientAsync(

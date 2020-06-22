@@ -20,7 +20,7 @@ namespace OnMonitor
             CreateMap<UpdateCameraDto, Camera>(MemberList.Source);
             CreateMap<DVR, DVRDto>();
             CreateMap<UpdateDVRDto, DVR>(MemberList.Source);
-           // CreateMap<CameraRepair, CameraRepairDto>();
+            CreateMap<CameraRepair, CameraRepairDto>();
             CreateMap<UpdateCameraRepairDto, CameraRepair>(MemberList.Source);
             CreateMap<ProjectManages, ProjectManagesDto>();
             CreateMap<ProjectManagesDto, ProjectManages>(MemberList.Source);

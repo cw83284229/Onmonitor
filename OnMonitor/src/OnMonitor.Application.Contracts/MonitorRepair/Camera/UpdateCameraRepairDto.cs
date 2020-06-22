@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OnMonitor.MonitorRepair
 {
-  public  class UpdateCameraRepairDto
+    public class UpdateCameraRepairDto
     {
         /// <summary>
         /// 镜头号
@@ -20,7 +20,7 @@ namespace OnMonitor.MonitorRepair
         /// <summary>
         /// 统计时间
         /// </summary>
-         [StringLength(55)]
+        [StringLength(55)]
         public string CollectTime { get; set; }
         /// <summary>
         /// 异常类别
@@ -89,9 +89,8 @@ namespace OnMonitor.MonitorRepair
         /// </summary>
         [StringLength(255)]
         public string Remark { get; set; }
-
     }
 
 
-}
+    }
 

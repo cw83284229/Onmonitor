@@ -86,7 +86,7 @@ namespace OnMonitor.Monitor
         /// <param name="condition"></param>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<PagedResultDto<CameraDto>> GetListByCondition(CameraCondition condition, PagedAndSortedResultRequestDto input)
+        public async Task<PagedResultDto<CameraDto>> GetListByCondition(CameraCondition condition, PagedSortedRequestDto input)
         {
             var data = from a in _repository
                         select new CameraDto
@@ -159,7 +159,7 @@ namespace OnMonitor.Monitor
         #endregion
 
         #region 模糊搜索
-        public PagedResultDto<CameraDto> GetListBylike(string condition, PagedAndSortedResultRequestDto input)
+        public PagedResultDto<CameraDto> GetListBylike(string condition, PagedSortedRequestDto input)
         {
             //加载CameraDto
             var data = from a in _repository
@@ -189,6 +189,8 @@ namespace OnMonitor.Monitor
                            Remark = a.Remark
                        };
             IQueryable<CameraDto> data1;
+
+
             //条件为空返回
             if (condition.IsNullOrEmpty())
             {
@@ -204,6 +206,8 @@ namespace OnMonitor.Monitor
             }
             else
             {
+
+                condition = ChineseConverter.Convert(condition, ChineseConversionDirection.SimplifiedToTraditional);
                 //按 楼栋-楼层位置搜索
 
                 if (condition.Length > 4)
@@ -304,7 +308,7 @@ namespace OnMonitor.Monitor
         #endregion
 
         #region 重写增/改方法，增加简繁转换
-        [Authorize("CCTV_Modification")]
+       [Authorize(Roles = "operation")]
         public override Task<CameraDto> CreateAsync(UpdateCameraDto input)
         {
 
@@ -316,7 +320,8 @@ namespace OnMonitor.Monitor
 
             return base.CreateAsync(input2);
         }
-        [Authorize("CCTV_Modification")]
+
+        [Authorize(Roles = "operation")]
         public override Task<CameraDto> UpdateAsync(int id, UpdateCameraDto input)
         {
             string data = Newtonsoft.Json.JsonConvert.SerializeObject(input);

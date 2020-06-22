@@ -35,7 +35,7 @@ namespace OnMonitor.Controllers
         public async Task<Dictionary<string, int>> GetVintageAnalysisAsync()
         {
             int time = DateTime.Now.Year;
-            PagedAndSortedResultRequestDto resultRequestDto = new PagedAndSortedResultRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = "Id" };
+            PagedSortedRequestDto resultRequestDto = new PagedSortedRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = "Id" };
             var data = _cameraRepairAppService.GetRepairsList(resultRequestDto);
             Dictionary<string, int> keyValues = new Dictionary<string, int>();
             for (int i = 0; i < 10; i++)
@@ -61,11 +61,11 @@ namespace OnMonitor.Controllers
         public IActionResult GetOutExcel(QueryCondition condition)
         {
 
-            PagedAndSortedResultRequestDto resultRequestDto = new PagedAndSortedResultRequestDto() { MaxResultCount = 200000, SkipCount = 0};
+            PagedSortedRequestDto resultRequestDto = new PagedSortedRequestDto() { MaxResultCount = 1000, SkipCount = 0};
             var data = _cameraRepairAppService.GetRepairsListByCondition(condition, resultRequestDto);
             var list = data.Items.ToList();
 
-            DataTable dataTable = ListToDataTable.toDataTable<CameraRepairDto>(list);
+            DataTable dataTable = ListToDataTable.toDataTable<RequstCameraRepairDto>(list);
 
 
             var pathname = $"{System.AppDomain.CurrentDomain.BaseDirectory}Basics\\OutExcel.xlsx";
@@ -89,7 +89,7 @@ namespace OnMonitor.Controllers
         public async Task<Dictionary<string, int>> GetCameraRepairByBuildAsync()
         {
 
-            PagedAndSortedResultRequestDto resultRequestDto = new PagedAndSortedResultRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = null };
+            PagedSortedRequestDto resultRequestDto = new PagedSortedRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = null };
 
             Dictionary<string, int> keyValues = new Dictionary<string, int>();
             var data = _cameraRepairAppService.GetRepairsList(resultRequestDto).Items.ToList();

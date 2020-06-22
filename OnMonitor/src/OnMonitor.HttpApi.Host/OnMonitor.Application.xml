@@ -36,14 +36,14 @@
             <param name="systemMenuDto"></param>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsList(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsList(OnMonitor.PagedSortedRequestDto)">
             <summary>
             分页查询数据
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsListByCondition(OnMonitor.MonitorRepair.QueryCondition,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsListByCondition(OnMonitor.MonitorRepair.QueryCondition,OnMonitor.PagedSortedRequestDto)">
             <summary>
             按条件筛选
             </summary>
@@ -51,7 +51,7 @@
             <param name="input">分页</param>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.CreateAsync(OnMonitor.MonitorRepair.UpdateCameraRepairDto)">
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.CreateRustAsync(OnMonitor.MonitorRepair.UpdateCameraRepairDto)">
             <summary>
             重写新增表，增加简体转繁体功能
             </summary>
@@ -84,7 +84,7 @@
             <param name="CameraID">镜头号</param>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByCondition(OnMonitor.Monitor.CameraCondition,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+        <member name="M:OnMonitor.Monitor.CameraAppService.GetListByCondition(OnMonitor.Monitor.CameraCondition,OnMonitor.PagedSortedRequestDto)">
             <summary>
             监控镜头多条件查询
             </summary>
@@ -117,11 +117,11 @@
         </member>
         <member name="M:OnMonitor.Monitor.DVRAppService.CreateAsync(OnMonitor.Monitor.UpdateDVRDto)">
             <summary>
-            获取DVR/Camera数据树形结构
+            重写增/改方法，增加简繁转换
             </summary>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},OnMonitor.PagedSortedRequestDto)">
             <summary>
             按条件获取主机异常信息 默认false 单条件其他为null
             </summary>

@@ -15,7 +15,7 @@ using Volo.Abp.ObjectMapping;
 namespace OnMonitor.MonitorRepair
 {
 
-   // [Authorize(Roles = "admin")]
+ //  [Authorize(Roles = "admin")]
     public class CameraRepairAppService ://ApplicationService
     CrudAppService<
     CameraRepair,//定义实体
@@ -42,7 +42,7 @@ namespace OnMonitor.MonitorRepair
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public  PagedResultDto<CameraRepairDto> GetRepairsList(PagedAndSortedResultRequestDto input)
+        public  PagedResultDto<RequstCameraRepairDto> GetRepairsList(PagedSortedRequestDto input)
         {
 
           //  var cameras = await _camerarepository.GetListAsync();
@@ -50,7 +50,7 @@ namespace OnMonitor.MonitorRepair
             //加载CameraDto
             var data = from a in _camerarepository
                        join b in _cameraRepairrepository on a.Camera_ID equals b.Camera_ID
-                       select new CameraRepairDto
+                       select new RequstCameraRepairDto
                        {
                            DVR_Room = a.Monitoring_room,
                            DVR_ID = a.DVR_ID,
@@ -86,7 +86,7 @@ namespace OnMonitor.MonitorRepair
                            LastModifierId=b.LastModifierId,
                        };
             //分页排序查询加载
-            List<CameraRepairDto> cameraRepairDtos;
+            List<RequstCameraRepairDto> cameraRepairDtos;
             if (!input.Sorting.IsNullOrWhiteSpace())
             {
                 cameraRepairDtos = data.OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount).ToList();
@@ -99,7 +99,7 @@ namespace OnMonitor.MonitorRepair
 
 
 
-            return new PagedResultDto<CameraRepairDto>()
+            return new PagedResultDto<RequstCameraRepairDto>()
 
             {
                 TotalCount = data.Count(),
@@ -116,7 +116,7 @@ namespace OnMonitor.MonitorRepair
         /// <param name="condition">条件</param>
         /// <param name="input">分页</param>
         /// <returns></returns>
-        public  PagedResultDto<CameraRepairDto> GetRepairsListByCondition(QueryCondition condition, PagedAndSortedResultRequestDto input)
+        public  PagedResultDto<RequstCameraRepairDto> GetRepairsListByCondition(QueryCondition condition, PagedSortedRequestDto input)
         {
 
           //  var cameras = await _camerarepository.GetListAsync();
@@ -124,7 +124,7 @@ namespace OnMonitor.MonitorRepair
             //加载CameraDto
             var data = from a in _camerarepository
                        join b in _cameraRepairrepository on a.Camera_ID equals b.Camera_ID
-                       select new CameraRepairDto
+                       select new RequstCameraRepairDto
                        {
                            DVR_Room = a.Monitoring_room,
                            DVR_ID = a.DVR_ID,
@@ -246,7 +246,7 @@ namespace OnMonitor.MonitorRepair
 
 
             //分页
-            List<CameraRepairDto> cameraRepairDtos;
+            List<RequstCameraRepairDto> cameraRepairDtos;
             if (!input.Sorting.IsNullOrWhiteSpace())
             {
                 cameraRepairDtos = data.OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount).ToList();
@@ -256,7 +256,7 @@ namespace OnMonitor.MonitorRepair
                 cameraRepairDtos = data.OrderBy(d => d.Id).PageBy(input.SkipCount, input.MaxResultCount).ToList();
             }
             //返回
-            return new PagedResultDto<CameraRepairDto>()
+            return new PagedResultDto<RequstCameraRepairDto>()
 
             {
                 TotalCount = data.Count(),
@@ -272,7 +272,7 @@ namespace OnMonitor.MonitorRepair
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public override Task<CameraRepairDto> CreateAsync(UpdateCameraRepairDto input)
+        public  async Task<CameraRepairDto> CreateRustAsync(UpdateCameraRepairDto input)
         {
 
 
@@ -282,7 +282,11 @@ namespace OnMonitor.MonitorRepair
 
             UpdateCameraRepairDto input2 = Newtonsoft.Json.JsonConvert.DeserializeObject<UpdateCameraRepairDto>(data2);
 
-            return base.CreateAsync(input2);
+            var reuust=await base.CreateAsync(input2);
+
+
+            return reuust;
+
         }
         /// <summary>
         /// 重写修改方法，简体转繁体
@@ -305,12 +309,12 @@ namespace OnMonitor.MonitorRepair
 
         #region 模糊查询功能
         // 模糊查询 按 楼栋-楼层位置搜索
-        public PagedResultDto<CameraRepairDto> GetRepairsListBylike(string condition,bool? RepairSatate,string AnomalyTime,string RepairedTime,string AnomalyType, PagedAndSortedResultRequestDto input)
+        public PagedResultDto<RequstCameraRepairDto> GetRepairsListBylike(string condition,bool? RepairSatate,string department, string AnomalyTimeStart, string AnomalyTimeEnd,string RepairedTimeStart, string RepairedTimeEnd,string AnomalyType, PagedSortedRequestDto input)
         {
             //加载CameraDto
             var dataall = from a in _camerarepository
                        join b in _cameraRepairrepository on a.Camera_ID equals b.Camera_ID
-                       select new CameraRepairDto
+                       select new RequstCameraRepairDto
                        {
                            DVR_Room = a.Monitoring_room,
                            DVR_ID = a.DVR_ID,
@@ -345,18 +349,31 @@ namespace OnMonitor.MonitorRepair
                            LastModificationTime = b.LastModificationTime,
                            LastModifierId = b.LastModifierId,
                        };
-            IQueryable<CameraRepairDto> data1;
-
-            var data = dataall.Where(u => u.RepairState == RepairSatate);
-            
-            if (!string.IsNullOrEmpty(AnomalyTime))
+            IQueryable<RequstCameraRepairDto> data1;
+            IQueryable<RequstCameraRepairDto> data;
+            data = dataall;
+            //状态筛选
+            if (RepairSatate!=null)
             {
-                data = data.Where(u => u.AnomalyTime.Contains(AnomalyTime));
+                data = dataall.Where(u => u.RepairState == RepairSatate);
             }
-            if (!string.IsNullOrEmpty(RepairedTime))
+            //部门筛选
+            if (!string.IsNullOrEmpty(department))
             {
-                data = data.Where(u => u.RepairedTime.Contains(RepairedTime));
+                department = ChineseConverter.Convert(department, ChineseConversionDirection.SimplifiedToTraditional);//简体转繁体
+                data = data.Where(u => u.department == department);
             }
+            //异常时间筛选
+            if (!string.IsNullOrEmpty(AnomalyTimeStart)&&!string.IsNullOrEmpty(AnomalyTimeEnd))
+            {
+                data = data.Where(u =>string.Compare(u.AnomalyTime,AnomalyTimeStart)>=0&&string.Compare(u.AnomalyTime,AnomalyTimeEnd)<=0);
+            }
+            //维修时间筛选
+            if (!string.IsNullOrEmpty(RepairedTimeStart)&&!string.IsNullOrEmpty(RepairedTimeEnd))
+            {
+                data = data.Where(u => string.Compare(u.RepairedTime,RepairedTimeStart) >= 0 && string.Compare(u.RepairedTime,RepairedTimeEnd) <= 0); ;
+            }
+            //异常类别筛选
             if (!string.IsNullOrEmpty(AnomalyType))
             {
                 data = data.Where(u => u.AnomalyType.Contains(AnomalyType));
@@ -374,12 +391,13 @@ namespace OnMonitor.MonitorRepair
                 }
 
 
-                return  new PagedResultDto<CameraRepairDto>() { Items= data1.ToList() ,TotalCount=data.Count()} ;
+                return  new PagedResultDto<RequstCameraRepairDto>() { Items= data1.ToList() ,TotalCount=data.Count()} ;
             }
+            //模糊查询
             else
             {
                 //按 楼栋-楼层位置搜索
-
+               condition = ChineseConverter.Convert(condition, ChineseConversionDirection.SimplifiedToTraditional);//简体转繁体
                 if (condition.Length>4)
                 {
               
@@ -423,13 +441,7 @@ namespace OnMonitor.MonitorRepair
                 {
                     data = data.Where(u => u.Location.Contains(condition));
                 }
-                if (data.Where(u => u.department.Contains(condition)).Count() != 0)
-                {
-
-                    data = data.Where(u => u.Direction.Contains(condition));
-
-                }
-              
+               
                 if (!input.Sorting.IsNullOrWhiteSpace())
                 {
                    data1 = data.OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount);
@@ -438,7 +450,7 @@ namespace OnMonitor.MonitorRepair
                 {
                     data1 = data.OrderBy(d => d.Id).PageBy(input.SkipCount, input.MaxResultCount);
                 }
-                return new PagedResultDto<CameraRepairDto>() { Items = data1.ToList(), TotalCount = data.Count() };
+                return new PagedResultDto<RequstCameraRepairDto>() { Items = data1.ToList(), TotalCount = data.Count() };
             }
         }
 
@@ -447,13 +459,13 @@ namespace OnMonitor.MonitorRepair
         /// 获取全部数据
         /// </summary>
         /// <returns></returns>
-        public List<CameraRepairDto> GetListAll()
+        public List<RequstCameraRepairDto> GetListAll()
         {
           
           //加载CameraDto
           var dataall = from a in _camerarepository
                           join b in _cameraRepairrepository on a.Camera_ID equals b.Camera_ID
-                          select new CameraRepairDto
+                          select new RequstCameraRepairDto
                           {
                               DVR_Room = a.Monitoring_room,
                               DVR_ID = a.DVR_ID,

@@ -75,10 +75,9 @@ namespace OnMonitor.Monitor
 
         #endregion
 
-        /// <summary>
+
         /// 获取DVR/Camera数据树形结构
-        /// </summary>
-        /// <returns></returns>
+
         //public string  GetTreeViewAsync()
 
         //{
@@ -166,7 +165,12 @@ namespace OnMonitor.Monitor
         //}
 
         #region 重写增/改方法，增加简繁转换
-       
+
+        /// <summary>
+        /// 重写增/改方法，增加简繁转换
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(Roles = "operation")]
         public override Task<DVRDto> CreateAsync(UpdateDVRDto input)
         {
 
@@ -178,7 +182,7 @@ namespace OnMonitor.Monitor
 
             return base.CreateAsync(input2);
         }
-        
+        [Authorize(Roles = "operation")]
         public override Task<DVRDto> UpdateAsync(int id, UpdateDVRDto input)
         {
             string data = Newtonsoft.Json.JsonConvert.SerializeObject(input);

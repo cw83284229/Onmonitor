@@ -39,7 +39,7 @@ namespace TimedTask.Host.Job
 
                    var data = await GetDVRInfoCheck();
 
-                    await Task.Delay(86400, stoppingToken);
+                    await Task.Delay(86400000, stoppingToken);
 
                 }       
         }
