@@ -19,16 +19,18 @@ namespace OnMonitor.Controllers
         public IDVRAppService _dVRAppService;
         static public HttpClient _httpClient;
         public IConfiguration _configuration;
+        string dvrurl;
         public DVRInfoController(ICameraAppService cameraAppService, IDVRAppService dVRAppService, IConfiguration configuration)
         {
             _cameraAppService = cameraAppService;
             _dVRAppService = dVRAppService;
             _configuration = configuration;
-          
+            
             if (_httpClient==null)
             {
                 _httpClient = new HttpClient();
             }
+            dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
         }
 
         #region DVR通道操作
@@ -53,7 +55,7 @@ namespace OnMonitor.Controllers
             }
 
             var dvrdata = _dVRAppService.GetListByCondition(null, null, null, cameradata.DVR_ID).Result.Items.FirstOrDefault();
-            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+           
 
             string url = $"{dvrurl}/api/DVRClannel/GetChannelPicture?DVR_IP={dvrdata.DVR_IP}&DVR_Name={dvrdata.DVR_usre}&DVR_PassWord={dvrdata.DVR_possword}&ChannelID={cameradata.channel_ID}";
 
@@ -76,7 +78,7 @@ namespace OnMonitor.Controllers
         public IActionResult DownloadVideoByFileName(string fileName)
         {
 
-            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+           
 
             string url = $"{dvrurl}/api/DVRClannel/DownloadVideoFile?fileName={fileName}";
 
@@ -98,7 +100,7 @@ namespace OnMonitor.Controllers
         public string GetVideoFileName()
         {
 
-            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+         
 
             string url = $"{dvrurl}/api/DVRClannel/GetVideoFiles";
 
@@ -112,7 +114,7 @@ namespace OnMonitor.Controllers
         /// 按时间/镜头编号备份视频文件
         /// </summary>
         /// <returns></returns>
-        [Authorize(Roles = "videoCheck")]
+       // [Authorize(Roles = "videoCheck")]
         [HttpGet]
         [Route("BackupsVideoByTime")]
         public string BackupsVideoByTime(string Camera_ID,string startTime,string endTime)
@@ -128,9 +130,47 @@ namespace OnMonitor.Controllers
 
 
 
-            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+           // string dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
 
             string url = $"{dvrurl}/api/DVRClannel/GetVideoData?DVR_IP={dvrdata.DVR_IP} &DVR_Name={dvrdata.DVR_usre}&DVR_PassWord={dvrdata.DVR_possword}&ChannelID={cameradata.channel_ID}&startTime={startTime}&endTime={endTime}";
+
+            var handler = new HttpClientHandler();
+            var response = _httpClient.GetAsync(url).Result;
+            return response.Content.ReadAsStringAsync().Result;
+
+        }
+        /// <summary>
+        /// 下载进度状态查询
+        /// </summary>
+        /// <param name="DownloadID"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("DownloadVideoFilePlan")]
+        public string DownloadVideoFilePlan(string DownloadID)
+        {
+
+          //  var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+
+            string url = $"{dvrurl}/api/DVRClannel/DownloadVideoFilePlan?DownloadID={DownloadID}";
+
+            var handler = new HttpClientHandler();
+            var response = _httpClient.GetAsync(url).Result;
+            return response.Content.ReadAsStringAsync().Result;
+
+        }
+        /// <summary>
+        /// 停止失败备份
+        /// </summary>
+        /// <param name="DownloadID"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("StopDownloadVideo")]
+        public string StopDownloadVideo(string DownloadID)
+        {
+
+           
+
+            string url = $"{dvrurl}/api/DVRClannel/StopDownloadVideo?DownloadID={DownloadID}";
 
             var handler = new HttpClientHandler();
             var response = _httpClient.GetAsync(url).Result;
@@ -148,7 +188,7 @@ namespace OnMonitor.Controllers
         public string DeleteVideoFile(string fileName)
         {
 
-            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+        
 
             string url = $"{dvrurl}/api/DVRClannel/DeleteVideoFile?fileName={fileName}";
 
@@ -221,7 +261,7 @@ namespace OnMonitor.Controllers
 
             var dvrdata = _dVRAppService.GetListByCondition(null, null, null, DVR_ID).Result.Items.FirstOrDefault();
 
-            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+          
             string url = $"{dvrurl}/api/DVRInfo/Get?IP={dvrdata.DVR_IP}&name={dvrdata.DVR_usre}&password={dvrdata.DVR_possword}";
 
             var handler = new HttpClientHandler();//{ AutomaticDecompression = DecompressionMethods.GZip };
@@ -245,7 +285,7 @@ namespace OnMonitor.Controllers
 
             var dvrdata = _dVRAppService.GetListByCondition(null, null, null, DVR_ID).Result.Items.FirstOrDefault();
 
-            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+           
             string url = $"{dvrurl}/api/DVRInfo/GetTime?IP={dvrdata.DVR_IP}&name={dvrdata.DVR_usre}&password={dvrdata.DVR_possword}";
 
             var handler = new HttpClientHandler();//{ AutomaticDecompression = DecompressionMethods.GZip };
@@ -268,7 +308,7 @@ namespace OnMonitor.Controllers
 
             var dvrdata = _dVRAppService.GetListByCondition(null, null, null, DVR_ID).Result.Items.FirstOrDefault();
 
-            var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+           
             string url = $"{dvrurl}/api/DVRInfo/SetDVRTime?IP={dvrdata.DVR_IP}&name={dvrdata.DVR_usre}&password={dvrdata.DVR_possword}";
 
             var handler = new HttpClientHandler();//{ AutomaticDecompression = DecompressionMethods.GZip };

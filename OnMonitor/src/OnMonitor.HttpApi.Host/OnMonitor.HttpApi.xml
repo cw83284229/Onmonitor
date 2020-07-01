@@ -37,6 +37,20 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Controllers.DVRInfoController.DownloadVideoFilePlan(System.String)">
+            <summary>
+            下载进度状态查询
+            </summary>
+            <param name="DownloadID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.DVRInfoController.StopDownloadVideo(System.String)">
+            <summary>
+            停止失败备份
+            </summary>
+            <param name="DownloadID"></param>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Controllers.DVRInfoController.DeleteVideoFile(System.String)">
             <summary>
             按名称删除录像文件

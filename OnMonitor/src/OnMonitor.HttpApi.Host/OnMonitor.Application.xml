@@ -66,6 +66,21 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsListBylike(System.String,System.Nullable{System.Boolean},System.String,System.String,System.String,System.String,System.String,System.String,OnMonitor.PagedSortedRequestDto)">
+            <summary>
+            模糊查询
+            </summary>
+            <param name="condition">查询条件</param>
+            <param name="RepairSatate">维修状态</param>
+            <param name="department">部门</param>
+            <param name="AnomalyTimeStart">异常查询开始时间</param>
+            <param name="AnomalyTimeEnd">异常查询结束时间</param>
+            <param name="RepairedTimeStart">维修开始时间</param>
+            <param name="RepairedTimeEnd">维修结束时间</param>
+            <param name="AnomalyType">维修类别</param>
+            <param name="input">分页</param>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetListAll">
             <summary>
             获取全部数据

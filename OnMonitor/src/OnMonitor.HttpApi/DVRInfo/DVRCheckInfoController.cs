@@ -15,7 +15,7 @@ namespace OnMonitor.Controllers
 {
 
 
-    // [Authorize(Roles = "admin")]
+     [Authorize(Roles = "admin")]
     [Route("api/DVRCheckInfo")]
     public class DVRCheckInfoController : OnMonitorController
     {
@@ -113,7 +113,7 @@ namespace OnMonitor.Controllers
                 var servertime = DateTime.Now;
                 dVRCheckInfo.SystemTime = servertime.ToString("yyyy-MM-dd hh:mm:ss");
                 DateTime dvrtime = Convert.ToDateTime(data.DVR_DateTine);
-                if (servertime.Second + 2 >= dvrtime.Second && dvrtime.Second >= servertime.Second - 2)
+                if (servertime.Second + 5 >= dvrtime.Second && dvrtime.Second >= servertime.Second - 5)
                 {
                     dVRCheckInfo.DVRTime = data.DVR_DateTine;
                     dVRCheckInfo.TimeInfoChenk = true;

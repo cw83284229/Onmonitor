@@ -9,9 +9,9 @@ namespace OnMonitor
 
         public virtual string Sorting { get; set; }
 
-        public virtual int SkipCount { get; set; }
+        public virtual int SkipCount { get; set; } = 0;
 
-        public virtual int MaxResultCount { get; set; }
+        public virtual int MaxResultCount { get; set; } = 20;
 
     }
 }

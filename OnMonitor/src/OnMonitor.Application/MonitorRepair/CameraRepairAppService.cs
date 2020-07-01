@@ -309,6 +309,19 @@ namespace OnMonitor.MonitorRepair
 
         #region 模糊查询功能
         // 模糊查询 按 楼栋-楼层位置搜索
+        /// <summary>
+        /// 模糊查询
+        /// </summary>
+        /// <param name="condition">查询条件</param>
+        /// <param name="RepairSatate">维修状态</param>
+        /// <param name="department">部门</param>
+        /// <param name="AnomalyTimeStart">异常查询开始时间</param>
+        /// <param name="AnomalyTimeEnd">异常查询结束时间</param>
+        /// <param name="RepairedTimeStart">维修开始时间</param>
+        /// <param name="RepairedTimeEnd">维修结束时间</param>
+        /// <param name="AnomalyType">维修类别</param>
+        /// <param name="input">分页</param>
+        /// <returns></returns>
         public PagedResultDto<RequstCameraRepairDto> GetRepairsListBylike(string condition,bool? RepairSatate,string department, string AnomalyTimeStart, string AnomalyTimeEnd,string RepairedTimeStart, string RepairedTimeEnd,string AnomalyType, PagedSortedRequestDto input)
         {
             //加载CameraDto
