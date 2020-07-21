@@ -88,6 +88,12 @@ namespace OnMonitor.EntityFrameworkCore
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
+            builder.Entity<DVRChannelInfo>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "DVRChannelInfos", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention();
+                /* Configure more properties here */
+            });
 
             builder.Entity<SystemMenu>(b =>
             {

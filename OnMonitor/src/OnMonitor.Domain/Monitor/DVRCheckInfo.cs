@@ -63,6 +63,13 @@ namespace OnMonitor.Monitor
         /// SN信息检查
         /// </summary>
         public bool? SNChenk { get; set; }
+
+        /// <summary>
+        /// 90天存储检查
+        /// </summary>
+        public bool? VideoCheck90Day { get; set; }
+
+
         /// <summary>
         /// 备注
         /// </summary>

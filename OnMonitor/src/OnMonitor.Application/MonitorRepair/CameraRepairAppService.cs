@@ -15,7 +15,7 @@ using Volo.Abp.ObjectMapping;
 namespace OnMonitor.MonitorRepair
 {
 
- //  [Authorize(Roles = "admin")]
+   [Authorize(Roles = "admin")]
     public class CameraRepairAppService ://ApplicationService
     CrudAppService<
     CameraRepair,//定义实体
@@ -312,6 +312,7 @@ namespace OnMonitor.MonitorRepair
         /// <summary>
         /// 模糊查询
         /// </summary>
+        /// <param name="dvrRoom">监控室</param>
         /// <param name="condition">查询条件</param>
         /// <param name="RepairSatate">维修状态</param>
         /// <param name="department">部门</param>
@@ -322,7 +323,7 @@ namespace OnMonitor.MonitorRepair
         /// <param name="AnomalyType">维修类别</param>
         /// <param name="input">分页</param>
         /// <returns></returns>
-        public PagedResultDto<RequstCameraRepairDto> GetRepairsListBylike(string condition,bool? RepairSatate,string department, string AnomalyTimeStart, string AnomalyTimeEnd,string RepairedTimeStart, string RepairedTimeEnd,string AnomalyType, PagedSortedRequestDto input)
+        public PagedResultDto<RequstCameraRepairDto> GetRepairsListBylike(string dvrRoom,string condition,bool? RepairSatate,string department, string AnomalyTimeStart, string AnomalyTimeEnd,string RepairedTimeStart, string RepairedTimeEnd,string AnomalyType, PagedSortedRequestDto input)
         {
             //加载CameraDto
             var dataall = from a in _camerarepository
@@ -365,10 +366,17 @@ namespace OnMonitor.MonitorRepair
             IQueryable<RequstCameraRepairDto> data1;
             IQueryable<RequstCameraRepairDto> data;
             data = dataall;
+           
+            //监控室筛选
+            if (!string.IsNullOrEmpty(dvrRoom))
+            {
+                data = data.Where(u => u.DVR_Room == dvrRoom);
+            }
+
             //状态筛选
             if (RepairSatate!=null)
             {
-                data = dataall.Where(u => u.RepairState == RepairSatate);
+                data = data.Where(u => u.RepairState == RepairSatate);
             }
             //部门筛选
             if (!string.IsNullOrEmpty(department))

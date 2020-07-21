@@ -119,6 +119,86 @@
             备注
             </summary>
         </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost_ID">
+            <summary>
+            报警主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm_ID">
+            <summary>
+            报警主机编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.GeteType">
+            <summary>
+            门岗类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.SensorType">
+            <summary>
+            传感器类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.category">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.IsAlertor">
+            <summary>
+            有无报警器
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.IsOpenOrClosed">
+            <summary>
+            是否开岗
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="P:OnMonitor.Monitor.Camera.Monitoring_room">
             <summary>
             监控室
@@ -200,86 +280,6 @@
             </summary>
         </member>
         <member name="P:OnMonitor.Monitor.Camera.Remark">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Monitoring_room">
-            <summary>
-            监控室
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost_ID">
-            <summary>
-            报警主机号
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Alarm_ID">
-            <summary>
-            报警主机编号
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Build">
-            <summary>
-            楼栋
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.floor">
-            <summary>
-            楼层
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Location">
-            <summary>
-            位置
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.GeteType">
-            <summary>
-            门岗类型
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.SensorType">
-            <summary>
-            传感器类型
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.department">
-            <summary>
-            部门
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Cost_code">
-            <summary>
-            费用代码
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.install_time">
-            <summary>
-            安装时间
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.category">
-            <summary>
-            安装厂商
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Camera_ID">
-            <summary>
-            镜头号
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.IsAlertor">
-            <summary>
-            有无报警器
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.IsOpenOrClosed">
-            <summary>
-            是否开岗
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Remark">
             <summary>
             备注
             </summary>
@@ -379,6 +379,61 @@
             备注
             </summary>
         </member>
+        <member name="P:OnMonitor.Monitor.DVRChannelInfo.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRChannelInfo.channel_ID">
+            <summary>
+            通道号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRChannelInfo.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRChannelInfo.DataChannelName">
+            <summary>
+            数据库镜头名称
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRChannelInfo.DVRChannelName">
+            <summary>
+            DVR通道显示名称
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRChannelInfo.ChannelNameCheck">
+            <summary>
+            名称检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRChannelInfo.ImageCheck">
+            <summary>
+            图像检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRChannelInfo.LastUpdateTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRChannelInfo.DVRChannelEncoding">
+            <summary>
+            镜头编码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRChannelInfo.CameraType">
+            <summary>
+            镜头类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRChannelInfo.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="P:OnMonitor.Monitor.DVRCheckInfo.DVR_ID">
             <summary>
             主机号
@@ -437,6 +492,11 @@
         <member name="P:OnMonitor.Monitor.DVRCheckInfo.SNChenk">
             <summary>
             SN信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.DVRCheckInfo.VideoCheck90Day">
+            <summary>
+            90天存储检查
             </summary>
         </member>
         <member name="P:OnMonitor.Monitor.DVRCheckInfo.Remark">

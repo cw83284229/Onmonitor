@@ -14,5 +14,7 @@ namespace OnMonitor.Models
 
        public bool? ChannelNameCheck { get; set; }
 
+       public bool? ImageCheck { get; set; }
+
     }
 }

@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Common;
+using Magicodes.ExporterAndImporter.Core;
+using Magicodes.ExporterAndImporter.Excel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
 using OnMonitor.Common.Excel;
 using OnMonitor.Excel;
+using OnMonitor.Models;
 using OnMonitor.Monitor;
 using System;
 using System.Collections.Generic;
@@ -16,7 +19,7 @@ using Volo.Abp.Application.Dtos;
 namespace OnMonitor.Controllers
 {
 
-   // [Authorize(Roles = "admin")]
+    // [Authorize(Roles = "admin")]
     [Route("api/Camera")]
     public class CameraController : OnMonitorController
     {
@@ -26,6 +29,32 @@ namespace OnMonitor.Controllers
             _cameraAppService = cameraAppService;
         }
         #region Excel数据导入
+       
+        /// <summary>
+        /// 获取导入模板
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GenerateCameraImportTemplate")]
+        public IActionResult GetGenerateCameraImportTemplate()
+        {
+            IImporter Importer = new ExcelImporter();
+            var pathname = $"{System.AppDomain.CurrentDomain.BaseDirectory}Basics\\InExcel.xlsx";
+
+            var requst = Importer.GenerateTemplate<ImportCameraDto>(pathname);
+
+            var stream = System.IO.File.OpenRead(pathname);
+            string fileExt = Path.GetExtension(pathname);
+            var provider = new FileExtensionContentTypeProvider();
+            var meni = provider.Mappings[fileExt];
+            var returnFile = File(stream, meni, Path.GetFileName(pathname));
+            return returnFile;
+
+
+        }
+
+
+
         /// <summary>
         /// Excel数据库导入
         /// </summary>
@@ -40,15 +69,16 @@ namespace OnMonitor.Controllers
             {
                 return null;
             }
+            IImporter Importer = new ExcelImporter();
 
-            DataTable dt = new DataTable();
+            var import9 = Importer.Import<UpdateCameraDto>(files.OpenReadStream());
 
+            var data = import9.Result.Data.ToList();
+           // var data = ExcelHelper.ExcelToDataTable(files.OpenReadStream(), Path.GetExtension(files.FileName), "Sheet", true);
 
-            var data = ExcelHelper.ExcelToDataTable(files.OpenReadStream(), Path.GetExtension(files.FileName), "Sheet", true);
-
-            var list = ListToDataTable.tolist<UpdateCameraDto>(data);
+           // var list = ListToDataTable.tolist<UpdateCameraDto>(data);
             List<CameraDto> listcamera = new List<CameraDto>();
-            foreach (var item in list)
+            foreach (var item in data)
             {
               
                 var camera = await _cameraAppService.GetListByCondition(new CameraCondition() {Camera_ID= item.Camera_ID },null);
@@ -80,6 +110,7 @@ namespace OnMonitor.Controllers
         [Route("OutExcel")]
         public IActionResult GetOutExcel(CameraCondition condition)
         {
+  
 
             PagedSortedRequestDto resultRequestDto = new PagedSortedRequestDto() { MaxResultCount = 200000, SkipCount = 0};
             var data = _cameraAppService.GetListByCondition(condition, resultRequestDto);
@@ -87,13 +118,15 @@ namespace OnMonitor.Controllers
 
             DataTable dataTable = ListToDataTable.toDataTable<CameraDto>(list);
             var pathname = $"{System.AppDomain.CurrentDomain.BaseDirectory}Basics\\OutExcel.xlsx";
-            var requst = ExcelHelper.DataTableToExcel(dataTable, pathname, "Sheet1", true);
+             var requst = ExcelHelper.DataTableToExcel(dataTable, pathname, "Sheet1", true);
             var stream = System.IO.File.OpenRead(pathname);
             string fileExt = Path.GetExtension(pathname);
             var provider = new FileExtensionContentTypeProvider();
             var meni = provider.Mappings[fileExt];
             var returnFile = File(stream, meni, Path.GetFileName(pathname));
             return returnFile;
+          
+
         }
         #endregion
 

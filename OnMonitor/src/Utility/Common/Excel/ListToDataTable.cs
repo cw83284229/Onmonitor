@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Magicodes.ExporterAndImporter.Core;
+using Magicodes.ExporterAndImporter.Core.Extension;
+using Magicodes.ExporterAndImporter.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -91,6 +95,24 @@ namespace OnMonitor.Excel
 
             return list;
         }
+
+        /// <summary>
+        /// 导出文件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="FileName"></param>
+        public static void MagicodesIEOutExcel<T>(List<T> list,string FileName) where T : class
+        {
+
+            IExporter exporter = new ExcelExporter();
+
+            var requst = exporter.ExportAsByteArray(list);
+
+           var DD= requst.Result.ToExcelExportFileInfo(FileName);
+        
+        }
+      
 
     }
 }

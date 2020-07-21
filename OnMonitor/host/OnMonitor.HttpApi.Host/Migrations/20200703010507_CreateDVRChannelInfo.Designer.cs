@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnMonitor.EntityFrameworkCore;
 
 namespace OnMonitor.Migrations
 {
     [DbContext(typeof(OnMonitorHttpApiHostMigrationsDbContext))]
-    partial class OnMonitorHttpApiHostMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200703010507_CreateDVRChannelInfo")]
+    partial class CreateDVRChannelInfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -375,17 +377,11 @@ namespace OnMonitor.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CameraType")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Camera_ID")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("ChannelNameCheck")
                         .HasColumnType("bit");
-
-                    b.Property<string>("DVRChannelEncoding")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DVRChannelName")
                         .HasColumnType("nvarchar(max)");
@@ -398,12 +394,6 @@ namespace OnMonitor.Migrations
 
                     b.Property<bool?>("ImageCheck")
                         .HasColumnType("bit");
-
-                    b.Property<string>("LastUpdateTime")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("channel_ID")
                         .HasColumnType("int");
@@ -487,9 +477,6 @@ namespace OnMonitor.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool?>("TimeInfoChenk")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("VideoCheck90Day")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");

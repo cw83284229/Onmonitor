@@ -15,7 +15,7 @@ namespace OnMonitor.Controllers
 {
 
 
-     [Authorize(Roles = "admin")]
+  //   [Authorize(Roles = "admin")]
     [Route("api/DVRCheckInfo")]
     public class DVRCheckInfoController : OnMonitorController
     {
@@ -70,7 +70,7 @@ namespace OnMonitor.Controllers
                 {
                     DVRDisk dVRDisk = new DVRDisk();
                     dVRDisk.Number = item.Number;
-                    dVRDisk.Disk = (int)(item.Disk/1000/1000);
+                    dVRDisk.Disk = item.Disk/1000;//四舍五入取值法
                      listdvrdisk.Add(dVRDisk);
                 }
                 dVRCheckInfo.DVRDISK = listdvrdisk;
@@ -151,6 +151,7 @@ namespace OnMonitor.Controllers
                     else
                     {
                         dVRChannelInfo.DataChannelName = "无";
+                        dVRChannelInfo.ChannelNameCheck = true;
                     }
 
                     listdVRChannelInfo.Add(dVRChannelInfo);

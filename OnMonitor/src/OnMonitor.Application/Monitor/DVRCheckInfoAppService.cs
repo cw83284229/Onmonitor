@@ -123,15 +123,17 @@ namespace OnMonitor.Monitor
         #endregion
 
         /// <summary>
-        /// 按条件获取主机异常信息 默认false 单条件其他为null
+        /// 条件筛选异常主机信息，bool类型默认值为null
         /// </summary>
         /// <param name="DVR_room">监控室</param>
         /// <param name="DiskChenk">硬盘检查</param>
         /// <param name="DVR_Online">在线检查</param>
-        /// <param name="SNChenk">Sn号检查</param>
+        /// <param name="SNChenk">sn检查</param>
         /// <param name="TimeInfoChenk">时间检查</param>
+        /// <param name="VideoCheck90Day">90天存储检查</param>
+        /// <param name="input">分页参数</param>
         /// <returns></returns>
-        public async Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition( string DVR_room,bool? DiskChenk, bool? DVR_Online, bool? SNChenk ,bool? TimeInfoChenk, PagedSortedRequestDto input)
+        public async Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition( string DVR_room,bool? DiskChenk, bool? DVR_Online, bool? SNChenk ,bool? TimeInfoChenk, bool? VideoCheck90Day,PagedSortedRequestDto input)
         {
 
             var data1 = await _dvrchenkrepository.GetListAsync();
@@ -147,13 +149,39 @@ namespace OnMonitor.Monitor
             {
                 data2.Add( data1.Where(u => u.DVR_ID == item.DVR_ID).FirstOrDefault());
             }
-
-            foreach (var item in data2)
-            {
-                if (item.DiskChenk == DiskChenk|| item.DVR_Online == DVR_Online || item.SNChenk == SNChenk || item.TimeInfoChenk == TimeInfoChenk)
+            if (DiskChenk==null&&DVR_Online==null&&TimeInfoChenk==null&&SNChenk==null)  //默认返回异常数据          {
+                foreach (var item in data2)
                 {
-                    data3.Add(item);
+                    if (item.DiskChenk == false || item.DVR_Online == false || item.SNChenk == false || item.TimeInfoChenk == false||item.VideoCheck90Day==false)
+                    {
+                        data3.Add(item);
+                    }
                 }
+            
+            else
+            {
+                data3 = data2;
+                if (DVR_Online != null)
+                {
+                    data3 = data3.Where(u => u.DVR_Online == DVR_Online).ToList();
+                }
+                if (DiskChenk != null)
+                {
+                    data3 = data3.Where(u => u.DiskChenk == DiskChenk).ToList();
+                }
+                if (SNChenk != null)
+                {
+                    data3 = data3.Where(u => u.SNChenk == SNChenk).ToList();
+                }
+                if (TimeInfoChenk != null)
+                {
+                    data3 = data3.Where(u => u.TimeInfoChenk == TimeInfoChenk).ToList();
+                }
+                if (VideoCheck90Day != null)
+                {
+                    data3 = data3.Where(u => u.VideoCheck90Day == VideoCheck90Day).ToList();
+                }
+
             }
 
 

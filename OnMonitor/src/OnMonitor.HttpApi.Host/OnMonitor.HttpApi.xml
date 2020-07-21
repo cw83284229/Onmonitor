@@ -4,6 +4,13 @@
         <name>OnMonitor.HttpApi</name>
     </assembly>
     <members>
+        <member name="M:OnMonitor.Controllers.CameraChannelInfoController.GetDVRCheckInfoByDVR_IDAsync(System.String)">
+            <summary>
+            依据主机号获取比对数据
+            </summary>
+            <param name="DVR_ID"></param>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Controllers.DVRCheckInfoController.GetDVRCheckInfoByDVR_ID(System.String)">
             <summary>
             依据主机号获取比对数据
@@ -31,7 +38,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.Controllers.DVRInfoController.BackupsVideoByTime(System.String,System.String,System.String)">
+        <member name="M:OnMonitor.Controllers.DVRInfoController.BackupsVideoByTime(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             按时间/镜头编号备份视频文件
             </summary>
@@ -83,6 +90,12 @@
             同步时间
             </summary>
             <param name="DVR_ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.CameraController.GetGenerateCameraImportTemplate">
+            <summary>
+            获取导入模板
+            </summary>
             <returns></returns>
         </member>
         <member name="M:OnMonitor.Controllers.CameraController.PostExcelToCameraInfoAsync(Microsoft.AspNetCore.Http.IFormFile)">
@@ -224,6 +237,91 @@
             </summary>
         </member>
         <member name="P:OnMonitor.Models.DVRcheckinfoModel.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.channel_ID">
+            <summary>
+            通道号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.Camera_ID">
+            <summary>
+            镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.Build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.floor">
+            <summary>
+            楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.MonitorClassification">
+            <summary>
+            监控分类
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.Camera_Tpye">
+            <summary>
+            镜头类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.manufacturer">
+            <summary>
+            设备厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.category">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.Alarm_ID">
+            <summary>
+            报警号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.ImportCameraDto.Remark">
             <summary>
             备注
             </summary>

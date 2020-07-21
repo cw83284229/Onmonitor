@@ -13,31 +13,13 @@
         </member>
         <member name="M:TimedTask.Host.Job.DVRInfoCheckJob.GetDVRInfoCheck">
             <summary>
-            定时任务，自动对比主机数据，每天2:00启动一次
+            定时任务，自动对比数据，每天2:00启动一次
             </summary>
-        </member>
-        <member name="M:TimedTask.Host.Job.DVRInfoCheckJob.GetDVRChannelInfo">
-            <summary>
-            定时任务，对比镜头数据
-            </summary>
-            <returns></returns>
         </member>
         <member name="M:OnMonitor.Job.DVRInfoCheckService.GetDVRInfoCheck">
             <summary>
-            定时任务，自动对比主机数据，每天2:00启动一次
+            定时任务，自动对比数据，每天2:00启动一次
             </summary>
-        </member>
-        <member name="M:OnMonitor.Job.DVRInfoCheckService.GetDVRChannelInfo(System.String)">
-            <summary>
-            定时任务，对比镜头数据
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:OnMonitor.Job.DVRInfoCheckService.GetCameraRepairImageCheck">
-            <summary>
-            定时任务，自动比对异常表信号确认
-            </summary>
-            <returns></returns>
         </member>
         <member name="M:OnMonitor.MenusInfos.SystemMenuAppService.GetSystemMenuDtobyPid(System.Nullable{System.Int64})">
             <summary>
@@ -84,11 +66,10 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsListBylike(System.String,System.String,System.Nullable{System.Boolean},System.String,System.String,System.String,System.String,System.String,System.String,OnMonitor.PagedSortedRequestDto)">
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsListBylike(System.String,System.Nullable{System.Boolean},System.String,System.String,System.String,System.String,System.String,System.String,OnMonitor.PagedSortedRequestDto)">
             <summary>
             模糊查询
             </summary>
-            <param name="dvrRoom">监控室</param>
             <param name="condition">查询条件</param>
             <param name="RepairSatate">维修状态</param>
             <param name="department">部门</param>
@@ -155,27 +136,15 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.Monitor.DVRChannelInfoAppService.GetDVRChannels(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,OnMonitor.PagedSortedRequestDto)">
+        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},OnMonitor.PagedSortedRequestDto)">
             <summary>
-            查询镜头检查结果
-            </summary>
-            <param name="ChannelCheck"></param>
-            <param name="ImageCheck"></param>
-            <param name="DvrRoom"></param>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},OnMonitor.PagedSortedRequestDto)">
-            <summary>
-            条件筛选异常主机信息，bool类型默认值为null
+            按条件获取主机异常信息 默认false 单条件其他为null
             </summary>
             <param name="DVR_room">监控室</param>
             <param name="DiskChenk">硬盘检查</param>
             <param name="DVR_Online">在线检查</param>
-            <param name="SNChenk">sn检查</param>
+            <param name="SNChenk">Sn号检查</param>
             <param name="TimeInfoChenk">时间检查</param>
-            <param name="VideoCheck90Day">90天存储检查</param>
-            <param name="input">分页参数</param>
             <returns></returns>
         </member>
         <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoCheckFalseByDVRroom(System.String)">
