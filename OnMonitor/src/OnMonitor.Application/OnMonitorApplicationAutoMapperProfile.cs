@@ -5,6 +5,8 @@ using OnMonitor.Monitor;
 using OnMonitor.MonitorRepair;
 using OnMonitor.OrderMaterials;
 using OnMonitor.OrderMaterials.Dtos;
+using Volo.Abp.AutoMapper;
+using Volo.Abp.ObjectExtending;
 
 namespace OnMonitor
 {
@@ -23,7 +25,7 @@ namespace OnMonitor
             CreateMap<CameraRepair, CameraRepairDto>();
             CreateMap<UpdateCameraRepairDto, CameraRepair>(MemberList.Source);
             CreateMap<ProjectManages, ProjectManagesDto>();
-            CreateMap<ProjectManagesDto, ProjectManages>(MemberList.Source);
+            CreateMap<UpdateProjectManagesDto, ProjectManages>(MemberList.Source);
             CreateMap<DVRCheckInfo, DVRCheckInfoDto>();
             CreateMap<UpdateDVRCheckInfoDto, DVRCheckInfo>(MemberList.Source);
             CreateMap<Alarm, AlarmDto>();
@@ -33,7 +35,7 @@ namespace OnMonitor
             CreateMap<DVRChannelInfo, DVRChannelInfoDto>();
             CreateMap<UpdateDVRChannelInfoDto, DVRChannelInfo>(MemberList.Source);
 
-
+            CreateMap<ProjectManages, RequstProjectManagesDto>().Ignore(x=>x.Camera_ID);//忽略camera_id属性;
             // CreateMap<SystemMenu, SystemMenuDto>();
             CreateMap<CreateUpdateSystemMenuDto, SystemMenu>(MemberList.Source);
 

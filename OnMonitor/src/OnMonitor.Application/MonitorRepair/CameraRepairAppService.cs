@@ -15,7 +15,7 @@ using Volo.Abp.ObjectMapping;
 namespace OnMonitor.MonitorRepair
 {
 
-   [Authorize(Roles = "admin")]
+ //  [Authorize(Roles = "admin")]
     public class CameraRepairAppService ://ApplicationService
     CrudAppService<
     CameraRepair,//定义实体
@@ -323,7 +323,7 @@ namespace OnMonitor.MonitorRepair
         /// <param name="AnomalyType">维修类别</param>
         /// <param name="input">分页</param>
         /// <returns></returns>
-        public PagedResultDto<RequstCameraRepairDto> GetRepairsListBylike(string dvrRoom,string condition,bool? RepairSatate,string department, string AnomalyTimeStart, string AnomalyTimeEnd,string RepairedTimeStart, string RepairedTimeEnd,string AnomalyType, PagedSortedRequestDto input)
+        public PagedResultDto<RequstCameraRepairDto> GetRepairsListBylike(string dvrRoom,string condition,bool? RepairState, string department, string AnomalyTimeStart, string AnomalyTimeEnd,string RepairedTimeStart, string RepairedTimeEnd,string AnomalyType, PagedSortedRequestDto input)
         {
             //加载CameraDto
             var dataall = from a in _camerarepository
@@ -374,9 +374,9 @@ namespace OnMonitor.MonitorRepair
             }
 
             //状态筛选
-            if (RepairSatate!=null)
+            if (RepairState != null)
             {
-                data = data.Where(u => u.RepairState == RepairSatate);
+                data = data.Where(u => u.RepairState == RepairState);
             }
             //部门筛选
             if (!string.IsNullOrEmpty(department))
@@ -392,7 +392,7 @@ namespace OnMonitor.MonitorRepair
             //维修时间筛选
             if (!string.IsNullOrEmpty(RepairedTimeStart)&&!string.IsNullOrEmpty(RepairedTimeEnd))
             {
-                data = data.Where(u => string.Compare(u.RepairedTime,RepairedTimeStart) >= 0 && string.Compare(u.RepairedTime,RepairedTimeEnd) <= 0); ;
+                data = data.Where(u => string.Compare(u.RepairedTime,RepairedTimeStart) >= 0 && string.Compare(u.RepairedTime,RepairedTimeEnd) <= 0); 
             }
             //异常类别筛选
             if (!string.IsNullOrEmpty(AnomalyType))

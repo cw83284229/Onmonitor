@@ -92,6 +92,19 @@
             <param name="DVR_ID"></param>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Controllers.AlarmController.PostExcelToDVRInfoAsync(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            /Excel表格导入数据库
+            </summary>
+            <param name="files">传入文件流</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.AlarmController.GetOutExcel">
+            <summary>
+            按条件导出全部数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Controllers.CameraController.GetGenerateCameraImportTemplate">
             <summary>
             获取导入模板
@@ -154,6 +167,43 @@
             <summary>
             按条件导出全部数据
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.ProjectManagesController.UploadFiles(Microsoft.AspNetCore.Http.IFormFile,Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="layoutfile">图纸文件</param>
+            <param name="cameraDatafile">点位数据</param>
+            <param name="projectName">工程名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.ProjectManagesController.CreateProjectManages(OnMonitor.Monitor.UpdateProjectManagesDto)">
+            <summary>
+            新增工程
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.ProjectManagesController.ExcelToUpdateCameraDtoAsync(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            解析Excel，输出UpdateCameradto集合
+            </summary>
+            <param name="files"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.ProjectManagesController.GetProjectFiles(System.String)">
+            <summary>
+            获取指定文件夹名称
+            </summary>
+            <param name="projectName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.ProjectManagesController.DownloadByFileName(System.String)">
+            <summary>
+            传入文件绝对路径下载(GetProjectFiles返回值)
+            </summary>
+            <param name="fileName"></param>
             <returns></returns>
         </member>
         <member name="P:OnMonitor.Models.DVRcheckinfoModel.DVR_ID">

@@ -19,7 +19,7 @@ namespace OnMonitor.Models
         /// <summary>
         /// 主机号
         /// </summary>
-        [ImporterHeader(Name ="主机号")]
+       // [ImporterHeader(Name ="主机号")]
         [StringLength(255)]
 
         public string DVR_ID { get; set; }

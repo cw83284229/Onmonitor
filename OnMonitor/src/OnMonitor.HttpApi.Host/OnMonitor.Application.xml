@@ -126,7 +126,7 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.Monitor.CameraAppService.PostList(System.Collections.Generic.List{OnMonitor.Monitor.UpdateCameraDto})">
+        <member name="M:OnMonitor.Monitor.CameraAppService.PostInsertList(System.Collections.Generic.List{OnMonitor.Monitor.UpdateCameraDto})">
             <summary>
             list多项目添加
             </summary>
@@ -183,6 +183,21 @@
             按监控室获取主机异常信息
             </summary>
             <param name="DVR_room"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ProjectManagesAppService.GetProjectListByCondition(OnMonitor.Monitor.ProjectManagesConditionDto,OnMonitor.PagedSortedRequestDto)">
+            <summary>
+            条件筛选查询，获取工程列表信息
+            </summary>
+            <param name="input">查询条件</param>
+            <param name="input2">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ProjectManagesAppService.GetProjectDto(System.String)">
+            <summary>
+            依据订单号查询工程详情
+            </summary>
+            <param name="ProjectOrder">订单号</param>
             <returns></returns>
         </member>
         <member name="M:OnMonitor.Monitor.ReportFormsAppService.dVRCameraRepairlist">

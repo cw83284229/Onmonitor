@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-using Volo.Abp.Domain.Entities.Auditing;
+using Volo.Abp.Application.Dtos;
 
 namespace OnMonitor.Monitor
 {
-    
-    public partial class ProjectManages : AuditedAggregateRoot<Int32>
+
+    public partial class UpdateProjectManagesDto 
     {
         
 
@@ -52,7 +49,7 @@ namespace OnMonitor.Monitor
         /// <summary>
         /// 工程说明
         /// </summary>
-       
+    
         public string ProjectSpecifications { get; set; }
         /// <summary>
         /// 改造楼栋
@@ -67,12 +64,12 @@ namespace OnMonitor.Monitor
         /// <summary>
         /// 镜头编号
         /// </summary>
-    
+      
         public string Camera_ID { get; set; }
         /// <summary>
         /// 验收结果说明
         /// </summary>
-     
+      
         public string AcceptanceResult { get; set; }
         /// <summary>
         /// 备注

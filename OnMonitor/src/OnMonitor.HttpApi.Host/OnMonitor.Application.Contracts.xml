@@ -299,6 +299,46 @@
             备注
             </summary>
         </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesConditionDto.ProjectName">
+            <summary>
+            工程名称
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesConditionDto.ProjectOrder">
+            <summary>
+            工程单号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesConditionDto.AcceptanceDataStart">
+            <summary>
+            验收开始时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesConditionDto.AcceptanceDataEnd">
+            <summary>
+            验收结束时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesConditionDto.ManufacturerName">
+            <summary>
+            施工厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesConditionDto.Build">
+            <summary>
+            改造楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesConditionDto.Floor">
+            <summary>
+            改造楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.ProjectManagesConditionDto.Camera_ID">
+            <summary>
+            镜头编号
+            </summary>
+        </member>
         <member name="P:OnMonitor.Monitor.ProjectManagesDto.ProjectManageType">
             <summary>
             工程变更类型
@@ -360,6 +400,136 @@
             </summary>
         </member>
         <member name="P:OnMonitor.Monitor.ProjectManagesDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.ProjectManageType">
+            <summary>
+            工程变更类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.ProjectName">
+            <summary>
+            工程名称
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.ProjectOrder">
+            <summary>
+            工程单号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.StartWorkDate">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.CompleteDate">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.AcceptanceData">
+            <summary>
+            验收时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.ManufacturerName">
+            <summary>
+            施工厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.ProjectSpecifications">
+            <summary>
+            工程说明
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.Build">
+            <summary>
+            改造楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.Floor">
+            <summary>
+            改造楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.Camera_ID">
+            <summary>
+            镜头编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.AcceptanceResult">
+            <summary>
+            验收结果说明
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstProjectManagesDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.ProjectManageType">
+            <summary>
+            工程变更类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.ProjectName">
+            <summary>
+            工程名称
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.ProjectOrder">
+            <summary>
+            工程单号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.StartWorkDate">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.CompleteDate">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.AcceptanceData">
+            <summary>
+            验收时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.ManufacturerName">
+            <summary>
+            施工厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.ProjectSpecifications">
+            <summary>
+            工程说明
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.Build">
+            <summary>
+            改造楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.Floor">
+            <summary>
+            改造楼层
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.Camera_ID">
+            <summary>
+            镜头编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.AcceptanceResult">
+            <summary>
+            验收结果说明
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateProjectManagesDto.Remark">
             <summary>
             备注
             </summary>

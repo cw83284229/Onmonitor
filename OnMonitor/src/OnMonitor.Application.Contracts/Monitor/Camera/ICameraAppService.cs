@@ -26,6 +26,9 @@ namespace OnMonitor.Monitor
         public Task< List<CameraDto>> GetListByCameraID(string CameraID);
         public Task<List<CameraDto>> GetListByDVRID(string DVRID);
 
+        public PagedResultDto<CameraDto> GetListBylike(string condition, PagedSortedRequestDto input);
+        public Task<PagedResultDto<CameraDto>> PostInsertList(List<UpdateCameraDto> cameraDtos);
+
 
     }
 }

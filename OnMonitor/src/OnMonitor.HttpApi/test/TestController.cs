@@ -1,8 +1,11 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SimilarImages;
+using Utility.Common.Files;
 using Utility.Common.ImageHelper;
 using Volo.Abp;
 
@@ -19,29 +22,26 @@ namespace OnMonitor.Samples
             _sampleAppService = sampleAppService;
         }
 
-        [HttpGet]
-        public async Task<string> GetAsync(string d,string df)
+        [HttpPost]
+        [Route("Uplocad")]
+        public async Task<string> Uplocad (IFormFile files)
         {
 
-            string Imgpath1 = $"D:\\{d}";
-            string Imgpath2 = $"D:\\{df}";
+            var filepath = AppContext.BaseDirectory + "test123"+"\\" + files.FileName;
+
+            byte[] bytedata =await files.GetAllBytesAsync();
+
+          var dd=  FilesHelper.IsExistDirectory(AppContext.BaseDirectory + "test123");
+
+            if (false==dd)
+            {
+                FilesHelper.CreateDir("test123");
+            }
 
 
-            Image image1 = Image.FromFile(Imgpath1);
-            Image image2 = Image.FromFile(Imgpath2);
-            ImageHelp2 imageHelp = new ImageHelp2();
-          
-           Bitmap bitmap1= imageHelp.Resize(image1);
-           Bitmap bitmap2 = imageHelp.Resize(image2);
-           var reqst=  ImageHash.GetSimilarity(bitmap1, bitmap2,ImageHash.HashEnum.Mean);
-        // var reqst=   imageHelp.GetSimilarity(bitmap1, bitmap2);
+            FilesHelper.CreateFile(filepath, bytedata);
 
-            return reqst.ToString();
-
-
-
-
-
+            return "ok";
 
         }
 

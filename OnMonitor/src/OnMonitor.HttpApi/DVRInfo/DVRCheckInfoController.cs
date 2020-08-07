@@ -111,7 +111,7 @@ namespace OnMonitor.Controllers
 
                 //时间检查验证
                 var servertime = DateTime.Now;
-                dVRCheckInfo.SystemTime = servertime.ToString("yyyy-MM-dd hh:mm:ss");
+                dVRCheckInfo.SystemTime = servertime.ToString("yyyy-MM-dd HH:mm:ss");
                 DateTime dvrtime = Convert.ToDateTime(data.DVR_DateTine);
                 if (servertime.Second + 5 >= dvrtime.Second && dvrtime.Second >= servertime.Second - 5)
                 {

@@ -62,7 +62,7 @@ namespace OnMonitor.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("ExcelToCameraInfo")]
-        public async Task<List<CameraDto>> PostExcelToCameraInfoAsync(IFormFile files)
+        public async Task<PagedResultDto<CameraDto>> PostExcelToCameraInfoAsync(IFormFile files)
         {
 
             if (files.Length == 0)
@@ -74,27 +74,13 @@ namespace OnMonitor.Controllers
             var import9 = Importer.Import<UpdateCameraDto>(files.OpenReadStream());
 
             var data = import9.Result.Data.ToList();
-           // var data = ExcelHelper.ExcelToDataTable(files.OpenReadStream(), Path.GetExtension(files.FileName), "Sheet", true);
-
-           // var list = ListToDataTable.tolist<UpdateCameraDto>(data);
-            List<CameraDto> listcamera = new List<CameraDto>();
-            foreach (var item in data)
-            {
-              
-                var camera = await _cameraAppService.GetListByCondition(new CameraCondition() {Camera_ID= item.Camera_ID },null);
+            // var data = ExcelHelper.ExcelToDataTable(files.OpenReadStream(), Path.GetExtension(files.FileName), "Sheet", true);
+            PagedSortedRequestDto resultRequestDto = new PagedSortedRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = "Id" };
+            var cameraData =_cameraAppService.GetListBylike(null, resultRequestDto);
+          var requst= await _cameraAppService.PostInsertList(data);
 
 
-
-                if (camera.TotalCount == 0)
-                {
-                    var Cameradata = await _cameraAppService.CreateAsync(item);
-                    listcamera.Add(Cameradata);
-                }
-
-            }
-
-
-            return listcamera;
+            return requst;
 
 
         }

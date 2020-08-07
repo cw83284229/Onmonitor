@@ -280,7 +280,7 @@ namespace OnMonitor.Monitor
         /// </summary>
         /// <param name="cameraDtos"></param>
         /// <returns></returns>
-        public async Task<PagedResultDto<CameraDto>> PostList(List<UpdateCameraDto> cameraDtos)
+        public async Task<PagedResultDto<CameraDto>> PostInsertList(List<UpdateCameraDto> cameraDtos)
         {
 
             if (cameraDtos == null)
@@ -293,13 +293,29 @@ namespace OnMonitor.Monitor
             string simplifieddata = Newtonsoft.Json.JsonConvert.SerializeObject(data);
             string traditionaldata = ChineseConverter.Convert(simplifieddata, ChineseConversionDirection.SimplifiedToTraditional);
             var data2 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Camera>>(traditionaldata);
-
-
+            var cameradata =await _repository.GetListAsync();
+          
 
             foreach (var item in data2)
             {
-                var camera = _repository.InsertAsync(item);
-                cameras.Add(camera.Result);
+                var cameralist = cameradata.Where(u => u.Camera_ID == item.Camera_ID);
+                if (cameralist.Count()==0)
+                {
+                    var camera = _repository.InsertAsync(item);
+                    cameras.Add(camera.Result);
+                }
+                else
+                {
+                    foreach (var tem in cameralist)
+                    {
+                       await _repository.DeleteAsync(tem);
+                    }
+                    var camera = _repository.InsertAsync(item);
+                    cameras.Add(camera.Result);
+
+                }
+               
+               
             }
             var camerasdto = ObjectMapper.Map<List<Camera>, List<CameraDto>>(cameras);
             return new PagedResultDto<CameraDto> { TotalCount = camerasdto.Count, Items = camerasdto };
@@ -308,7 +324,7 @@ namespace OnMonitor.Monitor
         #endregion
 
         #region 重写增/改方法，增加简繁转换
-       [Authorize(Roles = "operation")]
+      // [Authorize(Roles = "operation")]
         public override Task<CameraDto> CreateAsync(UpdateCameraDto input)
         {
 
@@ -321,7 +337,7 @@ namespace OnMonitor.Monitor
             return base.CreateAsync(input2);
         }
 
-        [Authorize(Roles = "operation")]
+       // [Authorize(Roles = "operation")]
         public override Task<CameraDto> UpdateAsync(int id, UpdateCameraDto input)
         {
             string data = Newtonsoft.Json.JsonConvert.SerializeObject(input);

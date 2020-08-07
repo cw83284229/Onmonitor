@@ -15,14 +15,14 @@ using Volo.Abp.Application.Dtos;
 
 namespace OnMonitor.Controllers
 {
-    [Route("api/DVR")]
+    [Route("api/Alarm")]
     [Authorize(Roles = "admin")]
-    public class DVRController : OnMonitorController
+    public class AlarmController : OnMonitorController
     {
-        public IDVRAppService _dVRAppService;
-        public DVRController(IDVRAppService dVRAppService)
+        public IAlarmAppService _alarmAppService;
+        public AlarmController(IAlarmAppService alarmAppService)
         {
-            _dVRAppService = dVRAppService;
+            _alarmAppService = alarmAppService;
         }
         #region 批量导入DVR数据
         /// <summary>
@@ -31,8 +31,8 @@ namespace OnMonitor.Controllers
         /// <param name="files">传入文件流</param>
         /// <returns></returns>
         [HttpPost]
-        [Route("ExcelToDVRInfo")]
-        public async Task<List<DVRDto>> PostExcelToDVRInfoAsync(IFormFile files)
+        [Route("ExcelToAalarmInfo")]
+        public async Task<List<AlarmDto>> PostExcelToDVRInfoAsync(IFormFile files)
         {
 
             if (files.Length == 0 || Path.GetExtension(files.FileName) != ".xlsx")
@@ -45,18 +45,18 @@ namespace OnMonitor.Controllers
 
 
 
-            //  var dvr25 = await _dVRAppService.GetListAsync();
+            PagedAndSortedResultRequestDto resultRequestDto = new PagedAndSortedResultRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = "Id" };
 
             var data = ExcelHelper.ExcelToDataTable(files.OpenReadStream(), Path.GetExtension(files.FileName), "Sheet", true);
-            var list = ListToDataTable.tolist<UpdateDVRDto>(data);
-            List<DVRDto> listdvr = new List<DVRDto>();
-
+            var list = ListToDataTable.tolist<UpdateAlarmDto>(data);
+            List<AlarmDto> listdvr = new List<AlarmDto>();
+            var alarmdata =await _alarmAppService.GetListAsync(resultRequestDto);
             foreach (var item in list)
             {
-                var dvr = await _dVRAppService.GetListByCondition(null, null, null, item.DVR_ID);
-                if (dvr.TotalCount == 0)
+                var dvr = alarmdata.Items.Where(u=>u.Alarm_ID==item.Alarm_ID);
+                if (dvr.Count() == 0)
                 {
-                    var dvrdata = await _dVRAppService.CreateAsync(item);
+                    var dvrdata = await _alarmAppService.CreateAsync(item);
                     listdvr.Add(dvrdata);
                 }
 
@@ -77,10 +77,10 @@ namespace OnMonitor.Controllers
         {
 
             PagedAndSortedResultRequestDto resultRequestDto = new PagedAndSortedResultRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = "Id" };
-            var data = _dVRAppService.GetListAsync(resultRequestDto);
+            var data = _alarmAppService.GetListAsync(resultRequestDto);
             var list = data.Result.Items.ToList();
 
-            DataTable dataTable = ListToDataTable.toDataTable<DVRDto>(list);
+            DataTable dataTable = ListToDataTable.toDataTable<AlarmDto>(list);
             var pathname = $"{System.AppDomain.CurrentDomain.BaseDirectory}Basics\\OutExcel.xlsx";
             var requst = ExcelHelper.DataTableToExcel(dataTable, pathname, "Sheet1", true);
             var stream = System.IO.File.OpenRead(pathname);
