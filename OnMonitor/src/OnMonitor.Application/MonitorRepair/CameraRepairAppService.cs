@@ -323,7 +323,7 @@ namespace OnMonitor.MonitorRepair
         /// <param name="AnomalyType">维修类别</param>
         /// <param name="input">分页</param>
         /// <returns></returns>
-        public PagedResultDto<RequstCameraRepairDto> GetRepairsListBylike(string dvrRoom,string condition,bool? RepairState, string department, string AnomalyTimeStart, string AnomalyTimeEnd,string RepairedTimeStart, string RepairedTimeEnd,string AnomalyType, PagedSortedRequestDto input)
+        public PagedResultDto<RequstCameraRepairDto> GetRepairsListBylike(string[] dvrRooms,string condition,bool? RepairState, string department, string AnomalyTimeStart, string AnomalyTimeEnd,string RepairedTimeStart, string RepairedTimeEnd,string[] AnomalyType, PagedSortedRequestDto input)
         {
             //加载CameraDto
             var dataall = from a in _camerarepository
@@ -368,9 +368,25 @@ namespace OnMonitor.MonitorRepair
             data = dataall;
            
             //监控室筛选
-            if (!string.IsNullOrEmpty(dvrRoom))
+            if (dvrRooms.Length>0)
             {
-                data = data.Where(u => u.DVR_Room == dvrRoom);
+
+                List<RequstCameraRepairDto> data15=new List<RequstCameraRepairDto>() ;
+
+                for (int i = 0; i < dvrRooms.Length; i++)
+                {
+                 var data12 = data.Where(u => u.DVR_Room.Contains(dvrRooms[i]));
+                    if (data12.Count()>0)
+                    {
+                        data15.AddRange(data12);
+                        
+                    }
+                 
+                }
+
+
+                data = data15.AsQueryable();
+              
             }
 
             //状态筛选
@@ -395,9 +411,19 @@ namespace OnMonitor.MonitorRepair
                 data = data.Where(u => string.Compare(u.RepairedTime,RepairedTimeStart) >= 0 && string.Compare(u.RepairedTime,RepairedTimeEnd) <= 0); 
             }
             //异常类别筛选
-            if (!string.IsNullOrEmpty(AnomalyType))
+            if (AnomalyType.Length>0)
             {
-                data = data.Where(u => u.AnomalyType.Contains(AnomalyType));
+              
+                List<RequstCameraRepairDto> listdata12 = new List<RequstCameraRepairDto>();
+                for (int i = 0; i < AnomalyType.Length; i++)
+                {
+                    AnomalyType[i] = ChineseConverter.Convert(AnomalyType[i], ChineseConversionDirection.SimplifiedToTraditional);
+                    var data12 = data.Where(u => u.AnomalyType.Contains(AnomalyType[i]));
+                    listdata12.AddRange(data12);
+                }
+
+                data = listdata12.AsQueryable();
+               
             }
             //条件为空返回
             if (condition.IsNullOrEmpty())
