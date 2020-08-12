@@ -2,6 +2,8 @@
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.Application;
+using Volo.Abp.BlobStoring;
+using Volo.Abp.BlobStoring.FileSystem;
 
 namespace OnMonitor
 {
@@ -9,7 +11,9 @@ namespace OnMonitor
         typeof(OnMonitorDomainModule),
         typeof(OnMonitorApplicationContractsModule),
         typeof(AbpDddApplicationModule),
-        typeof(AbpAutoMapperModule)
+        typeof(AbpAutoMapperModule),
+        typeof(AbpBlobStoringFileSystemModule),
+        typeof(AbpBlobStoringModule)
         )]
     public class OnMonitorApplicationModule : AbpModule
     {
@@ -20,6 +24,17 @@ namespace OnMonitor
             {
                 options.AddMaps<OnMonitorApplicationModule>(validate: true);
             });
+            Configure<AbpBlobStoringOptions>(options =>
+            {
+                options.Containers.ConfigureDefault(container =>
+                {
+                    container.UseFileSystem(fileSystem =>
+                    {
+                        fileSystem.BasePath = "D:\\BOLB";
+                    });
+                });
+            });
+
         }
     }
 }

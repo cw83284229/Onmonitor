@@ -4,24 +4,6 @@
         <name>OnMonitor.Application</name>
     </assembly>
     <members>
-        <member name="M:Service.DVRInfoService.GetCameraNameAsync(System.String)">
-             <summary>
-            获取资料库镜头位置信息
-             </summary>
-             <param name="DVR_ID"></param>
-             <returns></returns>
-        </member>
-        <member name="M:TimedTask.Host.Job.DVRInfoCheckJob.GetDVRInfoCheck">
-            <summary>
-            定时任务，自动对比主机数据，每天2:00启动一次
-            </summary>
-        </member>
-        <member name="M:TimedTask.Host.Job.DVRInfoCheckJob.GetDVRChannelInfo">
-            <summary>
-            定时任务，对比镜头数据
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:OnMonitor.Job.DVRInfoCheckService.GetDVRInfoCheck">
             <summary>
             定时任务，自动对比主机数据，每天2:00启动一次
@@ -84,7 +66,7 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsListBylike(System.String,System.String,System.Nullable{System.Boolean},System.String,System.String,System.String,System.String,System.String,System.String,OnMonitor.PagedSortedRequestDto)">
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsListBylike(System.String[],System.String,System.Nullable{System.Boolean},System.String,System.String,System.String,System.String,System.String,System.String[],OnMonitor.PagedSortedRequestDto)">
             <summary>
             模糊查询
             </summary>
@@ -238,6 +220,24 @@
         <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetDVROnlineTotal">
             <summary>
             获取在线DVR数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Service.DVRInfoService.GetCameraNameAsync(System.String)">
+             <summary>
+            获取资料库镜头位置信息
+             </summary>
+             <param name="DVR_ID"></param>
+             <returns></returns>
+        </member>
+        <member name="M:TimedTask.Host.Job.DVRInfoCheckJob.GetDVRInfoCheck">
+            <summary>
+            定时任务，自动对比主机数据，每天2:00启动一次
+            </summary>
+        </member>
+        <member name="M:TimedTask.Host.Job.DVRInfoCheckJob.GetDVRChannelInfo">
+            <summary>
+            定时任务，对比镜头数据
             </summary>
             <returns></returns>
         </member>

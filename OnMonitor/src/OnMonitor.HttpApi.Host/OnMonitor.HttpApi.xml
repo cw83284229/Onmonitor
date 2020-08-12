@@ -38,6 +38,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Controllers.DVRInfoController.GetChannelInfo(System.String)">
+            <summary>
+            获取镜头编码信息
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Controllers.DVRInfoController.BackupsVideoByTime(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             按时间/镜头编号备份视频文件

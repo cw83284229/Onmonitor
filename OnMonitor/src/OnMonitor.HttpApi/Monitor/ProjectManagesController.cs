@@ -26,10 +26,13 @@ namespace OnMonitor.Controllers
         public IProjectManagesAppService _projectManagesAppService;
 
         public ICameraAppService _cameraAppService;
+
+       // public IBOLBService _bOLBService;
         public ProjectManagesController(IProjectManagesAppService projectManagesAppService, ICameraAppService cameraAppService)
         {
             _cameraAppService = cameraAppService;
             _projectManagesAppService = projectManagesAppService;
+          //  _bOLBService = bOLBService;
         }
 
     /// <summary>
@@ -65,6 +68,34 @@ namespace OnMonitor.Controllers
             return "ok";
 
         }
+
+
+
+        //[HttpPost]
+        //[Route("Uplocad2")]
+        //public async Task<string> UploadFiles2(IFormFile layoutfile, IFormFile cameraDatafile, string projectName)
+        //{
+            
+        //    try
+        //    {
+        //        await _bOLBService.SaveBytesAsync(layoutfile.FileName, layoutfile.GetAllBytes());
+        //        await _bOLBService.SaveBytesAsync(cameraDatafile.FileName, cameraDatafile.GetAllBytes());
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+
+           
+
+
+        //    return "ok";
+
+        //}
+
+
+
         /// <summary>
         /// 新增工程
         /// </summary>
