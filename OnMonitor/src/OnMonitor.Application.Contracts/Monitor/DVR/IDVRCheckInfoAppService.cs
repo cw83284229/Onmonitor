@@ -20,7 +20,7 @@ namespace OnMonitor.Monitor
 
     {
         public List<DVRCheckInfoDto> GetDVRInfoCheckFalseByDVRroom(string DVR_room);
-        public Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition(string DVR_room, bool? DiskChenk, bool? DVR_Online, bool? SNChenk, bool? TimeInfoChenk, bool? VideoCheck90Day, PagedSortedRequestDto input);
+        public Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition(string DVR_room, bool? DiskChenk, bool? DVR_Online, bool? SNChenk, bool? TimeInfoChenk, bool? VideoCheck90Day, string StartTime, string EndTime, PagedSortedRequestDto input);
         //   public Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition(string DVR_room, bool? DiskChenk, bool? DVR_Online, bool? SNChenk, bool? TimeInfoChenk, PagedAndSortedResultRequestDto input);
     }
 

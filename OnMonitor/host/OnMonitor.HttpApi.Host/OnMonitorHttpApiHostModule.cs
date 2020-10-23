@@ -30,11 +30,12 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.Security.Claims;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.Account;
 
 namespace OnMonitor
 {
     [DependsOn(
-
+        typeof(AbpAccountApplicationModule),
         typeof(OnMonitorEntityFrameworkCoreModule),
         typeof(OnMonitorHttpApiModule),
         typeof(OnMonitorApplicationModule),

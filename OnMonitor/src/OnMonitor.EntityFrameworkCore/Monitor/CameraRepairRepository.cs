@@ -1,5 +1,4 @@
 ﻿using OnMonitor.EntityFrameworkCore;
-using OnMonitor.MonitorRepair;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,9 +8,9 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace OnMonitor.Monitor
 {
-    public class CameraRepairRepository : EfCoreRepository<OnMonitorDbContext, CameraRepair, int>,ICameraRepairRepository
+    public class CameraRepository : EfCoreRepository<OnMonitorDbContext, Camera, int>,ICameraRepository
     {
-        public CameraRepairRepository(IDbContextProvider<OnMonitorDbContext> dbContextProvider) : base(dbContextProvider) 
+        public CameraRepository(IDbContextProvider<OnMonitorDbContext> dbContextProvider) : base(dbContextProvider) 
         {
         
         }
@@ -21,9 +20,9 @@ namespace OnMonitor.Monitor
         /// </summary>
         /// <param name="cameras"></param>
         /// <returns></returns>
-        public async Task BulkInsertAsync(IEnumerable<CameraRepair> cameraRepairs)
+        public async Task BulkInsertAsync(IEnumerable<Camera> cameras)
         {
-           await DbContext.Set<CameraRepair>().AddRangeAsync(cameraRepairs);
+           await DbContext.Set<Camera>().AddRangeAsync(cameras);
            var data=  await DbContext.SaveChangesAsync();
         
         

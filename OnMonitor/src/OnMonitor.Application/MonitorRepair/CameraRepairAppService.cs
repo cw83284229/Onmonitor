@@ -27,11 +27,11 @@ namespace OnMonitor.MonitorRepair
     , ICameraRepairAppService
 
     {
-        IRepository<CameraRepair, Int32> _cameraRepairrepository;
-        IRepository<Camera, Int32> _camerarepository;
+        ICameraRepairRepository _cameraRepairrepository;
+        ICameraRepository _camerarepository;
       //  List<CameraRepair> cameraRepairDtos;
 
-        public CameraRepairAppService(IRepository<CameraRepair, Int32> cameraRepairrepository, IRepository<Camera, Int32> camerarepository) : base(cameraRepairrepository)
+        public CameraRepairAppService(ICameraRepairRepository cameraRepairrepository, ICameraRepository camerarepository) : base(cameraRepairrepository)
         {
             _cameraRepairrepository = cameraRepairrepository;
             _camerarepository = camerarepository;
@@ -445,34 +445,40 @@ namespace OnMonitor.MonitorRepair
             {
                 //按 楼栋-楼层位置搜索
                condition = ChineseConverter.Convert(condition, ChineseConversionDirection.SimplifiedToTraditional);//简体转繁体
-                if (condition.Length>4)
-                {
-              
-                if (data.Where(u => u.Build.Contains(condition.Substring(0, 3))).ToList().Count != 0)
-                {
-                    data = data.Where(u => u.Build.Contains(condition.Substring(0, 3)));
 
-                    string str1 = condition.Split('F')[0];
 
-                    if (data.Where(u => u.floor.Contains(str1.Substring(4))).Count() != 0)
+                if (condition.Length>6)
+                {
+                    if ( condition[5].ToString().Equals("F") || condition[7].ToString().Equals("F"))
                     {
-                        data = data.Where(u => u.floor.Contains(str1.Substring(4)));
-                        string str2 = condition.Split('F')[1];
-                        if (!str2.IsNullOrEmpty())
-                            {
-                          if (data.Where(u => u.Location.Contains(str2)).Count() != 0)
-                               {
-                                    data= data.Where(u => u.Location.Contains(str2));
-                               }
-                                else
-                                {
-                                    return null;
-                                }
 
+                        if (data.Where(u => u.Build.Contains(condition.Substring(0, 3))).ToList().Count != 0)
+                        {
+                            data = data.Where(u => u.Build.Contains(condition.Substring(0, 3)));
+
+                            string str1 = condition.Split('F')[0];
+
+                            if (data.Where(u => u.floor.Contains(str1.Substring(4))).Count() != 0)
+                            {
+                                data = data.Where(u => u.floor.Contains(str1.Substring(4)));
+                                string str2 = condition.Split('F')[1];
+                                if (!str2.IsNullOrEmpty())
+                                {
+                                    if (data.Where(u => u.Location.Contains(str2)).Count() != 0)
+                                    {
+                                        data = data.Where(u => u.Location.Contains(str2));
+                                    }
+                                    else
+                                    {
+                                        return null;
+                                    }
+
+                                }
                             }
+
+                        }
                     }
 
-                }
                 }
 
                 //条件筛选

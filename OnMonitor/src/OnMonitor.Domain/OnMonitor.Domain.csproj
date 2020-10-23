@@ -10,14 +10,9 @@
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Ddd.Domain" Version="3.0.5" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="3.0.5" />
     <ProjectReference Include="..\..\host\OnMonitor.Host.Shared\OnMonitor.Host.Shared.csproj" />
     <ProjectReference Include="..\OnMonitor.Domain.Shared\OnMonitor.Domain.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Volo.Abp.TenantManagement.Domain">
-      <HintPath>C:\Users\Administrator\.nuget\packages\volo.abp.tenantmanagement.domain\2.6.2\lib\netstandard2.0\Volo.Abp.TenantManagement.Domain.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

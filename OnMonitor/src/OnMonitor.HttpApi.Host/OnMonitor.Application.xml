@@ -147,7 +147,7 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},OnMonitor.PagedSortedRequestDto)">
+        <member name="M:OnMonitor.Monitor.DVRCheckInfoAppService.GetDVRInfoByCondition(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.String,OnMonitor.PagedSortedRequestDto)">
             <summary>
             条件筛选异常主机信息，bool类型默认值为null
             </summary>

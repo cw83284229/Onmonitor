@@ -119,42 +119,34 @@ namespace OnMonitor.Job
                 }
                 //90天存储检查
 
-                String startTime = DateTime.Now.AddDays(-90).ToString("yyyy-MM-dd hh:mm:ss");
-                String endTime = DateTime.Now.AddDays(-90).AddHours(1).ToString("yyyy-MM-dd hh:mm:ss"); ;
-                string url2 = $"{dvrurl}/api/DVRInfo/QueryVideoFileByTime?IP={item.DVR_IP}&name={item.DVR_usre}&password={item.DVR_possword}&startTimestr={startTime}&endTimestr={endTime}";
-                var handler2 = new HttpClientHandler();
-                var response2 = _httpClient.GetAsync(url2).Result;
-                var dt2 = response2.Content.ReadAsStringAsync().Result;
-                var data2 = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(dt2);
+                //String startTime = DateTime.Now.AddDays(-90).ToString("yyyy-MM-dd hh:mm:ss");
+                //String endTime = DateTime.Now.AddDays(-90).AddHours(1).ToString("yyyy-MM-dd hh:mm:ss"); ;
+                //string url2 = $"{dvrurl}/api/DVRInfo/QueryVideoFileByTime?IP={item.DVR_IP}&name={item.DVR_usre}&password={item.DVR_possword}&startTimestr={startTime}&endTimestr={endTime}";
+                //var handler2 = new HttpClientHandler();
+                //var response2 = _httpClient.GetAsync(url2).Result;
+                //var dt2 = response2.Content.ReadAsStringAsync().Result;
+                //var data2 = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(dt2);
 
-                if (data2==-1)
-                {
-                    response2 = _httpClient.GetAsync(url2).Result;
-                    dt2 = response2.Content.ReadAsStringAsync().Result;
-                   data2 = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(dt2);
-                }
+                //if (data2==-1)
+                //{
+                //    response2 = _httpClient.GetAsync(url2).Result;
+                //    dt2 = response2.Content.ReadAsStringAsync().Result;
+                //   data2 = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(dt2);
+                //}
                 
                 
-                if (data2>0)
-                {
-                    dVRCheckInfo.VideoCheck90Day = true;
-                }
-                if (data2==0)
-                {
-                    dVRCheckInfo.VideoCheck90Day = false;
-                }
+                //if (data2>0)
+                //{
+                //    dVRCheckInfo.VideoCheck90Day = true;
+                //}
+                //if (data2==0)
+                //{
+                //    dVRCheckInfo.VideoCheck90Day = false;
+                //}
 
-                int nuber = _dVRCheckInforepository.Where(u => u.DVR_ID == item.DVR_ID).Count();
-                if (nuber == 0)
-                {
+  
                     var DD = await _dVRCheckInforepository.InsertAsync(dVRCheckInfo,true);
-                }
-                else
-                {
-                    var id = _dVRCheckInforepository.Where(u => u.DVR_ID == item.DVR_ID).FirstOrDefault().Id;
-                    await _dVRCheckInforepository.DeleteAsync(id);
-                   var DD= await _dVRCheckInforepository.InsertAsync(dVRCheckInfo,true);
-                }
+               
               
                 Console.WriteLine($"{item.DVR_ID}+{DateTime.Now}+写入成功");
             }

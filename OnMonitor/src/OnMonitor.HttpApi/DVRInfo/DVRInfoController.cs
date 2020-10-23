@@ -108,41 +108,13 @@ namespace OnMonitor.Controllers
 
         }
 
-        /// <summary>
-        /// 获取镜头编码信息
-        /// </summary>
-        /// <returns></returns>
-       // [Authorize(Roles = "videoCheck")]
-        [HttpGet]
-        [Route("GetChannelInfo")]
-        public string GetChannelInfo(string Camera_ID)
-        {
-            var cameradata = _cameraAppService.GetListByCameraID(Camera_ID).Result.ToList().FirstOrDefault();
-
-            if (cameradata == null)
-            {
-                return "无此镜头";
-            }
-
-            var dvrdata = _dVRAppService.GetListByCondition(null, null, null, cameradata.DVR_ID).Result.Items.FirstOrDefault();
-
-
-
-            // string dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
-
-            string url = $"{dvrurl}/api/DVRClannel/GetChannelInfo?DVR_IP={dvrdata.DVR_IP} &DVR_Name={dvrdata.DVR_usre}&DVR_PassWord={dvrdata.DVR_possword}&ChannelID={cameradata.channel_ID}";
-
-            var handler = new HttpClientHandler();
-            var response = _httpClient.GetAsync(url).Result;
-            return response.Content.ReadAsStringAsync().Result;
-
-        }
+  
 
         /// <summary>
         /// 按时间/镜头编号备份视频文件
         /// </summary>
         /// <returns></returns>
-        [Authorize(Roles = "videoCheck")]
+      //  [Authorize(Roles = "videoCheck")]
         [HttpGet]
         [Route("BackupsVideoByTime")]
         public string BackupsVideoByTime(string Camera_ID, string startTime, string endTime,string username,string password)
@@ -230,6 +202,33 @@ namespace OnMonitor.Controllers
         }
 
         /// <summary>
+        /// 获取通道名称
+        /// </summary>
+        /// <param name="CameraID"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetChannelName")]
+        public string GetChannelName(string CameraID)
+        {
+
+            var cameradata = _cameraAppService.GetListByCameraID(CameraID).Result.ToList().FirstOrDefault();
+            if (cameradata == null)
+            {
+                return "无此镜头";
+            }
+            var dvrdata = _dVRAppService.GetListByCondition(null, null, null, cameradata.DVR_ID).Result.Items.FirstOrDefault();
+              var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+          
+
+            string url = $"{dvrurl}/api/DVRClannel/Get?DVR_IP={dvrdata.DVR_IP}&DVR_Name={dvrdata.DVR_usre}&DVR_PassWord={dvrdata.DVR_possword}&ChannelID={cameradata.channel_ID}";
+
+            var handler = new HttpClientHandler();
+            var response = _httpClient.GetAsync(url).Result;
+            return response.Content.ReadAsStringAsync().Result;
+
+           
+        }
+        /// <summary>
         /// 自动设定通道名称与数据库同步
         /// </summary>
         /// <param name="CameraID"></param>
@@ -258,7 +257,7 @@ namespace OnMonitor.Controllers
 
             string chammelname = $"{cameradata.Camera_ID} {cameradata.Build}-{cameradata.floor} {cameradata.Direction}{cameradata.Location}";
             var dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
-            string url = $"{dvrurl}/api/DVRClannel/Post?DVR_IP={dvrdata.DVR_IP}&DVR_Name={dvrdata.DVR_usre}&DVR_PassWord={dvrdata.DVR_possword}&ChannelID={cameradata.channel_ID - 1}&ChannelName={chammelname}";
+            string url = $"{dvrurl}/api/DVRClannel/Post?DVR_IP={dvrdata.DVR_IP}&DVR_Name={dvrdata.DVR_usre}&DVR_PassWord={dvrdata.DVR_possword}&ChannelID={cameradata.channel_ID}&ChannelName={chammelname}";
             Dictionary<string, string> dic = new Dictionary<string, string>()
             {
                 {"DVR_IP",dvrdata.DVR_IP },
@@ -272,6 +271,37 @@ namespace OnMonitor.Controllers
             var response = _httpClient.PostAsync(url, content).Result;
 
             return response.Content.ReadAsStringAsync().Result;
+        }
+
+
+        /// <summary>
+        /// 获取镜头编码信息
+        /// </summary>
+        /// <returns></returns>
+        // [Authorize(Roles = "videoCheck")]
+        [HttpGet]
+        [Route("GetChannelInfo")]
+        public string GetChannelInfo(string Camera_ID)
+        {
+            var cameradata = _cameraAppService.GetListByCameraID(Camera_ID).Result.ToList().FirstOrDefault();
+
+            if (cameradata == null)
+            {
+                return "无此镜头";
+            }
+
+            var dvrdata = _dVRAppService.GetListByCondition(null, null, null, cameradata.DVR_ID).Result.Items.FirstOrDefault();
+
+
+
+            // string dvrurl = _configuration.GetSection("DVRInfourl:url").Value;
+
+            string url = $"{dvrurl}/api/DVRClannel/GetChannelInfo?DVR_IP={dvrdata.DVR_IP}&DVR_Name={dvrdata.DVR_usre}&DVR_PassWord={dvrdata.DVR_possword}&ChannelID={cameradata.channel_ID}";
+
+            var handler = new HttpClientHandler();
+            var response = _httpClient.GetAsync(url).Result;
+            return response.Content.ReadAsStringAsync().Result;
+
         }
 
         #endregion

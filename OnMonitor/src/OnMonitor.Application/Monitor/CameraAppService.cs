@@ -25,10 +25,10 @@ namespace OnMonitor.Monitor
    , ICameraAppService
 
     {
-        IRepository<Camera, int> _repository;
+        ICameraRepository _repository;
 
 
-        public CameraAppService(IRepository<Camera, int> repository) : base(repository)
+        public CameraAppService(ICameraRepository repository) : base(repository)
         {
             _repository = repository;
         }

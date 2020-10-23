@@ -133,10 +133,25 @@ namespace OnMonitor.Monitor
         /// <param name="VideoCheck90Day">90天存储检查</param>
         /// <param name="input">分页参数</param>
         /// <returns></returns>
-        public async Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition( string DVR_room,bool? DiskChenk, bool? DVR_Online, bool? SNChenk ,bool? TimeInfoChenk, bool? VideoCheck90Day,PagedSortedRequestDto input)
+        public async Task<PagedResultDto<DVRCheckInfoDto>> GetDVRInfoByCondition( string DVR_room,bool? DiskChenk, bool? DVR_Online, bool? SNChenk ,bool? TimeInfoChenk, bool? VideoCheck90Day,string StartTime,string EndTime, PagedSortedRequestDto input)
         {
 
             var data1 = await _dvrchenkrepository.GetListAsync();
+            if (!string.IsNullOrEmpty(StartTime)||!string.IsNullOrEmpty(EndTime))
+            {
+                DateTime startdateTime = Convert.ToDateTime(StartTime);
+                DateTime enddateTime = Convert.ToDateTime(EndTime);
+
+
+                data1 = data1.Where(u => u.LastModificationTime >= startdateTime).Where(i => i.LastModificationTime < enddateTime).ToList();
+
+
+            }
+            else
+            {
+                data1 = data1.Where(u => u.LastModificationTime>=DateTime.Now.AddDays(-1)).Where(i=>i.LastModificationTime<DateTime.Now).ToList();
+            }
+           
             var dvrdata = _dvrrepository.Where(u => u.Monitoring_room == DVR_room);
 
             List<DVRCheckInfo> data2 = new List<DVRCheckInfo>() ;

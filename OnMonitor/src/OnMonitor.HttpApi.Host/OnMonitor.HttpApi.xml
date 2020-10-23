@@ -38,12 +38,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.Controllers.DVRInfoController.GetChannelInfo(System.String)">
-            <summary>
-            获取镜头编码信息
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:OnMonitor.Controllers.DVRInfoController.BackupsVideoByTime(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             按时间/镜头编号备份视频文件
@@ -70,11 +64,24 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Controllers.DVRInfoController.GetChannelName(System.String)">
+            <summary>
+            获取通道名称
+            </summary>
+            <param name="CameraID"></param>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Controllers.DVRInfoController.SetChannelName(System.String)">
             <summary>
             自动设定通道名称与数据库同步
             </summary>
             <param name="CameraID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.DVRInfoController.GetChannelInfo(System.String)">
+            <summary>
+            获取镜头编码信息
+            </summary>
             <returns></returns>
         </member>
         <member name="M:OnMonitor.Controllers.DVRInfoController.GetDVRInfo(System.String)">

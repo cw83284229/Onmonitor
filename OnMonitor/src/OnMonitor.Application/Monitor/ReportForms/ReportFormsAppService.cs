@@ -86,7 +86,7 @@ namespace OnMonitor.Monitor
 
            dVRCheckInfos = _dvrCheckInfoAppService.GetDVRInfoCheckFalseByDVRroom(null);
             PagedSortedRequestDto input = new PagedSortedRequestDto() { SkipCount = 0, MaxResultCount = 999 };
-            dVRCheckOnlines = _dvrCheckInfoAppService.GetDVRInfoByCondition(null, null,true, null, null,null,input).Result.Items.ToList();
+            dVRCheckOnlines = _dvrCheckInfoAppService.GetDVRInfoByCondition(null, null,true, null, null,null,null,null, input).Result.Items.ToList();
 
         }
 
