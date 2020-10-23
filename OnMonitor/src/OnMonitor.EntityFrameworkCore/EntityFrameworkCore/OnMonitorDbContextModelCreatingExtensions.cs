@@ -82,6 +82,18 @@ namespace OnMonitor.EntityFrameworkCore
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Id).IsRequired().HasMaxLength(128);
             });
+            builder.Entity<AlarmStatus>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "AlarmStatus", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention(); //auto configure for the base class props
+                b.Property(x => x.Id).IsRequired().HasMaxLength(128);
+            });
+            builder.Entity<AlarmManageState>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "AlarmManageStates", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention(); //auto configure for the base class props
+                b.Property(x => x.Id).IsRequired().HasMaxLength(128);
+            });
             builder.Entity<MonitorRoom>(b =>
             {
                 b.ToTable(OnMonitorConsts.DbTablePrefix + "MonitorRooms", OnMonitorConsts.DbSchema);

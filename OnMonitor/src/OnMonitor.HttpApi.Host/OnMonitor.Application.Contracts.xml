@@ -4,6 +4,186 @@
         <name>OnMonitor.Application.Contracts</name>
     </assembly>
     <members>
+        <member name="P:OnMonitor.Monitor.AlarmManageStateDto.Alarm_ID">
+            <summary>
+            报警编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmManageStateDto.AlarmTime">
+            <summary>
+            报警时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmManageStateDto.WithdrawTime">
+            <summary>
+            撤防时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmManageStateDto.WithdrawMan">
+            <summary>
+            撤防人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmManageStateDto.WithdrawRemark">
+            <summary>
+            撤防原因
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmManageStateDto.DefenceTime">
+            <summary>
+            布防时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmManageStateDto.TreatmentTime">
+            <summary>
+            处理时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmManageStateDto.TreatmentTimeState">
+            <summary>
+            处理状态时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmManageStateDto.TreatmentReply">
+            <summary>
+            处理回复
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmManageStateDto.Alarm_ID">
+            <summary>
+            报警编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmManageStateDto.AlarmTime">
+            <summary>
+            报警时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmManageStateDto.WithdrawTime">
+            <summary>
+            撤防时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmManageStateDto.WithdrawMan">
+            <summary>
+            撤防人员
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmManageStateDto.WithdrawRemark">
+            <summary>
+            撤防原因
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmManageStateDto.DefenceTime">
+            <summary>
+            布防时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmManageStateDto.TreatmentTime">
+            <summary>
+            处理时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmManageStateDto.TreatmentTimeState">
+            <summary>
+            处理状态时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmManageStateDto.TreatmentReply">
+            <summary>
+            处理回复
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmStatusDto.Alarm_ID">
+            <summary>
+            报警编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmStatusDto.IsAlarm">
+            <summary>
+            报警状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmStatusDto.IsDefence">
+            <summary>
+            布防状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmStatusDto.IsAnomaly">
+            <summary>
+            异常状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmStatusDto.IsOpenDoor">
+            <summary>
+            是否开岗
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmStatusDto.TreatmentState">
+            <summary>
+            处理状态 1.表示处理中，0表示已处理，2表示异常上报，3，异常超时
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmStatusDto.BypassState">
+            <summary>
+            旁路状态 1.正常，2。旁路，3.隔离
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmStatusDto.LastModificationTime">
+            <summary>
+            坠毁修改时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.UpdateAlarmStatusDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmStatusDto.Alarm_ID">
+            <summary>
+            报警编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmStatusDto.IsAlarm">
+            <summary>
+            报警状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmStatusDto.IsDefence">
+            <summary>
+            布防状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmStatusDto.IsAnomaly">
+            <summary>
+            异常状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmStatusDto.IsOpenDoor">
+            <summary>
+            是否开岗
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmStatusDto.TreatmentState">
+            <summary>
+            处理状态 1.表示处理中，0表示已处理，2表示异常上报，3，异常超时
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmStatusDto.BypassState">
+            <summary>
+            旁路状态 1.正常，2。旁路，3.隔离
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmStatusDto.LastModificationTime">
+            <summary>
+            坠毁修改时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.AlarmStatusDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="P:OnMonitor.Monitor.AlarmDto.Monitoring_room">
             <summary>
             监控室

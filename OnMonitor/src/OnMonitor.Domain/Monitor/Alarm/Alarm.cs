@@ -8,7 +8,7 @@ using Volo.Abp.Domain.Entities.Auditing;
 namespace OnMonitor.Monitor
 {
     
-    public partial class Camera : AuditedAggregateRoot<Int32>
+    public partial class Alarm : AuditedAggregateRoot<Int32>
     {
 
         /// <summary>
@@ -17,20 +17,16 @@ namespace OnMonitor.Monitor
         [StringLength(255)]
         public string Monitoring_room { get; set; }
         /// <summary>
-        /// 主机号
+        /// 报警主机号
         /// </summary>
         [StringLength(255)]
-        public string DVR_ID { get; set; }
+        public string AlarmHost_ID { get; set; }
+ 
         /// <summary>
-        /// 通道号
-        /// </summary>
-        public int channel_ID { get; set; }
-
-        /// <summary>
-        /// 镜头号
+        /// 报警编号
         /// </summary>
         [StringLength(255)]
-        public string Camera_ID { get; set; }
+        public string Alarm_ID { get; set; }
         /// <summary>
         /// 楼栋
         /// </summary>
@@ -42,26 +38,20 @@ namespace OnMonitor.Monitor
         [StringLength(255)]
         public string floor { get; set; }
         /// <summary>
-        /// 方向
-        /// </summary>
-        [StringLength(255)]
-        public string Direction { get; set; }
-
-        /// <summary>
         /// 位置
         /// </summary>
         [StringLength(255)]
         public string Location { get; set; }
         /// <summary>
-        /// 监控分类
+        /// 门岗类型
         /// </summary>
         [StringLength(255)]
-        public string MonitorClassification { get; set; }
+        public string GeteType { get; set; }
         /// <summary>
-        /// 镜头类型
+        /// 传感器类型
         /// </summary>
         [StringLength(255)]
-        public string Camera_Tpye { get; set; }
+        public string SensorType { get; set; }
         /// <summary>
         /// 部门
         /// </summary>
@@ -78,20 +68,26 @@ namespace OnMonitor.Monitor
         [StringLength(255)]
         public string install_time { get; set; }
         /// <summary>
-        /// 设备厂商
-        /// </summary>
-        public string manufacturer { get; set; }
-        /// <summary>
         /// 安装厂商
         /// </summary>
         [StringLength(255)]
         public string category { get; set; }
 
         /// <summary>
-        /// 报警号
+        /// 镜头号
         /// </summary>
         [StringLength(255)]
-        public string Alarm_ID { get; set; }
+        public string Camera_ID { get; set; }
+
+        /// <summary>
+        /// 有无报警器
+        /// </summary>
+        public bool? IsAlertor { get; set; }
+
+        /// <summary>
+        /// 是否开岗
+        /// </summary>
+        public bool? IsOpenOrClosed { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
