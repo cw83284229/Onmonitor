@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Volo.Abp.Application.Dtos;
 
-namespace OnMonitor.Monitor
+namespace OnMonitor.Monitor.Alarm
 {
    public  class UpdateAlarmDto 
     { /// <summary>
@@ -23,6 +23,10 @@ namespace OnMonitor.Monitor
         /// </summary>
         [StringLength(255)]
         public string Alarm_ID { get; set; }
+        /// <summary>
+        /// 通道编号
+        /// </summary>
+        public int? Channel_ID { get; set; }
         /// <summary>
         /// 楼栋
         /// </summary>

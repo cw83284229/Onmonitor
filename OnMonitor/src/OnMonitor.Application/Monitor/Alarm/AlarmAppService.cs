@@ -9,7 +9,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 
-namespace OnMonitor.Monitor
+namespace OnMonitor.Monitor.Alarm
 {
 
  // [Authorize(Roles ="admin")]
@@ -24,15 +24,32 @@ namespace OnMonitor.Monitor
   , IAlarmAppService
 
     {
-       
-        public AlarmAppService(IRepository<Alarm, Int32> repository) : base(repository)
+        IRepository<Alarm, Int32> _alarmrepository;
+        IRepository<AlarmHost, Int32> _alrmHostrepository;
+        public AlarmAppService(IRepository<Alarm, Int32> alarmrepository, IRepository<AlarmHost, Int32> alrmHostrepository) : base(alarmrepository)
         {
-
+            _alarmrepository = alarmrepository;
+            _alrmHostrepository = alrmHostrepository;
            
         }
 
 
+        public AlarmHostDto GetAlarmHostDto(string Alarm_ID)
+        {
+            var alarmdata = _alarmrepository.Where(u => u.Alarm_ID == Alarm_ID).FirstOrDefault();
+            if (alarmdata!=null)
+            {
+                var alarmHostdata = _alrmHostrepository.Where(u => u.AlarmHost_ID == alarmdata.AlarmHost_ID).FirstOrDefault();
 
+            var requst=    ObjectMapper.Map<AlarmHost, AlarmHostDto>(alarmHostdata);
+                return requst;
+            }
+
+
+            return null;
+        
+        
+        }
 
 
 

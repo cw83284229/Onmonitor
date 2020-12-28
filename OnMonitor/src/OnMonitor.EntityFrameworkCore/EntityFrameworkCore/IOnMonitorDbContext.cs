@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnMonitor.MenusInfos;
 using OnMonitor.Monitor;
+using OnMonitor.Monitor.Alarm;
 using OnMonitor.MonitorRepair;
 using OnMonitor.OrderMaterials;
 using Volo.Abp.Data;

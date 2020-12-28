@@ -2,16 +2,25 @@
 using System.ComponentModel.DataAnnotations;
 using Volo.Abp.Application.Dtos;
 
-namespace OnMonitor.Monitor
+namespace OnMonitor.Monitor.Alarm
 {
     public  class AlarmManageStateDto: AuditedEntityDto<Int32>
     {
 
         /// <summary>
+        /// 报警主机IP
+        /// </summary>
+        [StringLength(255)]
+        public string AlarmHost_IP { get; set; }
+        /// <summary>
         /// 报警编号
         /// </summary>
         [StringLength(255)]
         public string Alarm_ID { get; set; }
+        /// <summary>
+        /// 通道编号
+        /// </summary>
+        public int? Channel_ID { get; set; }
         /// <summary>
         /// 报警时间
         /// </summary>
@@ -49,6 +58,10 @@ namespace OnMonitor.Monitor
         /// 处理回复
         /// </summary>
         public string TreatmentReply { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark { get; set; }
 
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using OnMonitor.MenusInfos;
 using OnMonitor.Monitor;
+using OnMonitor.Monitor.Alarm;
 using OnMonitor.MonitorRepair;
 using OnMonitor.OrderMaterials;
 using Volo.Abp;
@@ -91,6 +92,12 @@ namespace OnMonitor.EntityFrameworkCore
             builder.Entity<AlarmManageState>(b =>
             {
                 b.ToTable(OnMonitorConsts.DbTablePrefix + "AlarmManageStates", OnMonitorConsts.DbSchema);
+                b.ConfigureByConvention(); //auto configure for the base class props
+                b.Property(x => x.Id).IsRequired().HasMaxLength(128);
+            });
+            builder.Entity<AlarmHost>(b =>
+            {
+                b.ToTable(OnMonitorConsts.DbTablePrefix + "AlarmHosts", OnMonitorConsts.DbSchema);
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Id).IsRequired().HasMaxLength(128);
             });

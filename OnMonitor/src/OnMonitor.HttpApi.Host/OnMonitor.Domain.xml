@@ -119,172 +119,252 @@
             备注
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Monitoring_room">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.Monitoring_room">
             <summary>
             监控室
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost_ID">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.AlarmHost_ID">
             <summary>
             报警主机号
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Alarm_ID">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.Alarm_ID">
             <summary>
             报警编号
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Build">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.Channel_ID">
+            <summary>
+            通道编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.Build">
             <summary>
             楼栋
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.floor">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.floor">
             <summary>
             楼层
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Location">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.Location">
             <summary>
             位置
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.GeteType">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.GeteType">
             <summary>
             门岗类型
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.SensorType">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.SensorType">
             <summary>
             传感器类型
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.department">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.department">
             <summary>
             部门
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Cost_code">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.Cost_code">
             <summary>
             费用代码
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.install_time">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.install_time">
             <summary>
             安装时间
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.category">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.category">
             <summary>
             安装厂商
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Camera_ID">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.Camera_ID">
             <summary>
             镜头号
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.IsAlertor">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.IsAlertor">
             <summary>
             有无报警器
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.IsOpenOrClosed">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.IsOpenOrClosed">
             <summary>
             是否开岗
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.Remark">
+        <member name="P:OnMonitor.Monitor.Alarm.Alarm.Remark">
             <summary>
             备注
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmManageState.Alarm_ID">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost.AlarmHost_ID">
+            <summary>
+            报警主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost.User">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost.AlarmHostType">
+            <summary>
+            报警主机类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost.AlarmHostIP">
+            <summary>
+            主机IP
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost.AlarmChannelCount">
+            <summary>
+            通道数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost.install_time">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost.category">
+            <summary>
+            安装厂商
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmHost.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.AlarmHost_IP">
+            <summary>
+            报警主机IP
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.Alarm_ID">
             <summary>
             报警编号
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmManageState.AlarmTime">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.Channel_ID">
+            <summary>
+            通道编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.AlarmTime">
             <summary>
             报警时间
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmManageState.WithdrawTime">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.WithdrawTime">
             <summary>
             撤防时间
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmManageState.WithdrawMan">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.WithdrawMan">
             <summary>
             撤防人员
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmManageState.WithdrawRemark">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.WithdrawRemark">
             <summary>
             撤防原因
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmManageState.DefenceTime">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.DefenceTime">
             <summary>
             布防时间
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmManageState.TreatmentTime">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.TreatmentTime">
             <summary>
             处理时间
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmManageState.TreatmentTimeState">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.TreatmentTimeState">
             <summary>
             处理状态时间
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmManageState.TreatmentReply">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.TreatmentReply">
             <summary>
             处理回复
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmStatus.Alarm_ID">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmStatus.AlarmHostIP">
+            <summary>
+            主机IP
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmStatus.Alarm_ID">
             <summary>
             报警编号
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmStatus.IsAlarm">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmStatus.Channel_ID">
+            <summary>
+            通道编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmStatus.IsAlarm">
             <summary>
             报警状态
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmStatus.IsDefence">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmStatus.IsDefence">
             <summary>
-            布防状态
+            布防状态 0表示未知 1：表示布防 2：表示撤防
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmStatus.IsAnomaly">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmStatus.IsAnomaly">
             <summary>
-            异常状态
+            异常状态 0:未分配1:离线2:在线"
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmStatus.IsOpenDoor">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmStatus.IsOpenDoor">
             <summary>
             是否开岗
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmStatus.TreatmentState">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmStatus.TreatmentState">
             <summary>
             处理状态 1.表示处理中，0表示已处理，2表示异常上报，3，异常超时
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmStatus.BypassState">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmStatus.BypassState">
             <summary>
             旁路状态 1.正常，2。旁路，3.隔离
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmStatus.LastModificationTime">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmStatus.LastModificationTime">
             <summary>
-            坠毁修改时间
+            最后修改时间
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.AlarmStatus.Remark">
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmStatus.Remark">
             <summary>
             备注
             </summary>

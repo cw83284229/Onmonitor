@@ -323,7 +323,7 @@ namespace OnMonitor.MonitorRepair
         /// <param name="AnomalyType">维修类别</param>
         /// <param name="input">分页</param>
         /// <returns></returns>
-        public PagedResultDto<RequstCameraRepairDto> GetRepairsListBylike(string[] dvrRooms,string condition,bool? RepairState, string department, string AnomalyTimeStart, string AnomalyTimeEnd,string RepairedTimeStart, string RepairedTimeEnd,string[] AnomalyType, PagedSortedRequestDto input)
+        public PagedResultDto<RequstCameraRepairDto> GetRepairsListBylike(string[] dvrRooms,string condition,bool? RepairState, string department, string AnomalyTimeStart, string AnomalyTimeEnd,string RepairedTimeStart, string RepairedTimeEnd,string[] AnomalyType,string[] AnomalyGrade, PagedSortedRequestDto input)
         {
             //加载CameraDto
             var dataall = from a in _camerarepository
@@ -394,6 +394,7 @@ namespace OnMonitor.MonitorRepair
             {
                 data = data.Where(u => u.RepairState == RepairState);
             }
+            
             //部门筛选
             if (!string.IsNullOrEmpty(department))
             {
@@ -425,6 +426,20 @@ namespace OnMonitor.MonitorRepair
                 data = listdata12.AsQueryable();
                
             }
+            //异常等级筛选
+            if (AnomalyGrade.Length>0)
+            {
+                List<RequstCameraRepairDto> listdata12 = new List<RequstCameraRepairDto>();
+                for (int i = 0; i < AnomalyGrade.Length; i++)
+                {
+                   // AnomalyType[i] = ChineseConverter.Convert(AnomalyType[i], ChineseConversionDirection.SimplifiedToTraditional);
+                    var data12 = data.Where(u => u.AnomalyGrade.Contains(AnomalyGrade[i]));
+                    listdata12.AddRange(data12);
+                }
+
+                data = listdata12.AsQueryable();
+            }
+
             //条件为空返回
             if (condition.IsNullOrEmpty())
             {
@@ -445,7 +460,6 @@ namespace OnMonitor.MonitorRepair
             {
                 //按 楼栋-楼层位置搜索
                condition = ChineseConverter.Convert(condition, ChineseConversionDirection.SimplifiedToTraditional);//简体转繁体
-
 
                 if (condition.Length>6)
                 {

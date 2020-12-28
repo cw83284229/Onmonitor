@@ -60,9 +60,21 @@ namespace OnMonitor.Controllers
                 var data = Newtonsoft.Json.JsonConvert.DeserializeObject<DVRInfoDto>(dt);
 
                 DVRcheckinfoModel dVRCheckInfo = new DVRcheckinfoModel();
-
+                //时间检查验证
+                var servertime = DateTime.Now;
+                dVRCheckInfo.SystemTime = servertime.ToString("yyyy-MM-dd HH:mm:ss");
+                DateTime dvrtime = Convert.ToDateTime(data.DVR_DateTine);
+                dVRCheckInfo.DVRTime = data.DVR_DateTine;
+                if (DateTime.Compare(servertime.AddSeconds(-10),dvrtime)<0&& DateTime.Compare(servertime.AddSeconds(10), dvrtime)>0)
+                {
+                    dVRCheckInfo.TimeInfoChenk = true;
+                }
+                else
+                {
+                    dVRCheckInfo.TimeInfoChenk = false;
+                }
                 //硬盘检查装配
-                int dvrhard = (int)(dvrdata.Hard_drive * 0.91 / 1000);
+                int dvrhard = (int)(dvrdata.Hard_drive * 0.91);
                 List<DVRDisk> listdvrdisk = new List<DVRDisk>();
                
                  //装配硬盘
@@ -73,6 +85,8 @@ namespace OnMonitor.Controllers
                     dVRDisk.Disk = item.Disk/1000;//四舍五入取值法
                      listdvrdisk.Add(dVRDisk);
                 }
+
+             
                 dVRCheckInfo.DVRDISK = listdvrdisk;
                 dVRCheckInfo.DataDiskTotal = dvrhard;
 
@@ -109,21 +123,7 @@ namespace OnMonitor.Controllers
                     dVRCheckInfo.DVR_Online = false;
                 }
 
-                //时间检查验证
-                var servertime = DateTime.Now;
-                dVRCheckInfo.SystemTime = servertime.ToString("yyyy-MM-dd HH:mm:ss");
-                DateTime dvrtime = Convert.ToDateTime(data.DVR_DateTine);
-                if (servertime.Second + 5 >= dvrtime.Second && dvrtime.Second >= servertime.Second - 5)
-                {
-                    dVRCheckInfo.DVRTime = data.DVR_DateTine;
-                    dVRCheckInfo.TimeInfoChenk = true;
-                }
-                else
-                {
-                    dVRCheckInfo.TimeInfoChenk = false;
-                    dVRCheckInfo.DVRTime = data.DVR_DateTine;
-                }
-
+               
                 //检查通道信息
                 var cameraData = _cameraAppService.GetListByDVRID(dvrdata.DVR_ID).Result;
                 dVRCheckInfo.DataChannelTotal = cameraData.Count();

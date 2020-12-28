@@ -3,7 +3,7 @@ using System.IO;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
-namespace OnMonitor.Monitor
+namespace OnMonitor.Monitor.Alarm
 {
 
 
@@ -16,9 +16,10 @@ namespace OnMonitor.Monitor
             UpdateAlarmStatusDto> //用于更新实体
     {
 
+        public PagedResultDto<RequstAlarmStatusDto> GetRequstList(ConditionAlarmStatusDto condition, PagedSortedRequestDto input);
 
 
-     
+
     }
       
 }

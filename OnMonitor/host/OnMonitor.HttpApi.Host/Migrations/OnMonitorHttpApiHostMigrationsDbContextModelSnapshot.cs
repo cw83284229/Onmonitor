@@ -78,6 +78,9 @@ namespace OnMonitor.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
+                    b.Property<int?>("Channel_ID")
+                        .HasColumnType("int");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnName("ConcurrencyStamp")
@@ -155,6 +158,59 @@ namespace OnMonitor.Migrations
                     b.ToTable("AppAlarms");
                 });
 
+            modelBuilder.Entity("OnMonitor.Monitor.AlarmHost", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasMaxLength(128)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AlarmChannelCount")
+                        .HasColumnType("int")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("AlarmHostIP")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("AlarmHostType")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("AlarmHost_ID")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Monitoring_room")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("category")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("install_time")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppAlarmHosts");
+                });
+
             modelBuilder.Entity("OnMonitor.Monitor.AlarmManageState", b =>
                 {
                     b.Property<int>("Id")
@@ -163,6 +219,10 @@ namespace OnMonitor.Migrations
                         .HasMaxLength(128)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AlarmHost_IP")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
                     b.Property<string>("AlarmTime")
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
@@ -170,6 +230,9 @@ namespace OnMonitor.Migrations
                     b.Property<string>("Alarm_ID")
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
+
+                    b.Property<int?>("Channel_ID")
+                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -200,6 +263,9 @@ namespace OnMonitor.Migrations
                     b.Property<Guid?>("LastModifierId")
                         .HasColumnName("LastModifierId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TreatmentReply")
                         .HasColumnType("nvarchar(max)");
@@ -235,21 +301,27 @@ namespace OnMonitor.Migrations
                         .HasMaxLength(128)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Alarm_ID")
+                    b.Property<string>("AlarmHostIP")
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
+
+                    b.Property<string>("Alarm_ID")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("BypassState")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("IsAlarm")
-                        .HasColumnType("bit");
+                    b.Property<int?>("Channel_ID")
+                        .HasColumnType("int");
 
-                    b.Property<bool>("IsAnomaly")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsAlarm")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsDefence")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsAnomaly")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IsDefence")
+                        .HasColumnType("int");
 
                     b.Property<bool?>("IsOpenDoor")
                         .HasColumnType("bit");
@@ -258,8 +330,7 @@ namespace OnMonitor.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TreatmentState")
                         .HasColumnType("int");

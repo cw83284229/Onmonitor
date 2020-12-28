@@ -1,0 +1,18 @@
+C:\Users\Administrator\Desktop\dh-alarmHost.selection\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.exe.config
+C:\Users\Administrator\Desktop\dh-alarmHost.selection\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.exe
+C:\Users\Administrator\Desktop\dh-alarmHost.selection\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.pdb
+C:\Users\Administrator\Desktop\dh-alarmHost.selection\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\NetSDKCS.dll
+C:\Users\Administrator\Desktop\dh-alarmHost.selection\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\NetSDKCS.pdb
+C:\Users\Administrator\Desktop\dh-alarmHost.selection\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\dh-alarmHost.selection\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\dh-alarmHost.selection\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.csproj.CopyComplete
+C:\Users\Administrator\Desktop\dh-alarmHost.selection\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.exe
+C:\Users\Administrator\Desktop\dh-alarmHost.selection\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.pdb
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.exe.config
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.exe
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.pdb
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.exe
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.pdb
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\NetSDKCS.dll
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\NetSDKCS.pdb
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.csprojResolveAssemblyReference.cache

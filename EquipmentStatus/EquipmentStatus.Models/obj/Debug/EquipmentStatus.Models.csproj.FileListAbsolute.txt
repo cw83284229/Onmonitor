@@ -1,0 +1,40 @@
+C:\Users\Administrator\Desktop\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.exe.config
+C:\Users\Administrator\Desktop\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.exe
+C:\Users\Administrator\Desktop\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.pdb
+C:\Users\Administrator\Desktop\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.exe
+C:\Users\Administrator\Desktop\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.pdb
+C:\Users\Administrator\Desktop\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.csprojResolveAssemblyReference.cache
+F:\DVROperation\DVRApi - 20201024\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.exe.config
+F:\DVROperation\DVRApi - 20201024\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.exe
+F:\DVROperation\DVRApi - 20201024\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.pdb
+F:\DVROperation\DVRApi - 20201024\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.dll
+F:\DVROperation\DVRApi - 20201024\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.SqlServer.dll
+F:\DVROperation\DVRApi - 20201024\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.xml
+F:\DVROperation\DVRApi - 20201024\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.SqlServer.xml
+F:\DVROperation\DVRApi - 20201024\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.exe
+F:\DVROperation\DVRApi - 20201024\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.pdb
+F:\DVROperation\DVRApi - 20201024\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.resources.dll
+F:\DVROperation\DVRApi - 20201024\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.exe.config
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.exe
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.pdb
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.csproj.CopyComplete
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.exe
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.pdb
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.exe.config
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.exe
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EquipmentStatus.Models.pdb
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.dll
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.xml
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.csprojAssemblyReference.cache
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.csproj.CoreCompileInputs.cache
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.csproj.CopyComplete
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.exe
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.pdb

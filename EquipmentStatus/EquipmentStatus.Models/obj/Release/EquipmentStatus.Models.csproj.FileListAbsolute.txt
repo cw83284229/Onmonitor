@@ -1,0 +1,1 @@
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Release\EquipmentStatus.Models.csproj.CoreCompileInputs.cache

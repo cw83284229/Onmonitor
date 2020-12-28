@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace OnMonitor.Monitor
+namespace OnMonitor.Monitor.Alarm
 { 
   public  class UpdateAlarmManageStateDto
     {
-
         /// <summary>
         /// 报警编号
         /// </summary>
@@ -50,6 +49,7 @@ namespace OnMonitor.Monitor
         /// 处理回复
         /// </summary>
         public string TreatmentReply { get; set; }
+
 
     }
 }

@@ -48,14 +48,10 @@ namespace OnMonitor.Job
 
         public async Task<List<DVRCheckInfoDto>> GetDVRInfoCheck()
             {
-
             var configuration = BuildConfiguration();
-
             var dvrurl = configuration.GetSection("DVRInfourl:url").Value;
-            var dvrdata =await _dVRrepository.GetListAsync(); ;
-              
-               List<DVRCheckInfoDto> listdVRCheckInfo = new List<DVRCheckInfoDto>();
-
+            var dvrdata =await _dVRrepository.GetListAsync(); ; 
+            List<DVRCheckInfoDto> listdVRCheckInfo = new List<DVRCheckInfoDto>();
             foreach (var item in dvrdata)
             {
                 string url = $"{dvrurl}/api/DVRInfo/Get?IP={item.DVR_IP}&name={item.DVR_usre}&password={item.DVR_possword}";
@@ -67,8 +63,27 @@ namespace OnMonitor.Job
                 DVRCheckInfo dVRCheckInfo = new DVRCheckInfo();
                 dVRCheckInfo.DVR_ID = item.DVR_ID;
                 dVRCheckInfo.LastModificationTime = DateTime.Now;
+                //时间检查验证
+                var servertime = DateTime.Now;
+              //dVRCheckInfo.TIMErvertime.ToString("yyyy-MM-dd HH:mm:ss");
+                DateTime dvrtime = Convert.ToDateTime(data.DVR_DateTine);
+                dVRCheckInfo.DVRTime = data.DVR_DateTine;
+                if (DateTime.Compare(servertime.AddSeconds(-10), dvrtime) < 0 && DateTime.Compare(servertime.AddSeconds(10), dvrtime) > 0)
+                {
+                    dVRCheckInfo.TimeInfoChenk = true;
+                }
+                else
+                {
+                    dVRCheckInfo.TimeInfoChenk = false;
+                }
+
                 //硬盘检查
-                int dvrhard = (int)(item.Hard_drive * 0.91 / 1000);
+                if (item.Hard_drive==null)
+                {
+                    item.Hard_drive = 0;
+                }
+                int dvrhard = (int)(item.Hard_drive * 0.91);
+
                 if (dvrhard == data.HardDrive)
                 {
                     dVRCheckInfo.DiskTotal = data.HardDrive;
@@ -103,20 +118,7 @@ namespace OnMonitor.Job
                     dVRCheckInfo.DVR_Online = false;
                 }
              
-                //时间检查验证
-                var servertime = DateTime.Now;
-                DateTime dvrtime = Convert.ToDateTime(data.DVR_DateTine);
-                dVRCheckInfo.DVRTime = data.DVR_DateTine;
-                if (servertime.Second + 5 >= dvrtime.Second && dvrtime.Second >= servertime.Second - 5)
-                {
-                   
-                    dVRCheckInfo.TimeInfoChenk = true;
-                }
-                else
-                {
-                    dVRCheckInfo.TimeInfoChenk = false;
-                   
-                }
+              
                 //90天存储检查
 
                 //String startTime = DateTime.Now.AddDays(-90).ToString("yyyy-MM-dd hh:mm:ss");

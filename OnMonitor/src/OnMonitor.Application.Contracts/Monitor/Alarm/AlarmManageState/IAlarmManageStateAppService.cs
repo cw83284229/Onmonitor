@@ -3,7 +3,7 @@ using System.IO;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
-namespace OnMonitor.Monitor
+namespace OnMonitor.Monitor.Alarm
 {
 
 

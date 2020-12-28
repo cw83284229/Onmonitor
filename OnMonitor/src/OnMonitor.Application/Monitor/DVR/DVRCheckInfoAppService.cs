@@ -141,15 +141,13 @@ namespace OnMonitor.Monitor
             {
                 DateTime startdateTime = Convert.ToDateTime(StartTime);
                 DateTime enddateTime = Convert.ToDateTime(EndTime);
-
-
                 data1 = data1.Where(u => u.LastModificationTime >= startdateTime).Where(i => i.LastModificationTime < enddateTime).ToList();
 
 
             }
             else
             {
-                data1 = data1.Where(u => u.LastModificationTime>=DateTime.Now.AddDays(-1)).Where(i=>i.LastModificationTime<DateTime.Now).ToList();
+                data1 = data1.Where(u => DateTime.Compare(DateTime.Now.AddDays(-1), (DateTime)u.LastModificationTime) < 0).ToList();
             }
            
             var dvrdata = _dvrrepository.Where(u => u.Monitoring_room == DVR_room);

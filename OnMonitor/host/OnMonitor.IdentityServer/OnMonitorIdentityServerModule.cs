@@ -105,7 +105,7 @@ namespace OnMonitor
 
             Configure<AbpAuditingOptions>(options =>
             {
-                //options.IsEnabledForGetRequests = true;
+                options.IsEnabledForGetRequests = true;
                 options.ApplicationName = "AuthServer";
             });
 
@@ -163,7 +163,12 @@ namespace OnMonitor
             //            .AllowCredentials();
             //    });
             //});
-
+            // 配置cookie策略
+            context.Services.Configure<CookiePolicyOptions>(options =>
+            {
+                //https://docs.microsoft.com/zh-cn/aspnet/core/security/samesite?view=aspnetcore-3.1&viewFallbackFrom=aspnetcore-3
+                options.MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.Lax;
+            });
             context.Services.AddCors(options =>
             {
                 options.AddPolicy(DefaultCorsPolicyName, builder =>
@@ -193,6 +198,7 @@ namespace OnMonitor
             app.UseVirtualFiles();
             app.UseRouting();
             app.UseCors(DefaultCorsPolicyName);
+            app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseJwtTokenMiddleware();
             if (MultiTenancyConsts.IsEnabled)

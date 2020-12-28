@@ -25,12 +25,12 @@ namespace OnMonitor.Controllers
     {
         public IProjectManagesAppService _projectManagesAppService;
 
-        public ICameraAppService _cameraAppService;
+       // public ICameraAppService _cameraAppService;
 
        // public IBOLBService _bOLBService;
-        public ProjectManagesController(IProjectManagesAppService projectManagesAppService, ICameraAppService cameraAppService)
+        public ProjectManagesController(IProjectManagesAppService projectManagesAppService)
         {
-            _cameraAppService = cameraAppService;
+           // _cameraAppService = cameraAppService;
             _projectManagesAppService = projectManagesAppService;
           //  _bOLBService = bOLBService;
         }
@@ -105,21 +105,21 @@ namespace OnMonitor.Controllers
         [Route("CreateProjectManages")]
         public async Task<ResponseResultDto> CreateProjectManages(UpdateProjectManagesDto input)
         {
-            try
-            {
-              //  var data = Newtonsoft.Json.JsonConvert.SerializeObject(input.Camera_ID);
-                string data2 = ChineseConverter.Convert(input.Camera_ID, ChineseConversionDirection.SimplifiedToTraditional);
+            //try
+            //{
+            //  //  var data = Newtonsoft.Json.JsonConvert.SerializeObject(input.Camera_ID);
+            //    string data2 = ChineseConverter.Convert(input.Camera_ID, ChineseConversionDirection.SimplifiedToTraditional);
 
-                List<UpdateCameraDto> input2 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UpdateCameraDto>>(data2);
-                var camerarequst =await _cameraAppService.PostInsertList(input2);
-            }
-            catch (Exception)
-            {
+            //    List<UpdateCameraDto> input2 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UpdateCameraDto>>(data2);
+            //   // var camerarequst =await _cameraAppService.PostInsertList(input2);
+            //}
+            //catch (Exception)
+            //{
 
-                return new ResponseResultDto() { 
+            //    return new ResponseResultDto() { 
                 
-                Messages="添加摄像机数据失败"};
-            }
+            //    Messages="添加摄像机数据失败"};
+            //}
 
             var requst = await _projectManagesAppService.CreateAsync(input);
 

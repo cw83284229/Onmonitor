@@ -6,29 +6,36 @@ using System.Text;
 using Volo.Abp.Application.Dtos;
 
 
-namespace OnMonitor.Monitor
+namespace OnMonitor.Monitor.Alarm
 {
-
-    public partial class UpdateAlarmStatusDto
+    
+    public partial class AlarmStatusDto : EntityDto<Int32>
     {
-
+        /// <summary>
+        /// 主机IP
+        /// </summary>
+        [StringLength(255)]
+        public string AlarmHostIP { get; set; }
         /// <summary>
         /// 报警编号
         /// </summary>
-        [StringLength(255)]
         public string Alarm_ID { get; set; }
+        /// <summary>
+        /// 通道编号
+        /// </summary>
+        public int? Channel_ID { get; set; }
         /// <summary>
         /// 报警状态
         /// </summary>
-        public bool?  IsAlarm { get; set; }
+        public int? IsAlarm { get; set; }
         /// <summary>
-        /// 布防状态
+        /// 布防状态 0表示未知 1：表示布防 2：表示撤防
         /// </summary>
-        public bool? IsDefence { get; set; }
+        public int? IsDefence { get; set; }
         /// <summary>
-        /// 异常状态
+        /// 异常状态 0:未分配1:离线2:在线"
         /// </summary>
-        public bool  IsAnomaly { get; set; }
+        public int? IsAnomaly { get; set; }
         /// <summary>
         /// 是否开岗
         /// </summary>
@@ -43,14 +50,13 @@ namespace OnMonitor.Monitor
         public int BypassState { get; set; }
 
         /// <summary>
-        /// 坠毁修改时间
+        /// 最后修改时间
         /// </summary>
         public string LastModificationTime { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
-        [StringLength(255)]
-        public string Remark { get; set; }
 
+        public string Remark { get; set; }
     }
 }

@@ -4,6 +4,27 @@
         <name>OnMonitor.HttpApi</name>
     </assembly>
     <members>
+        <member name="M:OnMonitor.Controllers.AlarmInfoController.GetAlarmInfoStatus(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            获取报警状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.AlarmInfoController.SetDefenceArmModeAsync(System.String,System.Nullable{System.Int32})">
+            <summary>
+            设置布防状态 操作状态 1表示布防，2表示撤防 -1表示失败
+            </summary>
+            <param name="Alarm_ID"></param>
+            <param name="DefenceState"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.AlarmInfoController.GetDefenceArmModeAsync(System.String)">
+            <summary>
+            获取布防状态 操作状态 1表示布防，2表示撤防
+            </summary>
+            <param name="Alarm_ID"></param>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Controllers.CameraChannelInfoController.GetDVRCheckInfoByDVR_IDAsync(System.String)">
             <summary>
             依据主机号获取比对数据
@@ -116,6 +137,35 @@
             <summary>
             按条件导出全部数据
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.AlarmStatusController.GetOutExcel">
+            <summary>
+            按条件导出全部数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.AlarmStatusController.GetConditionCount(System.String,System.String,System.String)">
+            <summary>
+            按条件获取数量清单
+            </summary>
+            <param name="Factory">厂区</param>
+            <param name="RoomType">监控室类别</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.AlarmStatusController.UploadFiles(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            上传文件（已楼层命名规则"C03-3F.JPG" 传入楼栋名称“C03”）
+            </summary>
+            <param name="layoutfile">图纸文件</param>
+            <param name="AlarmcBliudName">楼栋名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Controllers.AlarmStatusController.DownloadByFileName(System.String)">
+            <summary>
+            获取图纸文件
+            </summary>
+            <param name="name">获取图纸的楼层格式“C03-3F”</param>
             <returns></returns>
         </member>
         <member name="M:OnMonitor.Controllers.CameraController.GetGenerateCameraImportTemplate">

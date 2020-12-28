@@ -1,0 +1,45 @@
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\EquipmentStatus.csprojResolveAssemblyReference.cache
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.exe
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.pdb
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.exe.config
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.exe
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.pdb
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\NetSDKCS.dll
+F:\DVROperation\DVRApi - 20201024\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\NetSDKCS.pdb
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.exe.config
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.exe
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.pdb
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\EquipmentStatus.Models.exe
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\NetSDKCS.dll
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\EquipmentStatus.Models.pdb
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\EquipmentStatus.Models.exe.config
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\NetSDKCS.pdb
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\EquipmentStatus.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\EquipmentStatus.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\EquipmentStatus.csproj.CopyComplete
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.exe
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\obj\Debug\Alarm_GetStatus_AlarmDevice.pdb
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\Alarm_GetStatus_AlarmDevice\bin\x64\Debug\EntityFramework.SqlServer.xml
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\log4net.config
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.exe.config
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.exe
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\Alarm_GetStatus_AlarmDevice.pdb
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\EntityFramework.dll
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\EntityFramework.SqlServer.dll
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\EquipmentStatus.Models.exe
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\log4net.dll
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\NetSDKCS.dll
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\EquipmentStatus.Models.pdb
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\EquipmentStatus.Models.exe.config
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\NetSDKCS.pdb
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\EntityFramework.xml
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\EntityFramework.SqlServer.xml
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\log4net.xml
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\obj\Debug\EquipmentStatus.csprojAssemblyReference.cache
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\obj\Debug\EquipmentStatus.csproj.CoreCompileInputs.cache
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\obj\Debug\EquipmentStatus.csproj.CopyComplete
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\obj\Debug\Alarm_GetStatus_AlarmDevice.exe
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\obj\Debug\Alarm_GetStatus_AlarmDevice.pdb

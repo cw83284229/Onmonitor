@@ -66,7 +66,7 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsListBylike(System.String[],System.String,System.Nullable{System.Boolean},System.String,System.String,System.String,System.String,System.String,System.String[],OnMonitor.PagedSortedRequestDto)">
+        <member name="M:OnMonitor.MonitorRepair.CameraRepairAppService.GetRepairsListBylike(System.String[],System.String,System.Nullable{System.Boolean},System.String,System.String,System.String,System.String,System.String,System.String[],System.String[],OnMonitor.PagedSortedRequestDto)">
             <summary>
             模糊查询
             </summary>
@@ -86,6 +86,37 @@
             <summary>
             获取全部数据
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.Alarm.AlarmManageStateAppService.GetRequstListAsync(OnMonitor.Monitor.Alarm.ConditionAlarmManageStateDto,OnMonitor.PagedSortedRequestDto)">
+            <summary>
+            条件筛选查询
+            </summary>
+            <param name="condition"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.Alarm.AlarmManageStateAppService.CreateAsync(OnMonitor.Monitor.Alarm.UpdateAlarmManageStateDto)">
+            <summary>
+            重写新增方法，内置修改AlarmStatus表treatmentState内容“1”
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.Alarm.AlarmManageStateAppService.UpdateAsync(System.Int32,OnMonitor.Monitor.Alarm.UpdateAlarmManageStateDto)">
+            <summary>
+            重写修改方法，修改自动更新AlarmStatus.TreatmentState=0
+            </summary>
+            <param name="id"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.Alarm.AlarmStatusAppService.GetRequstList(OnMonitor.Monitor.Alarm.ConditionAlarmStatusDto,OnMonitor.PagedSortedRequestDto)">
+            <summary>
+            条件筛选查询
+            </summary>
+            <param name="condition"></param>
+            <param name="input"></param>
             <returns></returns>
         </member>
         <member name="M:OnMonitor.Monitor.CameraAppService.GetListByDVRID(System.String)">

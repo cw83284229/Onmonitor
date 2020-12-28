@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using Volo.Abp.Domain.Entities.Auditing;
 
-namespace OnMonitor.Monitor
+namespace OnMonitor.Monitor.Alarm
 {
     
     public partial class Alarm : AuditedAggregateRoot<Int32>
@@ -27,6 +27,10 @@ namespace OnMonitor.Monitor
         /// </summary>
         [StringLength(255)]
         public string Alarm_ID { get; set; }
+        /// <summary>
+        /// 通道编号
+        /// </summary>
+        public int? Channel_ID { get; set; }
         /// <summary>
         /// 楼栋
         /// </summary>

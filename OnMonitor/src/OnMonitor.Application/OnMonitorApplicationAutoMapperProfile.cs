@@ -2,6 +2,7 @@
 using OnMonitor.MenusInfos;
 using OnMonitor.MenusInfos.Dtos;
 using OnMonitor.Monitor;
+using OnMonitor.Monitor.Alarm;
 using OnMonitor.MonitorRepair;
 using OnMonitor.OrderMaterials;
 using OnMonitor.OrderMaterials.Dtos;
@@ -34,6 +35,8 @@ namespace OnMonitor
             CreateMap<UpdateAlarmStatusDto, AlarmStatus>(MemberList.Source);
             CreateMap<AlarmManageState, AlarmManageStateDto>();
             CreateMap<UpdateAlarmManageStateDto, AlarmManageState>(MemberList.Source);
+            CreateMap<AlarmHost, AlarmHostDto>();
+            CreateMap<UpdateAlarmHostDto, AlarmHost>(MemberList.Source);
 
 
             CreateMap<MonitorRoom, MonitorRoomDto>();
