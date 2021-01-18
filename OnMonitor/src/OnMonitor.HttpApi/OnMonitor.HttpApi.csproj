@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="ChineseConverter" Version="1.0.0" />
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="3.0.5" />
+    <PackageReference Include="Volo.Abp.AspNetCore.SignalR" Version="3.0.5" />
     <ProjectReference Include="..\OnMonitor.Application.Contracts\OnMonitor.Application.Contracts.csproj" />
     <ProjectReference Include="..\Utility\Utility.csproj" />
   </ItemGroup>

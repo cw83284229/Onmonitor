@@ -53,6 +53,12 @@ namespace OnMonitor.Monitor
 
 
         public string Location { get; set; }
+        /// <summary>
+        /// 部门
+        /// </summary>
+
+
+        public string Department { get; set; }
 
     }
 }

@@ -22,7 +22,6 @@ namespace OnMonitor.Monitor.Alarm
   UpdateAlarmStatusDto, //用于创建实体
   UpdateAlarmStatusDto> //用于更新实体
   , IAlarmStatusAppService
-
     {
         IRepository<AlarmStatus, Int32> _repository;
         IRepository<AlarmManageState, Int32> _alarmManagerepository;
@@ -38,6 +37,8 @@ namespace OnMonitor.Monitor.Alarm
             _monitorRoomsRepository = monitorRoomsRepository;
 
         }
+
+      
 
 
         /// <summary>
@@ -159,6 +160,59 @@ namespace OnMonitor.Monitor.Alarm
 
 
             return new PagedResultDto<RequstAlarmStatusDto>() { Items = requstdata.ToList(), TotalCount = data.Count() };
+        }
+        /// <summary>
+        /// 获取全部数据
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<RequstAlarmStatusDto> GetRequstListAll()
+        {
+
+            //加载RequstAlarmStatusDto
+            var data = from a in _monitorRoomsRepository
+                       join b in _alrmHostrepository on a.RoomLocation equals b.Monitoring_room
+                       join c in _alarmrepository on b.AlarmHost_ID equals c.AlarmHost_ID
+                       join d in _repository on new { b.AlarmHostIP, c.Channel_ID } equals new { d.AlarmHostIP, d.Channel_ID }
+                       select new RequstAlarmStatusDto
+                       {
+
+                           Factory = a.Factory,
+                           RoomType = a.RoomType,
+                           RoomLocation = a.RoomLocation,
+
+                           AlarmHostID = b.AlarmHost_ID,
+                           AlarmHostIP = b.AlarmHostIP,
+
+                           department = c.department,
+                           Alarm_ID = c.Alarm_ID,
+                           Build = c.Build,
+                           floor = c.floor,
+                           Channel_ID = c.Channel_ID,
+                           GeteType = c.GeteType,
+                           IsOpenDoor = c.IsOpenOrClosed,
+                           SensorType = c.SensorType,
+                           Location = c.Location,
+
+
+                           BypassState = d.BypassState,
+                           IsDefence = d.IsDefence,
+                           IsAlarm = d.IsAlarm,
+                           IsAnomaly = d.IsAnomaly,
+                           TreatmentState = d.TreatmentState,
+
+                           Remark = d.Remark,
+                           Id = d.Id,
+                           LastModificationTime = d.LastModificationTime,
+
+                       };
+
+            
+
+            data = data.OrderByDescending(u => u.LastModificationTime);
+            GC.Collect();
+          
+            return data;
+          
         }
 
     }

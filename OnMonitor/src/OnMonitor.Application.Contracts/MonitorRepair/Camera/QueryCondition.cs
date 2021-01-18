@@ -36,9 +36,16 @@ namespace OnMonitor.MonitorRepair
         public string Camera_ID { get; set; }
 
         /// <summary>
-        /// 位置
+        /// 报警号
         /// </summary>
       
+
+        public string Alarm_ID { get; set; }
+
+        /// <summary>
+        /// 位置
+        /// </summary>
+
         public string Location { get; set; }
 
         /// <summary>

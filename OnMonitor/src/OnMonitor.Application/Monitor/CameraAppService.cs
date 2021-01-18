@@ -190,7 +190,6 @@ namespace OnMonitor.Monitor
                        };
             IQueryable<CameraDto> data1;
 
-
             //条件为空返回
             if (condition.IsNullOrEmpty())
             {
@@ -206,37 +205,40 @@ namespace OnMonitor.Monitor
             }
             else
             {
-
                 condition = ChineseConverter.Convert(condition, ChineseConversionDirection.SimplifiedToTraditional);
                 //按 楼栋-楼层位置搜索
 
-                if (condition.Length > 4)
+                if (condition.Length > 5)
                 {
 
                     if (data.Where(u => u.Build.Contains(condition.Substring(0, 3))).ToList().Count != 0)
                     {
                         data = data.Where(u => u.Build.Contains(condition.Substring(0, 3)));
 
-                        string str1 = condition.Split('F')[0];
-
-                        if (data.Where(u => u.floor.Contains(str1.Substring(4))).Count() != 0)
+                        if (condition[0] != 'F')
                         {
-                            data = data.Where(u => u.floor.Contains(str1.Substring(4)));
-                            string str2 = condition.Split('F')[1];
-                            if (!str2.IsNullOrEmpty())
-                            {
-                                if (data.Where(u => u.Location.Contains(str2)).Count() != 0)
-                                {
-                                    data = data.Where(u => u.Location.Contains(str2));
-                                }
-                                else
-                                {
-                                    return null;
-                                }
+                            string str1 = condition.Split('F')[0];
 
+
+
+                            if (data.Where(u => u.floor.Contains(str1.Substring(4))).Count() != 0)
+                            {
+                                data = data.Where(u => u.floor.Contains(str1.Substring(4)));
+                                string str2 = condition.Split('F')[1];
+                                if (!str2.IsNullOrEmpty())
+                                {
+                                    if (data.Where(u => u.Location.Contains(str2)).Count() != 0)
+                                    {
+                                        data = data.Where(u => u.Location.Contains(str2));
+                                    }
+                                    else
+                                    {
+                                        return new PagedResultDto<CameraDto>() { Items = null, TotalCount = 0 } ;
+                                    }
+
+                                }
                             }
                         }
-
                     }
                 }
 
@@ -245,10 +247,22 @@ namespace OnMonitor.Monitor
                 {
                     data = data.Where(u => u.DVR_ID.Contains(condition));
                 }
-                if (data.Where(u => u.Camera_ID.Contains(condition)).Count() != 0)
+                if (data.Where(u => u.Camera_ID==condition).Count() != 0)
                 {
-                    data = data.Where(u => u.Camera_ID.Contains(condition));
+                    data = data.Where(u => u.Camera_ID==condition);
                 }
+                else
+                {
+                    if (data.Where(u => u.Alarm_ID == condition).Count() != 0)
+                    {
+                        data = data.Where(u => u.Alarm_ID == condition);
+                    }
+                    else
+                    {
+                        return new PagedResultDto<CameraDto> { Items = null, TotalCount = 0 };
+                    }
+                }
+              
                 if (data.Where(u => u.Location.Contains(condition)).Count() != 0)
                 {
                     data = data.Where(u => u.Location.Contains(condition));
@@ -365,5 +379,6 @@ namespace OnMonitor.Monitor
             return requst;
 
         }
+
     }
 }

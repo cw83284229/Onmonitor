@@ -1,21 +1,16 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.International.Converters.TraditionalChineseToSimplifiedConverter;
+﻿using Microsoft.International.Converters.TraditionalChineseToSimplifiedConverter;
 using OnMonitor.Monitor;
 using System.Linq.Dynamic.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Volo.Abp.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
-using Volo.Abp.Domain.Repositories;
-using Volo.Abp.MultiTenancy;
-using Volo.Abp.ObjectMapping;
 namespace OnMonitor.MonitorRepair
 {
 
- //  [Authorize(Roles = "admin")]
+    //  [Authorize(Roles = "admin")]
     public class CameraRepairAppService ://ApplicationService
     CrudAppService<
     CameraRepair,//定义实体
@@ -130,6 +125,7 @@ namespace OnMonitor.MonitorRepair
                            DVR_ID = a.DVR_ID,
                            channel_ID = a.channel_ID,
                            Camera_ID = a.Camera_ID,
+                           Alarm_ID=a.Alarm_ID,
                            Build = a.Build,
                            floor = a.floor,
                            Direction = a.Direction,
@@ -233,6 +229,10 @@ namespace OnMonitor.MonitorRepair
             {
                 data = data.Where(u => u.Camera_ID == condition.Camera_ID);
             }
+            if (!string.IsNullOrEmpty(condition.Alarm_ID))
+            {
+                data = data.Where(u => u.Alarm_ID == condition.Alarm_ID);
+            }
             if (!string.IsNullOrEmpty(condition.Location))
             {
                 data = data.Where(u => u.Location.Contains(condition.Location));
@@ -282,6 +282,10 @@ namespace OnMonitor.MonitorRepair
 
             UpdateCameraRepairDto input2 = Newtonsoft.Json.JsonConvert.DeserializeObject<UpdateCameraRepairDto>(data2);
 
+            input2.AnomalyTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            input2.CollectTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+
             var reuust=await base.CreateAsync(input2);
 
 
@@ -302,7 +306,7 @@ namespace OnMonitor.MonitorRepair
             string data2 = ChineseConverter.Convert(data, ChineseConversionDirection.SimplifiedToTraditional);
 
             UpdateCameraRepairDto input2 = Newtonsoft.Json.JsonConvert.DeserializeObject<UpdateCameraRepairDto>(data2);
-
+           
             return base.UpdateAsync(id, input2);
         }
         #endregion
@@ -334,6 +338,7 @@ namespace OnMonitor.MonitorRepair
                            DVR_ID = a.DVR_ID,
                            channel_ID = a.channel_ID,
                            Camera_ID = a.Camera_ID,
+                           Alarm_ID=a.Alarm_ID,
                            Build = a.Build,
                            floor = a.floor,
                            Direction = a.Direction,
@@ -494,24 +499,38 @@ namespace OnMonitor.MonitorRepair
                     }
 
                 }
-
-                //条件筛选
-                if (data.Where(u => u.DVR_ID.Contains(condition)).Count() != 0)
+                else
                 {
-                    data = data.Where(u => u.DVR_ID.Contains(condition));
-                }
-                if (data.Where(u => u.Camera_ID.Contains(condition)).Count() != 0)
-                {
-                    data = data.Where(u => u.Camera_ID.Contains(condition));
-                }
-                if (data.Where(u => u.Location.Contains(condition)).Count() != 0)
-                {
-                    data = data.Where(u => u.Location.Contains(condition));
+                    //条件筛选
+                    if (data.Where(u => u.DVR_ID.Contains(condition)).Count() != 0)
+                    {
+                        data = data.Where(u => u.DVR_ID.Contains(condition));
+                    }
+                    if (data.Where(u => u.Camera_ID.Contains(condition)).Count() != 0)
+                    {
+                        data = data.Where(u => u.Camera_ID.Contains(condition));
+                    }
+                    else
+                    {
+                        if (data.Where(u => u.Alarm_ID.Contains(condition)).Count() != 0)
+                        {
+                            data = data.Where(u => u.Alarm_ID.Contains(condition));
+                        }
+                        else
+                        {
+                            return new PagedResultDto<RequstCameraRepairDto>() { Items = null, TotalCount = 0 };
+                        }
+                    }
+                  
+                    if (data.Where(u => u.Location.Contains(condition)).Count() != 0)
+                    {
+                        data = data.Where(u => u.Location.Contains(condition));
+                    }
                 }
                
                 if (!input.Sorting.IsNullOrWhiteSpace())
                 {
-                   data1 = data.OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount);
+                    data1 = data.OrderBy(input.Sorting).PageBy(input.SkipCount, input.MaxResultCount);
                 }
                 else
                 {
@@ -538,6 +557,7 @@ namespace OnMonitor.MonitorRepair
                               DVR_ID = a.DVR_ID,
                               channel_ID = a.channel_ID,
                               Camera_ID = a.Camera_ID,
+                              Alarm_ID=a.Alarm_ID,
                               Build = a.Build,
                               floor = a.floor,
                               Direction = a.Direction,
@@ -567,13 +587,30 @@ namespace OnMonitor.MonitorRepair
                               LastModificationTime = b.LastModificationTime,
                               LastModifierId = b.LastModifierId,
                           };
-
+            dataall.ToList();
+           
             return dataall.ToList();
 
         }
 
+        public async Task<int> GetRepairsListBySetStatusAsync(string MonitorRoom,bool? RepairState, bool? NoSignal)
+        {
+             var data=  _cameraRepairrepository.Where(u=>u.RepairState==false).ToList();
+            int i = 0;
+            foreach (var item in data)
+            {
+                if (item.RepairState==false)
+                {
+                    i++;
+                    item.RepairState = true;
+              var res=   await   _cameraRepairrepository.UpdateAsync(item,true);
+                }
+              
+            }
 
-      
+            return i;
+        }
+
     }
 }
 

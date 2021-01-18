@@ -19,11 +19,9 @@ namespace OnMonitor.MonitorRepair
             UpdateCameraRepairDto, //用于创建实体
            UpdateCameraRepairDto> //用于更新实体
     {
-        //  public List<CameraRepairDto> GetList();
-
-
+       
         public  PagedResultDto<RequstCameraRepairDto> GetRepairsList(PagedSortedRequestDto input);
         public PagedResultDto<RequstCameraRepairDto> GetRepairsListByCondition(QueryCondition condition, PagedSortedRequestDto input);
-
+        public PagedResultDto<RequstCameraRepairDto> GetRepairsListBylike(string[] dvrRooms, string condition, bool? RepairState, string department, string AnomalyTimeStart, string AnomalyTimeEnd, string RepairedTimeStart, string RepairedTimeEnd, string[] AnomalyType, string[] AnomalyGrade, PagedSortedRequestDto input);
     }
 }

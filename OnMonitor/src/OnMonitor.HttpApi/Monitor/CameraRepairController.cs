@@ -105,5 +105,48 @@ namespace OnMonitor.Controllers
             return keyValues;//Newtonsoft.Json.JsonConvert.SerializeObject(keyValues);
         }
         #endregion
+
+        /// <summary>
+        /// 获取1年或指定时间异常数据汇总(可选监控室)
+        /// </summary>
+        /// <param name="dvrRooms"></param>
+        /// <param name="RepairState"></param>
+        /// <param name="AnomalyTimeStart"></param>
+        /// <param name="AnomalyTimeEnd"></param>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("RepetitionRepairsListByTimes")]
+        public PagedResultDto<RequstCameraRepairDto> GetRepetitionRepairsListByTimes(string[] dvrRooms, bool? RepairState, string AnomalyTimeStart, string AnomalyTimeEnd, PagedSortedRequestDto input)
+        {
+
+            if (string.IsNullOrEmpty(AnomalyTimeStart)||string.IsNullOrEmpty(AnomalyTimeEnd))
+            {
+                AnomalyTimeStart = DateTime.Now.AddYears(-1).ToString();
+                AnomalyTimeStart = DateTime.Now.ToString();
+
+            }
+
+            var data=_cameraRepairAppService.GetRepairsListBylike(dvrRooms,null,RepairState,null,AnomalyTimeStart,AnomalyTimeEnd,null,null,null,null,input);
+
+
+
+            return data;
+        
+        
+        
+        
+        }
+
+
+
+
+
     }
+
+
+
+
+
+
 }

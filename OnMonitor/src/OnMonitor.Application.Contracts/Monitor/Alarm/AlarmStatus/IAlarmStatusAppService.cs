@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
@@ -18,7 +20,7 @@ namespace OnMonitor.Monitor.Alarm
 
         public PagedResultDto<RequstAlarmStatusDto> GetRequstList(ConditionAlarmStatusDto condition, PagedSortedRequestDto input);
 
-
+        public IQueryable<RequstAlarmStatusDto> GetRequstListAll();
 
     }
       

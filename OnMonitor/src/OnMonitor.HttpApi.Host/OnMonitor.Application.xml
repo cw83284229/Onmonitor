@@ -119,6 +119,12 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Monitor.Alarm.AlarmStatusAppService.GetRequstListAll">
+            <summary>
+            获取全部数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Monitor.CameraAppService.GetListByDVRID(System.String)">
             <summary>
             通道主机号搜索数据库
@@ -224,6 +230,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetReportFormsByMonitorRoomorAnomalyCondition(System.String,System.String,System.String,System.String)">
+            <summary>
+            按监控室分类数据,指定时间及异常等级/类别
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetReportFormsByBuild">
             <summary>
             按楼栋分类数据
@@ -242,15 +254,15 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetVintageAnalysisAsync">
-            <summary>
-            获取监控镜头维修年份分析数据
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetDVROnlineTotal">
             <summary>
             获取在线DVR数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetReportFormsByTime(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            按时间分类数据
             </summary>
             <returns></returns>
         </member>

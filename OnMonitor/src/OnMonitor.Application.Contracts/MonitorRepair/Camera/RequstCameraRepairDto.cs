@@ -63,6 +63,13 @@ namespace OnMonitor.MonitorRepair
 
         public string Camera_ID { get; set; }
         /// <summary>
+        /// 报警号
+        /// </summary>
+        [StringLength(255)]
+
+        public string Alarm_ID { get; set; }
+
+        /// <summary>
         /// 安装时间
         /// </summary>
         [StringLength(255)]

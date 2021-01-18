@@ -1599,6 +1599,11 @@
             位置
             </summary>
         </member>
+        <member name="P:OnMonitor.Monitor.DVRCameraDto.Department">
+            <summary>
+            部门
+            </summary>
+        </member>
         <member name="P:OnMonitor.Monitor.DVRCheckInfoDto.DVR_ID">
             <summary>
             主机号
@@ -1760,6 +1765,101 @@
             </summary>
         </member>
         <member name="P:OnMonitor.Monitor.DVRDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.Factory">
+            <summary>
+            厂区
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.Monitoring_room">
+            <summary>
+            监控室
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.Camera_build">
+            <summary>
+            楼栋
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.DVR_Channel">
+            <summary>
+            DVR 通道数量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.Cost_code">
+            <summary>
+            费用代码
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.DVR_ID">
+            <summary>
+            主机号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.DVR_SN">
+            <summary>
+            序列号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.DVR_type">
+            <summary>
+            DVR类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.DiskTotal">
+            <summary>
+            硬盘总量
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.DVRDISK">
+            <summary>
+            硬盘信息？josn类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.DVRChannelInfo">
+            <summary>
+            DVR通道位置信息?josn类型
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.DVRTime">
+            <summary>
+            dvr时间
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.DVR_Online">
+            <summary>
+            主机在线状态
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.TimeInfoChenk">
+            <summary>
+            时间信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.DiskChenk">
+            <summary>
+            硬盘信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.SNChenk">
+            <summary>
+            SN信息检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.VideoCheck90Day">
+            <summary>
+            90天存储检查
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.RequstDVRCheckInfoDto.Remark">
             <summary>
             备注
             </summary>
@@ -2134,6 +2234,11 @@
             镜头号
             </summary>
         </member>
+        <member name="P:OnMonitor.MonitorRepair.QueryCondition.Alarm_ID">
+            <summary>
+            报警号
+            </summary>
+        </member>
         <member name="P:OnMonitor.MonitorRepair.QueryCondition.Location">
             <summary>
             位置
@@ -2262,6 +2367,11 @@
         <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.Camera_ID">
             <summary>
             镜头号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.Alarm_ID">
+            <summary>
+            报警号
             </summary>
         </member>
         <member name="P:OnMonitor.MonitorRepair.RequstCameraRepairDto.install_time">

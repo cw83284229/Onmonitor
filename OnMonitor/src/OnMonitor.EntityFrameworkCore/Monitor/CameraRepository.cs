@@ -13,7 +13,7 @@ namespace OnMonitor.Monitor
     {
         public CameraRepairRepository(IDbContextProvider<OnMonitorDbContext> dbContextProvider) : base(dbContextProvider) 
         {
-        
+           
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace OnMonitor.Monitor
         }
 
 
-
+       
 
     }
 }

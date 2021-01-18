@@ -219,6 +219,17 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Controllers.CameraRepairController.GetRepetitionRepairsListByTimes(System.String[],System.Nullable{System.Boolean},System.String,System.String,OnMonitor.PagedSortedRequestDto)">
+            <summary>
+            获取1年或指定时间异常数据汇总(可选监控室)
+            </summary>
+            <param name="dvrRooms"></param>
+            <param name="RepairState"></param>
+            <param name="AnomalyTimeStart"></param>
+            <param name="AnomalyTimeEnd"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Controllers.DVRController.PostExcelToDVRInfoAsync(Microsoft.AspNetCore.Http.IFormFile)">
             <summary>
             /Excel表格导入数据库
@@ -438,6 +449,122 @@
             <summary>
             备注
             </summary>
+        </member>
+        <member name="P:OnMonitor.Models.SignalRModel.ResponseSignalRDto.Content">
+            <summary>
+            显示内容
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.SignalRModel.ResponseSignalRDto.Color">
+            <summary>
+            颜色
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.SignalRModel.ResponseSignalRDto.Size">
+            <summary>
+            字体
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Models.SignalRModel.ResponseSignalRDto.Action">
+            <summary>
+            执行按钮
+            </summary>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyProportionByMonitorRoom">
+            <summary>
+            获取监控异常比例，按监控室分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyCountByMonitorRoom">
+            <summary>
+            获取监控镜头异常数量，按监控室分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyProportionByBuild">
+            <summary>
+            获取监控异常比例，按楼栋分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyCountByBuild">
+            <summary>
+            获取监控镜头异常数量，按楼栋分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyProportionByYearly">
+            <summary>
+            获取监控异常比例，按年份分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyCountByYearly">
+            <summary>
+            获取监控镜头异常数量，按年份分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyProportionByDepartment">
+            <summary>
+            获取监控异常比例，按部门分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyCountByDepartment">
+            <summary>
+            获取监控镜头异常数量，按部门分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.Get1AnomalyProportionByMonitorRoomAndYearly">
+            <summary>
+            获取监控1级异常比例，按监控室分类年度异常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.Get1AnomalyProportionByMonitorRoomAndMonths">
+            <summary>
+            获取监控1级异常比例，按监控室分类月度异常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.Get1AnomalyProportionByMonitorRoomAndWeeks">
+            <summary>
+            获取监控1级异常比例，按监控室分类每周异常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyProportionByWeek">
+            <summary>
+            获取监控异常比例，按每周异常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyCountByWeek">
+            <summary>
+            获取监控数量，按每周异常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyProportionByTimes(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取监控异常比例，指定时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyCountByTimes(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取监控数量，按自定义
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.SignalR.AlarmMessageHub.GetAlarmStatusCount(System.Linq.IQueryable{OnMonitor.Monitor.Alarm.RequstAlarmStatusDto})">
+            <summary>
+            获取标头数据
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

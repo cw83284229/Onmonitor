@@ -1,19 +1,12 @@
 ﻿using IdentityModel;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using OnMonitor.EntityFrameworkCore;
 using OnMonitor.MultiTenancy;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using TimedTask.Host.Job;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
@@ -31,6 +24,7 @@ using Volo.Abp.Security.Claims;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.Account;
+using Volo.Abp.AspNetCore.SignalR;
 
 namespace OnMonitor
 {
@@ -45,7 +39,8 @@ namespace OnMonitor
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpPermissionManagementEntityFrameworkCoreModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule),
-        typeof(AbpAspNetCoreSerilogModule)
+        typeof(AbpAspNetCoreSerilogModule),
+        typeof(AbpAspNetCoreSignalRModule)
         )]
     public class OnMonitorHttpApiHostModule : AbpModule
     {
@@ -154,10 +149,10 @@ namespace OnMonitor
                 options.KeyPrefix = "OnMonitor:";
             });
 
-            //context.Services.AddStackExchangeRedisCache(options =>
-            //{
-            //    options.Configuration = configuration["Redis:Configuration"];
-            //});
+            context.Services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = configuration["Redis:Configuration"];
+            });
 
             //if (!hostingEnvironment.IsDevelopment())
             //{
@@ -192,11 +187,14 @@ namespace OnMonitor
                 options.AddPolicy(DefaultCorsPolicyName, builder =>
                 {
                     builder
-                        .AllowAnyOrigin()
+                        .SetIsOriginAllowed(origin=>true)
+                       // .AllowAnyOrigin()
                         .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials()
+                        
                         .WithMethods("GET", "POST", "HEAD", "PUT", "DELETE", "OPTIONS");
-                    // .AllowAnyMethod()
-                    // .AllowCredentials();
+                    
                 });
 
 
