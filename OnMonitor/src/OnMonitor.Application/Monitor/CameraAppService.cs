@@ -208,7 +208,7 @@ namespace OnMonitor.Monitor
                 condition = ChineseConverter.Convert(condition, ChineseConversionDirection.SimplifiedToTraditional);
                 //按 楼栋-楼层位置搜索
 
-                if (condition.Length > 5)
+                if (condition.Length > 6)
                 {
 
                     if (data.Where(u => u.Build.Contains(condition.Substring(0, 3))).ToList().Count != 0)

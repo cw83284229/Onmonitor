@@ -123,7 +123,8 @@ namespace OnMonitor.Controllers
             var handler = new HttpClientHandler();
             var response = _httpClient.GetAsync(url).Result;
             var refStatus = response.Content.ReadAsStringAsync().Result;
-         
+            var DefenceStatestr = GetDefenceArmModeAsync(Alarm_ID);
+
             return refStatus;
 
         }

@@ -88,6 +88,20 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Monitor.Alarm.AlarmAppService.GetAlarmHostDto(System.String)">
+            <summary>
+            依据报警编号获取报警主机信息
+            </summary>
+            <param name="Alarm_ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.Alarm.AlarmAppService.GetAlarmDto(System.String)">
+            <summary>
+            依据报警编号获取实体信息
+            </summary>
+            <param name="Alarm_ID"></param>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Monitor.Alarm.AlarmManageStateAppService.GetRequstListAsync(OnMonitor.Monitor.Alarm.ConditionAlarmManageStateDto,OnMonitor.PagedSortedRequestDto)">
             <summary>
             条件筛选查询
@@ -263,6 +277,12 @@
         <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetReportFormsByTime(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             按时间分类数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsAppService.GetDVRCameraAlalrmTotal">
+            <summary>
+            获取在线DVR数量
             </summary>
             <returns></returns>
         </member>

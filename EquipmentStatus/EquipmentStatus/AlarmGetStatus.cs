@@ -2,6 +2,7 @@
 using CCTV_Client.DaHua;
 using EquipmentStatus.Models;
 using NetSDKCS;
+using Ruanmou.Redis.Exchange.Service;
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -32,14 +33,14 @@ namespace Alarm_GetStatus_AlarmDevice
             foreach (var item in listAlarmHost)
             {
 
-                 Task task = Task.Run(() => LoginStartListen(item.AlarmHostIP, "37777", item.User, item.Password));
-                task.Wait();
+                 Task task = Task.Run(() => LoginStartListenAsync(item.AlarmHostIP, "37777", item.User, item.Password));
+                 task.Wait();
             }
 
         }
 
         //启动监听
-        public static void LoginStartListen(string ip,string prot,string user ,string pwd)
+        public static async Task LoginStartListenAsync(string ip,string prot,string user ,string pwd)
         {
             Console.WriteLine($"使用线程ID：{Thread.CurrentThread.ManagedThreadId}");
             loghelper.loginfo.Info($"使用线程ID：{Thread.CurrentThread.ManagedThreadId}");
@@ -124,12 +125,20 @@ namespace Alarm_GetStatus_AlarmDevice
                 appAlarmStatus.LastModificationTime = DateTime.Now.ToString();
                 appAlarmStatus.Alarm_ID = item.Alarm_ID;
                 appAlarmStatus.AlarmHostIP = ip;
-                //var rets = statusdata.Where(u => u.Channel_ID == item.Channel_ID-1);
-                //if (rets.Count()>0)
-                //{
-                //    StatusDB.Remove(rets.FirstOrDefault());
-                //}
+              
                 StatusDB.Add(appAlarmStatus);
+                RedisHashService service = new RedisHashService();//加载到Redis
+                
+                    if (await service.HashExistsAsync("alarmStatus", item.Alarm_ID))
+                    {
+                      await service.HashSetAsync("alarmStatus", item.Alarm_ID, appAlarmStatus);
+                    }
+                    else
+                    {
+                        await service.HashSetAsync("alarmStatus", item.Alarm_ID, appAlarmStatus);
+                    }
+                
+
                 Console.WriteLine($"ip:{ip}，通道：{item.Channel_ID},初始化成功！，时间：{appAlarmStatus.LastModificationTime}");
                 loghelper.WriteLog($"ip:{ip}，通道：{item.Channel_ID},初始化成功");
             }
@@ -195,7 +204,7 @@ namespace Alarm_GetStatus_AlarmDevice
                             GetStatus(info.bArm), GetScene(info.emSceneMode), GetTrigger(info.emTriggerMode), info.dwID);
                     }
                     break;
-                case EM_ALARM_TYPE.ALARM_INPUT_SOURCE_SIGNAL:
+                case EM_ALARM_TYPE.ALARM_INPUT_SOURCE_SIGNAL://报警状态变化写入
                     {
                         NET_ALARM_INPUT_SOURCE_SIGNAL_INFO info = (NET_ALARM_INPUT_SOURCE_SIGNAL_INFO)Marshal.PtrToStructure(pBuf, typeof(NET_ALARM_INPUT_SOURCE_SIGNAL_INFO));
                         var alarm = alarmdata.Where(u => u.Channel_ID-1 == info.nChannelID).FirstOrDefault();
@@ -217,7 +226,7 @@ namespace Alarm_GetStatus_AlarmDevice
                                     appAlarmManage.AlarmHost_IP = hostIp;
                                     appAlarmManage.Alarm_ID = alarm.Alarm_ID;
                                     appAlarmManage.Channel_ID = info.nChannelID+1;
-                                    appAlarmManage.AlarmTime = info.stuTime.ToString();
+                                    appAlarmManage.AlarmTime = DateTime.Now.ToString();
                                     appAlarmManage.LastModificationTime = DateTime.Now;
                                     appAlarmManage.CreationTime = DateTime.Now;
                                     ManageDB.Add(appAlarmManage);
@@ -264,7 +273,7 @@ namespace Alarm_GetStatus_AlarmDevice
                         loghelper.WriteLog($"报警输入：IP:{hostIp},通道:{info.nChannelID+1},动作:{ GetAction(info.nAction)}");
                     }
                     break;
-                case EM_ALARM_TYPE.ALARM_DEFENCE_ARMMODE_CHANGE:
+                case EM_ALARM_TYPE.ALARM_DEFENCE_ARMMODE_CHANGE://撤布防状态变化写入
                     {
                         NET_ALARM_DEFENCE_ARMMODECHANGE_INFO info = (NET_ALARM_DEFENCE_ARMMODECHANGE_INFO)Marshal.PtrToStructure(pBuf, typeof(NET_ALARM_DEFENCE_ARMMODECHANGE_INFO));
 
@@ -284,39 +293,43 @@ namespace Alarm_GetStatus_AlarmDevice
                             {
                                 appAlarmStatus.IsDefence = -1;//未知
                             }
-                            appAlarmStatus.LastModificationTime = info.stuTime.ToShortString();
+                            appAlarmStatus.LastModificationTime = DateTime.Now.ToString();
                             StatusDB.Update(appAlarmStatus);
                         }
-                       
-
-                        //var dateTime = DateTime.Now.AddMinutes(-2).ToString();
-                        //var dateTime2 = DateTime.Now.ToString();
+                        //更新AppAlarmManageStates数据
                         AppAlarmManageStates appAlarmManage = managedata.Where(u=>u.Channel_ID-1==info.nDefenceID).OrderByDescending(i=>i.AlarmTime).FirstOrDefault();
-                        //var alarmstatus=  statusdata.Where(u => u.Channel_ID-1 == info.nDefenceID).FirstOrDefault().IsAlarm;
-                        if (appAlarmManage != null)
+                       
+                        if (appAlarmManage != null&&appAlarmManage.AlarmTime!=null)
                         {
-                            
-                                if (info.emDefenceStatus == EM_DEFENCEMODE.ARMING)
-                                {
-                                    appAlarmManage.DefenceTime = info.stuTime.ToShortString();
-                                    //  appAlarmManage.WithdrawRemark = "用户布防";
-                                }
-                                else
-                                {
-                                    if (string.IsNullOrEmpty(appAlarmManage.WithdrawTime))
+                               
+                           if (string.IsNullOrEmpty(appAlarmManage.WithdrawTime))
+                              {   //判断异常
+                                    if (info.emDefenceStatus == EM_DEFENCEMODE.ARMING)
                                     {
-                                        appAlarmManage.WithdrawTime = info.stuTime.ToShortString();
-                                        appAlarmManage.WithdrawRemark = "报警撤防";
-                                        appAlarmManage.WithdrawMan = "系统默认";
+                                        appAlarmManage.DefenceTime = DateTime.Now.ToString();
+                                        appAlarmManage.WithdrawRemark = "用户布防";
                                     }
                                     else
                                     {
-                                    appAlarmManage.WithdrawTime = info.stuTime.ToShortString();
+                                        appAlarmManage.WithdrawTime =DateTime.Now.ToString();
+                                        appAlarmManage.WithdrawRemark = "报警撤防";
+                                        appAlarmManage.WithdrawMan = "系统默认";
+                                    }
+                               }
+                         else
+                              {
+                                 if (info.emDefenceStatus == EM_DEFENCEMODE.ARMING)
+                                     {
+                                      appAlarmManage.DefenceTime = DateTime.Now.ToString();
+                                       //  appAlarmManage.WithdrawRemark = "用户布防";
+                                     }
+                                else
+                                    {
+                                    appAlarmManage.WithdrawTime =DateTime.Now.ToString();
                                     appAlarmManage.WithdrawRemark = "重复撤防";
                                     appAlarmManage.WithdrawMan = "系统默认";
-
                                     }
-                                }
+                               }
                                 appAlarmManage.LastModificationTime = DateTime.Now;
                                 ManageDB.Update(appAlarmManage);
                             
@@ -324,7 +337,7 @@ namespace Alarm_GetStatus_AlarmDevice
                          
                         }
                         else
-                        {
+                          {
                             AppAlarmManageStates appAlarmManage3 = new AppAlarmManageStates();
                             appAlarmManage3.AlarmHost_IP = hostIp;
                             appAlarmManage3.Channel_ID = info.nDefenceID + 1;
@@ -336,14 +349,14 @@ namespace Alarm_GetStatus_AlarmDevice
 
                             if (info.emDefenceStatus == EM_DEFENCEMODE.ARMING)
                             {
-                                appAlarmManage3.DefenceTime = info.stuTime.ToShortString();
+                                appAlarmManage3.DefenceTime = DateTime.Now.ToString();
                                // ManageDB.Update(appAlarmManage);
                                 // appAlarmManage3.WithdrawRemark = "用户布防";
 
                             }
                             else
                             {
-                                appAlarmManage3.WithdrawTime = info.stuTime.ToShortString();
+                                appAlarmManage3.WithdrawTime =DateTime.Now.ToString();
                                 appAlarmManage3.WithdrawRemark = "用户撤防";
                                 appAlarmManage3.WithdrawMan = "系统默认";
 

@@ -14,16 +14,44 @@ namespace Alarm_GetStatus_AlarmDevice
     {
         private static NET_DEVICEINFO_Ex device = new NET_DEVICEINFO_Ex();
         private static IntPtr m_LoginID = IntPtr.Zero;
-
+        public static object locker = new object();
 
         /// <summary>
         /// 定时任务，自动对比主机数据，每天2:00启动一次
         /// </summary>
-
-        public static void  GetDVRInfoCheck()
+        public static void GetDVRInfoCheck()
         {
+            System.Timers.Timer timer = null;
+            if (timer == null)
+            {
+                timer = new System.Timers.Timer(86400000);
+            }//获取主机报警信息
+            lock (locker)
+            {
+
+                timer.AutoReset = true;
+                timer.Elapsed += new System.Timers.ElapsedEventHandler(DVRInfoCheck.GetDVRInfoCheck);
+                timer.Enabled = true;
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+
+        public static void  GetDVRInfoCheck(object sender, System.Timers.ElapsedEventArgs e)
+        {
+
+            Console.WriteLine($"采集服務啓動+{DateTime.Now}");
+            loghelper.WriteLog($"采集服務啓動+{DateTime.Now}");
             EFDBHelp<AppDVRs> dvrDB = new EFDBHelp<AppDVRs>();
-         
+        
             var dvrdata = dvrDB.FindList(u=>u.Id>0);
 
             List<AppDVRCheckInfos> listdVRCheckInfo = new List<AppDVRCheckInfos>();
@@ -33,6 +61,8 @@ namespace Alarm_GetStatus_AlarmDevice
                 DVRInfoCheckService(item);
                
             }
+            Console.WriteLine($"采集服務關閉+{DateTime.Now}");
+            loghelper.WriteLog($"采集服務關閉+{DateTime.Now}");
         }
 
         public static void  DVRInfoCheckService(AppDVRs appDVRs )
@@ -136,11 +166,13 @@ namespace Alarm_GetStatus_AlarmDevice
                 if (res > 0)
                 {
                     Console.WriteLine($"{appDVRs.DVR_ID}+{DateTime.Now}+写入成功");
-                }
+                   loghelper.WriteLog($"{appDVRs.DVR_ID}+{DateTime.Now}+写入成功");
+            }
                 else
                 {
                     Console.WriteLine($"{appDVRs.DVR_ID}+{DateTime.Now}+写入失败");
-                }
+                   loghelper.WriteLog($"{appDVRs.DVR_ID}+{DateTime.Now}+写入失败");
+            }
 
         }
     }

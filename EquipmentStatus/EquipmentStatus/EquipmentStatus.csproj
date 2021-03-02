@@ -110,7 +110,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="log4net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -124,6 +126,10 @@
     <ProjectReference Include="..\NetSDKCS\NetSDKCS.csproj">
       <Project>{60CFBA25-F7CE-4140-A7E3-5355A25198E5}</Project>
       <Name>NetSDKCS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Redis.Exchange\Redis.Exchange.csproj">
+      <Project>{91750f0d-8402-4f60-9bc9-8c7c1eaea33b}</Project>
+      <Name>Redis.Exchange</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

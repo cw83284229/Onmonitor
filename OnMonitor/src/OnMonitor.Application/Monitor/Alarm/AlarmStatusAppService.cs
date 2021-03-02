@@ -210,7 +210,7 @@ namespace OnMonitor.Monitor.Alarm
 
             data = data.OrderByDescending(u => u.LastModificationTime);
             GC.Collect();
-          
+            
             return data;
           
         }

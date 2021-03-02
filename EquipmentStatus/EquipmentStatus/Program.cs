@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using NetSDKCS;
-using System.Runtime.InteropServices;
-using System.Threading;
 using Alarm_GetStatus_AlarmDevice;
 using EquipmentStatus.Models;
-using System.Linq;
-using System.Data.Entity.Migrations;
+using Ruanmou.Redis.Exchange.Service;
 
 namespace EquipmentStatus
 {
     class Program
     {
- 
+       
         /// <summary>
         ///  Main the Enter of exe
         /// </summary>
@@ -21,21 +16,12 @@ namespace EquipmentStatus
         static void Main(string[] args)
         {
 
-              AlarmGetStatus.TaskLoginStartListen();
-            EFDBHelp<AppAlarms> eFDBHelp = new EFDBHelp<AppAlarms>();
+            //   AlarmGetStatus.TaskLoginStartListen();//开启门磁检测
 
-           // DVRInfoCheck.GetDVRInfoCheck();
-            
-            //var data = eFDBHelp.FindList(u => u.Id > 0).ToList();
+            // DVRInfoCheck.GetDVRInfoCheck();//开启主机轮询
+            RedisStringService redisStringService = new RedisStringService();
+            redisStringService.StringSet("bookstr02","我是一个测试");
 
-            //foreach (var item in data)
-            //{
-            //    item.CreationTime = DateTime.Now;
-
-            //    eFDBHelp.Update(item);
-            //}
-
-           
 
             Console.WriteLine("请等待");
             Console.ReadLine();

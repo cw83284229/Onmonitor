@@ -55,9 +55,19 @@ namespace OnMonitor.Monitor.Alarm
         /// </summary>
         public string TreatmentTimeState { get; set; }
         /// <summary>
+        /// 现场处理人
+        /// </summary>
+        public string TreatmentMan { get; set; }
+        /// <summary>
         /// 处理回复
         /// </summary>
         public string TreatmentReply { get; set; }
+        /// <summary>
+        /// 异常类别
+        /// </summary>
+        public string AnomalyType { get; set; }
+
+
         /// <summary>
         /// 备注
         /// </summary>

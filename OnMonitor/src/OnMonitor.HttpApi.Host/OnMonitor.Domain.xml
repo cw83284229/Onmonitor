@@ -304,9 +304,19 @@
             处理状态时间
             </summary>
         </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.TreatmentMan">
+            <summary>
+            现场处理人
+            </summary>
+        </member>
         <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.TreatmentReply">
             <summary>
             处理回复
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.AnomalyType">
+            <summary>
+            异常类别
             </summary>
         </member>
         <member name="P:OnMonitor.Monitor.Alarm.AlarmManageState.Remark">

@@ -16,7 +16,7 @@ namespace OnMonitor
 #else
                 .MinimumLevel.Information()
 #endif
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Error)
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .Enrich.FromLogContext()
                 .WriteTo.File("Logs/logs.txt")
                 .WriteTo.Console()

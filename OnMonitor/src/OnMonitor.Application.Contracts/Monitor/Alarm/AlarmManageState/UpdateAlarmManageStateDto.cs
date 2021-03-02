@@ -8,10 +8,19 @@ namespace OnMonitor.Monitor.Alarm
   public  class UpdateAlarmManageStateDto
     {
         /// <summary>
+        /// 报警主机IP
+        /// </summary>
+        [StringLength(255)]
+        public string AlarmHost_IP { get; set; }
+        /// <summary>
         /// 报警编号
         /// </summary>
         [StringLength(255)]
         public string Alarm_ID { get; set; }
+        /// <summary>
+        /// 通道编号
+        /// </summary>
+        public int? Channel_ID { get; set; }
         /// <summary>
         /// 报警时间
         /// </summary>
@@ -46,9 +55,23 @@ namespace OnMonitor.Monitor.Alarm
         /// </summary>
         public string TreatmentTimeState { get; set; }
         /// <summary>
+        /// 现场处理人
+        /// </summary>
+        public string TreatmentMan { get; set; }
+        /// <summary>
         /// 处理回复
         /// </summary>
         public string TreatmentReply { get; set; }
+        /// <summary>
+        /// 异常类别
+        /// </summary>
+        public string AnomalyType { get; set; }
+
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark { get; set; }
 
 
     }

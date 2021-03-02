@@ -11,7 +11,7 @@ C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\NetSDKCS\obj\x64\Debu
 C:\Users\Administrator\Desktop\Alarm_GetStatus_AlarmDevice\NetSDKCS\obj\x64\Debug\NetSDKCS.pdb
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\NetSDKCS\bin\x64\Debug\NetSDKCS.dll
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\NetSDKCS\bin\x64\Debug\NetSDKCS.pdb
-C:\Git\OnMonitor\Onmonitor\EquipmentStatus\NetSDKCS\obj\x64\Debug\NetSDKCS.csprojAssemblyReference.cache
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CoreCompileInputs.cache
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\NetSDKCS\obj\x64\Debug\NetSDKCS.dll
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\NetSDKCS\obj\x64\Debug\NetSDKCS.pdb
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\NetSDKCS\obj\x64\Debug\NetSDKCS.csprojAssemblyReference.cache

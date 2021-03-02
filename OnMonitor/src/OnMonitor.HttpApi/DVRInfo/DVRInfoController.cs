@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.International.Converters.TraditionalChineseToSimplifiedConverter;
 using OnMonitor.Monitor;
+using OnMonitor.Monitor.Alarm;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Volo.Abp.Application.Dtos;
 
 namespace OnMonitor.Controllers
 {
@@ -20,15 +22,16 @@ namespace OnMonitor.Controllers
 
         public ICameraAppService _cameraAppService;
         public IDVRAppService _dVRAppService;
+        public IAlarmAppService _alarmAppService;
         static public HttpClient _httpClient;
         public IConfiguration _configuration;
         string dvrurl;
-        public DVRInfoController(ICameraAppService cameraAppService, IDVRAppService dVRAppService, IConfiguration configuration)
+        public DVRInfoController(ICameraAppService cameraAppService, IDVRAppService dVRAppService, IConfiguration configuration, IAlarmAppService alarmAppService)
         {
             _cameraAppService = cameraAppService;
             _dVRAppService = dVRAppService;
             _configuration = configuration;
-            
+            _alarmAppService = alarmAppService;
             if (_httpClient==null)
             {
                 _httpClient = new HttpClient();
@@ -59,6 +62,40 @@ namespace OnMonitor.Controllers
 
             var dvrdata = _dVRAppService.GetListByCondition(null, null, null, cameradata.DVR_ID).Result.Items.FirstOrDefault();
            
+
+            string url = $"{dvrurl}/api/DVRClannel/GetChannelPictureLocal?DVR_IP={dvrdata.DVR_IP}&DVR_Name={dvrdata.DVR_usre}&DVR_PassWord={dvrdata.DVR_possword}&ChannelID={cameradata.channel_ID}";
+
+            var handler = new HttpClientHandler();//{ AutomaticDecompression = DecompressionMethods.GZip };
+            var response = _httpClient.GetAsync(url).Result;
+            var dt = response.Content.ReadAsByteArrayAsync().Result;
+            var type = response.Content.Headers.ContentType.ToString();
+
+            return File(dt, type);
+
+        }
+
+        /// <summary>
+        /// 获取通道截图/传入镜头编号
+        /// </summary>
+        /// <param name="Alarm_ID"></param>
+        /// <returns></returns>
+        [Authorize(Roles = "videoCheck")]
+        [HttpGet]
+        [Route("GetChannelPictureByAlarmID")]
+        public IActionResult GetChannelPictureAlarmID(string Alarm_ID)
+        {
+
+
+            var Camera_ID = _alarmAppService.GetAlarmDto(Alarm_ID).Camera_ID;
+            var cameradata = _cameraAppService.GetListByCameraID(Camera_ID).Result.ToList().FirstOrDefault();
+
+            if (cameradata == null)
+            {
+                return Json("无此镜头");
+            }
+
+            var dvrdata = _dVRAppService.GetListByCondition(null, null, null, cameradata.DVR_ID).Result.Items.FirstOrDefault();
+
 
             string url = $"{dvrurl}/api/DVRClannel/GetChannelPictureLocal?DVR_IP={dvrdata.DVR_IP}&DVR_Name={dvrdata.DVR_usre}&DVR_PassWord={dvrdata.DVR_possword}&ChannelID={cameradata.channel_ID}";
 

@@ -46,6 +46,13 @@
             <param name="Camera_ID"></param>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Controllers.DVRInfoController.GetChannelPictureAlarmID(System.String)">
+            <summary>
+            获取通道截图/传入镜头编号
+            </summary>
+            <param name="Alarm_ID"></param>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Controllers.DVRInfoController.DownloadVideoByFileName(System.String)">
             <summary>
             按文件名称下载录像
@@ -542,6 +549,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetRepairProportionByWeek">
+            <summary>
+            获取维修比例，按每周异常
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyCountByWeek">
             <summary>
             获取监控数量，按每周异常
@@ -554,13 +567,26 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetRepairProportionByTimes(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取监控维修比例，指定时间
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:OnMonitor.Monitor.ReportFormsController.GetAnomalyCountByTimes(System.String,System.String,System.String,System.String)">
             <summary>
             获取监控数量，按自定义
             </summary>
             <returns></returns>
         </member>
-        <member name="M:OnMonitor.SignalR.AlarmMessageHub.GetAlarmStatusCount(System.Linq.IQueryable{OnMonitor.Monitor.Alarm.RequstAlarmStatusDto})">
+        <member name="M:OnMonitor.Monitor.ReportFormsController.GetDVRAnomalyProportionByMonitorRoom">
+            <summary>
+            获取DVR异常比例，按监控室分类,返回DVR异常比例
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:OnMonitor.Monitor.ReportFormsController.GetDVROnlineCountByMonitorRoom" -->
+        <member name="M:OnMonitor.SignalR.AlarmMessageHub.GetAlarmStatusCount(System.Collections.Generic.List{OnMonitor.Monitor.Alarm.RequstAlarmStatusDto})">
             <summary>
             获取标头数据
             </summary>

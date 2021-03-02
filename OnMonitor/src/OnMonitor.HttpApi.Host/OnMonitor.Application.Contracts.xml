@@ -154,9 +154,19 @@
             处理状态时间
             </summary>
         </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageStateDto.TreatmentMan">
+            <summary>
+            现场处理人
+            </summary>
+        </member>
         <member name="P:OnMonitor.Monitor.Alarm.AlarmManageStateDto.TreatmentReply">
             <summary>
             处理回复
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.AlarmManageStateDto.AnomalyType">
+            <summary>
+            异常类别
             </summary>
         </member>
         <member name="P:OnMonitor.Monitor.Alarm.AlarmManageStateDto.Remark">
@@ -274,11 +284,6 @@
             是否开岗
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.RequstAlarmManageStateDto.AlarmHost_IP">
-            <summary>
-            报警主机IP
-            </summary>
-        </member>
         <member name="P:OnMonitor.Monitor.Alarm.RequstAlarmManageStateDto.Alarm_ID">
             <summary>
             报警编号
@@ -324,9 +329,19 @@
             处理状态时间
             </summary>
         </member>
+        <member name="P:OnMonitor.Monitor.Alarm.RequstAlarmManageStateDto.TreatmentMan">
+            <summary>
+            现场处理人
+            </summary>
+        </member>
         <member name="P:OnMonitor.Monitor.Alarm.RequstAlarmManageStateDto.TreatmentReply">
             <summary>
             处理回复
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.RequstAlarmManageStateDto.AnomalyType">
+            <summary>
+            异常类别
             </summary>
         </member>
         <member name="P:OnMonitor.Monitor.Alarm.RequstAlarmManageStateDto.Remark">
@@ -379,16 +394,6 @@
             费用代码
             </summary>
         </member>
-        <member name="P:OnMonitor.Monitor.Alarm.RequstAlarmManageStateDto.install_time">
-            <summary>
-            安装时间
-            </summary>
-        </member>
-        <member name="P:OnMonitor.Monitor.Alarm.RequstAlarmManageStateDto.category">
-            <summary>
-            安装厂商
-            </summary>
-        </member>
         <member name="P:OnMonitor.Monitor.Alarm.RequstAlarmManageStateDto.Camera_ID">
             <summary>
             镜头号
@@ -404,9 +409,19 @@
             是否开岗
             </summary>
         </member>
+        <member name="P:OnMonitor.Monitor.Alarm.UpdateAlarmManageStateDto.AlarmHost_IP">
+            <summary>
+            报警主机IP
+            </summary>
+        </member>
         <member name="P:OnMonitor.Monitor.Alarm.UpdateAlarmManageStateDto.Alarm_ID">
             <summary>
             报警编号
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.UpdateAlarmManageStateDto.Channel_ID">
+            <summary>
+            通道编号
             </summary>
         </member>
         <member name="P:OnMonitor.Monitor.Alarm.UpdateAlarmManageStateDto.AlarmTime">
@@ -444,9 +459,24 @@
             处理状态时间
             </summary>
         </member>
+        <member name="P:OnMonitor.Monitor.Alarm.UpdateAlarmManageStateDto.TreatmentMan">
+            <summary>
+            现场处理人
+            </summary>
+        </member>
         <member name="P:OnMonitor.Monitor.Alarm.UpdateAlarmManageStateDto.TreatmentReply">
             <summary>
             处理回复
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.UpdateAlarmManageStateDto.AnomalyType">
+            <summary>
+            异常类别
+            </summary>
+        </member>
+        <member name="P:OnMonitor.Monitor.Alarm.UpdateAlarmManageStateDto.Remark">
+            <summary>
+            备注
             </summary>
         </member>
         <member name="P:OnMonitor.Monitor.Alarm.AlarmStatusDto.AlarmHostIP">

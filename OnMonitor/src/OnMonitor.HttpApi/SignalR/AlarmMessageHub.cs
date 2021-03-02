@@ -14,103 +14,93 @@ namespace OnMonitor.SignalR
 {
 
     [HubRoute("AlarmSignalR")]
-    public  class AlarmMessageHub : Hub
+    public  class AlarmMessageHub : AbpHub
     {
-
+        public static object locker = new object();
         public IAlarmStatusAppService _alarmStatusAppService;
+        IHubContext<AlarmMessageHub> _hubContext;
         public ConditionAlarmStatusDto conditionAlarmStatus;
         public PagedSortedRequestDto resultRequestDto;
         Dictionary<string, int> NewdicStatusCount;
         List<ResponseSignalRDto> newAlarmlist;
         List<ResponseSignalRDto> newTreatmentlist;
-        public AlarmMessageHub(IAlarmStatusAppService alarmStatusAppService)
+        Dictionary<string, int> dicStatusCount = new Dictionary<string, int>();
+        List<ResponseSignalRDto> Alarmlist = new List<ResponseSignalRDto>();
+        List<ResponseSignalRDto> Treatmentlist = new List<ResponseSignalRDto>();
+        System.Timers.Timer timer = null;
+        public AlarmMessageHub(IAlarmStatusAppService alarmStatusAppService, IHubContext<AlarmMessageHub> hubContext)
         {
             _alarmStatusAppService = alarmStatusAppService;
-         
-
-            resultRequestDto = new PagedSortedRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = "Id" };
-
+            _hubContext = hubContext;
 
         }
         public  void AlarmStatusAsync(string Manage)
         {
-            Dictionary<string, int> dicStatusCount = new Dictionary<string, int>();
-            List<ResponseSignalRDto> Alarmlist = new List<ResponseSignalRDto>();
-            List<ResponseSignalRDto> Treatmentlist = new List<ResponseSignalRDto>();
 
-            bool boolRun;
-            if (Manage == "0")
+            if (timer==null)
             {
-                boolRun = false;
+                timer = new System.Timers.Timer(2000);
             }
-            else
+            lock (locker)
             {
-                boolRun = true;
+                timer.AutoReset = true;
+                timer.Elapsed += new System.Timers.ElapsedEventHandler(aTimer_Elapsed);
+                timer.Enabled = true;
             }
 
-            while (true)
-                {
-                    Thread.Sleep(2000);
-                
-               var dataall=   _alarmStatusAppService.GetRequstListAll();
+            #region 暂时移除
+            //while (true)
+            //{
+            //    Thread.Sleep(2000);
 
-                NewdicStatusCount = GetAlarmStatusCount(dataall);
-                newAlarmlist = GetInAlarm(dataall);
-                newTreatmentlist = GetTreatmentState(dataall);
+            //    var dataall = _alarmStatusAppService.GetRequstListAll();
 
-                if (!dicStatusCount.SequenceEqual(NewdicStatusCount))
-                 {
-                     //调用表头回掉方法
-                     dicStatusCount = NewdicStatusCount;
-                     var dd = newAlarmlist.GetHashCode();
-                     
-                     string strStatusCount = Newtonsoft.Json.JsonConvert.SerializeObject(NewdicStatusCount);
-                     Clients.All.SendAsync("ReceiveCount", strStatusCount);
-                   
-                 }
-               
-                if (!Alarmlist.Equals(newAlarmlist))
-                {  //调用报警回掉方法
-                    Alarmlist = newAlarmlist;
-                    string strAlarmStatus = Newtonsoft.Json.JsonConvert.SerializeObject(Alarmlist);
-                    Clients.All.SendAsync("ReceiveAlarm", strAlarmStatus);
-                }
-              
-                if (!Treatmentlist.Equals(newTreatmentlist))
-                {    //调用未处理回掉
-                    Treatmentlist = newTreatmentlist;
-                    string strAlarmTreatment = Newtonsoft.Json.JsonConvert.SerializeObject(Treatmentlist);
-                    Clients.All.SendAsync("ReceiveTreatment", strAlarmTreatment);
-                }
+            //    NewdicStatusCount = GetAlarmStatusCount(dataall);
+            //    newAlarmlist = GetInAlarm(dataall);
+            //    newTreatmentlist = GetTreatmentState(dataall);
 
-                newAlarmlist.Clear();
-                newTreatmentlist.Clear();
-                NewdicStatusCount.Clear();
-                if (!boolRun)
-                {
-                    Dispose();
-                    break;
-                }
-             }
-            GC.Collect();
-            Dispose();
-        }
+            //    if (!dicStatusCount.SequenceEqual(NewdicStatusCount))
+            //    {
+            //        //调用表头回掉方法
+            //        dicStatusCount = NewdicStatusCount;
+            //        var dd = newAlarmlist.GetHashCode();
+
+            //        string strStatusCount = Newtonsoft.Json.JsonConvert.SerializeObject(NewdicStatusCount);
+            //        Clients.All.SendAsync("ReceiveCount", strStatusCount);
+
+            //    }
+
+            //    if (!Alarmlist.Equals(newAlarmlist))
+            //    {  //调用报警回掉方法
+            //        Alarmlist = newAlarmlist;
+            //        string strAlarmStatus = Newtonsoft.Json.JsonConvert.SerializeObject(Alarmlist);
+            //        Clients.All.SendAsync("ReceiveAlarm", strAlarmStatus);
+            //    }
+
+            //    if (!Treatmentlist.Equals(newTreatmentlist))
+            //    {    //调用未处理回掉
+            //        Treatmentlist = newTreatmentlist;
+            //        string strAlarmTreatment = Newtonsoft.Json.JsonConvert.SerializeObject(Treatmentlist);
+            //        Clients.All.SendAsync("ReceiveTreatment", strAlarmTreatment);
+            //    }
+
+            //    newAlarmlist.Clear();
+            //    newTreatmentlist.Clear();
+            //    NewdicStatusCount.Clear();
+            //}   
+            #endregion
+        }   
 
         public override Task OnDisconnectedAsync(Exception exception)
         {
-            AlarmStatusAsync("0");
+           // AlarmStatusAsync("0");
             return base.OnDisconnectedAsync(exception);
         }
         public override Task OnConnectedAsync()
         {
-            //if (DateTime.Now.Second>30)
-            //{
-            //    AlarmStatusAsync("1");
-            //}
-            //else
-            //{
-                AlarmStatusAsync("1");
-            //}
+            
+               AlarmStatusAsync("1");
+           
             Dispose();
             return base.OnConnectedAsync();
            
@@ -120,7 +110,7 @@ namespace OnMonitor.SignalR
         public  string AlarmDispaly(string Manage)
         {
 
-            AlarmStatusAsync("0");
+          //  AlarmStatusAsync("0");
             base.Context.Abort();
 
             return "ok";
@@ -131,7 +121,7 @@ namespace OnMonitor.SignalR
         /// 获取标头数据
         /// </summary>
         /// <returns></returns>
-        public Dictionary<string, int> GetAlarmStatusCount(IQueryable<RequstAlarmStatusDto> data)
+        public Dictionary<string, int> GetAlarmStatusCount(List<RequstAlarmStatusDto> data)
         {
 
             var alarmint = data.Where(u => u.IsDefence == 1).Where(i => i.IsAlarm == 1).Where(k => k.IsAnomaly == 2).Count();//报警数量
@@ -158,10 +148,10 @@ namespace OnMonitor.SignalR
 
         #region 获取报警数据
        
-        public  List<ResponseSignalRDto> GetInAlarm(IQueryable<RequstAlarmStatusDto> data)
+        public  List<ResponseSignalRDto> GetInAlarm(List<RequstAlarmStatusDto> data)
         {
 
-            data = data.Where(u => u.IsDefence == 1).Where(i => i.IsAlarm == 1).Where(k => k.IsAnomaly == 2).OrderByDescending(q=>q.LastModificationTime);
+            data = data.Where(u => u.IsDefence == 1).Where(i => i.IsAlarm == 1).Where(k => k.IsAnomaly == 2).OrderByDescending(q=>q.LastModificationTime).ToList();
            
             List<ResponseSignalRDto> Responselist = new List<ResponseSignalRDto>();
             foreach (var item in data)
@@ -183,9 +173,9 @@ namespace OnMonitor.SignalR
 
         #region 获取未处理数据
 
-        public List<ResponseSignalRDto> GetTreatmentState(IQueryable<RequstAlarmStatusDto> data)
+        public List<ResponseSignalRDto> GetTreatmentState(List<RequstAlarmStatusDto> data)
         {
-            data = data.Where(u => u.TreatmentState == 1).OrderByDescending(i=>i.LastModificationTime);
+            data = data.Where(u => u.TreatmentState == 1).OrderByDescending(i=>i.LastModificationTime).ToList();
             List<ResponseSignalRDto> Responselist = new List<ResponseSignalRDto>();
 
             foreach (var item in data)
@@ -196,7 +186,7 @@ namespace OnMonitor.SignalR
                 responseSignalRDto.Color = "yellow";
                 responseSignalRDto.Size = "large";
                 responseSignalRDto.Content = str;
-                responseSignalRDto.Action = $"<button type=\"button\" onclick=\"gateMapOperation('{item.Alarm_ID} {item.Build}-{item.floor} {item.Location}')\">操作</button>";
+                responseSignalRDto.Action = $"<button type=\"button\" onclick=\"gateNoHandleOperation('{item.Alarm_ID} {item.Build}-{item.floor} {item.Location}')\">操作</button>";
                 Responselist.Add(responseSignalRDto);
             }
            
@@ -204,7 +194,54 @@ namespace OnMonitor.SignalR
         }
         #endregion
 
-     
+   
+
+        void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            timer.Stop();
+
+               var dataall = _alarmStatusAppService.GetRequstListAll().ToList();
+            
+           
+
+            NewdicStatusCount = GetAlarmStatusCount(dataall);
+            newAlarmlist = GetInAlarm(dataall);
+            newTreatmentlist = GetTreatmentState(dataall);
+
+            if (!dicStatusCount.SequenceEqual(NewdicStatusCount))
+            {
+                //调用表头回掉方法
+                dicStatusCount = NewdicStatusCount;
+                var dd = newAlarmlist.GetHashCode();
+
+                string strStatusCount = Newtonsoft.Json.JsonConvert.SerializeObject(NewdicStatusCount);
+                _hubContext.Clients.All.SendAsync("ReceiveCount", strStatusCount);
+
+            }
+
+            if (!Alarmlist.Equals(newAlarmlist))
+            {  //调用报警回掉方法
+                Alarmlist = newAlarmlist;
+                string strAlarmStatus = Newtonsoft.Json.JsonConvert.SerializeObject(Alarmlist);
+                _hubContext.Clients.All.SendAsync("ReceiveAlarm", strAlarmStatus);
+            }
+
+            if (!Treatmentlist.Equals(newTreatmentlist))
+            {    //调用未处理回掉
+                Treatmentlist = newTreatmentlist;
+                string strAlarmTreatment = Newtonsoft.Json.JsonConvert.SerializeObject(Treatmentlist);
+                _hubContext.Clients.All.SendAsync("ReceiveTreatment", strAlarmTreatment);
+            }
+
+            newAlarmlist.Clear();
+            newTreatmentlist.Clear();
+            NewdicStatusCount.Clear();
+
+
+            dataall.Clear();
+            Dispose();
+            timer.Start();
+        }
 
     }
 }

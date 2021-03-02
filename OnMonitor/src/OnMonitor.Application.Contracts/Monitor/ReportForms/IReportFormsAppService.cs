@@ -17,7 +17,7 @@ namespace OnMonitor.Monitor
         public List<ReportFormsDto> GetReportFormsByBuild();
         public List<ReportFormsDto> GetReportFormsBydepartment();
         public List<ReportFormsDto> GetReportFormsByYear();
-
+        public List<ReportFormsDto> GetDVROnlineTotal();
         public List<ReportFormsDto> GetReportFormsByMonitorRoomorAnomalyCondition(string StartTime, string EndTime, string AnomalyGrade, string AnomalyType);
 
         public List<ReportFormsDto> GetReportFormsByTime(string StartTime, string EndTime, string AnomalyGrade, string AnomalyType, string MonitorRoom);

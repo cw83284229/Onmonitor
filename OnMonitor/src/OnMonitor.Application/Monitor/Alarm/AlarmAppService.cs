@@ -1,10 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.International.Converters.TraditionalChineseToSimplifiedConverter;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
@@ -12,7 +7,7 @@ using Volo.Abp.Domain.Repositories;
 namespace OnMonitor.Monitor.Alarm
 {
 
- // [Authorize(Roles ="admin")]
+    // [Authorize(Roles ="admin")]
     public class AlarmAppService :// ApplicationService
   CrudAppService<
   Alarm,//定义实体
@@ -33,7 +28,11 @@ namespace OnMonitor.Monitor.Alarm
            
         }
 
-
+        /// <summary>
+        /// 依据报警编号获取报警主机信息
+        /// </summary>
+        /// <param name="Alarm_ID"></param>
+        /// <returns></returns>
         public AlarmHostDto GetAlarmHostDto(string Alarm_ID)
         {
             var alarmdata = _alarmrepository.Where(u => u.Alarm_ID == Alarm_ID).FirstOrDefault();
@@ -51,8 +50,20 @@ namespace OnMonitor.Monitor.Alarm
         
         }
 
+        /// <summary>
+        /// 依据报警编号获取实体信息
+        /// </summary>
+        /// <param name="Alarm_ID"></param>
+        /// <returns></returns>
+        public AlarmDto GetAlarmDto(string Alarm_ID)
+        {
+            var data = _alarmrepository.GetListAsync().Result;
 
+            var alarms = data.Where(u => u.Alarm_ID.Contains(Alarm_ID)).FirstOrDefault();
 
+            var requst = ObjectMapper.Map<Alarm, AlarmDto>(alarms);
+            return requst;
+        }
 
 
 

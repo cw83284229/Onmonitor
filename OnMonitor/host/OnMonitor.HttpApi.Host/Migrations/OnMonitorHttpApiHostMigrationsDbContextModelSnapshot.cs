@@ -54,7 +54,7 @@ namespace OnMonitor.Migrations
                     b.ToTable("AppSystemMenus");
                 });
 
-            modelBuilder.Entity("OnMonitor.Monitor.Alarm", b =>
+            modelBuilder.Entity("OnMonitor.Monitor.Alarm.Alarm", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -158,7 +158,7 @@ namespace OnMonitor.Migrations
                     b.ToTable("AppAlarms");
                 });
 
-            modelBuilder.Entity("OnMonitor.Monitor.AlarmHost", b =>
+            modelBuilder.Entity("OnMonitor.Monitor.Alarm.AlarmHost", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -211,7 +211,7 @@ namespace OnMonitor.Migrations
                     b.ToTable("AppAlarmHosts");
                 });
 
-            modelBuilder.Entity("OnMonitor.Monitor.AlarmManageState", b =>
+            modelBuilder.Entity("OnMonitor.Monitor.Alarm.AlarmManageState", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -230,6 +230,9 @@ namespace OnMonitor.Migrations
                     b.Property<string>("Alarm_ID")
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
+
+                    b.Property<string>("AnomalyType")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Channel_ID")
                         .HasColumnType("int");
@@ -267,6 +270,9 @@ namespace OnMonitor.Migrations
                     b.Property<string>("Remark")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TreatmentMan")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TreatmentReply")
                         .HasColumnType("nvarchar(max)");
 
@@ -293,7 +299,7 @@ namespace OnMonitor.Migrations
                     b.ToTable("AppAlarmManageStates");
                 });
 
-            modelBuilder.Entity("OnMonitor.Monitor.AlarmStatus", b =>
+            modelBuilder.Entity("OnMonitor.Monitor.Alarm.AlarmStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

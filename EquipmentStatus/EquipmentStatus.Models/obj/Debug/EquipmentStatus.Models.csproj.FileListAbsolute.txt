@@ -33,8 +33,8 @@ C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\bin\Debug\Enti
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.SqlServer.dll
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.xml
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\bin\Debug\EntityFramework.SqlServer.xml
-C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.csprojAssemblyReference.cache
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.csproj.CoreCompileInputs.cache
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.csproj.CopyComplete
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.exe
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.pdb
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Models\obj\Debug\EquipmentStatus.Models.csprojAssemblyReference.cache

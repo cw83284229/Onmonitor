@@ -77,8 +77,12 @@ namespace OnMonitor.Monitor
 
             foreach (var item in data)
             {
-                string anomalyProportion = item.AnomalyProportion.ToString("P2");
-                dic.Add(item.Camera_build, anomalyProportion);
+                if (item.CameraTotal!=0)
+                {
+                    string anomalyProportion = ((float)item.CameraAnomaly / item.CameraTotal).ToString("P2");
+                    dic.Add(item.Camera_build, anomalyProportion);
+                }
+              
             }
             return dic;
         }
@@ -295,8 +299,34 @@ namespace OnMonitor.Monitor
 
                 if (item.CameraAnomaly != 0)
                 {
-                    float anomalyProportion = (float)item.CameraAnomalyRepair / item.CameraAnomaly;
+                    float anomalyProportion = (float)item.CameraAnomaly / item.CameraTotal;
                     dic.Add(item.install_time, anomalyProportion.ToString("P2"));
+                }
+
+            }
+            return dic;
+        }
+        /// <summary>
+        /// 获取维修比例，按每周异常
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("RepairProportionByWeek")]
+        public Dictionary<string, string> GetRepairProportionByWeek()
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            string StartTime = DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd HH:mm:ss");
+            string EndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            var data = _reportFormsAppService.GetReportFormsByTime(StartTime, EndTime, null, null, null);
+
+            foreach (var item in data)
+            {
+
+                if (item.CameraAnomaly != 0)
+                {
+                    float RepairProportion = (float)item.RepairTotal / item.CameraAnomaly;
+                    dic.Add(item.install_time, RepairProportion.ToString("P2"));
                 }
 
             }
@@ -348,7 +378,32 @@ namespace OnMonitor.Monitor
 
                 if (item.CameraAnomaly != 0)
                 {
-                    float anomalyProportion = (float)item.CameraAnomalyRepair / item.CameraAnomaly;
+                    float anomalyProportion = (float)item.CameraAnomaly / item.CameraTotal;
+                    dic.Add(item.install_time, anomalyProportion.ToString("P2"));
+                }
+
+            }
+            return dic;
+        }
+        /// <summary>
+        /// 获取监控维修比例，指定时间
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("RepairProportionByTimes")]
+        public Dictionary<string, string> GetRepairProportionByTimes(string StartTime, string EndTime, string AnomalyType, string MonitorRoom)
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+
+
+            var data = _reportFormsAppService.GetReportFormsByTime(StartTime, EndTime, null, AnomalyType, MonitorRoom);
+
+            foreach (var item in data)
+            {
+
+                if (item.CameraAnomaly != 0)
+                {
+                    float anomalyProportion = (float) item.RepairTotal/ item.CameraAnomaly;
                     dic.Add(item.install_time, anomalyProportion.ToString("P2"));
                 }
 
@@ -383,6 +438,55 @@ namespace OnMonitor.Monitor
 
 
 
+        #region DVR异常/在线状态信息
+
+        /// <summary>
+        /// 获取DVR异常比例，按监控室分类,返回DVR异常比例
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("DVRAnomalyProportionByMonitorRoom")]
+        public Dictionary<string, string> GetDVRAnomalyProportionByMonitorRoom()
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+
+            var data = _reportFormsAppService.GetDVROnlineTotal();
+
+            foreach (var item in data)
+            {
+                if (item.DVRTotal != 0)
+                {
+                    string anomalyProportion = ((float)item.DVRAnomaly / item.DVRTotal).ToString("P2");
+                    dic.Add(item.DVRRoom, anomalyProportion);
+                }
+
+            }
+            return dic;
+        }
+
+        /// <summary>
+        /// 获取主机在线数量，按监控室分析 返回<监控室-在线数量-主机总数>
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("DVROnlineCountBycMonitorRoom")]
+        public Dictionary<string, int[]> GetDVROnlineCountByMonitorRoom()
+        {
+            Dictionary<string, int[]> dic = new Dictionary<string, int[]>();
+
+            var data = _reportFormsAppService.GetDVROnlineTotal();
+
+            foreach (var item in data)
+            {
+                int[] vs = { item.DVROnLine, item.DVRTotal};
+                dic.Add(item.DVRRoom, vs);
+            }
+            return dic;
+        }
+
+
+
+        #endregion
 
 
 

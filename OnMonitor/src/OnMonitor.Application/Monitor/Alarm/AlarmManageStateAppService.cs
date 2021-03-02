@@ -51,11 +51,10 @@ namespace OnMonitor.Monitor.Alarm
             //加载RequstAlarmManageStateDto
             var data = from a in _alrmHostrepository
                           join b in _alarmrepository on a.AlarmHost_ID equals b.AlarmHost_ID
-                          join d in _repository on new { a.AlarmHostIP, b.Channel_ID } equals new { AlarmHostIP = d.AlarmHost_IP, d.Channel_ID }
+                          join d in _repository on b.Alarm_ID equals d.Alarm_ID
                           select new RequstAlarmManageStateDto
                           {
                               AlarmHost_ID = a.AlarmHost_ID,
-                              AlarmHost_IP = a.AlarmHostIP,
                               Monitoring_room = a.Monitoring_room,
 
 
@@ -68,10 +67,8 @@ namespace OnMonitor.Monitor.Alarm
                               Cost_code = b.Cost_code,
                               IsAlertor = b.IsAlertor,
                               IsOpenOrClosed = b.IsOpenOrClosed,
-                              category = b.category,
                               Channel_ID = b.Channel_ID,
                               GeteType = b.GeteType,
-                              install_time = b.install_time,
                               SensorType = b.SensorType,
 
                               Remark = d.Remark,
@@ -83,6 +80,8 @@ namespace OnMonitor.Monitor.Alarm
                               WithdrawTime = d.WithdrawTime,
                               AlarmTime = d.AlarmTime,
                               DefenceTime = d.DefenceTime,
+                              AnomalyType=d.AnomalyType,
+                              TreatmentMan=d.TreatmentMan,
                               Id = d.Id,
                               CreationTime = d.CreationTime,
                               CreatorId = d.CreatorId,
@@ -117,16 +116,7 @@ namespace OnMonitor.Monitor.Alarm
             {
                 data = data.Where(u => u.AlarmHost_ID.Contains(condition.AlarmHost_ID));
             }
-            //IP地址筛选
-            if (!string.IsNullOrEmpty(condition.AlarmHost_IP))
-            {
-                data = data.Where(u => u.AlarmHost_IP.Contains(condition.AlarmHost_IP));
-            }
-            //IP地址筛选
-            if (!string.IsNullOrEmpty(condition.AlarmHost_IP))
-            {
-                data = data.Where(u => u.AlarmHost_IP.Contains(condition.AlarmHost_IP));
-            }
+          
             //ID筛选
             if (!string.IsNullOrEmpty(condition.Alarm_ID))
             {
@@ -142,9 +132,10 @@ namespace OnMonitor.Monitor.Alarm
             {
                 data = data.Where(u => u.IsOpenOrClosed == condition.IsOpenOrClosed);
             }
-            var requstdata = data.OrderBy(u => input.Sorting).PageBy(input.SkipCount, input.MaxResultCount);
+           
+            var requstdata = data.OrderByDescending(u =>u.LastModificationTime).PageBy(input.SkipCount, input.MaxResultCount);
 
-
+           
 
             return new PagedResultDto<RequstAlarmManageStateDto>() { Items = requstdata.ToList(), TotalCount = data.Count() };
 

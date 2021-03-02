@@ -18,6 +18,7 @@ namespace OnMonitor.Monitor.Alarm
 
 
         public AlarmHostDto GetAlarmHostDto(string Alarm_ID);
+        public AlarmDto GetAlarmDto(string Alarm_ID);
 
 
     }
