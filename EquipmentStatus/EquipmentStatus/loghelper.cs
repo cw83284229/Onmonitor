@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Alarm_GetStatus_AlarmDevice
+namespace EquipmentStatus
 {
    public  class loghelper
     {

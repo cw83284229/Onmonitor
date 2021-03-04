@@ -1,0 +1,14 @@
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\bin\Debug\EquipmentStatus.Redis.dll
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\bin\Debug\EquipmentStatus.Redis.pdb
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\bin\Debug\EquipmentStatus.Models.exe
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\bin\Debug\StackExchange.Redis.dll
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\bin\Debug\EntityFramework.dll
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\bin\Debug\EquipmentStatus.Models.pdb
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\bin\Debug\EquipmentStatus.Models.exe.config
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\bin\Debug\StackExchange.Redis.xml
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\bin\Debug\EntityFramework.xml
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\obj\Debug\EquipmentStatus.Redis.csprojAssemblyReference.cache
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\obj\Debug\EquipmentStatus.Redis.csproj.CoreCompileInputs.cache
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\obj\Debug\EquipmentStatus.Redis.csproj.CopyComplete
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\obj\Debug\EquipmentStatus.Redis.dll
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus.Redis\obj\Debug\EquipmentStatus.Redis.pdb

@@ -1,16 +1,14 @@
 ﻿using CCTV_Client.DaHua;
+using EquipmentStatus;
 using EquipmentStatus.Models;
-using EquipmentStatus.Models.Models;
 using NetSDKCS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Alarm_GetStatus_AlarmDevice
+namespace EquipmentStatus
 {
-  public  class DVRInfoCheck
+    public  class DVRInfoCheck
     {
         private static NET_DEVICEINFO_Ex device = new NET_DEVICEINFO_Ex();
         private static IntPtr m_LoginID = IntPtr.Zero;

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Alarm_GetStatus_AlarmDevice;
-using EquipmentStatus.Models;
-using Ruanmou.Redis.Exchange.Service;
 
 namespace EquipmentStatus
 {
@@ -16,13 +12,13 @@ namespace EquipmentStatus
         static void Main(string[] args)
         {
 
-            //   AlarmGetStatus.TaskLoginStartListen();//开启门磁检测
+              AlarmGetStatus.TaskLoginStartListen();//开启门磁检测
 
             // DVRInfoCheck.GetDVRInfoCheck();//开启主机轮询
-            RedisStringService redisStringService = new RedisStringService();
-            redisStringService.StringSet("bookstr02","我是一个测试");
 
+            HttpHelper httpHelper = new HttpHelper();
 
+          
             Console.WriteLine("请等待");
             Console.ReadLine();
          

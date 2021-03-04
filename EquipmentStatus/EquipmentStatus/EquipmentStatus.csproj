@@ -86,6 +86,10 @@
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Redis.Exchange\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -102,10 +106,12 @@
     <Compile Include="AlarmGetStatus.cs" />
     <Compile Include="DaHuaSDKHelper.cs" />
     <Compile Include="DVRInfoCheck.cs" />
+    <Compile Include="HttpHelper.cs" />
     <Compile Include="loghelper.cs" />
     <Compile Include="Models\AlarmTest.cs" />
     <Compile Include="Models\DiskInfo.cs" />
     <Compile Include="Models\DVRInfoDto.cs" />
+    <Compile Include="Models\UpdateAlarmManageStateDto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
