@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.International.Converters.TraditionalChineseToSimplifiedConverter;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -12,7 +9,7 @@ using Volo.Abp.Domain.Repositories;
 namespace OnMonitor.Monitor.Alarm
 {
 
- // [Authorize(Roles ="admin")]
+    // [Authorize(Roles ="admin")]
     public class AlarmManageStateAppService :// ApplicationService
   CrudAppService<
   AlarmManageState,//定义实体
@@ -189,6 +186,25 @@ namespace OnMonitor.Monitor.Alarm
 
 
             return base.UpdateAsync(id, input);
+        }
+
+        /// <summary>
+        /// 依据报警号查询记录信息，并按时间倒序排序
+        /// </summary>
+        /// <param name="Alarm_ID"></param>
+        /// <returns></returns>
+        public List<AlarmManageState> GetAlarmManageStates(string Alarm_ID)
+        {
+         var data=   _repository.GetQueryableAsync().Result;
+
+            if (string.IsNullOrEmpty(Alarm_ID))
+            {
+              data=  data.Where(u => u.Alarm_ID == Alarm_ID);
+            }
+            data = data.OrderByDescending(u=>u.LastModificationTime);
+            return data.ToList();
+        
+        
         }
 
     }

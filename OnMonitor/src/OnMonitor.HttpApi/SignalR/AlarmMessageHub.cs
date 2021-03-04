@@ -27,15 +27,21 @@ namespace OnMonitor.SignalR
         Dictionary<string, int> dicStatusCount = new Dictionary<string, int>();
         List<ResponseSignalRDto> Alarmlist = new List<ResponseSignalRDto>();
         List<ResponseSignalRDto> Treatmentlist = new List<ResponseSignalRDto>();
+        public Microsoft.Extensions.Caching.Distributed.IDistributedCache _cache;
         System.Timers.Timer timer = null;
-        public AlarmMessageHub(IAlarmStatusAppService alarmStatusAppService, IHubContext<AlarmMessageHub> hubContext)
+        List<RequstAlarmStatusDto> dataall;
+        public AlarmMessageHub(IAlarmStatusAppService alarmStatusAppService, IHubContext<AlarmMessageHub> hubContext, Microsoft.Extensions.Caching.Distributed.IDistributedCache cache)
         {
             _alarmStatusAppService = alarmStatusAppService;
             _hubContext = hubContext;
-
+            _cache = cache;
+       
         }
+
         public  void AlarmStatusAsync(string Manage)
         {
+            GetRequstAlarms();
+
 
             if (timer==null)
             {
@@ -194,15 +200,32 @@ namespace OnMonitor.SignalR
         }
         #endregion
 
-   
+        public List<RequstAlarmStatusDto> GetRequstAlarms()
+        {
+            lock (locker)
+            {
+                dataall = _alarmStatusAppService.GetRequstListAll().ToList();
+            }
+            return dataall;
+        }
 
         void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             timer.Stop();
-
-               var dataall = _alarmStatusAppService.GetRequstListAll().ToList();
-            
-           
+          
+            foreach (var item in dataall)
+            {
+                var alarmstatusres = _cache.Get("AlarmStatus_"+item.Alarm_ID);
+                var strAlarmStatus = Encoding.UTF8.GetString(alarmstatusres);
+                var alarmstatusDto = Newtonsoft.Json.JsonConvert.DeserializeObject<AlarmStatusDto>(strAlarmStatus);
+                item.BypassState = alarmstatusDto.BypassState;
+                item.IsAlarm = alarmstatusDto.IsAlarm;
+                item.IsAnomaly = alarmstatusDto.IsAnomaly;
+                item.IsDefence = alarmstatusDto.IsDefence;
+                item.IsOpenDoor = alarmstatusDto.IsOpenDoor;
+                item.LastModificationTime = alarmstatusDto.LastModificationTime;
+                item.TreatmentState = alarmstatusDto.TreatmentState;
+            }
 
             NewdicStatusCount = GetAlarmStatusCount(dataall);
             newAlarmlist = GetInAlarm(dataall);
@@ -237,8 +260,6 @@ namespace OnMonitor.SignalR
             newTreatmentlist.Clear();
             NewdicStatusCount.Clear();
 
-
-            dataall.Clear();
             Dispose();
             timer.Start();
         }

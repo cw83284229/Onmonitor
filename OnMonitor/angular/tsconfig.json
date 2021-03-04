@@ -1,37 +1,15 @@
 {
-  "compileOnSave": false,
+  "extends": "./tsconfig.prod.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
     "paths": {
-      "on-monitor": [
-        "dist/on-monitor"
+      "@my-company-name/on-monitor": [
+        "projects/on-monitor/src/public-api.ts"
       ],
-      "on-monitor/*": [
-        "dist/on-monitor/*"
+      "@my-company-name/on-monitor/config": [
+        "projects/on-monitor/config/src/public-api.ts"
       ],
-      "on-monitor-config": [
-        "dist/on-monitor-config"
-      ],
-      "on-monitor-config/*": [
-        "dist/on-monitor-config/*"
-      ]
+      "@proxy": ["projects/on-monitor/src/lib/proxy/index.ts"],
+      "@proxy/*": ["projects/on-monitor/src/lib/proxy/*"]
     }
   }
 }

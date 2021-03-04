@@ -16,19 +16,19 @@ namespace OnMonitor.Monitor
   CrudAppService<
   DVR,//定义实体
   DVRDto,//定义DTO
-  Int32, //实体的主键
+  int, //实体的主键
   PagedAndSortedResultRequestDto, //获取分页排序
   UpdateDVRDto, //用于创建实体
   UpdateDVRDto> //用于更新实体
   , IDVRAppService
 
     {
-        IRepository<DVR, Int32> _dvrrepository;
-        IRepository<Camera, Int32> _camerarepository;
-        public DVRAppService(IRepository<DVR, Int32> dvrrepository, IRepository<Camera, Int32> camerarepository) : base(dvrrepository)
+        IRepository<DVR, int> _dvrrepository;
+       
+        public DVRAppService(IRepository<DVR, int> dvrrepository) : base(dvrrepository)
         {
 
-            _camerarepository = camerarepository;
+          
             _dvrrepository = dvrrepository;
         }
 

@@ -2,7 +2,7 @@
 {
     public static class OnMonitorDbProperties
     {
-        public static string DbTablePrefix { get; set; } = "OnMonitor";
+        public static string DbTablePrefix { get; set; } = "App";
 
         public static string DbSchema { get; set; } = null;
 

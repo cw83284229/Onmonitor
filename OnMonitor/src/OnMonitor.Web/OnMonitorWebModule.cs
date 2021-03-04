@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.DependencyInjection;
 using OnMonitor.Localization;
+using OnMonitor.Web.Menus;
 using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
+using OnMonitor.Permissions;
 
 namespace OnMonitor.Web
 {
@@ -39,7 +41,7 @@ namespace OnMonitor.Web
 
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<OnMonitorWebModule>("OnMonitor.Web");
+                options.FileSets.AddEmbedded<OnMonitorWebModule>();
             });
 
             context.Services.AddAutoMapperObjectMapper<OnMonitorWebModule>();

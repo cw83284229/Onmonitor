@@ -32,7 +32,7 @@ namespace OnMonitor.EntityFrameworkCore
         public DbSet<DVRChannelInfo> DVRChannelInfos { get; set; }
 
         //菜单类实体映射
-       // public DbSet<SystemMenu> SystemMenus { get; set; }
+        public DbSet<SystemMenu> SystemMenus { get; set; }
         public DbSet<MaterialRepertory> MaterialRepertories { get; set; }
         public DbSet<ProcurementContent> ProcurementContents { get; set; }
         public DbSet<ProcurementDeltail> ProcurementDeltails { get; set; }

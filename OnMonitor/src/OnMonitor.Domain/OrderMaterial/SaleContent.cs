@@ -11,13 +11,15 @@ namespace OnMonitor.OrderMaterials
    
    public class SaleContent:AuditedAggregateRoot<Guid>
     {
-         /// <summary>
-         /// 出货位置
-         /// </summary>
+        /// <summary>
+        /// 出货位置
+        /// </summary>
+        [StringLength(55)]
         public string SaleStore { get; set; }
         /// <summary>
         /// 订货时间
         /// </summary>
+        [StringLength(55)]
         public string SaleTime { get; set; }
          /// <summary>
          /// 出货方式

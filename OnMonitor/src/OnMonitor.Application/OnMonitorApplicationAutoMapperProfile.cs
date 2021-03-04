@@ -7,7 +7,6 @@ using OnMonitor.MonitorRepair;
 using OnMonitor.OrderMaterials;
 using OnMonitor.OrderMaterials.Dtos;
 using Volo.Abp.AutoMapper;
-using Volo.Abp.ObjectExtending;
 
 namespace OnMonitor
 {
@@ -18,7 +17,6 @@ namespace OnMonitor
             /* You can configure your AutoMapper mapping configuration here.
              * Alternatively, you can split your mapping configurations
              * into multiple profile classes for a better organization. */
-
             CreateMap<Camera, CameraDto>();
             CreateMap<UpdateCameraDto, Camera>(MemberList.Source);
             CreateMap<DVR, DVRDto>();
@@ -40,11 +38,11 @@ namespace OnMonitor
 
 
             CreateMap<MonitorRoom, MonitorRoomDto>();
-            CreateMap<UpdateMonitorRoomDto,MonitorRoom>(MemberList.Source);
+            CreateMap<UpdateMonitorRoomDto, MonitorRoom>(MemberList.Source);
             CreateMap<DVRChannelInfo, DVRChannelInfoDto>();
             CreateMap<UpdateDVRChannelInfoDto, DVRChannelInfo>(MemberList.Source);
 
-            CreateMap<ProjectManages, RequstProjectManagesDto>().Ignore(x=>x.Camera_ID);//忽略camera_id属性;
+            CreateMap<ProjectManages, RequstProjectManagesDto>().Ignore(x => x.Camera_ID);//忽略camera_id属性;
             // CreateMap<SystemMenu, SystemMenuDto>();
             CreateMap<CreateUpdateSystemMenuDto, SystemMenu>(MemberList.Source);
 

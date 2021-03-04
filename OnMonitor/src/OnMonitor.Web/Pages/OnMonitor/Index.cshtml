@@ -1,7 +1,9 @@
 ﻿@page
-@inherits OnMonitor.Web.Pages.OnMonitorPage
+@using Microsoft.Extensions.Localization
+@using OnMonitor.Localization
 @model OnMonitor.Web.Pages.OnMonitor.IndexModel
+@inject IStringLocalizer<OnMonitorResource> L
 @{
 }
 <h1>OnMonitor</h1>
-<p>A sample page for the OnMonitor module.</p>
+<p>@L["SamplePageMessage"]</p>

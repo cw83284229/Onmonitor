@@ -20,7 +20,7 @@ namespace OnMonitor.Monitor.Alarm
 
         public PagedResultDto<RequstAlarmStatusDto> GetRequstList(ConditionAlarmStatusDto condition, PagedSortedRequestDto input);
 
-        public IQueryable<RequstAlarmStatusDto> GetRequstListAll();
+        public List<RequstAlarmStatusDto> GetRequstListAll();
 
     }
       

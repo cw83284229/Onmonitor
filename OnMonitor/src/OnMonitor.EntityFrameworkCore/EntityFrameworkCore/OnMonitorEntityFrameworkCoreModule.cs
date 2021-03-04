@@ -14,11 +14,10 @@ namespace OnMonitor.EntityFrameworkCore
         {
             context.Services.AddAbpDbContext<OnMonitorDbContext>(options =>
             {
+                options.AddDefaultRepositories(includeAllEntities: true);//自定义默认仓储
                 /* Add custom repositories here. Example:
                  * options.AddRepository<Question, EfCoreQuestionRepository>();
                  */
-                 //Autofac反射设定
-                options.AddDefaultRepositories(includeAllEntities: true);
             });
         }
     }

@@ -1,11 +1,6 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.International.Converters.TraditionalChineseToSimplifiedConverter;
-using OnMonitor.Monitor;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -14,7 +9,7 @@ using Volo.Abp.Domain.Repositories;
 namespace OnMonitor.Monitor
 {
 
-   // [Authorize(Roles ="operator")]
+    // [Authorize(Roles ="operator")]
 
     public class ProjectManagesAppService :// ApplicationService
     CrudAppService<

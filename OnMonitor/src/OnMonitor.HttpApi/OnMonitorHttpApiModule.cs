@@ -4,12 +4,14 @@ using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.AspNetCore.SignalR;
 
 namespace OnMonitor
 {
     [DependsOn(
         typeof(OnMonitorApplicationContractsModule),
-        typeof(AbpAspNetCoreMvcModule))]
+        typeof(AbpAspNetCoreMvcModule),
+        typeof(AbpAspNetCoreSignalRModule))]
     public class OnMonitorHttpApiModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
@@ -17,7 +19,6 @@ namespace OnMonitor
             PreConfigure<IMvcBuilder>(mvcBuilder =>
             {
                 mvcBuilder.AddApplicationPartIfNotExists(typeof(OnMonitorHttpApiModule).Assembly);
-               
             });
         }
 
@@ -29,6 +30,7 @@ namespace OnMonitor
                     .Get<OnMonitorResource>()
                     .AddBaseTypes(typeof(AbpUiResource));
             });
+           
         }
     }
 }

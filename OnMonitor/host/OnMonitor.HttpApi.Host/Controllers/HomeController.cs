@@ -7,7 +7,7 @@ namespace OnMonitor.Controllers
     {
         public ActionResult Index()
         {
-            return Redirect("/swagger");
+            return Redirect("~/swagger");
         }
     }
 }

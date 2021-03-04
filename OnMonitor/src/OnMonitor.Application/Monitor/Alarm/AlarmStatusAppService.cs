@@ -165,7 +165,7 @@ namespace OnMonitor.Monitor.Alarm
         /// 获取全部数据
         /// </summary>
         /// <returns></returns>
-        public IQueryable<RequstAlarmStatusDto> GetRequstListAll()
+        public List<RequstAlarmStatusDto> GetRequstListAll()
         {
 
             //加载RequstAlarmStatusDto
@@ -209,9 +209,9 @@ namespace OnMonitor.Monitor.Alarm
             
 
             data = data.OrderByDescending(u => u.LastModificationTime);
-            GC.Collect();
-            
-            return data;
+
+            var dd = data.ToList();
+            return dd;
           
         }
 

@@ -3,39 +3,33 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>OnMonitor</RootNamespace>
     <PreserveCompilationReferences>true</PreserveCompilationReferences>
     <UserSecretsId>OnMonitor-c2d31439-b723-48e2-b061-5ebd7aeb6010</UserSecretsId>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
     <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.1" />
-    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="3.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="5.1.1" />
-    <PackageReference Include="Volo.Abp.Account.Application" Version="3.0.5" />
-    <PackageReference Include="Volo.Abp.AspNetCore.SignalR" Version="3.0.5" />
-    <PackageReference Include="Volo.Abp.Autofac" Version="3.0.5" />
-    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="3.0.5" />
-    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="3.0.5" />
-    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="3.0.5" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="3.0.5" />
-    <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="3.0.5" />
-    <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="3.0.5" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.4.0" />
+    <PackageReference Include="IdentityModel" Version="4.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.*" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="5.0.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.*" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="4.2.0" />
+    <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="4.2.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="4.2.0" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="4.2.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="4.2.0" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" Version="4.2.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="4.2.0" />
+    <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="4.2.0" />
+    <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="4.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\OnMonitor.HttpApi\OnMonitor.HttpApi.csproj" />
     <ProjectReference Include="..\..\src\OnMonitor.Application\OnMonitor.Application.csproj" />
+    <ProjectReference Include="..\..\src\OnMonitor.HttpApi\OnMonitor.HttpApi.csproj" />
     <ProjectReference Include="..\..\src\OnMonitor.EntityFrameworkCore\OnMonitor.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\OnMonitor.Host.Shared\OnMonitor.Host.Shared.csproj" />
   </ItemGroup>
@@ -46,5 +40,7 @@
     <EmbeddedResource Remove="Logs\**" />
     <None Remove="Logs\**" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -2,8 +2,8 @@
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.Application;
-using Volo.Abp.BlobStoring;
 using Volo.Abp.BlobStoring.FileSystem;
+using Volo.Abp.BlobStoring;
 
 namespace OnMonitor
 {
@@ -23,7 +23,9 @@ namespace OnMonitor
             Configure<AbpAutoMapperOptions>(options =>
             {
                 options.AddMaps<OnMonitorApplicationModule>(validate: true);
+                options.AddProfile<OnMonitorApplicationAutoMapperProfile>(validate:true);
             });
+
             Configure<AbpBlobStoringOptions>(options =>
             {
                 options.Containers.ConfigureDefault(container =>
@@ -35,6 +37,7 @@ namespace OnMonitor
                 });
             });
 
+          
         }
     }
 }

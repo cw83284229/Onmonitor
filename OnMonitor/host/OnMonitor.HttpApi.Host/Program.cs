@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
-using System;
 
 namespace OnMonitor
 {
@@ -12,14 +13,16 @@ namespace OnMonitor
         {
             Log.Logger = new LoggerConfiguration()
 #if DEBUG
-                .MinimumLevel.Error()
+                .MinimumLevel.Debug()
 #else
                 .MinimumLevel.Information()
 #endif
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .Enrich.FromLogContext()
-                .WriteTo.File("Logs/logs.txt")
-                .WriteTo.Console()
+                .WriteTo.Async(c => c.File("Logs/logs.txt"))
+#if DEBUG
+                .WriteTo.Async(c => c.Console())
+#endif
                 .CreateLogger();
 
             try

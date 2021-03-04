@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -66,7 +67,18 @@ namespace OnMonitor.Monitor.Alarm
         }
 
 
+        public List<Alarm> GetAlarmList(string AlarmHostIP)
+        {
+          var Hostdata=_alrmHostrepository.Where(u=>u.AlarmHostIP==AlarmHostIP).FirstOrDefault();
 
+            var alarmdata = _alarmrepository.Where(u => u.AlarmHost_ID == Hostdata.AlarmHost_ID).ToList();
+
+            return alarmdata;
+        
+        
+        
+        
+        }
 
 
 

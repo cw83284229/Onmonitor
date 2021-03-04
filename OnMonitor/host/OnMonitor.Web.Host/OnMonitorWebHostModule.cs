@@ -4,17 +4,23 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using System.IO;
+using System.Reflection;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using OnMonitor.Localization;
-//using OnMonitor.MultiTenancy;
-//using OnMonitor.Web;
+using OnMonitor.MultiTenancy;
+using OnMonitor.Web;
 using StackExchange.Redis;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.OAuth;
+using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
+using Volo.Abp.AspNetCore.MultiTenancy;
 using Volo.Abp.AspNetCore.Mvc.Client;
 using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI;
@@ -25,6 +31,7 @@ using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Caching;
+using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Http.Client.IdentityModel.Web;
 using Volo.Abp.Identity;
@@ -34,6 +41,7 @@ using Volo.Abp.MultiTenancy;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.PermissionManagement.Web;
 using Volo.Abp.Security.Claims;
+using Volo.Abp.Swashbuckle;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.UI.Navigation.Urls;
@@ -44,20 +52,23 @@ using Volo.Abp.VirtualFileSystem;
 namespace OnMonitor
 {
     [DependsOn(
-      //  typeof(OnMonitorWebModule),
+        typeof(OnMonitorWebModule),
         typeof(OnMonitorHttpApiClientModule),
-        typeof(AbpAspNetCoreAuthenticationOAuthModule),
+        typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
         typeof(AbpAspNetCoreMvcClientModule),
         typeof(AbpAspNetCoreMvcUiBasicThemeModule),
         typeof(AbpAutofacModule),
+        typeof(AbpCachingStackExchangeRedisModule),
         typeof(AbpHttpClientIdentityModelWebModule),
         typeof(AbpIdentityWebModule),
         typeof(AbpIdentityHttpApiClientModule),
+        typeof(AbpFeatureManagementWebModule),
+        typeof(AbpFeatureManagementHttpApiClientModule),
         typeof(AbpTenantManagementWebModule),
         typeof(AbpTenantManagementHttpApiClientModule),
-        typeof(AbpFeatureManagementHttpApiClientModule),
         typeof(AbpPermissionManagementHttpApiClientModule),
-        typeof(AbpAspNetCoreSerilogModule)
+        typeof(AbpAspNetCoreSerilogModule),
+        typeof(AbpSwashbuckleModule)
         )]
     public class OnMonitorWebHostModule : AbpModule
     {
@@ -73,7 +84,7 @@ namespace OnMonitor
                 );
             });
         }
-        
+
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             var hostingEnvironment = context.Services.GetHostingEnvironment();
@@ -118,7 +129,7 @@ namespace OnMonitor
         {
             Configure<AbpMultiTenancyOptions>(options =>
             {
-               // options.IsEnabled = MultiTenancyConsts.IsEnabled;
+                options.IsEnabled = MultiTenancyConsts.IsEnabled;
             });
         }
 
@@ -133,10 +144,10 @@ namespace OnMonitor
                 {
                     options.ExpireTimeSpan = TimeSpan.FromDays(365);
                 })
-                .AddOpenIdConnect("oidc", options =>
+                .AddAbpOpenIdConnect("oidc", options =>
                 {
                     options.Authority = configuration["AuthServer:Authority"];
-                    options.RequireHttpsMetadata = false;
+                    options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
                     options.ResponseType = OpenIdConnectResponseType.CodeIdToken;
 
                     options.ClientId = configuration["AuthServer:ClientId"];
@@ -149,9 +160,6 @@ namespace OnMonitor
                     options.Scope.Add("email");
                     options.Scope.Add("phone");
                     options.Scope.Add("OnMonitor");
-
-                    options.ClaimActions.MapJsonKey(AbpClaimTypes.UserName, "name");
-                    options.ClaimActions.DeleteClaim("name");
                 });
         }
 
@@ -171,7 +179,7 @@ namespace OnMonitor
                 {
                     options.FileSets.ReplaceEmbeddedByPhysical<OnMonitorDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}OnMonitor.Domain", Path.DirectorySeparatorChar)));
                     options.FileSets.ReplaceEmbeddedByPhysical<OnMonitorApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}OnMonitor.Application.Contracts", Path.DirectorySeparatorChar)));
-                  //  options.FileSets.ReplaceEmbeddedByPhysical<OnMonitorWebModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}OnMonitor.Web", Path.DirectorySeparatorChar)));
+                    options.FileSets.ReplaceEmbeddedByPhysical<OnMonitorWebModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}OnMonitor.Web", Path.DirectorySeparatorChar)));
                 });
             }
         }
@@ -193,11 +201,6 @@ namespace OnMonitor
             IConfiguration configuration,
             IWebHostEnvironment hostingEnvironment)
         {
-            context.Services.AddStackExchangeRedisCache(options =>
-            {
-                options.Configuration = configuration["Redis:Configuration"];
-            });
-
             if (!hostingEnvironment.IsDevelopment())
             {
                 var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
@@ -227,24 +230,23 @@ namespace OnMonitor
             app.UseRouting();
             app.UseAuthentication();
 
-            //if (MultiTenancyConsts.IsEnabled)
-            //{
-            //    app.UseMultiTenancy();
-            //}
-
-            app.UseAuthorization();
+            if (MultiTenancyConsts.IsEnabled)
+            {
+                app.UseMultiTenancy();
+            }
 
             app.UseAbpRequestLocalization();
+            app.UseAuthorization();
 
             app.UseSwagger();
-            app.UseSwaggerUI(options =>
+            app.UseAbpSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "OnMonitor API");
             });
 
             app.UseAuditing();
             app.UseAbpSerilogEnrichers();
-            app.UseMvcWithDefaultRouteAndArea();
+            app.UseConfiguredEndpoints();
         }
     }
 }

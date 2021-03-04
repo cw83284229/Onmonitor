@@ -44,125 +44,125 @@ namespace OnMonitor.EntityFrameworkCore
                 b.HasIndex(q => q.CreationTime);
             });
             */
+
+
             builder.Entity<Camera>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "Cameras", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "Cameras", options.Schema);
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Camera_ID).IsRequired().HasMaxLength(128);
                 //...
             });
             builder.Entity<DVR>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "DVRs", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "DVRs", options.Schema);
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.DVR_ID).IsRequired().HasMaxLength(128);
                 //...
             });
             builder.Entity<CameraRepair>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "CameraRepairs", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "CameraRepairs", options.Schema);
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Id).IsRequired().HasMaxLength(128);
                 //...
             });
             builder.Entity<ProjectManages>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "ProjectManages", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "ProjectManages", options.Schema);
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Id).IsRequired().HasMaxLength(128);
             });
             builder.Entity<DVRCheckInfo>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "DVRCheckInfos", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "DVRCheckInfos", options.Schema);
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Id).IsRequired().HasMaxLength(128);
             });
             builder.Entity<Alarm>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "Alarms", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "Alarms", options.Schema);
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Id).IsRequired().HasMaxLength(128);
             });
             builder.Entity<AlarmStatus>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "AlarmStatus", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "AlarmStatus", options.Schema);
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Id).IsRequired().HasMaxLength(128);
             });
             builder.Entity<AlarmManageState>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "AlarmManageStates", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "AlarmManageStates", options.Schema);
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Id).IsRequired().HasMaxLength(128);
             });
             builder.Entity<AlarmHost>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "AlarmHosts", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "AlarmHosts", options.Schema);
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Id).IsRequired().HasMaxLength(128);
             });
             builder.Entity<MonitorRoom>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "MonitorRooms", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "MonitorRooms", options.Schema);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
             builder.Entity<DVRChannelInfo>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "DVRChannelInfos", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "DVRChannelInfos", options.Schema);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
 
             builder.Entity<SystemMenu>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "SystemMenus", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "SystemMenus", options.Schema);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
             builder.Entity<MaterialRepertory>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "MaterialRepertories", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "MaterialRepertories", options.Schema);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
 
             builder.Entity<ProcurementContent>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "ProcurementContents", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "ProcurementContents", options.Schema);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
 
             builder.Entity<ProcurementDeltail>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "ProcurementDeltails", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "ProcurementDeltails", options.Schema);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
 
             builder.Entity<ProductInfo>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "ProductInfos", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "ProductInfos", options.Schema);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
 
             builder.Entity<SaleContent>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "SaleContents", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "SaleContents", options.Schema);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
 
             builder.Entity<SaleDeltail>(b =>
             {
-                b.ToTable(OnMonitorConsts.DbTablePrefix + "SaleDeltails", OnMonitorConsts.DbSchema);
+                b.ToTable(options.TablePrefix + "SaleDeltails", options.Schema);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
-
-
         }
     }
 }

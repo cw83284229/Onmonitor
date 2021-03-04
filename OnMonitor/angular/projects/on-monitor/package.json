@@ -1,8 +1,13 @@
 {
-  "name": "on-monitor",
+  "name": "@my-company-name/on-monitor",
   "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^9.1.11",
+    "@angular/core": "^9.1.11",
+    "@abp/ng.core": ">=4.2.0",
+    "@abp/ng.theme.shared": ">=4.2.0"
+  },
   "dependencies": {
-    "@abp/ng.theme.shared": "~2.6.2",
-    "on-monitor.config": "^0.0.1"
-  }
+    "tslib": "^2.0.0"
+}
 }

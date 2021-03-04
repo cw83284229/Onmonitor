@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.Caching.Distributed;
 using OnMonitor.Common.Excel;
 using OnMonitor.Excel;
 using OnMonitor.Monitor;
@@ -11,9 +12,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Utility.Common.Files;
 using Volo.Abp.Application.Dtos;
+using Volo.Abp.Caching;
 
 namespace OnMonitor.Controllers
 {
@@ -22,9 +25,13 @@ namespace OnMonitor.Controllers
     public class AlarmStatusController : OnMonitorController
     {
         public IAlarmStatusAppService _alarmStatusAppService;
-        public AlarmStatusController(IAlarmStatusAppService alarmStatusAppService)
+
+        public Microsoft.Extensions.Caching.Distributed.IDistributedCache _cache;
+
+        public AlarmStatusController(IAlarmStatusAppService alarmStatusAppService, Microsoft.Extensions.Caching.Distributed.IDistributedCache cache)
         {
             _alarmStatusAppService = alarmStatusAppService;
+            _cache = cache;
         }
      
 
@@ -208,6 +215,36 @@ namespace OnMonitor.Controllers
 
 
         }
+        #endregion
+
+        #region 测试缓存
+        [HttpGet]
+        [Route("testState")]
+        public List<AlarmStatusDto> GettestState(PagedAndSortedResultRequestDto input,string condity)
+        {
+            ConditionAlarmStatusDto conditionAlarmStatus = new ConditionAlarmStatusDto();
+           
+
+            conditionAlarmStatus.TreatmentState = 1;
+            PagedSortedRequestDto resultRequestDto = new PagedSortedRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = "Id" };
+           var data = _alarmStatusAppService.GetListAsync(input).Result.Items;
+
+           var bookstr= Newtonsoft.Json.JsonConvert.SerializeObject(data);
+           
+            var bt= Encoding.UTF8.GetBytes(bookstr);
+            var options = new DistributedCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromDays(20));
+            _cache.Set("bookstr", bt, options);
+
+            var DD=  _cache.Get(condity);
+            var FF= Encoding.UTF8.GetString(DD);
+            var DDF2G = Newtonsoft.Json.JsonConvert.DeserializeObject<List<AlarmStatusDto>>(FF);
+            return DDF2G;
+
+
+
+        }
+
+      
         #endregion
     }
 

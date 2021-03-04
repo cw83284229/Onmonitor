@@ -17,7 +17,7 @@ namespace OnMonitor
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<OnMonitorDomainSharedModule>("OnMonitor");
+                options.FileSets.AddEmbedded<OnMonitorDomainSharedModule>();
             });
 
             Configure<AbpLocalizationOptions>(options =>

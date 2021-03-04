@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -9,10 +10,7 @@ namespace OnMonitor
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplication<OnMonitorHttpApiHostModule>(options =>
-            {
-               // options.AddDefaultRepositories(includeAllEntities: true);
-            }); 
+            services.AddApplication<OnMonitorHttpApiHostModule>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
