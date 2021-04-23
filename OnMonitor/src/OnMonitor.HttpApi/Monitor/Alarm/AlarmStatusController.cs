@@ -185,7 +185,13 @@ namespace OnMonitor.Controllers
 
             var data = _alarmStatusAppService.GetRequstList(conditionAlarmStatus, resultRequestDto);
 
-             data.Items= data.Items.OrderByDescending(u => u.LastModificationTime).ToList();//反序排列
+          //   var dataall= data.Items.OrderByDescending(u => u.LastModificationTime).ToList();//反序排列
+
+            foreach (var item in data.Items)
+            {
+               // _cache.Get
+            }
+
 
 
             return data;

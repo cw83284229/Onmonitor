@@ -376,6 +376,8 @@ namespace OnMonitor.Monitor
 
           var requst=  ObjectMapper.Map<List<Camera>, List<CameraDto>>(dataall);
 
+
+
             return requst;
 
         }

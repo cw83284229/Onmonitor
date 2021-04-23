@@ -193,16 +193,23 @@ namespace OnMonitor.Monitor.Alarm
         /// </summary>
         /// <param name="Alarm_ID"></param>
         /// <returns></returns>
-        public List<AlarmManageState> GetAlarmManageStates(string Alarm_ID)
+        public List<AlarmManageStateDto> GetAlarmManageStates(string Alarm_ID)
         {
          var data=   _repository.GetQueryableAsync().Result;
 
-            if (string.IsNullOrEmpty(Alarm_ID))
+            if (!string.IsNullOrEmpty(Alarm_ID))
             {
               data=  data.Where(u => u.Alarm_ID == Alarm_ID);
             }
+            else
+            {
+                    
+            }
             data = data.OrderByDescending(u=>u.LastModificationTime);
-            return data.ToList();
+
+            var requst = ObjectMapper.Map<List<AlarmManageState>, List<AlarmManageStateDto>>(data.ToList());
+
+            return requst;
         
         
         }

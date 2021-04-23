@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -100,25 +101,9 @@ namespace EquipmentStatus
         {
 
             string url = $"{serverurl}api/app/alarm-manage-state";
-            Dictionary<string, string> dic = new Dictionary<string, string>()
-            {
-                { "alarmHost_IP", stateDto.AlarmHost_IP},
-                { "alarm_ID",stateDto.Alarm_ID},
-                { "channel_ID",stateDto.Channel_ID.ToString() },
-                { "alarmTime",stateDto.AlarmTime},
-                { "withdrawTime",stateDto.WithdrawTime},
-                { "withdrawMan",stateDto.WithdrawMan},
-                {"withdrawRemark", stateDto.WithdrawRemark},
-                {"defenceTime", stateDto.DefenceTime},
-                {"treatmentTime",stateDto.TreatmentTime},
-                {"treatmentTimeState",stateDto.TreatmentTimeState},
-                {"treatmentMan",stateDto.WithdrawMan},
-                {"treatmentReply",stateDto.TreatmentReply},
-                {"anomalyType",stateDto.AnomalyType},
-                {"remark", stateDto.Remark}
-            };
-
-            var content = new FormUrlEncodedContent(dic);
+            string input= Newtonsoft.Json.JsonConvert.SerializeObject(stateDto);
+            var content = new StringContent(input);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var response = _httpClient.PostAsync(url, content).Result;
 
             return response.Content.ReadAsStringAsync().Result;

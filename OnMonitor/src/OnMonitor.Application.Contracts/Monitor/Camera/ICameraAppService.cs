@@ -28,6 +28,7 @@ namespace OnMonitor.Monitor
 
         public PagedResultDto<CameraDto> GetListBylike(string condition, PagedSortedRequestDto input);
         public Task<PagedResultDto<CameraDto>> PostInsertList(List<UpdateCameraDto> cameraDtos);
+        public Task<List<CameraDto>> GetListAllAsync();
 
 
     }

@@ -67,15 +67,15 @@ namespace OnMonitor.Monitor.Alarm
         }
 
 
-        public List<Alarm> GetAlarmList(string AlarmHostIP)
+        public List<AlarmDto> GetAlarmList(string AlarmHostIP)
         {
           var Hostdata=_alrmHostrepository.Where(u=>u.AlarmHostIP==AlarmHostIP).FirstOrDefault();
 
             var alarmdata = _alarmrepository.Where(u => u.AlarmHost_ID == Hostdata.AlarmHost_ID).ToList();
-
-            return alarmdata;
+            var requst = ObjectMapper.Map<List<Alarm>,List< AlarmDto>>(alarmdata);
+            return requst;
         
-        
+     
         
         
         }

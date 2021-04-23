@@ -7,3 +7,5 @@ C:\Git\OnMonitor\Onmonitor\EquipmentStatus\Redis.Exchange\obj\Debug\Redis.Exchan
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\Redis.Exchange\obj\Debug\Redis.Exchange.csproj.CopyComplete
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\Redis.Exchange\obj\Debug\Ruanmou.Redis.Exchange.dll
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\Redis.Exchange\obj\Debug\Ruanmou.Redis.Exchange.pdb
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\Redis.Exchange\bin\Debug\Newtonsoft.Json.dll
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\Redis.Exchange\bin\Debug\Newtonsoft.Json.xml

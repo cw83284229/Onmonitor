@@ -49,3 +49,4 @@ C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\StackEx
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\Ruanmou.Redis.Exchange.dll
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\Newtonsoft.Json.dll
 C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\Ruanmou.Redis.Exchange.pdb
+C:\Git\OnMonitor\Onmonitor\EquipmentStatus\EquipmentStatus\bin\x64\Debug\Newtonsoft.Json.xml

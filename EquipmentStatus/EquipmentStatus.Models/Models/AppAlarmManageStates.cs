@@ -10,8 +10,6 @@ namespace EquipmentStatus.Models
     {
         public int Id { get; set; }
 
-        public string ExtraProperties { get; set; }
-
         [StringLength(40)]
         public string ConcurrencyStamp { get; set; }
 

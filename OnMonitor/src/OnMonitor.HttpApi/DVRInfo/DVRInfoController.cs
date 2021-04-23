@@ -15,7 +15,7 @@ using Volo.Abp.Application.Dtos;
 namespace OnMonitor.Controllers
 {
 
-   // [Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin")]
     [Route("api/Camera")]
     public class DVRInfoController : OnMonitorController
     {
@@ -45,7 +45,7 @@ namespace OnMonitor.Controllers
         /// </summary>
         /// <param name="Camera_ID"></param>
         /// <returns></returns>
-        [Authorize(Roles ="videoCheck")]
+       // [Authorize(Roles ="videoCheck")]
         [HttpGet]
         [Route("GetChannelPicture")]
         public IActionResult GetChannelPicture(string Camera_ID)

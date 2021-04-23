@@ -6,7 +6,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace OnMonitor.Monitor
 {
-    public class DVRDto: AuditedEntityDto<Int32>
+    public class DVRDto: AuditedEntityDto<int>
     {
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace OnMonitor.Monitor
         [StringLength(255)]
         public string Camera_foor { get; set; }
         /// <summary>
-        /// 主机号
+        /// 主机号
         /// </summary>
         [StringLength(255)]
         public string DVR_ID { get; set; }

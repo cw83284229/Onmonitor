@@ -46,7 +46,7 @@ namespace OnMonitor.Monitor
         {
             var data1 = await _dvrrepository.GetListAsync();
 
-            List<DVR> data2 = new List<DVR>();
+          
             if (!String.IsNullOrEmpty(Monitoring_room))
             {
                 data1 = data1.Where(u => u.Monitoring_room == Monitoring_room).ToList();
@@ -68,8 +68,12 @@ namespace OnMonitor.Monitor
 
 
             var data = ObjectMapper.Map<List<DVR>, List<DVRDto>>(data1);
+            PagedResultDto<DVRDto> datars = new PagedResultDto<DVRDto>();
+            datars.Items = data;
+            datars.TotalCount = data.Count;
 
-            return new PagedResultDto<DVRDto>() { TotalCount = data.Count, Items = data };
+
+            return datars;
 
         }
 

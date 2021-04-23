@@ -56,7 +56,7 @@ namespace OnMonitor.Controllers
 
 
         /// <summary>
-        /// Excel数据库导入
+        /// Excel数据库导入(单次按监控室导入)
         /// </summary>
         /// <param name="files">传入文件流</param>
         /// <returns></returns>
@@ -71,13 +71,21 @@ namespace OnMonitor.Controllers
             }
             IImporter Importer = new ExcelImporter();
 
-            var import9 = Importer.Import<UpdateCameraDto>(files.OpenReadStream());
+            var import9 = await Importer.Import<UpdateCameraDto>(files.OpenReadStream());
 
-            var data = import9.Result.Data.ToList();
+            var data = import9.Data.ToList();
             // var data = ExcelHelper.ExcelToDataTable(files.OpenReadStream(), Path.GetExtension(files.FileName), "Sheet", true);
-            PagedSortedRequestDto resultRequestDto = new PagedSortedRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = "Id" };
-            var cameraData =_cameraAppService.GetListBylike(null, resultRequestDto);
-          var requst= await _cameraAppService.PostInsertList(data);
+           // PagedSortedRequestDto resultRequestDto = new PagedSortedRequestDto() { MaxResultCount = 200000, SkipCount = 0, Sorting = "Id" };
+            var cameraData =await _cameraAppService.GetListAllAsync();
+            var Monitoring_room = data.FirstOrDefault().Monitoring_room;
+            var datade = cameraData.Where(u => u.Monitoring_room == Monitoring_room);
+
+            foreach (var item in datade)
+            {
+               await _cameraAppService.DeleteAsync(item.Id);
+            }
+
+            var requst= await _cameraAppService.PostInsertList(data);
 
 
             return requst;

@@ -6,7 +6,7 @@ using Volo.Abp.Domain.Entities.Auditing;
 
 namespace OnMonitor.Monitor
 {
-    public partial class DVR : AuditedAggregateRoot<Int32>
+    public partial class DVR : AuditedAggregateRoot<int>
     {
           
             /// <summary>

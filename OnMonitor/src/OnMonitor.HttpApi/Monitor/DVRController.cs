@@ -26,7 +26,7 @@ namespace OnMonitor.Controllers
         }
         #region 批量导入数据
         /// <summary>
-        /// /Excel表格导入数据库
+        /// /Excel表格导入数据库(按监控室导入)
         /// </summary>
         /// <param name="files">传入文件流</param>
         /// <returns></returns>
@@ -51,16 +51,19 @@ namespace OnMonitor.Controllers
             var list = ListToDataTable.tolist<UpdateDVRDto>(data);
             List<DVRDto> listdvr = new List<DVRDto>();
 
+            var room = list.FirstOrDefault().Monitoring_room;
+            var dvrdata = await _dVRAppService.GetListByCondition(room, null, null, null);
+
+            foreach (var item in dvrdata.Items)
+            {
+              await  _dVRAppService.DeleteAsync(item.Id);
+            }
             foreach (var item in list)
             {
-                var dvr = await _dVRAppService.GetListByCondition(null, null, null, item.DVR_ID);
-                if (dvr.TotalCount == 0)
-                {
-                    var dvrdata = await _dVRAppService.CreateAsync(item);
-                    listdvr.Add(dvrdata);
-                }
-
+                listdvr.Add( await _dVRAppService.CreateAsync(item));
             }
+
+
             return listdvr;
 
         } 

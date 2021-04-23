@@ -189,7 +189,10 @@ namespace EquipmentStatus
                     {
                         NET_ALARM_INPUT_SOURCE_SIGNAL_INFO info = (NET_ALARM_INPUT_SOURCE_SIGNAL_INFO)Marshal.PtrToStructure(pBuf, typeof(NET_ALARM_INPUT_SOURCE_SIGNAL_INFO));
                         var alarm = alarmdata.Where(u => u.Channel_ID-1 == info.nChannelID).FirstOrDefault();
-                       
+                        if (alarm==null)
+                        {
+                            break;
+                        }
                         //AppAlarmStatus appAlarmStatus = alarmstatusdto.Where(u => u.Channel_ID-1 == info.nChannelID).FirstOrDefault();
                         AppAlarmStatus appAlarmStatus = service.HashGet<AppAlarmStatus>("AlarmStatus_" + alarm.Alarm_ID, "data");
                         if (info.nAction == 0)  // 0:开始 1:停止(设备内0表示报警)
@@ -204,14 +207,13 @@ namespace EquipmentStatus
                                 service.HashSet<AppAlarmStatus>("AlarmStatus_" + alarm.Alarm_ID, "data", appAlarmStatus);
                                 if (appAlarmStatus.IsDefence == 1)//报警
                                 {
-                                    AppAlarmManageStates appAlarmManage = new AppAlarmManageStates();
-                                    appAlarmManage.AlarmHost_IP = hostIp;
-                                    appAlarmManage.Alarm_ID = alarm.Alarm_ID;
-                                    appAlarmManage.Channel_ID = info.nChannelID+1;
-                                    appAlarmManage.AlarmTime = DateTime.Now.ToString();
-                                    appAlarmManage.LastModificationTime = DateTime.Now;
-                                    appAlarmManage.CreationTime = DateTime.Now;
-                                service.HashSet<AppAlarmStatus>("AlarmStatus_" + alarm.Alarm_ID, "data", appAlarmStatus);
+                                    UpdateAlarmManageStateDto AppAlarmManage = new UpdateAlarmManageStateDto();
+                                    AppAlarmManage.AlarmHost_IP = hostIp;
+                                    AppAlarmManage.Alarm_ID = alarm.Alarm_ID;
+                                    AppAlarmManage.Channel_ID = info.nChannelID+1;
+                                    AppAlarmManage.AlarmTime = DateTime.Now.ToString();
+                                    httpHelper.AddAlarmManageState(AppAlarmManage);
+                                    service.HashSet<AppAlarmStatus>("AlarmStatus_" + alarm.Alarm_ID, "data", appAlarmStatus);
                                     Console.WriteLine("设备处于布防状态");
                                 }
                             }
@@ -259,8 +261,11 @@ namespace EquipmentStatus
                     {
                         NET_ALARM_DEFENCE_ARMMODECHANGE_INFO info = (NET_ALARM_DEFENCE_ARMMODECHANGE_INFO)Marshal.PtrToStructure(pBuf, typeof(NET_ALARM_DEFENCE_ARMMODECHANGE_INFO));
                       var alarmstatuslist=  httpHelper.GetAlarmsByHostIP(hostIp);
-                      var appAlarm = alarmstatuslist.Where(u => u.Channel_ID == info.nDefenceID).FirstOrDefault();
-                      
+                      var appAlarm = alarmstatuslist.Where(u => u.Channel_ID == info.nDefenceID+1).FirstOrDefault();
+                        if (appAlarm==null)
+                        {
+                            break;
+                        }
                         if (!service.HashExists(appAlarm.Alarm_ID,"data"))
                         {
                             var appAlarmStatus = service.HashGet<AppAlarmStatus>(appAlarm.Alarm_ID, "data");
@@ -319,9 +324,7 @@ namespace EquipmentStatus
                                }
                                 appAlarmManage.LastModificationTime = DateTime.Now;
                                httpHelper.UpdateAlarmManageState(appAlarmManage);
-                            
-                          
-                         
+ 
                         }
                         else
                           {
